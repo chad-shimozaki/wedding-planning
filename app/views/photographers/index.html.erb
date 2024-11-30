@@ -1,0 +1,210 @@
+<div>
+  <div>
+    <h1>
+      List of all photographers
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new photographer
+    </h2>
+
+    <form action="/insert_photographer" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="website_box">
+          Website
+        </label>
+
+        <input type="text" id="website_box" name="query_website">
+      </div>
+
+      <div>
+        <label for="photo_url_box">
+          Photo url
+        </label>
+
+        <input type="text" id="photo_url_box" name="query_photo_url">
+      </div>
+
+      <div>
+        <input type="checkbox" id="contacted_box" name="query_contacted" value="1">
+
+        <label for="contacted_box">Contacted</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="chosen_box" name="query_chosen" value="1">
+
+        <label for="chosen_box">Chosen</label>
+      </div>
+
+      <div>
+        <label for="price_options_box">
+          Price options
+        </label>
+
+        <textarea id="price_options_box" name="query_price_options" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="deposit_box">
+          Deposit
+        </label>
+
+        <input type="text" id="deposit_box" name="query_deposit">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea id="notes_box" name="query_notes" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="final_price_box">
+          Final price
+        </label>
+
+        <input type="text" id="final_price_box" name="query_final_price">
+      </div>
+
+      <button>
+        Create photographer
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Website
+        </th>
+
+        <th>
+          Photo url
+        </th>
+
+        <th>
+          Contacted
+        </th>
+
+        <th>
+          Chosen
+        </th>
+
+        <th>
+          Price options
+        </th>
+
+        <th>
+          Deposit
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Final price
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_photographers.each do |a_photographer| %>
+      <tr>
+        <td>
+          <%= a_photographer.id %>
+        </td>
+
+        <td>
+          <%= a_photographer.name %>
+        </td>
+
+        <td>
+          <%= a_photographer.website %>
+        </td>
+
+        <td>
+          <%= a_photographer.photo_url %>
+        </td>
+
+        <td>
+          <%= a_photographer.contacted %>
+        </td>
+
+        <td>
+          <%= a_photographer.chosen %>
+        </td>
+
+        <td>
+          <%= a_photographer.price_options %>
+        </td>
+
+        <td>
+          <%= a_photographer.deposit %>
+        </td>
+
+        <td>
+          <%= a_photographer.notes %>
+        </td>
+
+        <td>
+          <%= a_photographer.final_price %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_photographer.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_photographer.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/photographers/<%= a_photographer.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

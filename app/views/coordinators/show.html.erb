@@ -1,0 +1,221 @@
+<div>
+  <div>
+    <h1>
+      Coordinator #<%= @the_coordinator.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/coordinators">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_coordinator/<%= @the_coordinator.id %>">
+          Delete coordinator
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_coordinator.name %>
+      </dd>
+
+      <dt>
+        Website
+      </dt>
+      <dd>
+        <%= @the_coordinator.website %>
+      </dd>
+
+      <dt>
+        Photo url
+      </dt>
+      <dd>
+        <%= @the_coordinator.photo_url %>
+      </dd>
+
+      <dt>
+        Pdf
+      </dt>
+      <dd>
+        <%= @the_coordinator.pdf %>
+      </dd>
+
+      <dt>
+        Contacted
+      </dt>
+      <dd>
+        <%= @the_coordinator.contacted %>
+      </dd>
+
+      <dt>
+        Chosen
+      </dt>
+      <dd>
+        <%= @the_coordinator.chosen %>
+      </dd>
+
+      <dt>
+        Price options
+      </dt>
+      <dd>
+        <%= @the_coordinator.price_options %>
+      </dd>
+
+      <dt>
+        Notes
+      </dt>
+      <dd>
+        <%= @the_coordinator.notes %>
+      </dd>
+
+      <dt>
+        Deposit
+      </dt>
+      <dd>
+        <%= @the_coordinator.deposit %>
+      </dd>
+
+      <dt>
+        Final price
+      </dt>
+      <dd>
+        <%= @the_coordinator.final_price %>
+      </dd>
+
+      <dt>
+        Experience
+      </dt>
+      <dd>
+        <%= @the_coordinator.experience %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_coordinator.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_coordinator.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit coordinator
+    </h2>
+
+    <form action="/modify_coordinator/<%= @the_coordinator.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_coordinator.name %>">
+      </div>
+
+      <div>
+        <label for="website_box">
+          Website
+        </label>
+
+        <input type="text" id="website_box" name="query_website" value="<%= @the_coordinator.website %>">
+      </div>
+
+      <div>
+        <label for="photo_url_box">
+          Photo url
+        </label>
+
+        <input type="text" id="photo_url_box" name="query_photo_url" value="<%= @the_coordinator.photo_url %>">
+      </div>
+
+      <div>
+        <label for="pdf_box">
+          Pdf
+        </label>
+
+        <input type="text" id="pdf_box" name="query_pdf" value="<%= @the_coordinator.pdf %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="contacted_box" name="query_contacted" value="1" <%= "checked" if @the_coordinator.contacted %>>
+
+        <label for="contacted_box">
+            Contacted
+        </label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="chosen_box" name="query_chosen" value="1" <%= "checked" if @the_coordinator.chosen %>>
+
+        <label for="chosen_box">
+            Chosen
+        </label>
+      </div>
+
+      <div>
+        <label for="price_options_box">
+          Price options
+        </label>
+
+        <textarea id="price_options_box" name="query_price_options"><%= @the_coordinator.price_options %></textarea>
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea id="notes_box" name="query_notes"><%= @the_coordinator.notes %></textarea>
+      </div>
+
+      <div>
+        <label for="deposit_box">
+          Deposit
+        </label>
+
+        <input type="text" id="deposit_box" name="query_deposit" value="<%= @the_coordinator.deposit %>">
+      </div>
+
+      <div>
+        <label for="final_price_box">
+          Final price
+        </label>
+
+        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_coordinator.final_price %>">
+      </div>
+
+      <div>
+        <label for="experience_box">
+          Experience
+        </label>
+
+        <input type="text" id="experience_box" name="query_experience" value="<%= @the_coordinator.experience %>">
+      </div>
+
+      <button>
+        Update coordinator
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

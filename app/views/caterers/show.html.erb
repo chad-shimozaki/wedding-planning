@@ -1,0 +1,326 @@
+<div>
+  <div>
+    <h1>
+      Caterer #<%= @the_caterer.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/caterers">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_caterer/<%= @the_caterer.id %>">
+          Delete caterer
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_caterer.name %>
+      </dd>
+
+      <dt>
+        Address
+      </dt>
+      <dd>
+        <%= @the_caterer.address %>
+      </dd>
+
+      <dt>
+        Lat
+      </dt>
+      <dd>
+        <%= @the_caterer.lat %>
+      </dd>
+
+      <dt>
+        Lng
+      </dt>
+      <dd>
+        <%= @the_caterer.lng %>
+      </dd>
+
+      <dt>
+        Website
+      </dt>
+      <dd>
+        <%= @the_caterer.website %>
+      </dd>
+
+      <dt>
+        Photo url
+      </dt>
+      <dd>
+        <%= @the_caterer.photo_url %>
+      </dd>
+
+      <dt>
+        Pdf
+      </dt>
+      <dd>
+        <%= @the_caterer.pdf %>
+      </dd>
+
+      <dt>
+        Contacted
+      </dt>
+      <dd>
+        <%= @the_caterer.contacted %>
+      </dd>
+
+      <dt>
+        Tried
+      </dt>
+      <dd>
+        <%= @the_caterer.tried %>
+      </dd>
+
+      <dt>
+        Chosen
+      </dt>
+      <dd>
+        <%= @the_caterer.chosen %>
+      </dd>
+
+      <dt>
+        Contact name
+      </dt>
+      <dd>
+        <%= @the_caterer.contact_name %>
+      </dd>
+
+      <dt>
+        Price options
+      </dt>
+      <dd>
+        <%= @the_caterer.price_options %>
+      </dd>
+
+      <dt>
+        Cuisine
+      </dt>
+      <dd>
+        <%= @the_caterer.cuisine_id %>
+      </dd>
+
+      <dt>
+        Preferred
+      </dt>
+      <dd>
+        <%= @the_caterer.preferred %>
+      </dd>
+
+      <dt>
+        Notes
+      </dt>
+      <dd>
+        <%= @the_caterer.notes %>
+      </dd>
+
+      <dt>
+        Deposit
+      </dt>
+      <dd>
+        <%= @the_caterer.deposit %>
+      </dd>
+
+      <dt>
+        Final price
+      </dt>
+      <dd>
+        <%= @the_caterer.final_price %>
+      </dd>
+
+      <dt>
+        Neighborhood
+      </dt>
+      <dd>
+        <%= @the_caterer.neighborhood_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_caterer.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_caterer.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit caterer
+    </h2>
+
+    <form action="/modify_caterer/<%= @the_caterer.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_caterer.name %>">
+      </div>
+
+      <div>
+        <label for="address_box">
+          Address
+        </label>
+
+        <input type="text" id="address_box" name="query_address" value="<%= @the_caterer.address %>">
+      </div>
+
+      <div>
+        <label for="lat_box">
+          Lat
+        </label>
+
+        <input type="text" id="lat_box" name="query_lat" value="<%= @the_caterer.lat %>">
+      </div>
+
+      <div>
+        <label for="lng_box">
+          Lng
+        </label>
+
+        <input type="text" id="lng_box" name="query_lng" value="<%= @the_caterer.lng %>">
+      </div>
+
+      <div>
+        <label for="website_box">
+          Website
+        </label>
+
+        <input type="text" id="website_box" name="query_website" value="<%= @the_caterer.website %>">
+      </div>
+
+      <div>
+        <label for="photo_url_box">
+          Photo url
+        </label>
+
+        <input type="text" id="photo_url_box" name="query_photo_url" value="<%= @the_caterer.photo_url %>">
+      </div>
+
+      <div>
+        <label for="pdf_box">
+          Pdf
+        </label>
+
+        <input type="text" id="pdf_box" name="query_pdf" value="<%= @the_caterer.pdf %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="contacted_box" name="query_contacted" value="1" <%= "checked" if @the_caterer.contacted %>>
+
+        <label for="contacted_box">
+            Contacted
+        </label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="tried_box" name="query_tried" value="1" <%= "checked" if @the_caterer.tried %>>
+
+        <label for="tried_box">
+            Tried
+        </label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="chosen_box" name="query_chosen" value="1" <%= "checked" if @the_caterer.chosen %>>
+
+        <label for="chosen_box">
+            Chosen
+        </label>
+      </div>
+
+      <div>
+        <label for="contact_name_box">
+          Contact name
+        </label>
+
+        <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_caterer.contact_name %>">
+      </div>
+
+      <div>
+        <label for="price_options_box">
+          Price options
+        </label>
+
+        <textarea id="price_options_box" name="query_price_options"><%= @the_caterer.price_options %></textarea>
+      </div>
+
+      <div>
+        <label for="cuisine_id_box">
+          Cuisine
+        </label>
+
+        <input type="text" id="cuisine_id_box" name="query_cuisine_id" value="<%= @the_caterer.cuisine_id %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="preferred_box" name="query_preferred" value="1" <%= "checked" if @the_caterer.preferred %>>
+
+        <label for="preferred_box">
+            Preferred
+        </label>
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea id="notes_box" name="query_notes"><%= @the_caterer.notes %></textarea>
+      </div>
+
+      <div>
+        <label for="deposit_box">
+          Deposit
+        </label>
+
+        <input type="text" id="deposit_box" name="query_deposit" value="<%= @the_caterer.deposit %>">
+      </div>
+
+      <div>
+        <label for="final_price_box">
+          Final price
+        </label>
+
+        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_caterer.final_price %>">
+      </div>
+
+      <div>
+        <label for="neighborhood_id_box">
+          Neighborhood
+        </label>
+
+        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id" value="<%= @the_caterer.neighborhood_id %>">
+      </div>
+
+      <button>
+        Update caterer
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

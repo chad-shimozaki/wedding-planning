@@ -1,0 +1,266 @@
+<div>
+  <div>
+    <h1>
+      Hotel #<%= @the_hotel.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/hotels">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_hotel/<%= @the_hotel.id %>">
+          Delete hotel
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_hotel.name %>
+      </dd>
+
+      <dt>
+        Website
+      </dt>
+      <dd>
+        <%= @the_hotel.website %>
+      </dd>
+
+      <dt>
+        Address
+      </dt>
+      <dd>
+        <%= @the_hotel.address %>
+      </dd>
+
+      <dt>
+        Lat
+      </dt>
+      <dd>
+        <%= @the_hotel.lat %>
+      </dd>
+
+      <dt>
+        Lng
+      </dt>
+      <dd>
+        <%= @the_hotel.lng %>
+      </dd>
+
+      <dt>
+        Contacted
+      </dt>
+      <dd>
+        <%= @the_hotel.contacted %>
+      </dd>
+
+      <dt>
+        Chosen
+      </dt>
+      <dd>
+        <%= @the_hotel.chosen %>
+      </dd>
+
+      <dt>
+        Block discount
+      </dt>
+      <dd>
+        <%= @the_hotel.block_discount %>
+      </dd>
+
+      <dt>
+        Minimum rooms
+      </dt>
+      <dd>
+        <%= @the_hotel.minimum_rooms %>
+      </dd>
+
+      <dt>
+        Neighborhood
+      </dt>
+      <dd>
+        <%= @the_hotel.neighborhood_id %>
+      </dd>
+
+      <dt>
+        Price options
+      </dt>
+      <dd>
+        <%= @the_hotel.price_options %>
+      </dd>
+
+      <dt>
+        Notes
+      </dt>
+      <dd>
+        <%= @the_hotel.notes %>
+      </dd>
+
+      <dt>
+        Contact name
+      </dt>
+      <dd>
+        <%= @the_hotel.contact_name %>
+      </dd>
+
+      <dt>
+        Final price
+      </dt>
+      <dd>
+        <%= @the_hotel.final_price %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_hotel.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_hotel.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit hotel
+    </h2>
+
+    <form action="/modify_hotel/<%= @the_hotel.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_hotel.name %>">
+      </div>
+
+      <div>
+        <label for="website_box">
+          Website
+        </label>
+
+        <input type="text" id="website_box" name="query_website" value="<%= @the_hotel.website %>">
+      </div>
+
+      <div>
+        <label for="address_box">
+          Address
+        </label>
+
+        <input type="text" id="address_box" name="query_address" value="<%= @the_hotel.address %>">
+      </div>
+
+      <div>
+        <label for="lat_box">
+          Lat
+        </label>
+
+        <input type="text" id="lat_box" name="query_lat" value="<%= @the_hotel.lat %>">
+      </div>
+
+      <div>
+        <label for="lng_box">
+          Lng
+        </label>
+
+        <input type="text" id="lng_box" name="query_lng" value="<%= @the_hotel.lng %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="contacted_box" name="query_contacted" value="1" <%= "checked" if @the_hotel.contacted %>>
+
+        <label for="contacted_box">
+            Contacted
+        </label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="chosen_box" name="query_chosen" value="1" <%= "checked" if @the_hotel.chosen %>>
+
+        <label for="chosen_box">
+            Chosen
+        </label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="block_discount_box" name="query_block_discount" value="1" <%= "checked" if @the_hotel.block_discount %>>
+
+        <label for="block_discount_box">
+            Block discount
+        </label>
+      </div>
+
+      <div>
+        <label for="minimum_rooms_box">
+          Minimum rooms
+        </label>
+
+        <input type="text" id="minimum_rooms_box" name="query_minimum_rooms" value="<%= @the_hotel.minimum_rooms %>">
+      </div>
+
+      <div>
+        <label for="neighborhood_id_box">
+          Neighborhood
+        </label>
+
+        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id" value="<%= @the_hotel.neighborhood_id %>">
+      </div>
+
+      <div>
+        <label for="price_options_box">
+          Price options
+        </label>
+
+        <textarea id="price_options_box" name="query_price_options"><%= @the_hotel.price_options %></textarea>
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea id="notes_box" name="query_notes"><%= @the_hotel.notes %></textarea>
+      </div>
+
+      <div>
+        <label for="contact_name_box">
+          Contact name
+        </label>
+
+        <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_hotel.contact_name %>">
+      </div>
+
+      <div>
+        <label for="final_price_box">
+          Final price
+        </label>
+
+        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_hotel.final_price %>">
+      </div>
+
+      <button>
+        Update hotel
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,246 @@
+<div>
+  <div>
+    <h1>
+      List of all events
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new event
+    </h2>
+
+    <form action="/insert_event" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="chronological_order_box">
+          Chronological order
+        </label>
+
+        <input type="text" id="chronological_order_box" name="query_chronological_order">
+      </div>
+
+      <div>
+        <label for="bakery_id_box">
+          Bakery
+        </label>
+
+        <input type="text" id="bakery_id_box" name="query_bakery_id">
+      </div>
+
+      <div>
+        <label for="coordinator_id_box">
+          Coordinator
+        </label>
+
+        <input type="text" id="coordinator_id_box" name="query_coordinator_id">
+      </div>
+
+      <div>
+        <label for="dj_id_box">
+          Dj
+        </label>
+
+        <input type="text" id="dj_id_box" name="query_dj_id">
+      </div>
+
+      <div>
+        <label for="florist_id_box">
+          Florist
+        </label>
+
+        <input type="text" id="florist_id_box" name="query_florist_id">
+      </div>
+
+      <div>
+        <label for="hotel_id_box">
+          Hotel
+        </label>
+
+        <input type="text" id="hotel_id_box" name="query_hotel_id">
+      </div>
+
+      <div>
+        <label for="lighting_production_company_id_box">
+          Lighting production company
+        </label>
+
+        <input type="text" id="lighting_production_company_id_box" name="query_lighting_production_company_id">
+      </div>
+
+      <div>
+        <label for="photographer_id_box">
+          Photographer
+        </label>
+
+        <input type="text" id="photographer_id_box" name="query_photographer_id">
+      </div>
+
+      <div>
+        <label for="transportation_company_id_box">
+          Transportation company
+        </label>
+
+        <input type="text" id="transportation_company_id_box" name="query_transportation_company_id">
+      </div>
+
+      <div>
+        <label for="venue_id_box">
+          Venue
+        </label>
+
+        <input type="text" id="venue_id_box" name="query_venue_id">
+      </div>
+
+      <button>
+        Create event
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Chronological order
+        </th>
+
+        <th>
+          Bakery
+        </th>
+
+        <th>
+          Coordinator
+        </th>
+
+        <th>
+          Dj
+        </th>
+
+        <th>
+          Florist
+        </th>
+
+        <th>
+          Hotel
+        </th>
+
+        <th>
+          Lighting production company
+        </th>
+
+        <th>
+          Photographer
+        </th>
+
+        <th>
+          Transportation company
+        </th>
+
+        <th>
+          Venue
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_events.each do |an_event| %>
+      <tr>
+        <td>
+          <%= an_event.id %>
+        </td>
+
+        <td>
+          <%= an_event.name %>
+        </td>
+
+        <td>
+          <%= an_event.chronological_order %>
+        </td>
+
+        <td>
+          <%= an_event.bakery_id %>
+        </td>
+
+        <td>
+          <%= an_event.coordinator_id %>
+        </td>
+
+        <td>
+          <%= an_event.dj_id %>
+        </td>
+
+        <td>
+          <%= an_event.florist_id %>
+        </td>
+
+        <td>
+          <%= an_event.hotel_id %>
+        </td>
+
+        <td>
+          <%= an_event.lighting_production_company_id %>
+        </td>
+
+        <td>
+          <%= an_event.photographer_id %>
+        </td>
+
+        <td>
+          <%= an_event.transportation_company_id %>
+        </td>
+
+        <td>
+          <%= an_event.venue_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_event.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_event.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/events/<%= an_event.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

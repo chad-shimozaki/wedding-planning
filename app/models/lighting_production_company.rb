@@ -1,0 +1,2 @@
+class LightingProductionCompany < ApplicationRecord
+end

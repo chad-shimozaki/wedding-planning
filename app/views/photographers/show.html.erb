@@ -1,0 +1,191 @@
+<div>
+  <div>
+    <h1>
+      Photographer #<%= @the_photographer.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/photographers">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_photographer/<%= @the_photographer.id %>">
+          Delete photographer
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_photographer.name %>
+      </dd>
+
+      <dt>
+        Website
+      </dt>
+      <dd>
+        <%= @the_photographer.website %>
+      </dd>
+
+      <dt>
+        Photo url
+      </dt>
+      <dd>
+        <%= @the_photographer.photo_url %>
+      </dd>
+
+      <dt>
+        Contacted
+      </dt>
+      <dd>
+        <%= @the_photographer.contacted %>
+      </dd>
+
+      <dt>
+        Chosen
+      </dt>
+      <dd>
+        <%= @the_photographer.chosen %>
+      </dd>
+
+      <dt>
+        Price options
+      </dt>
+      <dd>
+        <%= @the_photographer.price_options %>
+      </dd>
+
+      <dt>
+        Deposit
+      </dt>
+      <dd>
+        <%= @the_photographer.deposit %>
+      </dd>
+
+      <dt>
+        Notes
+      </dt>
+      <dd>
+        <%= @the_photographer.notes %>
+      </dd>
+
+      <dt>
+        Final price
+      </dt>
+      <dd>
+        <%= @the_photographer.final_price %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_photographer.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_photographer.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit photographer
+    </h2>
+
+    <form action="/modify_photographer/<%= @the_photographer.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_photographer.name %>">
+      </div>
+
+      <div>
+        <label for="website_box">
+          Website
+        </label>
+
+        <input type="text" id="website_box" name="query_website" value="<%= @the_photographer.website %>">
+      </div>
+
+      <div>
+        <label for="photo_url_box">
+          Photo url
+        </label>
+
+        <input type="text" id="photo_url_box" name="query_photo_url" value="<%= @the_photographer.photo_url %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="contacted_box" name="query_contacted" value="1" <%= "checked" if @the_photographer.contacted %>>
+
+        <label for="contacted_box">
+            Contacted
+        </label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="chosen_box" name="query_chosen" value="1" <%= "checked" if @the_photographer.chosen %>>
+
+        <label for="chosen_box">
+            Chosen
+        </label>
+      </div>
+
+      <div>
+        <label for="price_options_box">
+          Price options
+        </label>
+
+        <textarea id="price_options_box" name="query_price_options"><%= @the_photographer.price_options %></textarea>
+      </div>
+
+      <div>
+        <label for="deposit_box">
+          Deposit
+        </label>
+
+        <input type="text" id="deposit_box" name="query_deposit" value="<%= @the_photographer.deposit %>">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea id="notes_box" name="query_notes"><%= @the_photographer.notes %></textarea>
+      </div>
+
+      <div>
+        <label for="final_price_box">
+          Final price
+        </label>
+
+        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_photographer.final_price %>">
+      </div>
+
+      <button>
+        Update photographer
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

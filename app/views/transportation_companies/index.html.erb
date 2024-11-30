@@ -1,0 +1,224 @@
+<div>
+  <div>
+    <h1>
+      List of all transportation companies
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new transportation company
+    </h2>
+
+    <form action="/insert_transportation_company" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="website_box">
+          Website
+        </label>
+
+        <input type="text" id="website_box" name="query_website">
+      </div>
+
+      <div>
+        <input type="checkbox" id="contacted_box" name="query_contacted" value="1">
+
+        <label for="contacted_box">Contacted</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="chosen_box" name="query_chosen" value="1">
+
+        <label for="chosen_box">Chosen</label>
+      </div>
+
+      <div>
+        <label for="price_options_box">
+          Price options
+        </label>
+
+        <textarea id="price_options_box" name="query_price_options" rows="3"></textarea>
+      </div>
+
+      <div>
+        <input type="checkbox" id="deposit_box" name="query_deposit" value="1">
+
+        <label for="deposit_box">Deposit</label>
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea id="notes_box" name="query_notes" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="contact_name_box">
+          Contact name
+        </label>
+
+        <input type="text" id="contact_name_box" name="query_contact_name">
+      </div>
+
+      <div>
+        <label for="final_price_box">
+          Final price
+        </label>
+
+        <input type="text" id="final_price_box" name="query_final_price">
+      </div>
+
+      <div>
+        <label for="neighborhood_id_box">
+          Neighborhood
+        </label>
+
+        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id">
+      </div>
+
+      <button>
+        Create transportation company
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Website
+        </th>
+
+        <th>
+          Contacted
+        </th>
+
+        <th>
+          Chosen
+        </th>
+
+        <th>
+          Price options
+        </th>
+
+        <th>
+          Deposit
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Contact name
+        </th>
+
+        <th>
+          Final price
+        </th>
+
+        <th>
+          Neighborhood
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_transportation_companies.each do |a_transportation_company| %>
+      <tr>
+        <td>
+          <%= a_transportation_company.id %>
+        </td>
+
+        <td>
+          <%= a_transportation_company.name %>
+        </td>
+
+        <td>
+          <%= a_transportation_company.website %>
+        </td>
+
+        <td>
+          <%= a_transportation_company.contacted %>
+        </td>
+
+        <td>
+          <%= a_transportation_company.chosen %>
+        </td>
+
+        <td>
+          <%= a_transportation_company.price_options %>
+        </td>
+
+        <td>
+          <%= a_transportation_company.deposit %>
+        </td>
+
+        <td>
+          <%= a_transportation_company.notes %>
+        </td>
+
+        <td>
+          <%= a_transportation_company.contact_name %>
+        </td>
+
+        <td>
+          <%= a_transportation_company.final_price %>
+        </td>
+
+        <td>
+          <%= a_transportation_company.neighborhood_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_transportation_company.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_transportation_company.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/transportation_companies/<%= a_transportation_company.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

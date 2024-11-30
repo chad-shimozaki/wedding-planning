@@ -1,0 +1,56 @@
+<div>
+  <div>
+    <h1>
+      Neighborhood #<%= @the_neighborhood.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/neighborhoods">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_neighborhood/<%= @the_neighborhood.id %>">
+          Delete neighborhood
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_neighborhood.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_neighborhood.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit neighborhood
+    </h2>
+
+    <form action="/modify_neighborhood/<%= @the_neighborhood.id %>"  method="post" >
+      <button>
+        Update neighborhood
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

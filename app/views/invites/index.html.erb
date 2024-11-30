@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List of all invites
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new invite
+    </h2>
+
+    <form action="/insert_invite" method="post">
+      <div>
+        <label for="people_id_box">
+          People
+        </label>
+
+        <input type="text" id="people_id_box" name="query_people_id">
+      </div>
+
+      <button>
+        Create invite
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          People
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_invites.each do |an_invite| %>
+      <tr>
+        <td>
+          <%= an_invite.id %>
+        </td>
+
+        <td>
+          <%= an_invite.people_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_invite.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_invite.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/invites/<%= an_invite.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

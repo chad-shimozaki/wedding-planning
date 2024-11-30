@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Invite #<%= @the_invite.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/invites">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_invite/<%= @the_invite.id %>">
+          Delete invite
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        People
+      </dt>
+      <dd>
+        <%= @the_invite.people_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_invite.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_invite.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit invite
+    </h2>
+
+    <form action="/modify_invite/<%= @the_invite.id %>"  method="post" >
+      <div>
+        <label for="people_id_box">
+          People
+        </label>
+
+        <input type="text" id="people_id_box" name="query_people_id" value="<%= @the_invite.people_id %>">
+      </div>
+
+      <button>
+        Update invite
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

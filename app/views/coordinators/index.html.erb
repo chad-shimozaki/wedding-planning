@@ -1,0 +1,242 @@
+<div>
+  <div>
+    <h1>
+      List of all coordinators
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new coordinator
+    </h2>
+
+    <form action="/insert_coordinator" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="website_box">
+          Website
+        </label>
+
+        <input type="text" id="website_box" name="query_website">
+      </div>
+
+      <div>
+        <label for="photo_url_box">
+          Photo url
+        </label>
+
+        <input type="text" id="photo_url_box" name="query_photo_url">
+      </div>
+
+      <div>
+        <label for="pdf_box">
+          Pdf
+        </label>
+
+        <input type="text" id="pdf_box" name="query_pdf">
+      </div>
+
+      <div>
+        <input type="checkbox" id="contacted_box" name="query_contacted" value="1">
+
+        <label for="contacted_box">Contacted</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="chosen_box" name="query_chosen" value="1">
+
+        <label for="chosen_box">Chosen</label>
+      </div>
+
+      <div>
+        <label for="price_options_box">
+          Price options
+        </label>
+
+        <textarea id="price_options_box" name="query_price_options" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea id="notes_box" name="query_notes" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="deposit_box">
+          Deposit
+        </label>
+
+        <input type="text" id="deposit_box" name="query_deposit">
+      </div>
+
+      <div>
+        <label for="final_price_box">
+          Final price
+        </label>
+
+        <input type="text" id="final_price_box" name="query_final_price">
+      </div>
+
+      <div>
+        <label for="experience_box">
+          Experience
+        </label>
+
+        <input type="text" id="experience_box" name="query_experience">
+      </div>
+
+      <button>
+        Create coordinator
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Website
+        </th>
+
+        <th>
+          Photo url
+        </th>
+
+        <th>
+          Pdf
+        </th>
+
+        <th>
+          Contacted
+        </th>
+
+        <th>
+          Chosen
+        </th>
+
+        <th>
+          Price options
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Deposit
+        </th>
+
+        <th>
+          Final price
+        </th>
+
+        <th>
+          Experience
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_coordinators.each do |a_coordinator| %>
+      <tr>
+        <td>
+          <%= a_coordinator.id %>
+        </td>
+
+        <td>
+          <%= a_coordinator.name %>
+        </td>
+
+        <td>
+          <%= a_coordinator.website %>
+        </td>
+
+        <td>
+          <%= a_coordinator.photo_url %>
+        </td>
+
+        <td>
+          <%= a_coordinator.pdf %>
+        </td>
+
+        <td>
+          <%= a_coordinator.contacted %>
+        </td>
+
+        <td>
+          <%= a_coordinator.chosen %>
+        </td>
+
+        <td>
+          <%= a_coordinator.price_options %>
+        </td>
+
+        <td>
+          <%= a_coordinator.notes %>
+        </td>
+
+        <td>
+          <%= a_coordinator.deposit %>
+        </td>
+
+        <td>
+          <%= a_coordinator.final_price %>
+        </td>
+
+        <td>
+          <%= a_coordinator.experience %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_coordinator.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_coordinator.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/coordinators/<%= a_coordinator.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

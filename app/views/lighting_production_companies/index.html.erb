@@ -1,0 +1,210 @@
+<div>
+  <div>
+    <h1>
+      List of all lighting production companies
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new lighting production company
+    </h2>
+
+    <form action="/insert_lighting_production_company" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="website_box">
+          Website
+        </label>
+
+        <input type="text" id="website_box" name="query_website">
+      </div>
+
+      <div>
+        <input type="checkbox" id="contacted_box" name="query_contacted" value="1">
+
+        <label for="contacted_box">Contacted</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="chosen_box" name="query_chosen" value="1">
+
+        <label for="chosen_box">Chosen</label>
+      </div>
+
+      <div>
+        <label for="price_options_box">
+          Price options
+        </label>
+
+        <textarea id="price_options_box" name="query_price_options" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea id="notes_box" name="query_notes" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="deposit_box">
+          Deposit
+        </label>
+
+        <textarea id="deposit_box" name="query_deposit" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="contact_name_box">
+          Contact name
+        </label>
+
+        <input type="text" id="contact_name_box" name="query_contact_name">
+      </div>
+
+      <div>
+        <label for="final_price_box">
+          Final price
+        </label>
+
+        <input type="text" id="final_price_box" name="query_final_price">
+      </div>
+
+      <button>
+        Create lighting production company
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Website
+        </th>
+
+        <th>
+          Contacted
+        </th>
+
+        <th>
+          Chosen
+        </th>
+
+        <th>
+          Price options
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Deposit
+        </th>
+
+        <th>
+          Contact name
+        </th>
+
+        <th>
+          Final price
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_lighting_production_companies.each do |a_lighting_production_company| %>
+      <tr>
+        <td>
+          <%= a_lighting_production_company.id %>
+        </td>
+
+        <td>
+          <%= a_lighting_production_company.name %>
+        </td>
+
+        <td>
+          <%= a_lighting_production_company.website %>
+        </td>
+
+        <td>
+          <%= a_lighting_production_company.contacted %>
+        </td>
+
+        <td>
+          <%= a_lighting_production_company.chosen %>
+        </td>
+
+        <td>
+          <%= a_lighting_production_company.price_options %>
+        </td>
+
+        <td>
+          <%= a_lighting_production_company.notes %>
+        </td>
+
+        <td>
+          <%= a_lighting_production_company.deposit %>
+        </td>
+
+        <td>
+          <%= a_lighting_production_company.contact_name %>
+        </td>
+
+        <td>
+          <%= a_lighting_production_company.final_price %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_lighting_production_company.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_lighting_production_company.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/lighting_production_companies/<%= a_lighting_production_company.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

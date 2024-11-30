@@ -1,0 +1,221 @@
+<div>
+  <div>
+    <h1>
+      Event #<%= @the_event.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/events">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_event/<%= @the_event.id %>">
+          Delete event
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_event.name %>
+      </dd>
+
+      <dt>
+        Chronological order
+      </dt>
+      <dd>
+        <%= @the_event.chronological_order %>
+      </dd>
+
+      <dt>
+        Bakery
+      </dt>
+      <dd>
+        <%= @the_event.bakery_id %>
+      </dd>
+
+      <dt>
+        Coordinator
+      </dt>
+      <dd>
+        <%= @the_event.coordinator_id %>
+      </dd>
+
+      <dt>
+        Dj
+      </dt>
+      <dd>
+        <%= @the_event.dj_id %>
+      </dd>
+
+      <dt>
+        Florist
+      </dt>
+      <dd>
+        <%= @the_event.florist_id %>
+      </dd>
+
+      <dt>
+        Hotel
+      </dt>
+      <dd>
+        <%= @the_event.hotel_id %>
+      </dd>
+
+      <dt>
+        Lighting production company
+      </dt>
+      <dd>
+        <%= @the_event.lighting_production_company_id %>
+      </dd>
+
+      <dt>
+        Photographer
+      </dt>
+      <dd>
+        <%= @the_event.photographer_id %>
+      </dd>
+
+      <dt>
+        Transportation company
+      </dt>
+      <dd>
+        <%= @the_event.transportation_company_id %>
+      </dd>
+
+      <dt>
+        Venue
+      </dt>
+      <dd>
+        <%= @the_event.venue_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_event.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_event.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit event
+    </h2>
+
+    <form action="/modify_event/<%= @the_event.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_event.name %>">
+      </div>
+
+      <div>
+        <label for="chronological_order_box">
+          Chronological order
+        </label>
+
+        <input type="text" id="chronological_order_box" name="query_chronological_order" value="<%= @the_event.chronological_order %>">
+      </div>
+
+      <div>
+        <label for="bakery_id_box">
+          Bakery
+        </label>
+
+        <input type="text" id="bakery_id_box" name="query_bakery_id" value="<%= @the_event.bakery_id %>">
+      </div>
+
+      <div>
+        <label for="coordinator_id_box">
+          Coordinator
+        </label>
+
+        <input type="text" id="coordinator_id_box" name="query_coordinator_id" value="<%= @the_event.coordinator_id %>">
+      </div>
+
+      <div>
+        <label for="dj_id_box">
+          Dj
+        </label>
+
+        <input type="text" id="dj_id_box" name="query_dj_id" value="<%= @the_event.dj_id %>">
+      </div>
+
+      <div>
+        <label for="florist_id_box">
+          Florist
+        </label>
+
+        <input type="text" id="florist_id_box" name="query_florist_id" value="<%= @the_event.florist_id %>">
+      </div>
+
+      <div>
+        <label for="hotel_id_box">
+          Hotel
+        </label>
+
+        <input type="text" id="hotel_id_box" name="query_hotel_id" value="<%= @the_event.hotel_id %>">
+      </div>
+
+      <div>
+        <label for="lighting_production_company_id_box">
+          Lighting production company
+        </label>
+
+        <input type="text" id="lighting_production_company_id_box" name="query_lighting_production_company_id" value="<%= @the_event.lighting_production_company_id %>">
+      </div>
+
+      <div>
+        <label for="photographer_id_box">
+          Photographer
+        </label>
+
+        <input type="text" id="photographer_id_box" name="query_photographer_id" value="<%= @the_event.photographer_id %>">
+      </div>
+
+      <div>
+        <label for="transportation_company_id_box">
+          Transportation company
+        </label>
+
+        <input type="text" id="transportation_company_id_box" name="query_transportation_company_id" value="<%= @the_event.transportation_company_id %>">
+      </div>
+
+      <div>
+        <label for="venue_id_box">
+          Venue
+        </label>
+
+        <input type="text" id="venue_id_box" name="query_venue_id" value="<%= @the_event.venue_id %>">
+      </div>
+
+      <button>
+        Update event
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
