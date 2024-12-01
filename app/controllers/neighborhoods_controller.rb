@@ -19,6 +19,7 @@ class NeighborhoodsController < ApplicationController
 
   def create
     the_neighborhood = Neighborhood.new
+    the_neighborhood.name = params.fetch("query_name")
 
     if the_neighborhood.valid?
       the_neighborhood.save
