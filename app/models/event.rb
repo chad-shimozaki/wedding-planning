@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id                             :bigint           not null, primary key
+#  chronological_order            :integer
+#  name                           :string
+#  created_at                     :datetime         not null
+#  updated_at                     :datetime         not null
+#  bakery_id                      :integer
+#  coordinator_id                 :integer
+#  dj_id                          :integer
+#  florist_id                     :integer
+#  hotel_id                       :integer
+#  lighting_production_company_id :integer
+#  photographer_id                :integer
+#  transportation_company_id      :integer
+#  venue_id                       :integer
+#
 class Event < ApplicationRecord
   belongs_to :venue, required: true, class_name: "Venue", foreign_key: "venue_id", counter_cache: true
   belongs_to :bakery, class_name: "Bakery", foreign_key: "bakery_id"
