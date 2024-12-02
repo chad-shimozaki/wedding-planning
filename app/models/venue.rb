@@ -6,6 +6,7 @@
 #  address         :string
 #  capacity        :string
 #  chosen          :boolean
+#  contact_email   :string
 #  contact_name    :string
 #  contacted       :boolean
 #  events_count    :integer

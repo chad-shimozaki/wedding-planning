@@ -5,6 +5,7 @@
 #  id              :bigint           not null, primary key
 #  address         :string
 #  chosen          :boolean
+#  contact_email   :string
 #  contact_name    :string
 #  contacted       :boolean
 #  deposit         :float

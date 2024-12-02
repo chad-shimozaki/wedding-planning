@@ -6,6 +6,7 @@
 #  address         :string
 #  block_discount  :boolean
 #  chosen          :boolean
+#  contact_email   :string
 #  contact_name    :string
 #  contacted       :boolean
 #  final_price     :float

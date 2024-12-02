@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_01_224019) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_02_035946) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +33,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_224019) do
     t.integer "neighborhood_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "contact_email"
   end
 
   create_table "caterers", force: :cascade do |t|
@@ -56,6 +57,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_224019) do
     t.integer "neighborhood_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "contact_email"
   end
 
   create_table "coordinators", force: :cascade do |t|
@@ -72,6 +74,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_224019) do
     t.string "experience"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "contact_email"
   end
 
   create_table "cuisines", force: :cascade do |t|
@@ -93,6 +96,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_224019) do
     t.float "final_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "contact_email"
   end
 
   create_table "events", force: :cascade do |t|
@@ -127,6 +131,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_224019) do
     t.integer "neighborhood_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "contact_email"
   end
 
   create_table "hotels", force: :cascade do |t|
@@ -146,6 +151,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_224019) do
     t.float "final_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "contact_email"
   end
 
   create_table "invites", force: :cascade do |t|
@@ -166,6 +172,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_224019) do
     t.float "final_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "contact_email"
   end
 
   create_table "meals", force: :cascade do |t|
@@ -193,6 +200,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_224019) do
     t.float "final_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "contact_email"
   end
 
   create_table "rsvps", force: :cascade do |t|
@@ -216,6 +224,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_224019) do
     t.integer "neighborhood_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "contact_email"
   end
 
   create_table "users", force: :cascade do |t|
@@ -259,6 +268,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_224019) do
     t.integer "events_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "contact_email"
   end
 
 end
