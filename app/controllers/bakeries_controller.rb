@@ -22,10 +22,22 @@ class BakeriesController < ApplicationController
     the_bakery.name = params.fetch("query_name")
     the_bakery.address = params.fetch("query_address")
 
-    
+    #lat & lng
 
-    the_bakery.lat = params.fetch("query_lat")
-    the_bakery.lng = params.fetch("query_lng")
+      maps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + the_bakery.address + "&key=" + ENV.fetch("GMAPS_KEY")
+
+      resp = HTTP.get(maps_url)
+      raw_response = resp.to_s
+      parsed_response = JSON.parse(raw_response)
+
+      results = parsed_response.fetch("results")
+      first_result = results.at(0)
+      geo = first_result.fetch("geometry")
+      loc = geo.fetch("location")
+
+      the_bakery.lat = loc.fetch("lat")
+      the_bakery.lng = loc.fetch("lng")
+
     the_bakery.website = params.fetch("query_website")
     the_bakery.contacted = params.fetch("query_contacted", false)
     the_bakery.tried = params.fetch("query_tried", false)
