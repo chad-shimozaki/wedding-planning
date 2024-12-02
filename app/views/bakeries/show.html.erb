@@ -114,14 +114,14 @@
         Deposit
       </dt>
       <dd>
-        <%= @the_bakery.deposit %>
+        <%= @the_bakery.deposit.round(0) %>%
       </dd>
 
       <dt>
         Final price
       </dt>
       <dd>
-        <%= @the_bakery.final_price %>
+        $<%= @the_bakery.final_price.round(2) %>
       </dd>
 
       <dt>

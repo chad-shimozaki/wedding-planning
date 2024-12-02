@@ -99,7 +99,7 @@
 
       <div>
         <label for="deposit_box">
-          Deposit
+          Deposit %
         </label>
 
         <input type="text" id="deposit_box" name="query_deposit">
@@ -277,11 +277,11 @@
         </td>
 
         <td>
-          <%= a_bakery.deposit %>
+          <%= a_bakery.deposit.round(0) %>%
         </td>
 
         <td>
-          <%= a_bakery.final_price %>
+          $<%= a_bakery.final_price.round(2) %>
         </td>
 
         <td>
