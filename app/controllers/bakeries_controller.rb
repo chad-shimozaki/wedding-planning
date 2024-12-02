@@ -4,6 +4,8 @@ class BakeriesController < ApplicationController
 
     @list_of_bakeries = matching_bakeries.order({ :created_at => :desc })
 
+    @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
+
     render({ :template => "bakeries/index" })
   end
 
