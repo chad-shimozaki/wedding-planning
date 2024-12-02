@@ -51,6 +51,7 @@ class BakeriesController < ApplicationController
     the_bakery.tried = params.fetch("query_tried", false)
     the_bakery.chosen = params.fetch("query_chosen", false)
     the_bakery.contact_name = params.fetch("query_contact_name")
+    the_bakery.contact_email = params.fetch("query_contact_email")
     the_bakery.price_options = params.fetch("query_price_options")
     the_bakery.photo_url = params.fetch("query_photo_url")
     the_bakery.notes = params.fetch("query_notes")
