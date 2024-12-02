@@ -40,6 +40,22 @@
       </div>
 
       <div>
+        <label for="contact_name_box">
+          Contact name
+        </label>
+
+        <input type="text" id="contact_name_box" name="query_contact_name">
+      </div>
+
+      <div>
+        <label for="contact_email_box">
+          Contact email
+        </label>
+
+        <input type="email" id="contact_email_box" name="query_contact_email">
+      </div>
+
+      <div>
         <input type="checkbox" id="contacted_box" name="query_contacted" value="1">
 
         <label for="contacted_box">Contacted</label>
@@ -55,22 +71,6 @@
         <input type="checkbox" id="chosen_box" name="query_chosen" value="1">
 
         <label for="chosen_box">Chosen</label>
-      </div>
-
-      <div>
-        <label for="contact_name_box">
-          Contact name
-        </label>
-
-        <input type="text" id="contact_name_box" name="query_contact_name">
-      </div>
-
-      <div>
-        <label for="contact_email_box">
-          Contact email
-        </label>
-
-        <input type="email" id="contact_email_box" name="query_contact_email">
       </div>
 
       <div>
@@ -171,6 +171,14 @@
         </th>
 
         <th>
+          Contact name
+        </th>
+
+        <th>
+          Contact email
+        </th>
+
+        <th>
           Contacted
         </th>
 
@@ -180,10 +188,6 @@
 
         <th>
           Chosen
-        </th>
-
-        <th>
-          Contact name
         </th>
 
         <th>
@@ -253,6 +257,14 @@
         </td>
 
         <td>
+          <%= a_bakery.contact_name %>
+        </td>
+
+        <td>
+          <%= a_bakery.contact_email %>
+        </td>
+
+        <td>
           <%= a_bakery.contacted %>
         </td>
 
@@ -262,10 +274,6 @@
 
         <td>
           <%= a_bakery.chosen %>
-        </td>
-
-        <td>
-          <%= a_bakery.contact_name %>
         </td>
 
         <td>

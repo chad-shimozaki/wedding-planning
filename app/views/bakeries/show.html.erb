@@ -55,6 +55,20 @@
       </dd>
 
       <dt>
+        Contact name
+      </dt>
+      <dd>
+        <%= @the_bakery.contact_name %>
+      </dd>
+
+      <dt>
+        Contact email
+      </dt>
+      <dd>
+        <%= @the_bakery.contact_email %>
+      </dd>
+
+      <dt>
         Contacted
       </dt>
       <dd>
@@ -73,20 +87,6 @@
       </dt>
       <dd>
         <%= @the_bakery.chosen %>
-      </dd>
-
-      <dt>
-        Contact name
-      </dt>
-      <dd>
-        <%= @the_bakery.contact_name %>
-      </dd>
-
-      <dt>
-        Contact email
-      </dt>
-      <dd>
-        <%= @the_bakery.contact_email %>
       </dd>
 
       <dt>
@@ -206,6 +206,22 @@
       </div>
 
       <div>
+        <label for="contact_name_box">
+          Contact name
+        </label>
+
+        <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_bakery.contact_name %>">
+      </div>
+
+      <div>
+        <label for="contact_email_box">
+          Contact email
+        </label>
+
+        <input type="email" id="contact_email_box" name="query_contact_email" value="<%= @the_bakery.contact_email %>">
+      </div>
+
+      <div>
         <input type="checkbox" id="contacted_box" name="query_contacted" value="1" <%= "checked" if @the_bakery.contacted %>>
 
         <label for="contacted_box">
@@ -227,22 +243,6 @@
         <label for="chosen_box">
             Chosen
         </label>
-      </div>
-
-      <div>
-        <label for="contact_name_box">
-          Contact name
-        </label>
-
-        <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_bakery.contact_name %>">
-      </div>
-
-      <div>
-        <label for="contact_email_box">
-          Contact email
-        </label>
-
-        <input type="email" id="contact_email_box" name="query_contact_email" value="<%= @the_bakery.contact_email %>">
       </div>
 
       <div>
