@@ -16,6 +16,10 @@ class BakeriesController < ApplicationController
 
     @the_bakery = matching_bakeries.at(0)
 
+    @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
+
+    @the_bakery_neighborhood = Neighborhood.where({ :id => @the_bakery.neighborhood_id }).at(0)
+
     render({ :template => "bakeries/show" })
   end
 

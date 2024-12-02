@@ -128,7 +128,7 @@
         Neighborhood
       </dt>
       <dd>
-        <%= @the_bakery.neighborhood_id %>
+        <%= Neighborhood.where({ :id => @the_bakery.neighborhood_id }).at(0).name %>
       </dd>
 
       <dt>
@@ -279,11 +279,20 @@
       </div>
 
       <div>
-        <label for="neighborhood_id_box">
+        <label for="neighborhood_name_box">
           Neighborhood
         </label>
 
-        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id" value="<%= @the_bakery.neighborhood_id %>">
+        <select id="neighborhood_name_box" name="query_neighborhood_name" value="<%= @the_bakery_neighborhood.name %>">
+          <% @list_of_neighborhoods.each do |a_neighborhood| %>
+            <% if a_neighborhood.id == @the_bakery.neighborhood_id%>
+              <option value="<%= a_neighborhood.name %>" selected><%= a_neighborhood.name %></option>
+            <% else %>
+              <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+            <% end %>
+            
+          <% end %>
+        </select>
       </div>
 
       <button>

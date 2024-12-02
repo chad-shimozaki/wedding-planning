@@ -285,7 +285,7 @@
         </td>
 
         <td>
-          <%= a_bakery.neighborhood_id %>
+          <%= Neighborhood.where({ :id => a_bakery.neighborhood_id }).at(0).name %>
         </td>
 
         <td>
