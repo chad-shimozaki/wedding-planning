@@ -132,7 +132,7 @@
           Neighborhood
         </label>
 
-        <select id="neighborhood_id_box" name="query_neighborhood_id">
+        <select id="neighborhood_name_box" name="query_neighborhood_name">
           <% @list_of_neighborhoods.each do |a_neighborhood| %>
             <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
           <% end %>

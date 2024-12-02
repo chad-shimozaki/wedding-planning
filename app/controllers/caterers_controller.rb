@@ -55,6 +55,9 @@ class CaterersController < ApplicationController
     the_caterer.final_price = params.fetch("query_final_price")
     the_caterer.neighborhood_id = params.fetch("query_neighborhood_id")
 
+    neighborhood_name = params.fetch("query_neighborhood_name")
+    the_bakery.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
+
     if the_caterer.valid?
       the_caterer.save
       redirect_to("/caterers", { :notice => "Caterer created successfully." })

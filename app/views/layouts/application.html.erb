@@ -11,7 +11,7 @@
   </head>
 
   <body>
-      <div class = "navbar">
+    <div class = "navbar">
       <div> <a href="/">Go Home</a></div>
       <div> <a href="/bakeries">Bakeries</a></div>
       <div> <a href="/caterers">Caterers</a></div>
@@ -26,9 +26,9 @@
       <div> <a href="/meals">Meals</a></div>
       <div> <a href="/neighborhoods">Neighborhoods</a></div>
     </div>
-    <%= yield %>
 
-      <hr>
+
+    <hr>
 
     <% if notice.present? %>
       <div style="color: green">
@@ -42,9 +42,7 @@
       </div>
     <% end %>
 
-    <hr>
+    <%= yield %>
   </body>
-
-
 
 </html>

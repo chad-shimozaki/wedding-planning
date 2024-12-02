@@ -25,6 +25,7 @@ class BakeriesController < ApplicationController
     the_bakery.address = params.fetch("query_address")
 
     #lat & lng
+      if the_bakery.address != ""
 
       maps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + the_bakery.address + "&key=" + ENV.fetch("GMAPS_KEY")
 
@@ -39,6 +40,7 @@ class BakeriesController < ApplicationController
 
       the_bakery.lat = loc.fetch("lat")
       the_bakery.lng = loc.fetch("lng")
+      end
 
     the_bakery.website = params.fetch("query_website")
     the_bakery.contacted = params.fetch("query_contacted", false)
