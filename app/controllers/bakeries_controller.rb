@@ -21,6 +21,9 @@ class BakeriesController < ApplicationController
     the_bakery = Bakery.new
     the_bakery.name = params.fetch("query_name")
     the_bakery.address = params.fetch("query_address")
+
+    
+
     the_bakery.lat = params.fetch("query_lat")
     the_bakery.lng = params.fetch("query_lng")
     the_bakery.website = params.fetch("query_website")
