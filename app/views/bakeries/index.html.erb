@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all bakeries
+      List of all Bakeries
     </h1>
   </div>
 </div>
@@ -11,7 +11,7 @@
 <div>
   <div>
     <h2>
-      Add a new bakery
+      Add a new Bakery
     </h2>
 
     <form action="/insert_bakery" method="post">
@@ -102,7 +102,7 @@
           Deposit %
         </label>
 
-        <input type="text" id="deposit_box" name="query_deposit">
+        <input type="number" id="deposit_box" name="query_deposit" value = "0" >
       </div>
 
       <div>
@@ -110,15 +110,15 @@
           Final price
         </label>
 
-        <input type="text" id="final_price_box" name="query_final_price">
+        <input type="number" id="final_price_box" name="query_final_price" value = "0" >
       </div>
 
       <div>
-        <label for="neighborhood_id_box">
+        <label for="neighborhood_name_box">
           Neighborhood
         </label>
 
-        <select id="neighborhood_id_box" name="query_neighborhood_id">
+        <select id="neighborhood_name_box" name="query_neighborhood_name">
           <% @list_of_neighborhoods.each do |a_neighborhood| %>
             <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
           <% end %>
@@ -126,7 +126,7 @@
       </div>
 
       <button>
-        Create bakery
+        Create Bakery
       </button>
     </form>
   </div>

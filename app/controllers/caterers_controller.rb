@@ -4,6 +4,8 @@ class CaterersController < ApplicationController
 
     @list_of_caterers = matching_caterers.order({ :created_at => :desc })
 
+    @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
+
     render({ :template => "caterers/index" })
   end
 

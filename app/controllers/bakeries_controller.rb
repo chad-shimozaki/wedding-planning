@@ -51,7 +51,9 @@ class BakeriesController < ApplicationController
     the_bakery.pdf = params.fetch("query_pdf")
     the_bakery.deposit = params.fetch("query_deposit")
     the_bakery.final_price = params.fetch("query_final_price")
-    the_bakery.neighborhood_id = params.fetch("query_neighborhood_id")
+    
+    neighborhood_name = params.fetch("query_neighborhood_name")
+    the_bakery.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
 
     if the_bakery.valid?
       the_bakery.save

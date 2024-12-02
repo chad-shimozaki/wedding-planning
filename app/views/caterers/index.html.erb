@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all caterers
+      List of all Caterers
     </h1>
   </div>
 </div>
@@ -11,7 +11,7 @@
 <div>
   <div>
     <h2>
-      Add a new caterer
+      Add a new Caterer
     </h2>
 
     <form action="/insert_caterer" method="post">
@@ -132,7 +132,11 @@
           Neighborhood
         </label>
 
-        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id">
+        <select id="neighborhood_id_box" name="query_neighborhood_id">
+          <% @list_of_neighborhoods.each do |a_neighborhood| %>
+            <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+          <% end %>
+        </select>
       </div>
 
       <button>
@@ -258,11 +262,11 @@
         </td>
 
         <td>
-          <%= a_caterer.website %>
+          <a href="<%= a_caterer.website %>"><%= a_caterer.website %></a>
         </td>
 
         <td>
-          <%= a_caterer.photo_url %>
+          <img src = "<%= a_caterer.photo_url %>"></a>
         </td>
 
         <td>

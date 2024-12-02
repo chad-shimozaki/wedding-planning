@@ -27,5 +27,24 @@
       <div> <a href="/neighborhoods">Neighborhoods</a></div>
     </div>
     <%= yield %>
+
+      <hr>
+
+    <% if notice.present? %>
+      <div style="color: green">
+        <%= notice %>
+      </div>
+    <% end %>
+
+    <% if alert.present? %>
+      <div style="color: red">
+        <%= alert %>
+      </div>
+    <% end %>
+
+    <hr>
   </body>
+
+
+
 </html>
