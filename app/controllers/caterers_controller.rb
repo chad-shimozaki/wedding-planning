@@ -21,8 +21,23 @@ class CaterersController < ApplicationController
     the_caterer = Caterer.new
     the_caterer.name = params.fetch("query_name")
     the_caterer.address = params.fetch("query_address")
-    the_caterer.lat = params.fetch("query_lat")
-    the_caterer.lng = params.fetch("query_lng")
+
+        #lat & lng
+
+        maps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + the_caterer.address + "&key=" + ENV.fetch("GMAPS_KEY")
+
+        resp = HTTP.get(maps_url)
+        raw_response = resp.to_s
+        parsed_response = JSON.parse(raw_response)
+  
+        results = parsed_response.fetch("results")
+        first_result = results.at(0)
+        geo = first_result.fetch("geometry")
+        loc = geo.fetch("location")
+  
+        the_caterer.lat = loc.fetch("lat")
+        the_caterer.lng = loc.fetch("lng")
+
     the_caterer.website = params.fetch("query_website")
     the_caterer.photo_url = params.fetch("query_photo_url")
     the_caterer.pdf = params.fetch("query_pdf")

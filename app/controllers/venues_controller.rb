@@ -21,8 +21,23 @@ class VenuesController < ApplicationController
     the_venue = Venue.new
     the_venue.name = params.fetch("query_name")
     the_venue.address = params.fetch("query_address")
-    the_venue.lat = params.fetch("query_lat")
-    the_venue.lng = params.fetch("query_lng")
+
+        #lat & lng
+
+        maps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + the_venue.address + "&key=" + ENV.fetch("GMAPS_KEY")
+
+        resp = HTTP.get(maps_url)
+        raw_response = resp.to_s
+        parsed_response = JSON.parse(raw_response)
+  
+        results = parsed_response.fetch("results")
+        first_result = results.at(0)
+        geo = first_result.fetch("geometry")
+        loc = geo.fetch("location")
+  
+        the_venue.lat = loc.fetch("lat")
+        the_venue.lng = loc.fetch("lng")
+
     the_venue.contact_name = params.fetch("query_contact_name")
     the_venue.neighborhood_id = params.fetch("query_neighborhood_id")
     the_venue.capacity = params.fetch("query_capacity")

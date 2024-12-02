@@ -22,8 +22,23 @@ class HotelsController < ApplicationController
     the_hotel.name = params.fetch("query_name")
     the_hotel.website = params.fetch("query_website")
     the_hotel.address = params.fetch("query_address")
-    the_hotel.lat = params.fetch("query_lat")
-    the_hotel.lng = params.fetch("query_lng")
+
+        #lat & lng
+
+        maps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + the_hotel.address + "&key=" + ENV.fetch("GMAPS_KEY")
+
+        resp = HTTP.get(maps_url)
+        raw_response = resp.to_s
+        parsed_response = JSON.parse(raw_response)
+  
+        results = parsed_response.fetch("results")
+        first_result = results.at(0)
+        geo = first_result.fetch("geometry")
+        loc = geo.fetch("location")
+  
+        the_hotel.lat = loc.fetch("lat")
+        the_hotel.lng = loc.fetch("lng")
+ 
     the_hotel.contacted = params.fetch("query_contacted", false)
     the_hotel.chosen = params.fetch("query_chosen", false)
     the_hotel.block_discount = params.fetch("query_block_discount", false)
