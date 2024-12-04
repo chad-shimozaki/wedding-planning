@@ -4,6 +4,8 @@ class MealsController < ApplicationController
 
     @list_of_meals = matching_meals.order({ :created_at => :desc })
 
+    @list_of_caterers = Caterer.all.order({ :name => :desc })
+
     render({ :template => "meals/index" })
   end
 

@@ -15,12 +15,17 @@
     </h2>
 
     <form action="/insert_meal" method="post">
+
       <div>
         <label for="caterer_id_box">
           Caterer
         </label>
 
-        <input type="text" id="caterer_id_box" name="query_caterer_id">
+        <select id="caterer_id_box" name="query_caterer_id">
+          <% @list_of_caterers.each do |a_caterer| %>
+            <option value="<%= a_caterer.name %>"><%= a_caterer.name %></option>
+          <% end %>
+        </select>
       </div>
 
       <div>

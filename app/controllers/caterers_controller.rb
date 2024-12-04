@@ -29,20 +29,21 @@ class CaterersController < ApplicationController
     the_caterer.address = params.fetch("query_address")
 
         #lat & lng
+        if the_bakery.address != ""
+          maps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + the_caterer.address + "&key=" + ENV.fetch("GMAPS_KEY")
 
-        maps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + the_caterer.address + "&key=" + ENV.fetch("GMAPS_KEY")
-
-        resp = HTTP.get(maps_url)
-        raw_response = resp.to_s
-        parsed_response = JSON.parse(raw_response)
-  
-        results = parsed_response.fetch("results")
-        first_result = results.at(0)
-        geo = first_result.fetch("geometry")
-        loc = geo.fetch("location")
-  
-        the_caterer.lat = loc.fetch("lat")
-        the_caterer.lng = loc.fetch("lng")
+          resp = HTTP.get(maps_url)
+          raw_response = resp.to_s
+          parsed_response = JSON.parse(raw_response)
+    
+          results = parsed_response.fetch("results")
+          first_result = results.at(0)
+          geo = first_result.fetch("geometry")
+          loc = geo.fetch("location")
+    
+          the_caterer.lat = loc.fetch("lat")
+          the_caterer.lng = loc.fetch("lng")
+        end
 
     the_caterer.website = params.fetch("query_website")
     the_caterer.photo_url = params.fetch("query_photo_url")
@@ -57,10 +58,9 @@ class CaterersController < ApplicationController
     the_caterer.notes = params.fetch("query_notes")
     the_caterer.deposit = params.fetch("query_deposit")
     the_caterer.final_price = params.fetch("query_final_price")
-    the_caterer.neighborhood_id = params.fetch("query_neighborhood_id")
 
     neighborhood_name = params.fetch("query_neighborhood_name")
-    the_bakery.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
+    the_caterer.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
 
     if the_caterer.valid?
       the_caterer.save
