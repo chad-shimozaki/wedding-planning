@@ -32,6 +32,18 @@
       </div>
 
       <div>
+        <label for="neighborhood_id_box">
+          Neighborhood
+        </label>
+
+        <select id="neighborhood_name_box" name="query_neighborhood_name">
+          <% @list_of_neighborhoods.each do |a_neighborhood| %>
+            <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+          <% end %>
+        </select>
+      </div>
+
+      <div>
         <label for="website_box">
           Website
         </label>
@@ -135,18 +147,6 @@
         <input type="text" id="final_price_box" name="query_final_price">
       </div>
 
-      <div>
-        <label for="neighborhood_id_box">
-          Neighborhood
-        </label>
-
-        <select id="neighborhood_name_box" name="query_neighborhood_name">
-          <% @list_of_neighborhoods.each do |a_neighborhood| %>
-            <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
-          <% end %>
-        </select>
-      </div>
-
       <button>
         Create Caterer
       </button>
@@ -177,6 +177,10 @@
 
         <th>
           Lng
+        </th>
+
+        <th>
+          Neighborhood
         </th>
 
         <th>
@@ -236,10 +240,6 @@
         </th>
 
         <th>
-          Neighborhood
-        </th>
-
-        <th>
           Created at
         </th>
 
@@ -271,6 +271,10 @@
 
         <td>
           <%= a_caterer.lng %>
+        </td>
+
+        <td>
+          <%= Neighborhood.where({ :id => a_caterer.neighborhood_id }).at(0).name %>
         </td>
 
         <td>
@@ -327,10 +331,6 @@
 
         <td>
           $<%= a_caterer.final_price.round(2) %>
-        </td>
-
-        <td>
-          <%= Neighborhood.where({ :id => a_caterer.neighborhood_id }).at(0).name %>
         </td>
 
         <td>

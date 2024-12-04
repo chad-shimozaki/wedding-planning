@@ -55,6 +55,20 @@
       </dd>
 
       <dt>
+        Neighborhood
+      </dt>
+      <dd>
+        <%= @the_florist.neighborhood_id %>
+      </dd>
+
+      <dt>
+        Contact name
+      </dt>
+      <dd>
+        <%= @the_florist.contact_name %>
+      </dd>
+
+      <dt>
         Contacted
       </dt>
       <dd>
@@ -86,28 +100,14 @@
         Deposit
       </dt>
       <dd>
-        <%= @the_florist.deposit %>
-      </dd>
-
-      <dt>
-        Contact name
-      </dt>
-      <dd>
-        <%= @the_florist.contact_name %>
+        <%= @the_florist.deposit %>%
       </dd>
 
       <dt>
         Final price
       </dt>
       <dd>
-        <%= @the_florist.final_price %>
-      </dd>
-
-      <dt>
-        Neighborhood
-      </dt>
-      <dd>
-        <%= @the_florist.neighborhood_id %>
+        $<%= @the_florist.final_price %>
       </dd>
 
       <dt>
@@ -133,7 +133,7 @@
 <div>
   <div>
     <h2>
-      Edit florist
+      Edit Florist
     </h2>
 
     <form action="/modify_florist/<%= @the_florist.id %>"  method="post" >
@@ -178,6 +178,22 @@
       </div>
 
       <div>
+        <label for="neighborhood_id_box">
+          Neighborhood
+        </label>
+
+        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id" value="<%= @the_florist.neighborhood_id %>">
+      </div>
+
+      <div>
+        <label for="contact_name_box">
+          Contact name
+        </label>
+
+        <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_florist.contact_name %>">
+      </div>
+
+      <div>
         <input type="checkbox" id="contacted_box" name="query_contacted" value="1" <%= "checked" if @the_florist.contacted %>>
 
         <label for="contacted_box">
@@ -218,14 +234,6 @@
       </div>
 
       <div>
-        <label for="contact_name_box">
-          Contact name
-        </label>
-
-        <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_florist.contact_name %>">
-      </div>
-
-      <div>
         <label for="final_price_box">
           Final price
         </label>
@@ -233,16 +241,8 @@
         <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_florist.final_price %>">
       </div>
 
-      <div>
-        <label for="neighborhood_id_box">
-          Neighborhood
-        </label>
-
-        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id" value="<%= @the_florist.neighborhood_id %>">
-      </div>
-
       <button>
-        Update florist
+        Update Florist
       </button>
     </form>
   </div>

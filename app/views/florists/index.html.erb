@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all florists
+      List of all Florists
     </h1>
   </div>
 </div>
@@ -11,7 +11,7 @@
 <div>
   <div>
     <h2>
-      Add a new florist
+      Add a new Florist
     </h2>
 
     <form action="/insert_florist" method="post">
@@ -40,19 +40,23 @@
       </div>
 
       <div>
-        <label for="lat_box">
-          Lat
+        <label for="neighborhood_name_box">
+          Neighborhood
         </label>
 
-        <input type="text" id="lat_box" name="query_lat">
+        <select id="neighborhood_name_box" name="query_neighborhood_name">
+          <% @list_of_neighborhoods.each do |a_neighborhood| %>
+            <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+          <% end %>
+        </select>
       </div>
 
       <div>
-        <label for="lng_box">
-          Lng
+        <label for="contact_name_box">
+          Contact name
         </label>
 
-        <input type="text" id="lng_box" name="query_lng">
+        <input type="text" id="contact_name_box" name="query_contact_name">
       </div>
 
       <div>
@@ -92,27 +96,11 @@
       </div>
 
       <div>
-        <label for="contact_name_box">
-          Contact name
-        </label>
-
-        <input type="text" id="contact_name_box" name="query_contact_name">
-      </div>
-
-      <div>
         <label for="final_price_box">
           Final price
         </label>
 
         <input type="text" id="final_price_box" name="query_final_price">
-      </div>
-
-      <div>
-        <label for="neighborhood_id_box">
-          Neighborhood
-        </label>
-
-        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id">
       </div>
 
       <button>
@@ -152,6 +140,14 @@
         </th>
 
         <th>
+          Neighborhood
+        </th>
+
+        <th>
+          Contact name
+        </th>
+
+        <th>
           Contacted
         </th>
 
@@ -172,15 +168,7 @@
         </th>
 
         <th>
-          Contact name
-        </th>
-
-        <th>
           Final price
-        </th>
-
-        <th>
-          Neighborhood
         </th>
 
         <th>
@@ -222,6 +210,14 @@
         </td>
 
         <td>
+          <%= a_florist.neighborhood_id %>
+        </td>
+
+        <td>
+          <%= a_florist.contact_name %>
+        </td>
+
+        <td>
           <%= a_florist.contacted %>
         </td>
 
@@ -238,19 +234,11 @@
         </td>
 
         <td>
-          <%= a_florist.deposit %>
+          <%= a_florist.deposit %>%
         </td>
 
         <td>
-          <%= a_florist.contact_name %>
-        </td>
-
-        <td>
-          <%= a_florist.final_price %>
-        </td>
-
-        <td>
-          <%= a_florist.neighborhood_id %>
+          $<%= a_florist.final_price %>
         </td>
 
         <td>

@@ -48,6 +48,13 @@
       </dd>
 
       <dt>
+        Neighborhood
+      </dt>
+      <dd>
+        <%= Neighborhood.where({ :id => @the_caterer.neighborhood_id }).at(0).name %>
+      </dd>
+
+      <dt>
         Website
       </dt>
       <dd>
@@ -146,13 +153,6 @@
       </dd>
 
       <dt>
-        Neighborhood
-      </dt>
-      <dd>
-        <%= Neighborhood.where({ :id => @the_caterer.neighborhood_id }).at(0).name %>
-      </dd>
-
-      <dt>
         Created at
       </dt>
       <dd>
@@ -209,6 +209,14 @@
         </label>
 
         <input type="text" id="lng_box" name="query_lng" value="<%= @the_caterer.lng %>">
+      </div>
+
+      <div>
+        <label for="neighborhood_id_box">
+          Neighborhood
+        </label>
+
+        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id" value="<%= @the_caterer.neighborhood_id %>">
       </div>
 
       <div>
@@ -313,14 +321,6 @@
         </label>
 
         <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_caterer.final_price %>">
-      </div>
-
-      <div>
-        <label for="neighborhood_id_box">
-          Neighborhood
-        </label>
-
-        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id" value="<%= @the_caterer.neighborhood_id %>">
       </div>
 
       <button>

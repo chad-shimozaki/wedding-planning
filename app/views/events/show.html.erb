@@ -33,6 +33,15 @@
         <%= @the_event.chronological_order %>
       </dd>
 
+<!--      <select id="neighborhood_name_box" name="query_neighborhood_name" value="<%#= @the_bakery_neighborhood.name %>">-->
+        <%# @list_of_neighborhoods.each do |a_neighborhood| %>
+          <%# if a_neighborhood.id == @the_bakery.neighborhood_id%>
+<!--            <option value="<%#= a_neighborhood.name %>" selected><%= a_neighborhood.name %></option>-->
+          <%# else %>
+<!--            <option value="<%#= a_neighborhood.name %>"><%= a_neighborhood.name %></option>-->
+          <%# end %>
+      <%# end %>
+
       <dt>
         Bakery
       </dt>
@@ -119,7 +128,7 @@
 <div>
   <div>
     <h2>
-      Edit event
+      Edit Event
     </h2>
 
     <form action="/modify_event/<%= @the_event.id %>"  method="post" >

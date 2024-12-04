@@ -4,6 +4,8 @@ class FloristsController < ApplicationController
 
     @list_of_florists = matching_florists.order({ :created_at => :desc })
 
+    @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
+
     render({ :template => "florists/index" })
   end
 
@@ -13,6 +15,10 @@ class FloristsController < ApplicationController
     matching_florists = Florist.where({ :id => the_id })
 
     @the_florist = matching_florists.at(0)
+
+    @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
+
+    @the_florist_neighborhood = Neighborhood.where({ :id => @the_florist.neighborhood_id }).at(0)
 
     render({ :template => "florists/show" })
   end
