@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Lighting production company #<%= @the_lighting_production_company.id %> details
+      Lighting & Production Company #<%= @the_lighting_production_company.id %> details
     </h1>
 
     <div>
@@ -31,6 +31,13 @@
       </dt>
       <dd>
         <%= @the_lighting_production_company.website %>
+      </dd>
+
+      <dt>
+        Contact name
+      </dt>
+      <dd>
+        <%= @the_lighting_production_company.contact_name %>
       </dd>
 
       <dt>
@@ -65,14 +72,7 @@
         Deposit
       </dt>
       <dd>
-        <%= @the_lighting_production_company.deposit %>
-      </dd>
-
-      <dt>
-        Contact name
-      </dt>
-      <dd>
-        <%= @the_lighting_production_company.contact_name %>
+        <%= @the_lighting_production_company.deposit %>%
       </dd>
 
       <dt>
@@ -105,7 +105,7 @@
 <div>
   <div>
     <h2>
-      Edit lighting production company
+      Edit Lighting & Production Company
     </h2>
 
     <form action="/modify_lighting_production_company/<%= @the_lighting_production_company.id %>"  method="post" >
@@ -123,6 +123,14 @@
         </label>
 
         <input type="text" id="website_box" name="query_website" value="<%= @the_lighting_production_company.website %>">
+      </div>
+
+      <div>
+        <label for="contact_name_box">
+          Contact name
+        </label>
+
+        <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_lighting_production_company.contact_name %>">
       </div>
 
       <div>
@@ -166,14 +174,6 @@
       </div>
 
       <div>
-        <label for="contact_name_box">
-          Contact name
-        </label>
-
-        <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_lighting_production_company.contact_name %>">
-      </div>
-
-      <div>
         <label for="final_price_box">
           Final price
         </label>
@@ -182,7 +182,7 @@
       </div>
 
       <button>
-        Update lighting production company
+        Update Lighting Production Company
       </button>
     </form>
   </div>

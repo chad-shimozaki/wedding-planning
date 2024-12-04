@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all lighting production companies
+      List of all Lighting & Production Companies
     </h1>
   </div>
 </div>
@@ -11,7 +11,7 @@
 <div>
   <div>
     <h2>
-      Add a new lighting production company
+      Add a new Lighting & Production Company
     </h2>
 
     <form action="/insert_lighting_production_company" method="post">
@@ -29,6 +29,14 @@
         </label>
 
         <input type="text" id="website_box" name="query_website">
+      </div>
+
+      <div>
+        <label for="contact_name_box">
+          Contact name
+        </label>
+
+        <input type="text" id="contact_name_box" name="query_contact_name">
       </div>
 
       <div>
@@ -61,18 +69,10 @@
 
       <div>
         <label for="deposit_box">
-          Deposit
+          Deposit %
         </label>
 
         <textarea id="deposit_box" name="query_deposit" rows="3"></textarea>
-      </div>
-
-      <div>
-        <label for="contact_name_box">
-          Contact name
-        </label>
-
-        <input type="text" id="contact_name_box" name="query_contact_name">
       </div>
 
       <div>
@@ -84,7 +84,7 @@
       </div>
 
       <button>
-        Create lighting production company
+        Create Lighting Production Company
       </button>
     </form>
   </div>
@@ -108,6 +108,10 @@
         </th>
 
         <th>
+          Contact name
+        </th>
+
+        <th>
           Contacted
         </th>
 
@@ -125,10 +129,6 @@
 
         <th>
           Deposit
-        </th>
-
-        <th>
-          Contact name
         </th>
 
         <th>
@@ -162,6 +162,10 @@
         </td>
 
         <td>
+          <%= a_lighting_production_company.contact_name %>
+        </td>
+
+        <td>
           <%= a_lighting_production_company.contacted %>
         </td>
 
@@ -178,11 +182,7 @@
         </td>
 
         <td>
-          <%= a_lighting_production_company.deposit %>
-        </td>
-
-        <td>
-          <%= a_lighting_production_company.contact_name %>
+          <%= a_lighting_production_company.deposit %>%
         </td>
 
         <td>
