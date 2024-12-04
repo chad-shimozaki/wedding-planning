@@ -51,21 +51,35 @@
         Website
       </dt>
       <dd>
-        <%= @the_caterer.website %>
+        <a href="<%= @the_caterer.website %>"><%= @the_caterer.website %></a>
       </dd>
 
       <dt>
-        Photo url
+        Cuisine
       </dt>
       <dd>
-        <%= @the_caterer.photo_url %>
+        <%= @the_caterer.cuisine_id %>
       </dd>
 
       <dt>
-        Pdf
+        Contact name
       </dt>
       <dd>
-        <%= @the_caterer.pdf %>
+        <%= @the_caterer.contact_name %>
+      </dd>
+
+      <dt>
+        Contact email
+      </dt>
+      <dd>
+        <%= @the_caterer.contact_email %>
+      </dd>
+
+      <dt>
+        Preferred
+      </dt>
+      <dd>
+        <%= @the_caterer.preferred %>
       </dd>
 
       <dt>
@@ -90,13 +104,6 @@
       </dd>
 
       <dt>
-        Contact name
-      </dt>
-      <dd>
-        <%= @the_caterer.contact_name %>
-      </dd>
-
-      <dt>
         Price options
       </dt>
       <dd>
@@ -104,17 +111,17 @@
       </dd>
 
       <dt>
-        Cuisine
+        Photo url
       </dt>
       <dd>
-        <%= @the_caterer.cuisine_id %>
+        <%= @the_caterer.photo_url %>
       </dd>
 
       <dt>
-        Preferred
+        Pdf
       </dt>
       <dd>
-        <%= @the_caterer.preferred %>
+        <%= @the_caterer.pdf %>
       </dd>
 
       <dt>
@@ -128,21 +135,21 @@
         Deposit
       </dt>
       <dd>
-        <%= @the_caterer.deposit %>
+        <%= @the_caterer.deposit.round(0) %>%
       </dd>
 
       <dt>
         Final price
       </dt>
       <dd>
-        <%= @the_caterer.final_price %>
+        $<%= @the_caterer.final_price.round(2) %>
       </dd>
 
       <dt>
         Neighborhood
       </dt>
       <dd>
-        <%= @the_caterer.neighborhood_id %>
+        <%= Neighborhood.where({ :id => @the_caterer.neighborhood_id }).at(0).name %>
       </dd>
 
       <dt>

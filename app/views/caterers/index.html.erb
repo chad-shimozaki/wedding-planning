@@ -40,19 +40,33 @@
       </div>
 
       <div>
-        <label for="photo_url_box">
-          Photo url
+        <label for="cuisine_id_box">
+          Cuisine
         </label>
 
-        <input type="text" id="photo_url_box" name="query_photo_url">
+        <input type="text" id="cuisine_id_box" name="query_cuisine_id">
       </div>
 
       <div>
-        <label for="pdf_box">
-          Pdf
+        <label for="contact_name_box">
+          Contact name
         </label>
 
-        <input type="text" id="pdf_box" name="query_pdf">
+        <input type="text" id="contact_name_box" name="query_contact_name">
+      </div>
+
+      <div>
+        <label for="contact_email_box">
+          Contact email
+        </label>
+
+        <input type="email" id="contact_email_box" name="query_contact_email">
+      </div>
+
+      <div>
+        <input type="checkbox" id="preferred_box" name="query_preferred" value="1">
+
+        <label for="preferred_box">Preferred</label>
       </div>
 
       <div>
@@ -74,14 +88,6 @@
       </div>
 
       <div>
-        <label for="contact_name_box">
-          Contact name
-        </label>
-
-        <input type="text" id="contact_name_box" name="query_contact_name">
-      </div>
-
-      <div>
         <label for="price_options_box">
           Price options
         </label>
@@ -90,17 +96,19 @@
       </div>
 
       <div>
-        <label for="cuisine_id_box">
-          Cuisine
+        <label for="photo_url_box">
+          Photo url
         </label>
 
-        <input type="text" id="cuisine_id_box" name="query_cuisine_id">
+        <input type="text" id="photo_url_box" name="query_photo_url">
       </div>
 
       <div>
-        <input type="checkbox" id="preferred_box" name="query_preferred" value="1">
+        <label for="pdf_box">
+          Pdf
+        </label>
 
-        <label for="preferred_box">Preferred</label>
+        <input type="text" id="pdf_box" name="query_pdf">
       </div>
 
       <div>
@@ -113,7 +121,7 @@
 
       <div>
         <label for="deposit_box">
-          Deposit
+          Deposit %
         </label>
 
         <input type="text" id="deposit_box" name="query_deposit">
@@ -121,7 +129,7 @@
 
       <div>
         <label for="final_price_box">
-          Final price
+          Final price $
         </label>
 
         <input type="text" id="final_price_box" name="query_final_price">
@@ -140,7 +148,7 @@
       </div>
 
       <button>
-        Create caterer
+        Create Caterer
       </button>
     </form>
   </div>
@@ -176,13 +184,21 @@
         </th>
 
         <th>
-          Photo url
+          Cuisine
         </th>
 
         <th>
-          Pdf
+          Contact name
         </th>
 
+        <th>
+          Contact email
+        </th>
+
+        <th>
+          Preferred
+        </th>
+        
         <th>
           Contacted
         </th>
@@ -194,21 +210,17 @@
         <th>
           Chosen
         </th>
-
-        <th>
-          Contact name
-        </th>
-
+        
         <th>
           Price options
         </th>
 
         <th>
-          Cuisine
+          Photo url
         </th>
 
         <th>
-          Preferred
+          Pdf
         </th>
 
         <th>
@@ -266,11 +278,19 @@
         </td>
 
         <td>
-          <img src = "<%= a_caterer.photo_url %>"></a>
+          <%= Cuisine.where({ :id => a_caterer.cuisine_id }).at(0).name %>
         </td>
 
         <td>
-          <%= a_caterer.pdf %>
+          <%= a_caterer.contact_name %>
+        </td>
+
+        <td>
+          <%= a_bakery.contact_email %>
+        </td>
+
+        <td>
+          <%= a_caterer.preferred %>
         </td>
 
         <td>
@@ -286,19 +306,15 @@
         </td>
 
         <td>
-          <%= a_caterer.contact_name %>
-        </td>
-
-        <td>
           <%= a_caterer.price_options %>
         </td>
 
         <td>
-          <%= a_caterer.cuisine_id %>
+          <img src = "<%= a_caterer.photo_url %>"></a>
         </td>
 
         <td>
-          <%= a_caterer.preferred %>
+          <%= a_caterer.pdf %>
         </td>
 
         <td>
@@ -306,15 +322,15 @@
         </td>
 
         <td>
-          <%= a_caterer.deposit %>
+          <%= a_caterer.deposit.round(0) %>%
         </td>
 
         <td>
-          <%= a_caterer.final_price %>
+          $<%= a_caterer.final_price.round(2) %>
         </td>
 
         <td>
-          <%= a_caterer.neighborhood_id %>
+          <%= Neighborhood.where({ :id => a_caterer.neighborhood_id }).at(0).name %>
         </td>
 
         <td>
