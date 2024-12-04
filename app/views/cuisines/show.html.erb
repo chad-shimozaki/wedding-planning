@@ -20,10 +20,10 @@
 
     <dl>
       <dt>
-        Caterers count
+        Name
       </dt>
       <dd>
-        <%= @the_cuisine.caterers_count %>
+        <%= @the_cuisine.name %>
       </dd>
 
       <dt>
@@ -49,13 +49,13 @@
 <div>
   <div>
     <h2>
-      Edit cuisine
+      Edit Cuisine
     </h2>
 
     <form action="/modify_cuisine/<%= @the_cuisine.id %>"  method="post" >
       <div>
         <label for="caterers_count_box">
-          Caterers count
+          Name
         </label>
 
         <input type="text" id="caterers_count_box" name="query_caterers_count" value="<%= @the_cuisine.caterers_count %>">

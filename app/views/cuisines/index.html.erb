@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all cuisines
+      List of all Cuisines
     </h1>
   </div>
 </div>
@@ -11,20 +11,20 @@
 <div>
   <div>
     <h2>
-      Add a new cuisine
+      Add a new Cuisine
     </h2>
 
     <form action="/insert_cuisine" method="post">
       <div>
-        <label for="caterers_count_box">
-          Caterers count
+        <label for="caterers_name_box">
+          Name
         </label>
 
-        <input type="text" id="caterers_count_box" name="query_caterers_count">
+        <input type="text" id="caterers_name_box" name="query_caterers_name">
       </div>
 
       <button>
-        Create cuisine
+        Create Cuisine
       </button>
     </form>
   </div>
@@ -40,7 +40,7 @@
         </th>
 
         <th>
-          Caterers count
+          Name
         </th>
 
         <th>
@@ -62,7 +62,7 @@
         </td>
 
         <td>
-          <%= a_cuisine.caterers_count %>
+          <%= a_cuisine.name %>
         </td>
 
         <td>
