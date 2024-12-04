@@ -10,4 +10,6 @@
 #
 class Cuisine < ApplicationRecord
   has_many  :caterers, class_name: "Caterer", foreign_key: "cuisine_id", dependent: :nullify
+  has_many  :foods, class_name: "Food", foreign_key: "cuisine_id", dependent: :nullify
+  has_many :meals, through: :foods, source: :meal
 end

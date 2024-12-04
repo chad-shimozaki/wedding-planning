@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Food #<%= @the_food.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/foods">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_food/<%= @the_food.id %>">
+          Delete food
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Meal
+      </dt>
+      <dd>
+        <%= @the_food.meal_id %>
+      </dd>
+
+      <dt>
+        Caterer
+      </dt>
+      <dd>
+        <%= @the_food.caterer_id %>
+      </dd>
+
+      <dt>
+        Cuisine
+      </dt>
+      <dd>
+        <%= @the_food.cuisine_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_food.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_food.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit food
+    </h2>
+
+    <form action="/modify_food/<%= @the_food.id %>"  method="post" >
+      <div>
+        <label for="meal_id_box">
+          Meal
+        </label>
+
+        <input type="text" id="meal_id_box" name="query_meal_id" value="<%= @the_food.meal_id %>">
+      </div>
+
+      <div>
+        <label for="caterer_id_box">
+          Caterer
+        </label>
+
+        <input type="text" id="caterer_id_box" name="query_caterer_id" value="<%= @the_food.caterer_id %>">
+      </div>
+
+      <div>
+        <label for="cuisine_id_box">
+          Cuisine
+        </label>
+
+        <input type="text" id="cuisine_id_box" name="query_cuisine_id" value="<%= @the_food.cuisine_id %>">
+      </div>
+
+      <button>
+        Update food
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

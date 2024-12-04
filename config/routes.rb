@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Food resource:
+
+  # CREATE
+  post("/insert_food", { :controller => "foods", :action => "create" })
+          
+  # READ
+  get("/foods", { :controller => "foods", :action => "index" })
+  
+  get("/foods/:path_id", { :controller => "foods", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_food/:path_id", { :controller => "foods", :action => "update" })
+  
+  # DELETE
+  get("/delete_food/:path_id", { :controller => "foods", :action => "destroy" })
+
+  #------------------------------
+
   devise_for :users
   
   # Routes for the Rsvp resource:

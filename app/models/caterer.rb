@@ -30,6 +30,9 @@ class Caterer < ApplicationRecord
   belongs_to :cuisine, required: true, class_name: "Cuisine", foreign_key: "cuisine_id", counter_cache: true
   belongs_to :neighborhood, required: true, class_name: "Neighborhood", foreign_key: "neighborhood_id"
   has_many :events, through: :meals, source: :event
+  has_many  :foods, class_name: "Food", foreign_key: "caterer_id", dependent: :nullify
+  has_many :meals, through: :foods, source: :meal
+  has_many :events, through: :meals, source: :event
   validates :name, presence: true
   validates :name, uniqueness: true
 end
