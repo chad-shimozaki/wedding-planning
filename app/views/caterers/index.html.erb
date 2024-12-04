@@ -50,13 +50,17 @@
 
         <input type="text" id="website_box" name="query_website">
       </div>
-
+      
       <div>
         <label for="cuisine_id_box">
-          Cuisine
+          Neighborhood
         </label>
 
-        <input type="text" id="cuisine_id_box" name="query_cuisine_id">
+        <select id="neighborhood_id_box" name="query_cuisine_name">
+          <% @list_of_cuisines.each do |a_cuisine| %>
+            <option value="<%= a_cuisine.name %>"><%= a_cuisine.name %></option>
+          <% end %>
+        </select>
       </div>
 
       <div>

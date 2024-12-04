@@ -6,6 +6,8 @@ class CaterersController < ApplicationController
 
     @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
 
+    @list_of_cuisines = Cuisine.all.order({ :name => :desc })
+
     render({ :template => "caterers/index" })
   end
 
@@ -53,7 +55,6 @@ class CaterersController < ApplicationController
     the_caterer.chosen = params.fetch("query_chosen", false)
     the_caterer.contact_name = params.fetch("query_contact_name")
     the_caterer.price_options = params.fetch("query_price_options")
-    the_caterer.cuisine_id = params.fetch("query_cuisine_id")
     the_caterer.preferred = params.fetch("query_preferred", false)
     the_caterer.notes = params.fetch("query_notes")
     the_caterer.deposit = params.fetch("query_deposit")
@@ -61,6 +62,9 @@ class CaterersController < ApplicationController
 
     neighborhood_name = params.fetch("query_neighborhood_name")
     the_caterer.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
+
+    cuisine_name = params.fetch("query_cuisine_name")
+    the_caterer.cuisine_id = Cuisine.where({ :name => cuisine_name }).at(0).id
 
     if the_caterer.valid?
       the_caterer.save
