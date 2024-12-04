@@ -34,20 +34,6 @@
       </dd>
 
       <dt>
-        Photo url
-      </dt>
-      <dd>
-        <%= @the_dj.photo_url %>
-      </dd>
-
-      <dt>
-        Pdf
-      </dt>
-      <dd>
-        <%= @the_dj.pdf %>
-      </dd>
-
-      <dt>
         Contacted
       </dt>
       <dd>
@@ -69,6 +55,20 @@
       </dd>
 
       <dt>
+        Photo url
+      </dt>
+      <dd>
+        <%= @the_dj.photo_url %>
+      </dd>
+
+      <dt>
+        Pdf
+      </dt>
+      <dd>
+        <%= @the_dj.pdf %>
+      </dd>
+
+      <dt>
         Notes
       </dt>
       <dd>
@@ -79,14 +79,14 @@
         Deposit
       </dt>
       <dd>
-        <%= @the_dj.deposit %>
+        <%= @the_dj.deposit %>%
       </dd>
 
       <dt>
         Final price
       </dt>
       <dd>
-        <%= @the_dj.final_price %>
+        $<%= @the_dj.final_price %>
       </dd>
 
       <dt>
@@ -112,7 +112,7 @@
 <div>
   <div>
     <h2>
-      Edit dj
+      Edit DJ
     </h2>
 
     <form action="/modify_dj/<%= @the_dj.id %>"  method="post" >
@@ -130,22 +130,6 @@
         </label>
 
         <input type="text" id="website_box" name="query_website" value="<%= @the_dj.website %>">
-      </div>
-
-      <div>
-        <label for="photo_url_box">
-          Photo url
-        </label>
-
-        <input type="text" id="photo_url_box" name="query_photo_url" value="<%= @the_dj.photo_url %>">
-      </div>
-
-      <div>
-        <label for="pdf_box">
-          Pdf
-        </label>
-
-        <input type="text" id="pdf_box" name="query_pdf" value="<%= @the_dj.pdf %>">
       </div>
 
       <div>
@@ -170,6 +154,22 @@
         </label>
 
         <textarea id="price_options_box" name="query_price_options"><%= @the_dj.price_options %></textarea>
+      </div>
+
+      <div>
+        <label for="photo_url_box">
+          Photo url
+        </label>
+
+        <input type="text" id="photo_url_box" name="query_photo_url" value="<%= @the_dj.photo_url %>">
+      </div>
+
+      <div>
+        <label for="pdf_box">
+          Pdf
+        </label>
+
+        <input type="text" id="pdf_box" name="query_pdf" value="<%= @the_dj.pdf %>">
       </div>
 
       <div>
