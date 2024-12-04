@@ -19,7 +19,7 @@ class CuisinesController < ApplicationController
 
   def create
     the_cuisine = Cuisine.new
-    the_cuisine.caterers_count = params.fetch("query_caterers_count")
+    the_cuisine.name = params.fetch("query_cuisine_name")
 
     if the_cuisine.valid?
       the_cuisine.save
