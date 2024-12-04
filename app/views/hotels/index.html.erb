@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all hotels
+      List of all Hotels
     </h1>
   </div>
 </div>
@@ -11,7 +11,7 @@
 <div>
   <div>
     <h2>
-      Add a new hotel
+      Add a new Hotel
     </h2>
 
     <form action="/insert_hotel" method="post">
@@ -39,7 +39,24 @@
         <input type="text" id="address_box" name="query_address">
       </div>
 
-        <input type="text" id="lng_box" name="query_lng">
+      <div>
+        <label for="neighborhood_name_box">
+          Neighborhood
+        </label>
+
+        <select id="neighborhood_name_box" name="query_neighborhood_name">
+          <% @list_of_neighborhoods.each do |a_neighborhood| %>
+            <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+          <% end %>
+        </select>
+      </div>
+
+      <div>
+        <label for="contact_name_box">
+          Contact name
+        </label>
+
+        <input type="text" id="contact_name_box" name="query_contact_name">
       </div>
 
       <div>
@@ -69,14 +86,6 @@
       </div>
 
       <div>
-        <label for="neighborhood_id_box">
-          Neighborhood
-        </label>
-
-        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id">
-      </div>
-
-      <div>
         <label for="price_options_box">
           Price options
         </label>
@@ -93,16 +102,8 @@
       </div>
 
       <div>
-        <label for="contact_name_box">
-          Contact name
-        </label>
-
-        <input type="text" id="contact_name_box" name="query_contact_name">
-      </div>
-
-      <div>
         <label for="final_price_box">
-          Final price
+          Final price $
         </label>
 
         <input type="text" id="final_price_box" name="query_final_price">
@@ -145,6 +146,14 @@
         </th>
 
         <th>
+          Neighborhood
+        </th>
+
+        <th>
+          Contact name
+        </th>
+
+        <th>
           Contacted
         </th>
 
@@ -161,23 +170,11 @@
         </th>
 
         <th>
-          Neighborhood
-        </th>
-
-        <th>
           Price options
         </th>
 
         <th>
           Notes
-        </th>
-
-        <th>
-          Contact name
-        </th>
-
-        <th>
-          Final price
         </th>
 
         <th>
@@ -219,6 +216,14 @@
         </td>
 
         <td>
+          <%= Neighborhood.where({ :id => a_hotel.neighborhood_id }).at(0).name %>
+        </td>
+
+        <td>
+          <%= a_hotel.contact_name %>
+        </td>
+
+        <td>
           <%= a_hotel.contacted %>
         </td>
 
@@ -235,23 +240,11 @@
         </td>
 
         <td>
-          <%= a_hotel.neighborhood_id %>
-        </td>
-
-        <td>
           <%= a_hotel.price_options %>
         </td>
 
         <td>
           <%= a_hotel.notes %>
-        </td>
-
-        <td>
-          <%= a_hotel.contact_name %>
-        </td>
-
-        <td>
-          <%= a_hotel.final_price %>
         </td>
 
         <td>

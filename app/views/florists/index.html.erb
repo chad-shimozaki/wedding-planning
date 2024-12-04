@@ -89,7 +89,7 @@
 
       <div>
         <label for="deposit_box">
-          Deposit
+          Deposit %
         </label>
 
         <input type="text" id="deposit_box" name="query_deposit">
@@ -97,7 +97,7 @@
 
       <div>
         <label for="final_price_box">
-          Final price
+          Final price $
         </label>
 
         <input type="text" id="final_price_box" name="query_final_price">
@@ -210,7 +210,7 @@
         </td>
 
         <td>
-          <%= a_florist.neighborhood_id %>
+        <%= Neighborhood.where({ :id => a_florist.neighborhood_id }).at(0).name %>
         </td>
 
         <td>
@@ -234,11 +234,11 @@
         </td>
 
         <td>
-          <%= a_florist.deposit %>%
+          <%= a_florist.deposit.round(0) %>%
         </td>
 
         <td>
-          $<%= a_florist.final_price %>
+          $<%= a_florist.final_price.round(2) %>
         </td>
 
         <td>

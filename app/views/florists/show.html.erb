@@ -58,7 +58,7 @@
         Neighborhood
       </dt>
       <dd>
-        <%= @the_florist.neighborhood_id %>
+        <%= Neighborhood.where({ :id => @the_florist.neighborhood_id }).at(0).name %>
       </dd>
 
       <dt>
@@ -100,14 +100,14 @@
         Deposit
       </dt>
       <dd>
-        <%= @the_florist.deposit %>%
+        <%= @the_florist.deposit.round(0) %>%
       </dd>
 
       <dt>
         Final price
       </dt>
       <dd>
-        $<%= @the_florist.final_price %>
+        $<%= @the_florist.final_price.round(2) %>
       </dd>
 
       <dt>
@@ -178,11 +178,20 @@
       </div>
 
       <div>
-        <label for="neighborhood_id_box">
+        <label for="neighborhood_name_box">
           Neighborhood
         </label>
 
-        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id" value="<%= @the_florist.neighborhood_id %>">
+        <select id="neighborhood_name_box" name="query_neighborhood_name" value="<%= @the_florist_neighborhood.name %>">
+          <% @list_of_neighborhoods.each do |a_neighborhood| %>
+            <% if a_neighborhood.id == @the_florist.neighborhood_id%>
+              <option value="<%= a_neighborhood.name %>" selected><%= a_neighborhood.name %></option>
+            <% else %>
+              <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+            <% end %>
+            
+          <% end %>
+        </select>
       </div>
 
       <div>

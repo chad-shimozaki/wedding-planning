@@ -55,6 +55,20 @@
       </dd>
 
       <dt>
+        Neighborhood
+      </dt>
+      <dd>
+        <%= Neighborhood.where({ :id => @the_hotel.neighborhood_id }).at(0).name %>
+      </dd>
+
+      <dt>
+        Contact name
+      </dt>
+      <dd>
+        <%= @the_hotel.contact_name %>
+      </dd>
+
+      <dt>
         Contacted
       </dt>
       <dd>
@@ -83,20 +97,6 @@
       </dd>
 
       <dt>
-        Neighborhood
-      </dt>
-      <dd>
-        <%= @the_hotel.neighborhood_id %>
-      </dd>
-
-      <dt>
-        Price options
-      </dt>
-      <dd>
-        <%= @the_hotel.price_options %>
-      </dd>
-
-      <dt>
         Notes
       </dt>
       <dd>
@@ -104,17 +104,10 @@
       </dd>
 
       <dt>
-        Contact name
-      </dt>
-      <dd>
-        <%= @the_hotel.contact_name %>
-      </dd>
-
-      <dt>
         Final price
       </dt>
       <dd>
-        <%= @the_hotel.final_price %>
+        $<%= @the_hotel.final_price %>
       </dd>
 
       <dt>
@@ -185,6 +178,31 @@
       </div>
 
       <div>
+        <label for="neighborhood_name_box">
+          Neighborhood
+        </label>
+
+        <select id="neighborhood_name_box" name="query_neighborhood_name" value="<%= @the_hotel_neighborhood.name %>">
+          <% @list_of_neighborhoods.each do |a_neighborhood| %>
+            <% if a_neighborhood.id == @the_hotel.neighborhood_id%>
+              <option value="<%= a_neighborhood.name %>" selected><%= a_neighborhood.name %></option>
+            <% else %>
+              <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+            <% end %>
+            
+          <% end %>
+        </select>
+      </div>
+
+      <div>
+        <label for="contact_name_box">
+          Contact name
+        </label>
+
+        <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_hotel.contact_name %>">
+      </div>
+
+      <div>
         <input type="checkbox" id="contacted_box" name="query_contacted" value="1" <%= "checked" if @the_hotel.contacted %>>
 
         <label for="contacted_box">
@@ -217,14 +235,6 @@
       </div>
 
       <div>
-        <label for="neighborhood_id_box">
-          Neighborhood
-        </label>
-
-        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id" value="<%= @the_hotel.neighborhood_id %>">
-      </div>
-
-      <div>
         <label for="price_options_box">
           Price options
         </label>
@@ -240,24 +250,8 @@
         <textarea id="notes_box" name="query_notes"><%= @the_hotel.notes %></textarea>
       </div>
 
-      <div>
-        <label for="contact_name_box">
-          Contact name
-        </label>
-
-        <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_hotel.contact_name %>">
-      </div>
-
-      <div>
-        <label for="final_price_box">
-          Final price
-        </label>
-
-        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_hotel.final_price %>">
-      </div>
-
       <button>
-        Update hotel
+        Update Hotel
       </button>
     </form>
   </div>

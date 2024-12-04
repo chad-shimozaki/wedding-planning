@@ -210,11 +210,11 @@
         </td>
 
         <td>
-          <%= a_coordinator.deposit %>%
+          <%= a_coordinator.deposit.round(0) %>%
         </td>
 
         <td>
-          $<%= a_coordinator.final_price %>
+          $<%= a_coordinator.final_price.round(2) %>
         </td>
 
         <td>

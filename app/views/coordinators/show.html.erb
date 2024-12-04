@@ -86,14 +86,14 @@
         Deposit
       </dt>
       <dd>
-        <%= @the_coordinator.deposit %>%
+        <%= @the_coordinator.deposit.round(0) %>%
       </dd>
 
       <dt>
         Final price
       </dt>
       <dd>
-        $<%= @the_coordinator.final_price %>
+        $<%= @the_coordinator.final_price.round(2) %>
       </dd>
 
       <dt>
