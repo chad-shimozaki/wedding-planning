@@ -77,7 +77,7 @@
 
       <div>
         <label for="final_price_box">
-          Final price
+          Final price $
         </label>
 
         <input type="text" id="final_price_box" name="query_final_price">
@@ -182,11 +182,11 @@
         </td>
 
         <td>
-          <%= a_lighting_production_company.deposit %>%
+          <%= a_lighting_production_company.deposit.round(0) %>%
         </td>
 
         <td>
-          <%= a_lighting_production_company.final_price %>
+          $<%= a_lighting_production_company.final_price.round(2) %>
         </td>
 
         <td>

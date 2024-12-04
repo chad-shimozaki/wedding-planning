@@ -72,14 +72,14 @@
         Deposit
       </dt>
       <dd>
-        <%= @the_lighting_production_company.deposit %>%
+        <%= @the_lighting_production_company.deposit.round(0) %>%
       </dd>
 
       <dt>
         Final price
       </dt>
       <dd>
-        <%= @the_lighting_production_company.final_price %>
+        $<%= @the_lighting_production_company.final_price.round(2) %>
       </dd>
 
       <dt>
