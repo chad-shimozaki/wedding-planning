@@ -31,7 +31,7 @@ class CaterersController < ApplicationController
     the_caterer.address = params.fetch("query_address")
 
         #lat & lng
-        if the_bakery.address != ""
+        if the_caterer.address != ""
           maps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + the_caterer.address + "&key=" + ENV.fetch("GMAPS_KEY")
 
           resp = HTTP.get(maps_url)

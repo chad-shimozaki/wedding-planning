@@ -33,8 +33,6 @@ class CuisinesController < ApplicationController
     the_id = params.fetch("path_id")
     the_cuisine = Cuisine.where({ :id => the_id }).at(0)
 
-    the_cuisine.caterers_count = params.fetch("query_caterers_count")
-
     if the_cuisine.valid?
       the_cuisine.save
       redirect_to("/cuisines/#{the_cuisine.id}", { :notice => "Cuisine updated successfully."} )

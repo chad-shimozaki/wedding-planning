@@ -53,13 +53,6 @@
     </h2>
 
     <form action="/modify_cuisine/<%= @the_cuisine.id %>"  method="post" >
-      <div>
-        <label for="caterers_count_box">
-          Name
-        </label>
-
-        <input type="text" id="caterers_count_box" name="query_caterers_count" value="<%= @the_cuisine.caterers_count %>">
-      </div>
 
       <button>
         Update cuisine
