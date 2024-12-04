@@ -90,19 +90,19 @@
       </div>
 
       <div>
-        <label for="notes_box">
-          Notes
-        </label>
-
-        <textarea id="notes_box" name="query_notes" rows="3"></textarea>
-      </div>
-
-      <div>
         <label for="pdf_box">
           Pdf
         </label>
 
         <input type="text" id="pdf_box" name="query_pdf">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea id="notes_box" name="query_notes" rows="3"></textarea>
       </div>
 
       <div>
@@ -199,11 +199,11 @@
         </th>
 
         <th>
-          Notes
+          Pdf
         </th>
 
         <th>
-          Pdf
+          Notes
         </th>
 
         <th>
@@ -285,11 +285,11 @@
         </td>
 
         <td>
-          <%= a_bakery.notes %>
+          <%= a_bakery.pdf %>
         </td>
 
         <td>
-          <%= a_bakery.pdf %>
+          <%= a_bakery.notes %>
         </td>
 
         <td>

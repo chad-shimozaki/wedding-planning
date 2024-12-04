@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all coordinators
+      List of all Coordinators
     </h1>
   </div>
 </div>
@@ -11,7 +11,7 @@
 <div>
   <div>
     <h2>
-      Add a new coordinator
+      Add a new Coordinator
     </h2>
 
     <form action="/insert_coordinator" method="post">
@@ -32,22 +32,6 @@
       </div>
 
       <div>
-        <label for="photo_url_box">
-          Photo url
-        </label>
-
-        <input type="text" id="photo_url_box" name="query_photo_url">
-      </div>
-
-      <div>
-        <label for="pdf_box">
-          Pdf
-        </label>
-
-        <input type="text" id="pdf_box" name="query_pdf">
-      </div>
-
-      <div>
         <input type="checkbox" id="contacted_box" name="query_contacted" value="1">
 
         <label for="contacted_box">Contacted</label>
@@ -65,6 +49,22 @@
         </label>
 
         <textarea id="price_options_box" name="query_price_options" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="photo_url_box">
+          Photo url
+        </label>
+
+        <input type="text" id="photo_url_box" name="query_photo_url">
+      </div>
+
+      <div>
+        <label for="pdf_box">
+          Pdf
+        </label>
+
+        <input type="text" id="pdf_box" name="query_pdf">
       </div>
 
       <div>
@@ -100,7 +100,7 @@
       </div>
 
       <button>
-        Create coordinator
+        Create Coordinator
       </button>
     </form>
   </div>
@@ -124,14 +124,6 @@
         </th>
 
         <th>
-          Photo url
-        </th>
-
-        <th>
-          Pdf
-        </th>
-
-        <th>
           Contacted
         </th>
 
@@ -141,6 +133,14 @@
 
         <th>
           Price options
+        </th>
+
+        <th>
+          Photo url
+        </th>
+
+        <th>
+          Pdf
         </th>
 
         <th>
@@ -186,14 +186,6 @@
         </td>
 
         <td>
-          <%= a_coordinator.photo_url %>
-        </td>
-
-        <td>
-          <%= a_coordinator.pdf %>
-        </td>
-
-        <td>
           <%= a_coordinator.contacted %>
         </td>
 
@@ -206,15 +198,23 @@
         </td>
 
         <td>
+          <%= a_coordinator.photo_url %>
+        </td>
+
+        <td>
+          <%= a_coordinator.pdf %>
+        </td>
+
+        <td>
           <%= a_coordinator.notes %>
         </td>
 
         <td>
-          <%= a_coordinator.deposit %>
+          <%= a_coordinator.deposit %>%
         </td>
 
         <td>
-          <%= a_coordinator.final_price %>
+          $<%= a_coordinator.final_price %>
         </td>
 
         <td>

@@ -34,17 +34,10 @@
       </dd>
 
       <dt>
-        Photo url
+        Experience
       </dt>
       <dd>
-        <%= @the_coordinator.photo_url %>
-      </dd>
-
-      <dt>
-        Pdf
-      </dt>
-      <dd>
-        <%= @the_coordinator.pdf %>
+        <%= @the_coordinator.experience %>
       </dd>
 
       <dt>
@@ -69,6 +62,20 @@
       </dd>
 
       <dt>
+        Photo url
+      </dt>
+      <dd>
+        <%= @the_coordinator.photo_url %>
+      </dd>
+
+      <dt>
+        Pdf
+      </dt>
+      <dd>
+        <%= @the_coordinator.pdf %>
+      </dd>
+
+      <dt>
         Notes
       </dt>
       <dd>
@@ -79,21 +86,14 @@
         Deposit
       </dt>
       <dd>
-        <%= @the_coordinator.deposit %>
+        <%= @the_coordinator.deposit %>%
       </dd>
 
       <dt>
         Final price
       </dt>
       <dd>
-        <%= @the_coordinator.final_price %>
-      </dd>
-
-      <dt>
-        Experience
-      </dt>
-      <dd>
-        <%= @the_coordinator.experience %>
+        $<%= @the_coordinator.final_price %>
       </dd>
 
       <dt>
@@ -139,6 +139,14 @@
         <input type="text" id="website_box" name="query_website" value="<%= @the_coordinator.website %>">
       </div>
 
+      <div>
+        <label for="experience_box">
+          Experience
+        </label>
+
+        <input type="text" id="experience_box" name="query_experience" value="<%= @the_coordinator.experience %>">
+      </div>
+      
       <div>
         <label for="photo_url_box">
           Photo url
@@ -203,16 +211,8 @@
         <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_coordinator.final_price %>">
       </div>
 
-      <div>
-        <label for="experience_box">
-          Experience
-        </label>
-
-        <input type="text" id="experience_box" name="query_experience" value="<%= @the_coordinator.experience %>">
-      </div>
-
       <button>
-        Update coordinator
+        Update Coordinator
       </button>
     </form>
   </div>
