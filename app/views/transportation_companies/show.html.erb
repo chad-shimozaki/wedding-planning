@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Transportation company #<%= @the_transportation_company.id %> details
+      Transportation Company #<%= @the_transportation_company.id %> details
     </h1>
 
     <div>
@@ -34,6 +34,20 @@
       </dd>
 
       <dt>
+        Contact name
+      </dt>
+      <dd>
+        <%= @the_transportation_company.contact_name %>
+      </dd>
+
+      <dt>
+        Neighborhood
+      </dt>
+      <dd>
+        <%= @the_transportation_company.neighborhood_id %>
+      </dd>
+
+      <dt>
         Contacted
       </dt>
       <dd>
@@ -58,7 +72,14 @@
         Deposit
       </dt>
       <dd>
-        <%= @the_transportation_company.deposit %>
+        <%= @the_transportation_company.deposit %>%
+      </dd>
+
+      <dt>
+        Final price
+      </dt>
+      <dd>
+        $<%= @the_transportation_company.final_price %>
       </dd>
 
       <dt>
@@ -66,27 +87,6 @@
       </dt>
       <dd>
         <%= @the_transportation_company.notes %>
-      </dd>
-
-      <dt>
-        Contact name
-      </dt>
-      <dd>
-        <%= @the_transportation_company.contact_name %>
-      </dd>
-
-      <dt>
-        Final price
-      </dt>
-      <dd>
-        <%= @the_transportation_company.final_price %>
-      </dd>
-
-      <dt>
-        Neighborhood
-      </dt>
-      <dd>
-        <%= @the_transportation_company.neighborhood_id %>
       </dd>
 
       <dt>
@@ -112,7 +112,7 @@
 <div>
   <div>
     <h2>
-      Edit transportation company
+      Edit Transportation Company
     </h2>
 
     <form action="/modify_transportation_company/<%= @the_transportation_company.id %>"  method="post" >
@@ -130,6 +130,22 @@
         </label>
 
         <input type="text" id="website_box" name="query_website" value="<%= @the_transportation_company.website %>">
+      </div>
+
+      <div>
+        <label for="contact_name_box">
+          Contact name
+        </label>
+
+        <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_transportation_company.contact_name %>">
+      </div>
+
+      <div>
+        <label for="neighborhood_id_box">
+          Neighborhood
+        </label>
+
+        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id" value="<%= @the_transportation_company.neighborhood_id %>">
       </div>
 
       <div>
@@ -165,22 +181,6 @@
       </div>
 
       <div>
-        <label for="notes_box">
-          Notes
-        </label>
-
-        <textarea id="notes_box" name="query_notes"><%= @the_transportation_company.notes %></textarea>
-      </div>
-
-      <div>
-        <label for="contact_name_box">
-          Contact name
-        </label>
-
-        <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_transportation_company.contact_name %>">
-      </div>
-
-      <div>
         <label for="final_price_box">
           Final price
         </label>
@@ -189,11 +189,11 @@
       </div>
 
       <div>
-        <label for="neighborhood_id_box">
-          Neighborhood
+        <label for="notes_box">
+          Notes
         </label>
 
-        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id" value="<%= @the_transportation_company.neighborhood_id %>">
+        <textarea id="notes_box" name="query_notes"><%= @the_transportation_company.notes %></textarea>
       </div>
 
       <button>
