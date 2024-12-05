@@ -65,7 +65,7 @@
         Cuisine
       </dt>
       <dd>
-        <%= @the_caterer.cuisine_id %>
+        <%= Cuisine.where({ :id => @the_caterer.cuisine_id }).at(0).name %>
       </dd>
 
       <dt>
@@ -233,7 +233,7 @@
           Cuisine
         </label>
 
-        <input type="text" id="cuisine_id_box" name="query_cuisine_id" value="<%= @the_caterer.cuisine_id %>">
+        <input type="text" id="cuisine_id_box" name="query_cuisine_id" value="<%= Cuisine.where({ :id => @the_caterer.cuisine_id }).at(0).name %>">
       </div>
 
       <div>
