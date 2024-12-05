@@ -4,6 +4,8 @@ class EventsController < ApplicationController
 
     @list_of_events = matching_events.order({ :created_at => :desc })
 
+    @list_of_venues = Venue.all.order({ :name => :desc })
+
     render({ :template => "events/index" })
   end
 

@@ -32,11 +32,15 @@
       </div>
 
       <div>
-        <label for="venue_id_box">
+        <label for="venue_name_box">
           Venue
         </label>
 
-        <input type="text" id="venue_id_box" name="query_venue_id">
+        <select id="venue_name_box" name="query_venue_name">
+          <% @list_of_venues.each do |a_venue| %>
+            <option value="<%= a_venue.name %>"><%= a_venue.name %></option>
+          <% end %>
+        </select>
       </div>
 
       <button>
