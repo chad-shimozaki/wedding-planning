@@ -7,7 +7,7 @@
 #  updated_at :datetime         not null
 #  event_id   :integer
 #  invite_id  :integer
-#  people_id  :integer
+#  user_id    :integer
 #
 class Rsvp < ApplicationRecord
   belongs_to :people, required: true, class_name: "Person", foreign_key: "people_id"
