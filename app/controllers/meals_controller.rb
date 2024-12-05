@@ -6,6 +6,8 @@ class MealsController < ApplicationController
 
     @list_of_caterers = Caterer.all.order({ :name => :desc })
 
+    @list_of_events = Event.all.order({ :name => :desc })
+
     render({ :template => "meals/index" })
   end
 
@@ -16,13 +18,26 @@ class MealsController < ApplicationController
 
     @the_meal = matching_meals.at(0)
 
+    @list_of_caterers = Caterer.all.order({ :name => :desc })
+
+    @the_meal_caterer = Caterer.where({ :id => @the_meal.caterer_id }).at(0)
+
+    @list_of_events = Caterer.all.order({ :name => :desc })
+
+    @the_meal_event = Event.where({ :id => @the_meal.event_id }).at(0)
+
     render({ :template => "meals/show" })
   end
 
   def create
     the_meal = Meal.new
-    the_meal.caterer_id = params.fetch("query_caterer_id")
-    the_meal.event_id = params.fetch("query_event_id")
+    the_meal.name = params.fetch("query_name")
+
+    caterer_name = params.fetch("query_caterer_name")
+    the_meal.caterer_id = Caterer.where({ :name => caterer_name }).at(0).id
+
+    event_name = params.fetch("query_event_name")
+    the_meal.event_id = Event.where({ :name => event_name }).at(0).id
 
     if the_meal.valid?
       the_meal.save
@@ -35,9 +50,13 @@ class MealsController < ApplicationController
   def update
     the_id = params.fetch("path_id")
     the_meal = Meal.where({ :id => the_id }).at(0)
+    the_meal.name = params.fetch("query_name")
 
-    the_meal.caterer_id = params.fetch("query_caterer_id")
-    the_meal.event_id = params.fetch("query_event_id")
+    caterer_name = params.fetch("query_caterer_name")
+    the_meal.caterer_id = Caterer.where({ :name => caterer_name }).at(0).id
+
+    event_name = params.fetch("query_event_name")
+    the_meal.event_id = Event.where({ :name => event_name }).at(0).id
 
     if the_meal.valid?
       the_meal.save

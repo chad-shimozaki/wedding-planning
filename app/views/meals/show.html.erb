@@ -13,24 +13,31 @@
 
       <div>
         <a href="/delete_meal/<%= @the_meal.id %>">
-          Delete meal
+          Delete Meal
         </a>
       </div>
     </div>
 
     <dl>
       <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_meal.name %>
+      </dd>
+      
+      <dt>
         Caterer
       </dt>
       <dd>
-        <%= @the_meal.caterer_id %>
+        <%= Caterer.where({ :id => @the_meal.caterer_id }).at(0).name %>
       </dd>
 
       <dt>
         Event
       </dt>
       <dd>
-        <%= @the_meal.event_id %>
+        <%= Event.where({ :id => @the_meal.event_id }).at(0).name %>
       </dd>
 
       <dt>
@@ -56,28 +63,54 @@
 <div>
   <div>
     <h2>
-      Edit meal
+      Edit Meal
     </h2>
 
     <form action="/modify_meal/<%= @the_meal.id %>"  method="post" >
       <div>
-        <label for="caterer_id_box">
-          Caterer
+        <label for="name_box">
+          Name
         </label>
 
-        <input type="text" id="caterer_id_box" name="query_caterer_id" value="<%= @the_meal.caterer_id %>">
+        <input type="text" id="name_box" name="query_name" value="<%= @the_meal.name %>">
       </div>
 
       <div>
-        <label for="event_id_box">
+        <label for="caterer_name_box">
+          Caterer
+        </label>
+
+        <select id="caterer_name_box" name="query_caterer_name" value="<%= @the_meal_caterer.name %>">
+          <% @list_of_caterers.each do |a_caterer| %>
+            <% if a_caterer.id == @the_meal.caterer_id%>
+              <option value="<%= a_caterer.name %>" selected><%= a_caterer.name %></option>
+            <% else %>
+              <option value="<%= a_caterer.name %>"><%= a_caterer.name %></option>
+            <% end %>
+            
+          <% end %>
+        </select>
+      </div>
+
+      <div>
+        <label for="event_name_box">
           Event
         </label>
 
-        <input type="text" id="event_id_box" name="query_event_id" value="<%= @the_meal.event_id %>">
+        <select id="event_name_box" name="query_event_name" value="<%= @the_meal_event.name %>">
+          <% @list_of_events.each do |an_event| %>
+            <% if an_event.id == @the_meal.event_id%>
+              <option value="<%= an_event.name %>" selected><%= an_event.name %></option>
+            <% else %>
+              <option value="<%= an_event.name %>"><%= an_event.name %></option>
+            <% end %>
+            
+          <% end %>
+        </select>
       </div>
 
       <button>
-        Update meal
+        Update Meal
       </button>
     </form>
   </div>
