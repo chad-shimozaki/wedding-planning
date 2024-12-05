@@ -8,27 +8,78 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
+    <meta charset="utf-8">
+
+    <!-- Make it responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Connect Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+
+    <!-- Connect Bootstrap JavaScript and its dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Connect Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
+
   </head>
 
   <body>
-    <div class = "navbar">
-      <div> <a href="/">Go Home</a></div>
-      <div> <a href="/events">Events</a></div>
-      <div> <a href="/bakeries">Bakeries</a></div>
-      <div> <a href="/caterers">Caterers</a></div>
-      <div> <a href="/coordinators">Coordinators</a></div>
-      <div> <a href="/cuisines">Cuisines</a></div>
-      <div> <a href="/djs">DJs</a></div>
-      <div> <a href="/florists">Florists</a></div>
-      <div> <a href="/hotels">Hotels</a></div>
-      <div> <a href="/lighting_production_companies">Lighting & Production Companies</a></div>
-      <div> <a href="/meals">Meals</a></div>
-      <div> <a href="/neighborhoods">Neighborhoods</a></div>
-      <div> <a href="/photographers">Photographers</a></div>
-      <div> <a href="/transportation_companies">Transportation Companies</a></div>
-      <div> <a href="/venues">Venues</a></div>
-    </div>
 
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Chad & Riya's Wedding Planning Site</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/events">Events</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Vendors
+              </a>
+              <ul class="dropdown-menu">
+                <li> <a href="/bakeries">Bakeries</a></li>
+                <li> <a href="/caterers">Caterers</a></li>
+                <li> <a href="/coordinators">Coordinators</a></li>
+                <li> <a href="/djs">DJs</a></li>
+                <li> <a href="/florists">Florists</a></li>
+                <li> <a href="/hotels">Hotels</a></li>
+                <li> <a href="/lighting_production_companies">Lighting & Production</a></li>
+                <li> <a href="/meals">Meals</a></li>
+                <li> <a href="/photographers">Photographers</a></li>
+                <li> <a href="/transportation_companies">Transportation</a></li>
+                <li> <a href="/venues">Venues</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Categories
+              </a>
+              <ul class="dropdown-menu">
+                <li> <a href="/cuisines">Cuisines</a></li>
+                <li> <a href="/neighborhoods">Neighborhoods</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
 
     <hr>
 
