@@ -76,7 +76,7 @@
       </dd>
 
       <dt>
-        Pdf
+        PDF
       </dt>
       <dd>
         <%= @the_coordinator.pdf %>
@@ -172,7 +172,7 @@
 
       <div>
         <label for="pdf_box">
-          Pdf
+          PDF
         </label>
 
         <input type="file" id="pdf_box" name="query_pdf" value="<%= @the_coordinator.pdf %>">
@@ -215,7 +215,7 @@
           Deposit %%
         </label>
 
-        <input type="text" id="deposit_box" name="query_deposit" value="<%= @the_coordinator.deposit %>">
+        <input type="text" id="deposit_box" name="query_deposit" value="<%= @the_coordinator.deposit.round(0) %>">
       </div>
 
       <div>
@@ -223,7 +223,7 @@
           Final price $
         </label>
 
-        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_coordinator.final_price %>">
+        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_coordinator.final_price.round(2) %>">
       </div>
 
       <button>

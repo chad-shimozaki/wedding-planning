@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all photographers
+      List of all Photographers
     </h1>
   </div>
 </div>
@@ -11,7 +11,7 @@
 <div>
   <div>
     <h2>
-      Add a new photographer
+      Add a new Photographer
     </h2>
 
     <form action="/insert_photographer" method="post">
@@ -24,19 +24,27 @@
       </div>
 
       <div>
+        <label for="instagram_box">
+          Instagram
+        </label>
+
+        <input type="url" id="instagram_box" name="query_instagram">
+      </div>
+
+      <div>
+        <label for="contact_email_box">
+          Contact Email
+        </label>
+
+        <input type="url" id="contact_email_box" name="query_contact_email">
+      </div>
+
+      <div>
         <label for="website_box">
           Website
         </label>
 
         <input type="text" id="website_box" name="query_website">
-      </div>
-
-      <div>
-        <label for="photo_url_box">
-          Photo url
-        </label>
-
-        <input type="text" id="photo_url_box" name="query_photo_url">
       </div>
 
       <div>
@@ -60,8 +68,24 @@
       </div>
 
       <div>
+        <label for="photo_url_box">
+          Photo url
+        </label>
+
+        <input type="text" id="photo_url_box" name="query_photo_url">
+      </div>
+
+      <div>
+        <label for="pdf_box">
+          PDF
+        </label>
+
+        <input type="file" id="pdf_box" name="query_pdf">
+      </div>
+
+      <div>
         <label for="deposit_box">
-          Deposit
+          Deposit %
         </label>
 
         <input type="number" id="deposit_box" name="query_deposit" value = "0">
@@ -69,7 +93,7 @@
 
       <div>
         <label for="final_price_box">
-          Final price
+          Final price $
         </label>
 
         <input type="number" id="final_price_box" name="query_final_price" value = "0">
@@ -104,11 +128,15 @@
         </th>
 
         <th>
-          Website
+          Instagram
         </th>
 
         <th>
-          Photo url
+          Contact Email
+        </th>
+
+        <th>
+          Website
         </th>
 
         <th>
@@ -124,15 +152,23 @@
         </th>
 
         <th>
+          Photo url
+        </th>
+
+        <th>
+          PDF
+        </th>
+
+        <th>
           Deposit
         </th>
 
         <th>
-          Notes
+          Final price
         </th>
 
         <th>
-          Final price
+          Notes
         </th>
 
         <th>
@@ -158,11 +194,15 @@
         </td>
 
         <td>
-          <%= a_photographer.website %>
+          <%= a_photographer.instagram %>
         </td>
 
         <td>
-          <%= a_photographer.photo_url %>
+          <%= a_photographer.contact_email %>
+        </td>
+
+        <td>
+          <%= a_photographer.website %>
         </td>
 
         <td>
@@ -178,15 +218,23 @@
         </td>
 
         <td>
-          <%= a_photographer.deposit %>
+          <%= a_photographer.photo_url %>
+        </td>
+
+        <td>
+          <%= a_photographer.pdf %>
+        </td>
+
+        <td>
+          <%= a_photographer.deposit %>%
+        </td>
+
+        <td>
+          $<%= a_photographer.final_price %>
         </td>
 
         <td>
           <%= a_photographer.notes %>
-        </td>
-
-        <td>
-          <%= a_photographer.final_price %>
         </td>
 
         <td>

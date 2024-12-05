@@ -125,7 +125,7 @@
       </dd>
 
       <dt>
-        Pdf
+        PDF
       </dt>
       <dd>
         <%= @the_caterer.pdf %>
@@ -294,7 +294,7 @@
 
       <div>
         <label for="pdf_box">
-          Pdf
+          PDF
         </label>
 
         <input type="file" id="pdf_box" name="query_pdf" value="<%= @the_caterer.pdf %>">
@@ -313,7 +313,7 @@
           Deposit %
         </label>
 
-        <input type="text" id="deposit_box" name="query_deposit" value="<%= @the_caterer.deposit %>">
+        <input type="text" id="deposit_box" name="query_deposit" value="<%= @the_caterer.deposit.round(0) %>">
       </div>
 
       <div>
@@ -321,7 +321,7 @@
           Final price $
         </label>
 
-        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_caterer.final_price %>">
+        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_caterer.final_price.round(2) %>">
       </div>
 
       <button>

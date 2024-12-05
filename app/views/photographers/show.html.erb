@@ -13,7 +13,7 @@
 
       <div>
         <a href="/delete_photographer/<%= @the_photographer.id %>">
-          Delete photographer
+          Delete Photographer
         </a>
       </div>
     </div>
@@ -27,17 +27,24 @@
       </dd>
 
       <dt>
+        Instagram
+      </dt>
+      <dd>
+        <%= @the_photographer.instagram %>
+      </dd>      
+      
+      <dt>
+        Contact Email
+      </dt>
+      <dd>
+        <%= @the_photographer.contact_email %>
+      </dd>
+
+      <dt>
         Website
       </dt>
       <dd>
         <%= @the_photographer.website %>
-      </dd>
-
-      <dt>
-        Photo url
-      </dt>
-      <dd>
-        <%= @the_photographer.photo_url %>
       </dd>
 
       <dt>
@@ -62,24 +69,38 @@
       </dd>
 
       <dt>
-        Deposit
+        Photo url
       </dt>
       <dd>
-        <%= @the_photographer.deposit.round(0) %>
+        <%= @the_photographer.photo_url %>
       </dd>
 
       <dt>
-        Notes
+        PDF
       </dt>
       <dd>
-        <%= @the_photographer.notes.round(2) %>%
+        <%= @the_photographer.pdf %>
+      </dd>
+
+      <dt>
+        Deposit
+      </dt>
+      <dd>
+        <%= @the_photographer.deposit.round(0) %>%
       </dd>
 
       <dt>
         Final price
       </dt>
       <dd>
-        $<%= @the_photographer.final_price %>
+        $<%= @the_photographer.final_price.round(2) %>
+      </dd>
+
+      <dt>
+        Notes
+      </dt>
+      <dd>
+        <%= @the_photographer.notes %>
       </dd>
 
       <dt>
@@ -118,19 +139,27 @@
       </div>
 
       <div>
+        <label for="instagram_box">
+          Instagram
+        </label>
+
+        <input type="text" id="instagram_box" name="query_instagram" value="<%= @the_photographer.instagram %>">
+      </div>
+
+      <div>
+        <label for="contact_email_box">
+          Contact Email
+        </label>
+
+        <input type="text" id="contact_email_box" name="query_contact_email" value="<%= @the_photographer.contact_email %>">
+      </div>
+
+      <div>
         <label for="website_box">
           Website
         </label>
 
         <input type="text" id="website_box" name="query_website" value="<%= @the_photographer.website %>">
-      </div>
-
-      <div>
-        <label for="photo_url_box">
-          Photo url
-        </label>
-
-        <input type="text" id="photo_url_box" name="query_photo_url" value="<%= @the_photographer.photo_url %>">
       </div>
 
       <div>
@@ -158,11 +187,35 @@
       </div>
 
       <div>
+        <label for="photo_url_box">
+          Photo url
+        </label>
+
+        <input type="text" id="photo_url_box" name="query_photo_url" value="<%= @the_photographer.photo_url %>">
+      </div>
+
+      <div>
+        <label for="pdf_box">
+          PDF
+        </label>
+
+        <input type="text" id="pdf_box" name="query_pdf" value="<%= @the_photographer.pdf %>">
+      </div>
+
+      <div>
         <label for="deposit_box">
           Deposit %
         </label>
 
-        <input type="text" id="deposit_box" name="query_deposit" value="<%= @the_photographer.deposit %>">
+        <input type="number" id="deposit_box" name="query_deposit" value="<%= @the_photographer.deposit.round(0) %>">
+      </div>
+
+      <div>
+        <label for="final_price_box">
+          Final price $
+        </label>
+
+        <input type="number" id="final_price_box" name="query_final_price" value="<%= @the_photographer.final_price.round(2) %>">
       </div>
 
       <div>
@@ -171,14 +224,6 @@
         </label>
 
         <textarea id="notes_box" name="query_notes"><%= @the_photographer.notes %></textarea>
-      </div>
-
-      <div>
-        <label for="final_price_box">
-          Final price $
-        </label>
-
-        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_photographer.final_price %>">
       </div>
 
       <button>

@@ -185,7 +185,7 @@
           Deposit %
         </label>
 
-        <input type="number" id="deposit_box" name="query_deposit" value="<%= @the_lighting_production_company.deposit %>">
+        <input type="number" id="deposit_box" name="query_deposit" value="<%= @the_lighting_production_company.deposit.round(0) %>">
       </div>
 
       <div>
@@ -193,7 +193,7 @@
           Final price $
         </label>
 
-        <input type="number" id="final_price_box" name="query_final_price" value="<%= @the_lighting_production_company.final_price %>">
+        <input type="number" id="final_price_box" name="query_final_price" value="<%= @the_lighting_production_company.final_price.round(2) %>">
       </div>
 
       <button>

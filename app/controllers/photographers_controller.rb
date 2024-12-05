@@ -20,14 +20,17 @@ class PhotographersController < ApplicationController
   def create
     the_photographer = Photographer.new
     the_photographer.name = params.fetch("query_name")
+    the_photographer.instagram = params.fetch("query_instagram")
+    the_photographer.contact_email = params.fetch("query_contact_email")
     the_photographer.website = params.fetch("query_website")
-    the_photographer.photo_url = params.fetch("query_photo_url")
     the_photographer.contacted = params.fetch("query_contacted", false)
     the_photographer.chosen = params.fetch("query_chosen", false)
     the_photographer.price_options = params.fetch("query_price_options")
+    the_photographer.photo_url = params.fetch("query_photo_url")
+    the_photographer.pdf = params.fetch("query_pdf")
     the_photographer.deposit = params.fetch("query_deposit")
-    the_photographer.notes = params.fetch("query_notes")
     the_photographer.final_price = params.fetch("query_final_price")
+    the_photographer.notes = params.fetch("query_notes")
 
     if the_photographer.valid?
       the_photographer.save
@@ -42,14 +45,17 @@ class PhotographersController < ApplicationController
     the_photographer = Photographer.where({ :id => the_id }).at(0)
 
     the_photographer.name = params.fetch("query_name")
+    the_photographer.instagram = params.fetch("query_instagram")
+    the_photographer.contact_email = params.fetch("query_contact_email")
     the_photographer.website = params.fetch("query_website")
-    the_photographer.photo_url = params.fetch("query_photo_url")
     the_photographer.contacted = params.fetch("query_contacted", false)
     the_photographer.chosen = params.fetch("query_chosen", false)
     the_photographer.price_options = params.fetch("query_price_options")
+    the_photographer.photo_url = params.fetch("query_photo_url")
+    the_photographer.pdf = params.fetch("query_pdf")
     the_photographer.deposit = params.fetch("query_deposit")
-    the_photographer.notes = params.fetch("query_notes")
     the_photographer.final_price = params.fetch("query_final_price")
+    the_photographer.notes = params.fetch("query_notes")
 
     if the_photographer.valid?
       the_photographer.save
