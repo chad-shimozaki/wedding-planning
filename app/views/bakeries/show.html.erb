@@ -180,22 +180,6 @@
 
         <input type="text" id="address_box" name="query_address" value="<%= @the_bakery.address %>">
       </div>
-
-      <div>
-        <label for="lat_box">
-          Lat
-        </label>
-
-        <input type="text" id="lat_box" name="query_lat" value="<%= @the_bakery.lat %>">
-      </div>
-
-      <div>
-        <label for="lng_box">
-          Lng
-        </label>
-
-        <input type="text" id="lng_box" name="query_lng" value="<%= @the_bakery.lng %>">
-      </div>
       
       <div>
         <label for="neighborhood_name_box">
@@ -291,7 +275,7 @@
           Pdf
         </label>
 
-        <input type="text" id="pdf_box" name="query_pdf" value="<%= @the_bakery.pdf %>">
+        <input type="file" id="pdf_box" name="query_pdf" value="<%= @the_bakery.pdf %>">
       </div>
 
       <div>
