@@ -27,6 +27,13 @@
       </dd>
 
       <dt>
+        Contact Email
+      </dt>
+      <dt>
+          <%= @the_dj.contact_email %>
+      </dt>
+
+      <dt>
         Website
       </dt>
       <dd>
@@ -122,6 +129,14 @@
         </label>
 
         <input type="text" id="name_box" name="query_name" value="<%= @the_dj.name %>">
+      </div>
+
+      <div>
+        <label for="email_box">
+          Email
+        </label>
+
+        <input type="email" id="email_box" name="query_email" value="<%= @the_dj.contact_email %>">
       </div>
 
       <div>

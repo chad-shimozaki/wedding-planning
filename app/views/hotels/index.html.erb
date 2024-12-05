@@ -24,14 +24,6 @@
       </div>
 
       <div>
-        <label for="website_box">
-          Website
-        </label>
-
-        <input type="text" id="website_box" name="query_website">
-      </div>
-
-      <div>
         <label for="address_box">
           Address
         </label>
@@ -52,11 +44,27 @@
       </div>
 
       <div>
+        <label for="website_box">
+          Website
+        </label>
+
+        <input type="text" id="website_box" name="query_website">
+      </div>
+
+      <div>
         <label for="contact_name_box">
           Contact name
         </label>
 
         <input type="text" id="contact_name_box" name="query_contact_name">
+      </div>
+
+      <div>
+        <label for="contact_email_box">
+          Contact email
+        </label>
+
+        <input type="email" id="contact_email_box" name="query_contact_email">
       </div>
 
       <div>
@@ -82,7 +90,7 @@
           Minimum rooms
         </label>
 
-        <input type="text" id="minimum_rooms_box" name="query_minimum_rooms">
+        <input type="number" id="minimum_rooms_box" name="query_minimum_rooms" value="0">
       </div>
 
       <div>
@@ -102,7 +110,7 @@
       </div>
 
       <button>
-        Create hotel
+        Create Hotel
       </button>
     </form>
   </div>
@@ -122,10 +130,6 @@
         </th>
 
         <th>
-          Website
-        </th>
-
-        <th>
           Address
         </th>
 
@@ -142,7 +146,15 @@
         </th>
 
         <th>
+          Website
+        </th>
+
+        <th>
           Contact name
+        </th>
+
+        <th>
+          Contact email
         </th>
 
         <th>
@@ -192,10 +204,6 @@
         </td>
 
         <td>
-          <%= a_hotel.website %>
-        </td>
-
-        <td>
           <%= a_hotel.address %>
         </td>
 
@@ -212,7 +220,15 @@
         </td>
 
         <td>
+          <%= a_hotel.website %>
+        </td>
+
+        <td>
           <%= a_hotel.contact_name %>
+        </td>
+
+        <td>
+          <%= a_hotel.contact_email %>
         </td>
 
         <td>
@@ -228,7 +244,7 @@
         </td>
 
         <td>
-          <%= a_hotel.minimum_rooms %>
+          <%= a_hotel.minimum_rooms.round(0) %>
         </td>
 
         <td>
