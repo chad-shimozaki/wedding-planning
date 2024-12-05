@@ -4,6 +4,14 @@ class EventsController < ApplicationController
 
     @list_of_events = matching_events.order({ :created_at => :desc })
 
+    @list_of_bakeries = Bakery.all.order({ :name => :desc })
+    @list_of_coordinators = Coordinator.all.order({ :name => :desc })
+    @list_of_djs = Dj.all.order({ :name => :desc })
+    @list_of_florists = Florist.all.order({ :name => :desc })
+    @list_of_hotels = Hotel.all.order({ :name => :desc })
+    @list_of_lighting_production_companies = LightingProductionCompany.all.order({ :name => :desc })
+    @list_of_photographers = Photographer.all.order({ :name => :desc })
+    @list_of_transportation_companies = TransportationCompany.all.order({ :name => :desc })
     @list_of_venues = Venue.all.order({ :name => :desc })
 
     render({ :template => "events/index" })
