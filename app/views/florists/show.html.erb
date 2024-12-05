@@ -153,35 +153,11 @@
       </div>
 
       <div>
-        <label for="website_box">
-          Website
-        </label>
-
-        <input type="text" id="website_box" name="query_website" value="<%= @the_florist.website %>">
-      </div>
-
-      <div>
         <label for="address_box">
           Address
         </label>
 
         <input type="text" id="address_box" name="query_address" value="<%= @the_florist.address %>">
-      </div>
-
-      <div>
-        <label for="lat_box">
-          Lat
-        </label>
-
-        <input type="text" id="lat_box" name="query_lat" value="<%= @the_florist.lat %>">
-      </div>
-
-      <div>
-        <label for="lng_box">
-          Lng
-        </label>
-
-        <input type="text" id="lng_box" name="query_lng" value="<%= @the_florist.lng %>">
       </div>
 
       <div>
@@ -202,11 +178,27 @@
       </div>
 
       <div>
+        <label for="website_box">
+          Website
+        </label>
+
+        <input type="text" id="website_box" name="query_website" value="<%= @the_florist.website %>">
+      </div>
+
+      <div>
         <label for="contact_name_box">
           Contact name
         </label>
 
         <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_florist.contact_name %>">
+      </div>
+
+      <div>
+        <label for="contact_email_box">
+          Contact email
+        </label>
+
+        <input type="email" id="contact_email_box" name="query_contact_email" value="<%= @the_florist.contact_email %>">
       </div>
 
       <div>

@@ -29,7 +29,7 @@ class FloristsController < ApplicationController
     the_florist.address = params.fetch("query_address")
 
     #lat & lng
-    if the_bakery.address != ""
+    if the_florist.address != ""
 
       maps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + the_florist.address + "&key=" + ENV.fetch("GMAPS_KEY")
 
@@ -75,7 +75,7 @@ class FloristsController < ApplicationController
     the_florist.address = params.fetch("query_address")
 
     #lat & lng
-    if the_bakery.address != ""
+    if the_florist.address != ""
 
       maps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + the_florist.address + "&key=" + ENV.fetch("GMAPS_KEY")
 
