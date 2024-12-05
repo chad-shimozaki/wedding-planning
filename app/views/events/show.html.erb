@@ -33,76 +33,74 @@
         <%= @the_event.chronological_order %>
       </dd>
 
-<!--      <select id="neighborhood_name_box" name="query_neighborhood_name" value="<%#= @the_bakery_neighborhood.name %>">-->
-        <%# @list_of_neighborhoods.each do |a_neighborhood| %>
-          <%# if a_neighborhood.id == @the_bakery.neighborhood_id%>
-<!--            <option value="<%#= a_neighborhood.name %>" selected><%= a_neighborhood.name %></option>-->
-          <%# else %>
-<!--            <option value="<%#= a_neighborhood.name %>"><%= a_neighborhood.name %></option>-->
-          <%# end %>
-      <%# end %>
-
       <dt>
         Bakery
       </dt>
       <dd>
-        <%= @the_event.bakery_id %>
+       <%= Bakery.where({ :id => @the_event.bakery_id }).at(0).name %>
       </dd>
 
       <dt>
         Coordinator
       </dt>
       <dd>
-        <%= @the_event.coordinator_id %>
+       <%= Coordinator.where({ :id => @the_event.coordinator_id }).at(0).name %>
       </dd>
 
       <dt>
         Dj
       </dt>
       <dd>
-        <%= @the_event.dj_id %>
+       <%= Dj.where({ :id => @the_event.dj_id }).at(0).name %>
       </dd>
 
       <dt>
         Florist
       </dt>
       <dd>
-        <%= @the_event.florist_id %>
+       <%= Florist.where({ :id => @the_event.florist_id }).at(0).name %>
       </dd>
 
       <dt>
         Hotel
       </dt>
       <dd>
-        <%= @the_event.hotel_id %>
+       <%= Hotel.where({ :id => @the_event.hotel_id }).at(0).name %>
       </dd>
 
       <dt>
         Lighting production company
       </dt>
       <dd>
-        <%= @the_event.lighting_production_company_id %>
+       <%= LightingProductionCompany.where({ :id => @the_event.lighting_production_company_id }).at(0).name %>
       </dd>
 
       <dt>
         Photographer
       </dt>
       <dd>
-        <%= @the_event.photographer_id %>
+       <%= Photographer.where({ :id => @the_event.photographer_id }).at(0).name %>
       </dd>
 
       <dt>
         Transportation company
       </dt>
       <dd>
-        <%= @the_event.transportation_company_id %>
+        <%= TransportationCompany.where({ :id => @the_event.transportation_company_id }).at(0).name %>
       </dd>
 
       <dt>
         Venue
       </dt>
       <dd>
-        <%= @the_event.venue_id %>
+       <%= Venue.where({ :id => @the_event.venue_id }).at(0).name %>
+      </dd>
+
+      <dt>
+        Neighborhood
+      </dt>
+      <dd>
+        <%= Neighborhood.where({ :id => @the_event.neighborhood_id }).at(0).name %>
       </dd>
 
       <dt>
@@ -149,79 +147,177 @@
       </div>
 
       <div>
-        <label for="bakery_id_box">
+        <label for="bakery_name_box">
           Bakery
         </label>
 
-        <input type="text" id="bakery_id_box" name="query_bakery_id" value="<%= @the_event.bakery_id %>">
+        <select id="bakery_name_box" name="query_bakery_name" value="<%= @the_event_bakery.name %>">
+          <% @list_of_bakeries.each do |a_bakery| %>
+            <% if a_bakery.id == @the_event.bakery_id%>
+              <option value="<%= a_bakery.name %>" selected><%= a_bakery.name %></option>
+            <% else %>
+              <option value="<%= a_bakery.name %>"><%= a_bakery.name %></option>
+            <% end %>
+            
+          <% end %>
+        </select>
       </div>
 
       <div>
-        <label for="coordinator_id_box">
+        <label for="coordinator_name_box">
           Coordinator
         </label>
 
-        <input type="text" id="coordinator_id_box" name="query_coordinator_id" value="<%= @the_event.coordinator_id %>">
+        <select id="coordinator_name_box" name="query_coordinator_name" value="<%= @the_event_coordinator.name %>">
+          <% @list_of_coordinators.each do |a_coordinator| %>
+            <% if a_coordinator.id == @the_event.coordinator_id%>
+              <option value="<%= a_coordinator.name %>" selected><%= a_coordinator.name %></option>
+            <% else %>
+              <option value="<%= a_coordinator.name %>"><%= a_coordinator.name %></option>
+            <% end %>
+            
+          <% end %>
+        </select>
       </div>
 
       <div>
-        <label for="dj_id_box">
+        <label for="dj_name_box">
           Dj
         </label>
 
-        <input type="text" id="dj_id_box" name="query_dj_id" value="<%= @the_event.dj_id %>">
+        <select id="dj_name_box" name="query_dj_name" value="<%= @the_event_dj.name %>">
+          <% @list_of_djs.each do |a_dj| %>
+            <% if a_dj.id == @the_event.dj_id%>
+              <option value="<%= a_dj.name %>" selected><%= a_dj.name %></option>
+            <% else %>
+              <option value="<%= a_dj.name %>"><%= a_dj.name %></option>
+            <% end %>
+            florist
+          <% end %>
+        </select>
       </div>
 
       <div>
-        <label for="florist_id_box">
+        <label for="florist_name_box">
           Florist
         </label>
 
-        <input type="text" id="florist_id_box" name="query_florist_id" value="<%= @the_event.florist_id %>">
+        <select id="florist_name_box" name="query_florist_name" value="<%= @the_event_florist.name %>">
+          <% @list_of_florists.each do |a_florist| %>
+            <% if a_florist.id == @the_event.florist_id%>
+              <option value="<%= a_florist.name %>" selected><%= a_florist.name %></option>
+            <% else %>
+              <option value="<%= a_florist.name %>"><%= a_florist.name %></option>
+            <% end %>
+            
+          <% end %>
+        </select>
       </div>
 
       <div>
-        <label for="hotel_id_box">
+        <label for="hotel_name_box">
           Hotel
         </label>
 
-        <input type="text" id="hotel_id_box" name="query_hotel_id" value="<%= @the_event.hotel_id %>">
+        <select id="hotel_name_box" name="query_hotel_name" value="<%= @the_event_hotel.name %>">
+          <% @list_of_hotels.each do |a_hotel| %>
+            <% if a_hotel.id == @the_event.hotel_id%>
+              <option value="<%= a_hotel.name %>" selected><%= a_hotel.name %></option>
+            <% else %>
+              <option value="<%= a_hotel.name %>"><%= a_hotel.name %></option>
+            <% end %>
+            
+          <% end %>
+        </select>
       </div>
 
       <div>
-        <label for="lighting_production_company_id_box">
-          Lighting production company
+        <label for="lighting_production_company_name_box">
+          Lighting & Production Company
         </label>
 
-        <input type="text" id="lighting_production_company_id_box" name="query_lighting_production_company_id" value="<%= @the_event.lighting_production_company_id %>">
+        <select id="lighting_production_company_name_box" name="query_lighting_production_company_name" value="<%= @the_event_lighting_production_company.name %>">
+          <% @list_of_lighting_production_companies.each do |a_lighting_production_company| %>
+            <% if a_lighting_production_company.id == @the_event.lighting_production_company_id%>
+              <option value="<%= a_lighting_production_company.name %>" selected><%= a_lighting_production_company.name %></option>
+            <% else %>
+              <option value="<%= a_lighting_production_company.name %>"><%= a_lighting_production_company.name %></option>
+            <% end %>
+            
+          <% end %>
+        </select>
       </div>
 
       <div>
-        <label for="photographer_id_box">
+        <label for="photographer_name_box">
           Photographer
         </label>
 
-        <input type="text" id="photographer_id_box" name="query_photographer_id" value="<%= @the_event.photographer_id %>">
+        <select id="photographer_name_box" name="query_photographer_name" value="<%= @the_event_photographer.name %>">
+          <% @list_of_photographers.each do |a_photographer| %>
+            <% if a_photographer.id == @the_event.photographer_id%>
+              <option value="<%= a_photographer.name %>" selected><%= a_photographer.name %></option>
+            <% else %>
+              <option value="<%= a_photographer.name %>"><%= a_photographer.name %></option>
+            <% end %>
+            
+          <% end %>
+        </select>
       </div>
 
       <div>
-        <label for="transportation_company_id_box">
-          Transportation company
+        <label for="transportation_company_name_box">
+          Transportation Company
         </label>
 
-        <input type="text" id="transportation_company_id_box" name="query_transportation_company_id" value="<%= @the_event.transportation_company_id %>">
+        <select id="transportation_company_name_box" name="query_transportation_company_name" value="<%= @the_event_transportation_company.name %>">
+          <% @list_of_transportation_companies.each do |a_transportation_company| %>
+            <% if a_transportation_company.id == @the_event.transportation_company_id%>
+              <option value="<%= a_transportation_company.name %>" selected><%= a_transportation_company.name %></option>
+            <% else %>
+              <option value="<%= a_transportation_company.name %>"><%= a_transportation_company.name %></option>
+            <% end %>
+            
+          <% end %>
+        </select>
       </div>
 
       <div>
-        <label for="venue_id_box">
+        <label for="venue_name_box">
           Venue
         </label>
 
-        <input type="text" id="venue_id_box" name="query_venue_id" value="<%= @the_event.venue_id %>">
+        <select id="venue_name_box" name="query_venue_name" value="<%= @the_event_venue.name %>">
+          <% @list_of_venues.each do |a_venue| %>
+            <% if a_venue.id == @the_event.venue_id%>
+              <option value="<%= a_venue.name %>" selected><%= a_venue.name %></option>
+            <% else %>
+              <option value="<%= a_venue.name %>"><%= a_venue.name %></option>
+            <% end %>
+            
+          <% end %>
+        </select>
+      </div>
+
+      <div>
+        <label for="neighborhood_name_box">
+          Neighborhood
+        </label>
+
+        <select id="neighborhood_name_box" name="query_neighborhood_name" value="<%= @the_event_neighborhood.name %>">
+          <% @list_of_neighborhoods.each do |a_neighborhood| %>
+            <% if a_neighborhood.id == @the_event.neighborhood_id%>
+              <option value="<%= a_neighborhood.name %>" selected><%= a_neighborhood.name %></option>
+            <% else %>
+              <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+            <% end %>
+            
+          <% end %>
+        </select>
       </div>
 
       <button>
-        Update event
+        Update Event
       </button>
     </form>
   </div>

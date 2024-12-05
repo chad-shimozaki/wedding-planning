@@ -25,8 +25,27 @@ class EventsController < ApplicationController
 
     @the_event = matching_events.at(0)
 
+    @list_of_bakeries = Bakery.all.order({ :name => :desc })
+    @list_of_coordinators = Coordinator.all.order({ :name => :desc })
+    @list_of_djs = Dj.all.order({ :name => :desc })
+    @list_of_florists = Florist.all.order({ :name => :desc })
+    @list_of_hotels = Hotel.all.order({ :name => :desc })
+    @list_of_lighting_production_companies = LightingProductionCompany.all.order({ :name => :desc })
+    @list_of_photographers = Photographer.all.order({ :name => :desc })
+    @list_of_transportation_companies = TransportationCompany.all.order({ :name => :desc })
+    @list_of_venues = Venue.all.order({ :name => :desc })
     @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
-    @the_bakery_neighborhood = Neighborhood.where({ :id => @the_bakery.neighborhood_id }).at(0)
+
+    @the_event_bakery = Bakery.where({ :id => @the_event.bakery_id }).at(0)
+    @the_event_coordinator = Coordinator.where({ :id => @the_event.coordinator_id }).at(0)
+    @the_event_dj = Dj.where({ :id => @the_event.dj_id }).at(0)
+    @the_event_florist = Florist.where({ :id => @the_event.florist_id }).at(0)
+    @the_event_hotel = Hotel.where({ :id => @the_event.hotel_id }).at(0)
+    @the_event_lighting_production_company = LightingProductionCompany.where({ :id => @the_event.lighting_production_company_id }).at(0)
+    @the_event_photographer = Photographer.where({ :id => @the_event.photographer_id }).at(0)
+    @the_event_transportation_company = TransportationCompany.where({ :id => @the_event.transportation_company_id }).at(0)
+    @the_event_venue = Venue.where({ :id => @the_event.venue_id }).at(0)
+    @the_event_neighborhood = Neighborhood.where({ :id => @the_event.neighborhood_id }).at(0)
 
     render({ :template => "events/show" })
   end
