@@ -40,6 +40,14 @@
       </div>
 
       <div>
+        <label for="contact_email_box">
+          Contact email
+        </label>
+
+        <input type="email" id="contact_email_box" name="query_contact_email">
+      </div>
+
+      <div>
         <input type="checkbox" id="contacted_box" name="query_contacted" value="1">
 
         <label for="contacted_box">Contacted</label>
@@ -72,7 +80,7 @@
           Deposit %
         </label>
 
-        <input type="number" id="deposit_box" name="query_deposit" rows="3" value = "0">
+        <input type="number" id="deposit_box" name="query_deposit" value ="0">
       </div>
 
       <div>
@@ -80,7 +88,7 @@
           Final price $
         </label>
 
-        <input type="number" id="final_price_box" name="query_final_price" value = "0">
+        <input type="number" id="final_price_box" name="query_final_price" value="0">
       </div>
 
       <button>
@@ -109,6 +117,10 @@
 
         <th>
           Contact name
+        </th>
+
+        <th>
+          Contact email
         </th>
 
         <th>
@@ -155,6 +167,10 @@
 
         <td>
           <%= a_lighting_production_company.name %>
+        </td>
+
+        <td>
+          <%= a_lighting_production_company.contact_email %>
         </td>
 
         <td>

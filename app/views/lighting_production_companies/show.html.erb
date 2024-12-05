@@ -13,7 +13,7 @@
 
       <div>
         <a href="/delete_lighting_production_company/<%= @the_lighting_production_company.id %>">
-          Delete lighting production company
+          Delete Lighting Production Company
         </a>
       </div>
     </div>
@@ -38,6 +38,13 @@
       </dt>
       <dd>
         <%= @the_lighting_production_company.contact_name %>
+      </dd>
+
+      <dt>
+        Contact email
+      </dt>
+      <dd>
+        <%= @the_lighting_production_company.contact_email %>
       </dd>
 
       <dt>
@@ -134,6 +141,14 @@
       </div>
 
       <div>
+        <label for="contact_email_box">
+          Contact name
+        </label>
+
+        <input type="text" id="contact_email_box" name="query_contact_email" value="<%= @the_lighting_production_company.contact_email %>">
+      </div>
+
+      <div>
         <input type="checkbox" id="contacted_box" name="query_contacted" value="1" <%= "checked" if @the_lighting_production_company.contacted %>>
 
         <label for="contacted_box">
@@ -170,7 +185,7 @@
           Deposit %
         </label>
 
-        <textarea id="deposit_box" name="query_deposit"><%= @the_lighting_production_company.deposit %></textarea>
+        <input type="number" id="deposit_box" name="query_deposit" value="<%= @the_lighting_production_company.deposit %>">
       </div>
 
       <div>
@@ -178,7 +193,7 @@
           Final price $
         </label>
 
-        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_lighting_production_company.final_price %>">
+        <input type="number" id="final_price_box" name="query_final_price" value="<%= @the_lighting_production_company.final_price %>">
       </div>
 
       <button>

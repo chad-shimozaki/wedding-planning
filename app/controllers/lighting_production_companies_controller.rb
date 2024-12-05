@@ -21,12 +21,13 @@ class LightingProductionCompaniesController < ApplicationController
     the_lighting_production_company = LightingProductionCompany.new
     the_lighting_production_company.name = params.fetch("query_name")
     the_lighting_production_company.website = params.fetch("query_website")
+    the_lighting_production_company.contact_name = params.fetch("query_contact_name")
+    the_lighting_production_company.contact_email = params.fetch("query_contact_email")
     the_lighting_production_company.contacted = params.fetch("query_contacted", false)
     the_lighting_production_company.chosen = params.fetch("query_chosen", false)
     the_lighting_production_company.price_options = params.fetch("query_price_options")
     the_lighting_production_company.notes = params.fetch("query_notes")
     the_lighting_production_company.deposit = params.fetch("query_deposit")
-    the_lighting_production_company.contact_name = params.fetch("query_contact_name")
     the_lighting_production_company.final_price = params.fetch("query_final_price")
 
     if the_lighting_production_company.valid?
@@ -43,12 +44,13 @@ class LightingProductionCompaniesController < ApplicationController
 
     the_lighting_production_company.name = params.fetch("query_name")
     the_lighting_production_company.website = params.fetch("query_website")
+    the_lighting_production_company.contact_name = params.fetch("query_contact_name")
+    the_lighting_production_company.contact_email = params.fetch("query_contact_email")
     the_lighting_production_company.contacted = params.fetch("query_contacted", false)
     the_lighting_production_company.chosen = params.fetch("query_chosen", false)
     the_lighting_production_company.price_options = params.fetch("query_price_options")
     the_lighting_production_company.notes = params.fetch("query_notes")
     the_lighting_production_company.deposit = params.fetch("query_deposit")
-    the_lighting_production_company.contact_name = params.fetch("query_contact_name")
     the_lighting_production_company.final_price = params.fetch("query_final_price")
 
     if the_lighting_production_company.valid?
