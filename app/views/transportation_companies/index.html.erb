@@ -32,6 +32,22 @@
       </div>
 
       <div>
+        <label for="contact_name_box">
+          Contact name
+        </label>
+
+        <input type="text" id="contact_name_box" name="query_contact_name">
+      </div>
+
+      <div>
+        <label for="neighborhood_id_box">
+          Neighborhood
+        </label>
+
+        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id">
+      </div>
+
+      <div>
         <input type="checkbox" id="contacted_box" name="query_contacted" value="1">
 
         <label for="contacted_box">Contacted</label>
@@ -52,9 +68,19 @@
       </div>
 
       <div>
-        <input type="checkbox" id="deposit_box" name="query_deposit" value="1">
+        <label for="deposit_box">
+          Deposit
+        </label>
 
-        <label for="deposit_box">Deposit</label>
+        <input type="number" id="deposit_box" name="query_deposit" value="0">
+      </div>
+
+      <div>
+        <label for="final_price_box">
+          Final price
+        </label>
+
+        <input type="number" id="final_price_box" name="query_final_price" value="0">
       </div>
 
       <div>
@@ -63,30 +89,6 @@
         </label>
 
         <textarea id="notes_box" name="query_notes" rows="3"></textarea>
-      </div>
-
-      <div>
-        <label for="contact_name_box">
-          Contact name
-        </label>
-
-        <input type="text" id="contact_name_box" name="query_contact_name">
-      </div>
-
-      <div>
-        <label for="final_price_box">
-          Final price
-        </label>
-
-        <input type="text" id="final_price_box" name="query_final_price">
-      </div>
-
-      <div>
-        <label for="neighborhood_id_box">
-          Neighborhood
-        </label>
-
-        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id">
       </div>
 
       <button>
@@ -114,6 +116,14 @@
         </th>
 
         <th>
+          Contact name
+        </th>
+
+        <th>
+          Neighborhood
+        </th>
+
+        <th>
           Contacted
         </th>
 
@@ -130,19 +140,11 @@
         </th>
 
         <th>
-          Notes
-        </th>
-
-        <th>
-          Contact name
-        </th>
-
-        <th>
           Final price
         </th>
 
         <th>
-          Neighborhood
+          Notes
         </th>
 
         <th>
