@@ -47,24 +47,26 @@ class CaterersController < ApplicationController
           the_caterer.lng = loc.fetch("lng")
         end
 
-    the_caterer.website = params.fetch("query_website")
-    the_caterer.photo_url = params.fetch("query_photo_url")
-    the_caterer.pdf = params.fetch("query_pdf")
-    the_caterer.contacted = params.fetch("query_contacted", false)
-    the_caterer.tried = params.fetch("query_tried", false)
-    the_caterer.chosen = params.fetch("query_chosen", false)
-    the_caterer.contact_name = params.fetch("query_contact_name")
-    the_caterer.price_options = params.fetch("query_price_options")
-    the_caterer.preferred = params.fetch("query_preferred", false)
-    the_caterer.notes = params.fetch("query_notes")
-    the_caterer.deposit = params.fetch("query_deposit")
-    the_caterer.final_price = params.fetch("query_final_price")
-
     neighborhood_name = params.fetch("query_neighborhood_name")
     the_caterer.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
 
+    the_caterer.website = params.fetch("query_website")
+    
     cuisine_name = params.fetch("query_cuisine_name")
     the_caterer.cuisine_id = Cuisine.where({ :name => cuisine_name }).at(0).id
+
+    the_caterer.contact_name = params.fetch("query_contact_name")
+    the_caterer.contact_email = params.fetch("query_contact_email")
+    the_caterer.preferred = params.fetch("query_preferred", false)
+    the_caterer.contacted = params.fetch("query_contacted", false)
+    the_caterer.tried = params.fetch("query_tried", false)
+    the_caterer.chosen = params.fetch("query_chosen", false)
+    the_caterer.price_options = params.fetch("query_price_options")
+    the_caterer.photo_url = params.fetch("query_photo_url")
+    the_caterer.pdf = params.fetch("query_pdf")
+    the_caterer.notes = params.fetch("query_notes")
+    the_caterer.deposit = params.fetch("query_deposit")
+    the_caterer.final_price = params.fetch("query_final_price")
 
     if the_caterer.valid?
       the_caterer.save
@@ -80,22 +82,44 @@ class CaterersController < ApplicationController
 
     the_caterer.name = params.fetch("query_name")
     the_caterer.address = params.fetch("query_address")
-    the_caterer.lat = params.fetch("query_lat")
-    the_caterer.lng = params.fetch("query_lng")
+
+        #lat & lng
+        if the_caterer.address != ""
+          maps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + the_caterer.address + "&key=" + ENV.fetch("GMAPS_KEY")
+
+          resp = HTTP.get(maps_url)
+          raw_response = resp.to_s
+          parsed_response = JSON.parse(raw_response)
+    
+          results = parsed_response.fetch("results")
+          first_result = results.at(0)
+          geo = first_result.fetch("geometry")
+          loc = geo.fetch("location")
+    
+          the_caterer.lat = loc.fetch("lat")
+          the_caterer.lng = loc.fetch("lng")
+        end
+
+    neighborhood_name = params.fetch("query_neighborhood_name")
+    the_caterer.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
+
     the_caterer.website = params.fetch("query_website")
-    the_caterer.photo_url = params.fetch("query_photo_url")
-    the_caterer.pdf = params.fetch("query_pdf")
+    
+    cuisine_name = params.fetch("query_cuisine_name")
+    the_caterer.cuisine_id = Cuisine.where({ :name => cuisine_name }).at(0).id
+
+    the_caterer.contact_name = params.fetch("query_contact_name")
+    the_caterer.contact_email = params.fetch("query_contact_email")
+    the_caterer.preferred = params.fetch("query_preferred", false)
     the_caterer.contacted = params.fetch("query_contacted", false)
     the_caterer.tried = params.fetch("query_tried", false)
     the_caterer.chosen = params.fetch("query_chosen", false)
-    the_caterer.contact_name = params.fetch("query_contact_name")
     the_caterer.price_options = params.fetch("query_price_options")
-    the_caterer.cuisine_id = params.fetch("query_cuisine_id")
-    the_caterer.preferred = params.fetch("query_preferred", false)
+    the_caterer.photo_url = params.fetch("query_photo_url")
+    the_caterer.pdf = params.fetch("query_pdf")
     the_caterer.notes = params.fetch("query_notes")
     the_caterer.deposit = params.fetch("query_deposit")
     the_caterer.final_price = params.fetch("query_final_price")
-    the_caterer.neighborhood_id = params.fetch("query_neighborhood_id")
 
     if the_caterer.valid?
       the_caterer.save

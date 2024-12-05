@@ -46,17 +46,20 @@ class FloristsController < ApplicationController
       the_florist.lat = loc.fetch("lat")
       the_florist.lng = loc.fetch("lng")
     end
-
+    
+    neighborhood_name = params.fetch("query_neighborhood_name")
+    the_florist.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
+    the_florist.contact_name = params.fetch("query_contact_name")
+    the_florist.contact_email = params.fetch("query_contact_email")
     the_florist.contacted = params.fetch("query_contacted", false)
     the_florist.chosen = params.fetch("query_chosen", false)
     the_florist.price_options = params.fetch("query_price_options")
     the_florist.notes = params.fetch("query_notes")
     the_florist.deposit = params.fetch("query_deposit")
-    the_florist.contact_name = params.fetch("query_contact_name")
+
     the_florist.final_price = params.fetch("query_final_price")
     
-    neighborhood_name = params.fetch("query_neighborhood_name")
-    the_florist.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
+
 
     if the_florist.valid?
       the_florist.save

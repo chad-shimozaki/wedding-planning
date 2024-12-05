@@ -21,15 +21,16 @@ class CoordinatorsController < ApplicationController
     the_coordinator = Coordinator.new
     the_coordinator.name = params.fetch("query_name")
     the_coordinator.website = params.fetch("query_website")
-    the_coordinator.photo_url = params.fetch("query_photo_url")
-    the_coordinator.pdf = params.fetch("query_pdf")
+    the_coordinator.experience = params.fetch("query_experience")
     the_coordinator.contacted = params.fetch("query_contacted", false)
     the_coordinator.chosen = params.fetch("query_chosen", false)
     the_coordinator.price_options = params.fetch("query_price_options")
+    the_coordinator.photo_url = params.fetch("query_photo_url")
+    the_coordinator.pdf = params.fetch("query_pdf")
     the_coordinator.notes = params.fetch("query_notes")
     the_coordinator.deposit = params.fetch("query_deposit")
     the_coordinator.final_price = params.fetch("query_final_price")
-    the_coordinator.experience = params.fetch("query_experience")
+
 
     if the_coordinator.valid?
       the_coordinator.save
@@ -45,15 +46,15 @@ class CoordinatorsController < ApplicationController
 
     the_coordinator.name = params.fetch("query_name")
     the_coordinator.website = params.fetch("query_website")
-    the_coordinator.photo_url = params.fetch("query_photo_url")
-    the_coordinator.pdf = params.fetch("query_pdf")
+    the_coordinator.experience = params.fetch("query_experience")
     the_coordinator.contacted = params.fetch("query_contacted", false)
     the_coordinator.chosen = params.fetch("query_chosen", false)
     the_coordinator.price_options = params.fetch("query_price_options")
+    the_coordinator.photo_url = params.fetch("query_photo_url")
+    the_coordinator.pdf = params.fetch("query_pdf")
     the_coordinator.notes = params.fetch("query_notes")
     the_coordinator.deposit = params.fetch("query_deposit")
     the_coordinator.final_price = params.fetch("query_final_price")
-    the_coordinator.experience = params.fetch("query_experience")
 
     if the_coordinator.valid?
       the_coordinator.save
