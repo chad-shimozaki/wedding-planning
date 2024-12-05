@@ -65,21 +65,21 @@
         Deposit
       </dt>
       <dd>
-        <%= @the_photographer.deposit %>
+        <%= @the_photographer.deposit.round(0) %>
       </dd>
 
       <dt>
         Notes
       </dt>
       <dd>
-        <%= @the_photographer.notes %>
+        <%= @the_photographer.notes.round(2) %>%
       </dd>
 
       <dt>
         Final price
       </dt>
       <dd>
-        <%= @the_photographer.final_price %>
+        $<%= @the_photographer.final_price %>
       </dd>
 
       <dt>
@@ -105,7 +105,7 @@
 <div>
   <div>
     <h2>
-      Edit photographer
+      Edit Photographer
     </h2>
 
     <form action="/modify_photographer/<%= @the_photographer.id %>"  method="post" >
@@ -182,7 +182,7 @@
       </div>
 
       <button>
-        Update photographer
+        Update Photographer
       </button>
     </form>
   </div>
