@@ -33,7 +33,7 @@ class DjsController < ApplicationController
 
     if the_dj.valid?
       the_dj.save
-      redirect_to("/djs", { :notice => "Dj created successfully." })
+      redirect_to("/djs", { :notice => "DJ created successfully." })
     else
       redirect_to("/djs", { :alert => the_dj.errors.full_messages.to_sentence })
     end
@@ -56,7 +56,7 @@ class DjsController < ApplicationController
 
     if the_dj.valid?
       the_dj.save
-      redirect_to("/djs/#{the_dj.id}", { :notice => "Dj updated successfully."} )
+      redirect_to("/djs/#{the_dj.id}", { :notice => "DJ updated successfully."} )
     else
       redirect_to("/djs/#{the_dj.id}", { :alert => the_dj.errors.full_messages.to_sentence })
     end
@@ -68,6 +68,6 @@ class DjsController < ApplicationController
 
     the_dj.destroy
 
-    redirect_to("/djs", { :notice => "Dj deleted successfully."} )
+    redirect_to("/djs", { :notice => "DJ deleted successfully."} )
   end
 end

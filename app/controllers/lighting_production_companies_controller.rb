@@ -32,7 +32,7 @@ class LightingProductionCompaniesController < ApplicationController
 
     if the_lighting_production_company.valid?
       the_lighting_production_company.save
-      redirect_to("/lighting_production_companies", { :notice => "Lighting production company created successfully." })
+      redirect_to("/lighting_production_companies", { :notice => "Lighting & Production Company created successfully." })
     else
       redirect_to("/lighting_production_companies", { :alert => the_lighting_production_company.errors.full_messages.to_sentence })
     end
@@ -67,6 +67,6 @@ class LightingProductionCompaniesController < ApplicationController
 
     the_lighting_production_company.destroy
 
-    redirect_to("/lighting_production_companies", { :notice => "Lighting production company deleted successfully."} )
+    redirect_to("/lighting_production_companies", { :notice => "Lighting & Production Company deleted successfully."} )
   end
 end
