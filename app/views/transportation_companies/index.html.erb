@@ -40,11 +40,23 @@
       </div>
 
       <div>
+        <label for="contact_email_box">
+          Contact email
+        </label>
+
+        <input type="email" id="contact_email_box" name="query_contact_email">
+      </div>
+
+      <div>
         <label for="neighborhood_id_box">
           Neighborhood
         </label>
 
-        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id">
+        <select id="neighborhood_name_box" name="query_neighborhood_name">
+          <% @list_of_neighborhoods.each do |a_neighborhood| %>
+            <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+          <% end %>
+        </select>
       </div>
 
       <div>
@@ -120,6 +132,10 @@
         </th>
 
         <th>
+          Contact email
+        </th>
+
+        <th>
           Neighborhood
         </th>
 
@@ -178,7 +194,11 @@
         </td>
 
         <td>
-          <%= a_transportation_company.neighborhood_id %>
+          <%= a_transportation_company.contact_email %>
+        </td>
+
+        <td>
+          <%= Neighborhood.where({ :id => a_transportation_company.neighborhood_id }).at(0).name %>
         </td>
 
         <td>

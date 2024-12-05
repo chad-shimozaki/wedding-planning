@@ -4,6 +4,8 @@ class TransportationCompaniesController < ApplicationController
 
     @list_of_transportation_companies = matching_transportation_companies.order({ :created_at => :desc })
 
+    @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
+
     render({ :template => "transportation_companies/index" })
   end
 
@@ -14,6 +16,10 @@ class TransportationCompaniesController < ApplicationController
 
     @the_transportation_company = matching_transportation_companies.at(0)
 
+    @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
+
+    @the_transportation_company_neighborhood = Neighborhood.where({ :id => @the_transportation_company.neighborhood_id }).at(0)
+
     render({ :template => "transportation_companies/show" })
   end
 
@@ -21,14 +27,18 @@ class TransportationCompaniesController < ApplicationController
     the_transportation_company = TransportationCompany.new
     the_transportation_company.name = params.fetch("query_name")
     the_transportation_company.website = params.fetch("query_website")
+    the_transportation_company.contact_name = params.fetch("query_contact_name")
+    the_transportation_company.contact_email = params.fetch("query_contact_email")
+
+    neighborhood_name = params.fetch("query_neighborhood_name")
+    the_transportation_company.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
+
     the_transportation_company.contacted = params.fetch("query_contacted", false)
     the_transportation_company.chosen = params.fetch("query_chosen", false)
     the_transportation_company.price_options = params.fetch("query_price_options")
-    the_transportation_company.deposit = params.fetch("query_deposit", false)
-    the_transportation_company.notes = params.fetch("query_notes")
-    the_transportation_company.contact_name = params.fetch("query_contact_name")
+    the_transportation_company.deposit = params.fetch("query_deposit")
     the_transportation_company.final_price = params.fetch("query_final_price")
-    the_transportation_company.neighborhood_id = params.fetch("query_neighborhood_id")
+    the_transportation_company.notes = params.fetch("query_notes")
 
     if the_transportation_company.valid?
       the_transportation_company.save
@@ -44,14 +54,18 @@ class TransportationCompaniesController < ApplicationController
 
     the_transportation_company.name = params.fetch("query_name")
     the_transportation_company.website = params.fetch("query_website")
+    the_transportation_company.contact_name = params.fetch("query_contact_name")
+    the_transportation_company.contact_email = params.fetch("query_contact_email")
+
+    neighborhood_name = params.fetch("query_neighborhood_name")
+    the_transportation_company.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
+
     the_transportation_company.contacted = params.fetch("query_contacted", false)
     the_transportation_company.chosen = params.fetch("query_chosen", false)
     the_transportation_company.price_options = params.fetch("query_price_options")
-    the_transportation_company.deposit = params.fetch("query_deposit", false)
-    the_transportation_company.notes = params.fetch("query_notes")
-    the_transportation_company.contact_name = params.fetch("query_contact_name")
+    the_transportation_company.deposit = params.fetch("query_deposit")
     the_transportation_company.final_price = params.fetch("query_final_price")
-    the_transportation_company.neighborhood_id = params.fetch("query_neighborhood_id")
+    the_transportation_company.notes = params.fetch("query_notes")
 
     if the_transportation_company.valid?
       the_transportation_company.save

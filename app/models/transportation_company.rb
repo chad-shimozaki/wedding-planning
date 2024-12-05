@@ -7,7 +7,7 @@
 #  contact_email   :string
 #  contact_name    :string
 #  contacted       :boolean
-#  deposit         :boolean
+#  deposit         :float
 #  final_price     :float
 #  name            :string
 #  notes           :text

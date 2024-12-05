@@ -13,7 +13,7 @@
 
       <div>
         <a href="/delete_transportation_company/<%= @the_transportation_company.id %>">
-          Delete transportation company
+          Delete Transportation Company
         </a>
       </div>
     </div>
@@ -41,10 +41,17 @@
       </dd>
 
       <dt>
+        Contact email
+      </dt>
+      <dd>
+        <%= @the_transportation_company.contact_email %>
+      </dd>
+
+      <dt>
         Neighborhood
       </dt>
       <dd>
-        <%= @the_transportation_company.neighborhood_id %>
+        <%= Neighborhood.where({ :id => @the_transportation_company.neighborhood_id }).at(0).name %>
       </dd>
 
       <dt>
@@ -72,14 +79,14 @@
         Deposit
       </dt>
       <dd>
-        <%= @the_transportation_company.deposit %>%
+        <%= @the_transportation_company.deposit.round(0) %>%
       </dd>
 
       <dt>
         Final price
       </dt>
       <dd>
-        $<%= @the_transportation_company.final_price %>
+        $<%= @the_transportation_company.final_price.round(2) %>
       </dd>
 
       <dt>
@@ -141,11 +148,28 @@
       </div>
 
       <div>
+        <label for="contact_email_box">
+          Contact email
+        </label>
+
+        <input type="email" id="contact_email_box" name="query_contact_email" value="<%= @the_transportation_company.contact_email %>">
+      </div>
+
+      <div>
         <label for="neighborhood_id_box">
           Neighborhood
         </label>
 
-        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id" value="<%= @the_transportation_company.neighborhood_id %>">
+        <select id="neighborhood_name_box" name="query_neighborhood_name" value="<%= @the_transportation_company_neighborhood.name %>">
+          <% @list_of_neighborhoods.each do |a_neighborhood| %>
+            <% if a_neighborhood.id == @the_transportation_company.neighborhood_id%>
+              <option value="<%= a_neighborhood.name %>" selected><%= a_neighborhood.name %></option>
+            <% else %>
+              <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+            <% end %>
+            
+          <% end %>
+        </select>
       </div>
 
       <div>
@@ -173,11 +197,11 @@
       </div>
 
       <div>
-        <input type="checkbox" id="deposit_box" name="query_deposit" value="1" <%= "checked" if @the_transportation_company.deposit %>>
-
         <label for="deposit_box">
-            Deposit %
+          Deposit %
         </label>
+
+        <input type="number" id="deposit_box" name="query_deposit" value="<%= @the_transportation_company.deposit.round(0) %>">
       </div>
 
       <div>
@@ -185,7 +209,7 @@
           Final price $
         </label>
 
-        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_transportation_company.final_price %>">
+        <input type="number" id="final_price_box" name="query_final_price" value="<%= @the_transportation_company.final_price.round(2) %>">
       </div>
 
       <div>
@@ -197,7 +221,7 @@
       </div>
 
       <button>
-        Update transportation company
+        Update Transportation Company
       </button>
     </form>
   </div>
