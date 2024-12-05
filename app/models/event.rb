@@ -13,6 +13,7 @@
 #  florist_id                     :integer
 #  hotel_id                       :integer
 #  lighting_production_company_id :integer
+#  neighborhood_id                :integer
 #  photographer_id                :integer
 #  transportation_company_id      :integer
 #  venue_id                       :integer

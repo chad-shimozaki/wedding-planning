@@ -139,6 +139,18 @@
         </select>
       </div>
 
+      <div>
+        <label for="neighborhood_name_box">
+          Neighborhood
+        </label>
+
+        <select id="neighborhood_name_box" name="query_neighborhood_name">
+          <% @list_of_neighborhoods.each do |a_neighborhood| %>
+            <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+          <% end %>
+        </select>
+      </div>
+
       <button>
         Create Event
       </button>
@@ -200,6 +212,10 @@
         </th>
 
         <th>
+          Neighborhood
+        </th>
+
+        <th>
           Created at
         </th>
 
@@ -226,39 +242,43 @@
         </td>
 
         <td>
-          <%= an_event.bakery_id %>
+          <%= Bakery.where({ :id => an_event.bakery_id }).at(0).name %>
         </td>
 
         <td>
-          <%= an_event.coordinator_id %>
+          <%= Coordinator.where({ :id => an_event.coordinator_id }).at(0).name %>
         </td>
 
         <td>
-          <%= an_event.dj_id %>
+          <%= Dj.where({ :id => an_event.dj_id }).at(0).name %>
         </td>
 
         <td>
-          <%= an_event.florist_id %>
+          <%= Florist.where({ :id => an_event.florist_id }).at(0).name %>
         </td>
 
         <td>
-          <%= an_event.hotel_id %>
+          <%= Hotel.where({ :id => an_event.hotel_id }).at(0).name %>
         </td>
 
         <td>
-          <%= an_event.lighting_production_company_id %>
+          <%= LightingProductionCompany.where({ :id => an_event.lighting_production_company_id }).at(0).name %>
         </td>
 
         <td>
-          <%= an_event.photographer_id %>
+          <%= Photographer.where({ :id => an_event.photographer_id }).at(0).name %>
         </td>
 
         <td>
-          <%= an_event.transportation_company_id %>
+          <%= TransportationCompany.where({ :id => an_event.transportation_company_id }).at(0).name %>
         </td>
 
         <td>
-          <%= an_event.venue_id %>
+          <%= Venue.where({ :id => an_event.venue_id }).at(0).name %>
+        </td>
+
+        <td>
+          <%= Neighborhood.where({ :id => an_event.neighborhood_id }).at(0).name %>
         </td>
 
         <td>
