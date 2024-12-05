@@ -4,6 +4,8 @@ class VenuesController < ApplicationController
 
     @list_of_venues = matching_venues.order({ :created_at => :desc })
 
+    @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
+
     render({ :template => "venues/index" })
   end
 
@@ -14,6 +16,10 @@ class VenuesController < ApplicationController
 
     @the_venue = matching_venues.at(0)
 
+    @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
+
+    @the_venue_neighborhood = Neighborhood.where({ :id => @the_venue.neighborhood_id }).at(0)
+
     render({ :template => "venues/show" })
   end
 
@@ -23,32 +29,37 @@ class VenuesController < ApplicationController
     the_venue.address = params.fetch("query_address")
 
         #lat & lng
+        if the_venue.address != ""
+          maps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + the_venue.address + "&key=" + ENV.fetch("GMAPS_KEY")
 
-        maps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + the_venue.address + "&key=" + ENV.fetch("GMAPS_KEY")
+          resp = HTTP.get(maps_url)
+          raw_response = resp.to_s
+          parsed_response = JSON.parse(raw_response)
+    
+          results = parsed_response.fetch("results")
+          first_result = results.at(0)
+          geo = first_result.fetch("geometry")
+          loc = geo.fetch("location")
+    
+          the_venue.lat = loc.fetch("lat")
+          the_venue.lng = loc.fetch("lng")
+        end
 
-        resp = HTTP.get(maps_url)
-        raw_response = resp.to_s
-        parsed_response = JSON.parse(raw_response)
-  
-        results = parsed_response.fetch("results")
-        first_result = results.at(0)
-        geo = first_result.fetch("geometry")
-        loc = geo.fetch("location")
-  
-        the_venue.lat = loc.fetch("lat")
-        the_venue.lng = loc.fetch("lng")
+    neighborhood_name = params.fetch("query_neighborhood_name")
+    the_venue.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
 
-    the_venue.contact_name = params.fetch("query_contact_name")
-    the_venue.neighborhood_id = params.fetch("query_neighborhood_id")
     the_venue.capacity = params.fetch("query_capacity")
     the_venue.venue_type = params.fetch("query_venue_type")
-    the_venue.price_options = params.fetch("query_price_options")
     the_venue.website = params.fetch("query_website")
-    the_venue.photo_url = params.fetch("query_photo_url")
-    the_venue.pdf = params.fetch("query_pdf")
+    the_venue.contact_name = params.fetch("query_contact_name")
+    the_venue.contact_email = params.fetch("query_contact_email")
     the_venue.contacted = params.fetch("query_contacted", false)
     the_venue.visited = params.fetch("query_visited", false)
     the_venue.chosen = params.fetch("query_chosen", false)
+    the_venue.price_options = params.fetch("query_price_options")
+    the_venue.photo_url = params.fetch("query_photo_url")
+    the_venue.pdf = params.fetch("query_pdf")
+    the_venue.deposit = params.fetch("query_deposit")
     the_venue.final_price = params.fetch("query_final_price")
     the_venue.events_count = params.fetch("query_events_count")
 
@@ -66,19 +77,39 @@ class VenuesController < ApplicationController
 
     the_venue.name = params.fetch("query_name")
     the_venue.address = params.fetch("query_address")
-    the_venue.lat = params.fetch("query_lat")
-    the_venue.lng = params.fetch("query_lng")
-    the_venue.contact_name = params.fetch("query_contact_name")
-    the_venue.neighborhood_id = params.fetch("query_neighborhood_id")
+
+        #lat & lng
+        if the_venue.address != ""
+          maps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + the_venue.address + "&key=" + ENV.fetch("GMAPS_KEY")
+
+          resp = HTTP.get(maps_url)
+          raw_response = resp.to_s
+          parsed_response = JSON.parse(raw_response)
+    
+          results = parsed_response.fetch("results")
+          first_result = results.at(0)
+          geo = first_result.fetch("geometry")
+          loc = geo.fetch("location")
+    
+          the_venue.lat = loc.fetch("lat")
+          the_venue.lng = loc.fetch("lng")
+        end
+
+    neighborhood_name = params.fetch("query_neighborhood_name")
+    the_venue.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
+
     the_venue.capacity = params.fetch("query_capacity")
     the_venue.venue_type = params.fetch("query_venue_type")
-    the_venue.price_options = params.fetch("query_price_options")
     the_venue.website = params.fetch("query_website")
-    the_venue.photo_url = params.fetch("query_photo_url")
-    the_venue.pdf = params.fetch("query_pdf")
+    the_venue.contact_name = params.fetch("query_contact_name")
+    the_venue.contact_email = params.fetch("query_contact_email")
     the_venue.contacted = params.fetch("query_contacted", false)
     the_venue.visited = params.fetch("query_visited", false)
     the_venue.chosen = params.fetch("query_chosen", false)
+    the_venue.price_options = params.fetch("query_price_options")
+    the_venue.photo_url = params.fetch("query_photo_url")
+    the_venue.pdf = params.fetch("query_pdf")
+    the_venue.deposit = params.fetch("query_deposit")
     the_venue.final_price = params.fetch("query_final_price")
     the_venue.events_count = params.fetch("query_events_count")
 

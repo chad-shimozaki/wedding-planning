@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all venues
+      List of all Venues
     </h1>
   </div>
 </div>
@@ -11,7 +11,7 @@
 <div>
   <div>
     <h2>
-      Add a new venue
+      Add a new Venue
     </h2>
 
     <form action="/insert_venue" method="post">
@@ -32,19 +32,15 @@
       </div>
 
       <div>
-        <label for="contact_name_box">
-          Contact name
-        </label>
-
-        <input type="text" id="contact_name_box" name="query_contact_name">
-      </div>
-
-      <div>
         <label for="neighborhood_id_box">
           Neighborhood
         </label>
 
-        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id">
+        <select id="neighborhood_name_box" name="query_neighborhood_name">
+          <% @list_of_neighborhoods.each do |a_neighborhood| %>
+            <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+          <% end %>
+        </select>
       </div>
 
       <div>
@@ -52,7 +48,7 @@
           Capacity
         </label>
 
-        <input type="text" id="capacity_box" name="query_capacity">
+        <input type="number" id="capacity_box" name="query_capacity">
       </div>
 
       <div>
@@ -64,14 +60,6 @@
       </div>
 
       <div>
-        <label for="price_options_box">
-          Price options
-        </label>
-
-        <textarea id="price_options_box" name="query_price_options" rows="3"></textarea>
-      </div>
-
-      <div>
         <label for="website_box">
           Website
         </label>
@@ -80,19 +68,19 @@
       </div>
 
       <div>
-        <label for="photo_url_box">
-          Photo url
+        <label for="contact_name_box">
+          Contact name
         </label>
 
-        <input type="text" id="photo_url_box" name="query_photo_url">
+        <input type="text" id="contact_name_box" name="query_contact_name">
       </div>
 
       <div>
-        <label for="pdf_box">
-          PDF
+        <label for="contact_email_box">
+          Contact email
         </label>
 
-        <input type="file" id="pdf_box" name="query_pdf">
+        <input type="email" id="contact_email_box" name="query_contact_email">
       </div>
 
       <div>
@@ -114,11 +102,43 @@
       </div>
 
       <div>
+        <label for="price_options_box">
+          Price options
+        </label>
+
+        <textarea id="price_options_box" name="query_price_options" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="photo_url_box">
+          Photo url
+        </label>
+
+        <input type="text" id="photo_url_box" name="query_photo_url">
+      </div>
+
+      <div>
+        <label for="pdf_box">
+          PDF
+        </label>
+
+        <input type="file" id="pdf_box" name="query_pdf">
+      </div>
+
+      <div>
+        <label for="deposit_box">
+          Deposit
+        </label>
+
+        <input type="number" id="deposit_box" name="query_deposit" value="0">
+      </div>
+
+      <div>
         <label for="final_price_box">
           Final price
         </label>
 
-        <input type="text" id="final_price_box" name="query_final_price">
+        <input type="number" id="final_price_box" name="query_final_price" value="0">
       </div>
 
       <div>
@@ -126,11 +146,11 @@
           Events count
         </label>
 
-        <input type="text" id="events_count_box" name="query_events_count">
+        <input type="number" id="events_count_box" name="query_events_count">
       </div>
 
       <button>
-        Create venue
+        Create Venue
       </button>
     </form>
   </div>
@@ -162,10 +182,6 @@
         </th>
 
         <th>
-          Contact name
-        </th>
-
-        <th>
           Neighborhood
         </th>
 
@@ -178,19 +194,15 @@
         </th>
 
         <th>
-          Price options
-        </th>
-
-        <th>
           Website
         </th>
 
         <th>
-          Photo url
+          Contact name
         </th>
 
         <th>
-          PDF
+          Contact email
         </th>
 
         <th>
@@ -206,7 +218,23 @@
         </th>
 
         <th>
-          Final price
+          Price options
+        </th>
+
+        <th>
+          Photo url
+        </th>
+
+        <th>
+          PDF
+        </th>
+  
+        <th>
+          Deposit %
+        </th>
+
+        <th>
+          Final price $
         </th>
 
         <th>
@@ -248,11 +276,7 @@
         </td>
 
         <td>
-          <%= a_venue.contact_name %>
-        </td>
-
-        <td>
-          <%= a_venue.neighborhood_id %>
+           <%= Neighborhood.where({ :id => a_venue.neighborhood_id }).at(0).name %>
         </td>
 
         <td>
@@ -264,19 +288,15 @@
         </td>
 
         <td>
-          <%= a_venue.price_options %>
-        </td>
-
-        <td>
           <%= a_venue.website %>
         </td>
 
         <td>
-          <%= a_venue.photo_url %>
+          <%= a_venue.contact_name %>
         </td>
 
         <td>
-          <%= a_venue.pdf %>
+          <%= a_venue.contact_email %>
         </td>
 
         <td>
@@ -292,7 +312,23 @@
         </td>
 
         <td>
-          <%= a_venue.final_price %>
+          <%= a_venue.price_options %>
+        </td>
+
+        <td>
+          <%= a_venue.photo_url %>
+        </td>
+
+        <td>
+          <%= a_venue.pdf %>
+        </td>
+
+        <td>
+          <%= a_venue.deposit.round(0) %>%
+        </td>
+
+        <td>
+          $<%= a_venue.final_price.round(2) %>
         </td>
 
         <td>

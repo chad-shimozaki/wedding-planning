@@ -9,6 +9,7 @@
 #  contact_email   :string
 #  contact_name    :string
 #  contacted       :boolean
+#  deposit         :float
 #  events_count    :integer
 #  final_price     :float
 #  lat             :float

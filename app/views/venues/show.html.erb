@@ -13,7 +13,7 @@
 
       <div>
         <a href="/delete_venue/<%= @the_venue.id %>">
-          Delete venue
+          Delete Venue
         </a>
       </div>
     </div>
@@ -34,31 +34,10 @@
       </dd>
 
       <dt>
-        Lat
-      </dt>
-      <dd>
-        <%= @the_venue.lat %>
-      </dd>
-
-      <dt>
-        Lng
-      </dt>
-      <dd>
-        <%= @the_venue.lng %>
-      </dd>
-
-      <dt>
-        Contact name
-      </dt>
-      <dd>
-        <%= @the_venue.contact_name %>
-      </dd>
-
-      <dt>
         Neighborhood
       </dt>
       <dd>
-        <%= @the_venue.neighborhood_id %>
+       <%= Neighborhood.where({ :id => @the_venue.neighborhood_id }).at(0).name %>
       </dd>
 
       <dt>
@@ -76,13 +55,6 @@
       </dd>
 
       <dt>
-        Price options
-      </dt>
-      <dd>
-        <%= @the_venue.price_options %>
-      </dd>
-
-      <dt>
         Website
       </dt>
       <dd>
@@ -90,17 +62,17 @@
       </dd>
 
       <dt>
-        Photo url
+        Contact name
       </dt>
       <dd>
-        <%= @the_venue.photo_url %>
+        <%= @the_venue.contact_name %>
       </dd>
 
       <dt>
-        PDF
+        Contact email
       </dt>
       <dd>
-        <%= @the_venue.pdf %>
+        <%= @the_venue.contact_email %>
       </dd>
 
       <dt>
@@ -125,10 +97,38 @@
       </dd>
 
       <dt>
+        Price options
+      </dt>
+      <dd>
+        <%= @the_venue.price_options %>
+      </dd>
+
+      <dt>
+        Photo url
+      </dt>
+      <dd>
+        <%= @the_venue.photo_url %>
+      </dd>
+
+      <dt>
+        PDF
+      </dt>
+      <dd>
+        <%= @the_venue.pdf %>
+      </dd>
+
+      <dt>
+        Deposit
+      </dt>
+      <dd>
+        <%= @the_venue.deposit.round(0) %>%
+      </dd>
+
+      <dt>
         Final price
       </dt>
       <dd>
-        <%= @the_venue.final_price %>
+        $<%= @the_venue.final_price.round(2) %>
       </dd>
 
       <dt>
@@ -161,7 +161,7 @@
 <div>
   <div>
     <h2>
-      Edit venue
+      Edit Venue
     </h2>
 
     <form action="/modify_venue/<%= @the_venue.id %>"  method="post" >
@@ -182,35 +182,20 @@
       </div>
 
       <div>
-        <label for="lat_box">
-          Lat
-        </label>
-
-        <input type="text" id="lat_box" name="query_lat" value="<%= @the_venue.lat %>">
-      </div>
-
-      <div>
-        <label for="lng_box">
-          Lng
-        </label>
-
-        <input type="text" id="lng_box" name="query_lng" value="<%= @the_venue.lng %>">
-      </div>
-
-      <div>
-        <label for="contact_name_box">
-          Contact name
-        </label>
-
-        <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_venue.contact_name %>">
-      </div>
-
-      <div>
         <label for="neighborhood_id_box">
           Neighborhood
         </label>
 
-        <input type="text" id="neighborhood_id_box" name="query_neighborhood_id" value="<%= @the_venue.neighborhood_id %>">
+        <select id="neighborhood_name_box" name="query_neighborhood_name" value="<%= @the_venue_neighborhood.name %>">
+          <% @list_of_neighborhoods.each do |a_neighborhood| %>
+            <% if a_neighborhood.id == @the_venue.neighborhood_id%>
+              <option value="<%= a_neighborhood.name %>" selected><%= a_neighborhood.name %></option>
+            <% else %>
+              <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+            <% end %>
+            
+          <% end %>
+        </select>
       </div>
 
       <div>
@@ -230,14 +215,6 @@
       </div>
 
       <div>
-        <label for="price_options_box">
-          Price options
-        </label>
-
-        <textarea id="price_options_box" name="query_price_options"><%= @the_venue.price_options %></textarea>
-      </div>
-
-      <div>
         <label for="website_box">
           Website
         </label>
@@ -246,19 +223,19 @@
       </div>
 
       <div>
-        <label for="photo_url_box">
-          Photo url
+        <label for="contact_name_box">
+          Contact name
         </label>
 
-        <input type="text" id="photo_url_box" name="query_photo_url" value="<%= @the_venue.photo_url %>">
+        <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_venue.contact_name %>">
       </div>
 
       <div>
-        <label for="pdf_box">
-          PDF
+        <label for="contact_email_box">
+          Contact email
         </label>
 
-        <input type="file" id="pdf_box" name="query_pdf" value="<%= @the_venue.pdf %>">
+        <input type="email" id="contact_email_box" name="query_contact_email" value="<%= @the_venue.contact_email %>">
       </div>
 
       <div>
@@ -286,11 +263,43 @@
       </div>
 
       <div>
+        <label for="price_options_box">
+          Price options
+        </label>
+
+        <textarea id="price_options_box" name="query_price_options"><%= @the_venue.price_options %></textarea>
+      </div>
+
+      <div>
+        <label for="photo_url_box">
+          Photo url
+        </label>
+
+        <input type="text" id="photo_url_box" name="query_photo_url" value="<%= @the_venue.photo_url %>">
+      </div>
+
+      <div>
+        <label for="pdf_box">
+          PDF
+        </label>
+
+        <input type="file" id="pdf_box" name="query_pdf" value="<%= @the_venue.pdf %>">
+      </div>
+
+      <div>
+        <label for="deposit_box">
+          Deposit %
+        </label>
+
+        <input type="text" id="deposit_box" name="query_deposit" value="<%= @the_venue.deposit.round(2) %>">
+      </div>
+
+      <div>
         <label for="final_price_box">
           Final price $
         </label>
 
-        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_venue.final_price %>">
+        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_venue.final_price.round(2) %>">
       </div>
 
       <div>
