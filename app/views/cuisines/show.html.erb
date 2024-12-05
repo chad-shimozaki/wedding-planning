@@ -13,7 +13,7 @@
 
       <div>
         <a href="/delete_cuisine/<%= @the_cuisine.id %>">
-          Delete cuisine
+          Delete Cuisine
         </a>
       </div>
     </div>
@@ -53,9 +53,16 @@
     </h2>
 
     <form action="/modify_cuisine/<%= @the_cuisine.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_cuisine.name %>">
+      </div>
 
       <button>
-        Update cuisine
+        Update Cuisine
       </button>
     </form>
   </div>

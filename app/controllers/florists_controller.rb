@@ -28,8 +28,25 @@ class FloristsController < ApplicationController
     the_florist.name = params.fetch("query_name")
     the_florist.website = params.fetch("query_website")
     the_florist.address = params.fetch("query_address")
-    the_florist.lat = params.fetch("query_lat")
-    the_florist.lng = params.fetch("query_lng")
+
+    #lat & lng
+    if the_bakery.address != ""
+
+      maps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + the_florist.address + "&key=" + ENV.fetch("GMAPS_KEY")
+
+      resp = HTTP.get(maps_url)
+      raw_response = resp.to_s
+      parsed_response = JSON.parse(raw_response)
+
+      results = parsed_response.fetch("results")
+      first_result = results.at(0)
+      geo = first_result.fetch("geometry")
+      loc = geo.fetch("location")
+
+      the_florist.lat = loc.fetch("lat")
+      the_florist.lng = loc.fetch("lng")
+    end
+
     the_florist.contacted = params.fetch("query_contacted", false)
     the_florist.chosen = params.fetch("query_chosen", false)
     the_florist.price_options = params.fetch("query_price_options")
@@ -37,7 +54,9 @@ class FloristsController < ApplicationController
     the_florist.deposit = params.fetch("query_deposit")
     the_florist.contact_name = params.fetch("query_contact_name")
     the_florist.final_price = params.fetch("query_final_price")
-    the_florist.neighborhood_id = params.fetch("query_neighborhood_id")
+    
+    neighborhood_name = params.fetch("query_neighborhood_name")
+    the_florist.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
 
     if the_florist.valid?
       the_florist.save

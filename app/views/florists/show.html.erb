@@ -13,7 +13,7 @@
 
       <div>
         <a href="/delete_florist/<%= @the_florist.id %>">
-          Delete florist
+          Delete Florist
         </a>
       </div>
     </div>
@@ -24,13 +24,6 @@
       </dt>
       <dd>
         <%= @the_florist.name %>
-      </dd>
-
-      <dt>
-        Website
-      </dt>
-      <dd>
-        <%= @the_florist.website %>
       </dd>
 
       <dt>
@@ -59,6 +52,13 @@
       </dt>
       <dd>
         <%= Neighborhood.where({ :id => @the_florist.neighborhood_id }).at(0).name %>
+      </dd>
+
+      <dt>
+        Website
+      </dt>
+      <dd>
+        <%= @the_florist.website %>
       </dd>
 
       <dt>

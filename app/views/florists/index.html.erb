@@ -24,14 +24,6 @@
       </div>
 
       <div>
-        <label for="website_box">
-          Website
-        </label>
-
-        <input type="text" id="website_box" name="query_website">
-      </div>
-
-      <div>
         <label for="address_box">
           Address
         </label>
@@ -49,6 +41,14 @@
             <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
           <% end %>
         </select>
+      </div>
+
+      <div>
+        <label for="website_box">
+          Website
+        </label>
+
+        <input type="text" id="website_box" name="query_website">
       </div>
 
       <div>
@@ -104,7 +104,7 @@
       </div>
 
       <button>
-        Create florist
+        Create Florist
       </button>
     </form>
   </div>
@@ -124,10 +124,6 @@
         </th>
 
         <th>
-          Website
-        </th>
-
-        <th>
           Address
         </th>
 
@@ -141,6 +137,10 @@
 
         <th>
           Neighborhood
+        </th>
+
+        <th>
+          Website
         </th>
 
         <th>
@@ -194,10 +194,6 @@
         </td>
 
         <td>
-          <%= a_florist.website %>
-        </td>
-
-        <td>
           <%= a_florist.address %>
         </td>
 
@@ -211,6 +207,10 @@
 
         <td>
         <%= Neighborhood.where({ :id => a_florist.neighborhood_id }).at(0).name %>
+        </td>
+
+        <td>
+          <%= a_florist.website %>
         </td>
 
         <td>
