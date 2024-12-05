@@ -24,6 +24,14 @@
       </div>
 
       <div>
+        <label for="email_box">
+          Contact Email
+        </label>
+
+        <input type="email" id="email_box" name="query_contact_email">
+      </div>
+
+      <div>
         <label for="website_box">
           Website
         </label>
@@ -120,6 +128,10 @@
         </th>
 
         <th>
+          Contact Email
+        </th>
+
+        <th>
           Website
         </th>
 
@@ -179,6 +191,10 @@
 
         <td>
           <%= a_coordinator.name %>
+        </td>
+
+        <td>
+          <%= a_coordinator.contact_email %>
         </td>
 
         <td>

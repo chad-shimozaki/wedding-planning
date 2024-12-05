@@ -60,6 +60,14 @@
       </div>
 
       <div>
+        <label for="email_box">
+          Contact Email
+        </label>
+
+        <input type="email" id="email_box" name="query_contact_email">
+      </div>
+
+      <div>
         <input type="checkbox" id="contacted_box" name="query_contacted" value="1">
 
         <label for="contacted_box">Contacted</label>
@@ -148,6 +156,10 @@
         </th>
 
         <th>
+          Contact email
+        </th>
+
+        <th>
           Contacted
         </th>
 
@@ -215,6 +227,10 @@
 
         <td>
           <%= a_florist.contact_name %>
+        </td>
+
+        <td>
+          <%= a_florist.contact_email %>
         </td>
 
         <td>
