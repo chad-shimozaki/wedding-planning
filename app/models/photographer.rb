@@ -8,8 +8,10 @@
 #  contacted     :boolean
 #  deposit       :float
 #  final_price   :float
+#  instagram     :string
 #  name          :string
 #  notes         :text
+#  pdf           :string
 #  photo_url     :string
 #  price_options :text
 #  website       :string
