@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Bakery #<%= @the_bakery.id %> details
+      <a href="<%= @the_bakery.website %>"><%= @the_bakery.name %></a>
     </h1>
 
     <div>
@@ -10,148 +10,92 @@
           Go back
         </a>
       </div>
+    </div>
+  </div>
 
-      <div>
-        <a href="/delete_bakery/<%= @the_bakery.id %>">
-          Delete Bakery
-        </a>
+  <div>
+    <div class="container text-center">
+      <div class="row mb-4">
+        <div class="col">
+          <h4>Address</h4>
+          <%= @the_bakery.address %>
+        </div>
+        <div class="col">
+          <h4>Neighborhood</h4>
+          <%= Neighborhood.where({ :id => @the_bakery.neighborhood_id }).at(0).name %>
+        </div>
+      </div>
+      
+      <div class="row mb-4">
+        <div class="col">
+          <h4>Contact Name</h4>
+          <%= @the_bakery.contact_name %>
+        </div>
+        <div class="col">
+          <h4>Contact Email</h4>
+          <%= @the_bakery.contact_email %>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col">
+          <h4>Contacted</h4>
+          <%= @the_bakery.contacted %>
+        </div>
+        <div class="col">
+          <h4>Tried</h4>
+          <%= @the_bakery.tried %>
+        </div>
+        <div class="col">
+          <h4>Chosen</h4>
+          <%= @the_bakery.chosen %>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col">
+          <h4>Photo</h4>
+          <img src = "<%= @the_bakery.photo_url %>"></a>
+        </div>
+        <div class="col">
+          <h4>PDF</h4>
+          <%= @the_bakery.pdf %>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col">
+          <h4>Price Options</h4>
+          <%= @the_bakery.price_options %>
+        </div>
+        <div class="col">
+          <h4>Notes</h4>
+          <%= @the_bakery.notes %>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col">
+          <h4>Deposit</h4>
+          <%= @the_bakery.deposit.round(0) %>%
+        </div>
+        <div class="col">
+          <h4>Final Price</h4>
+          $<%= @the_bakery.final_price.round(2) %>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col">
+          <h4>Created At</h4>
+          <%= time_ago_in_words(@the_bakery.created_at) %> ago
+        </div>
+        <div class="col">
+          <h4>Updated At</h4>
+          <%= time_ago_in_words(@the_bakery.updated_at) %> ago
+        </div>
       </div>
     </div>
-
-    <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_bakery.name %>
-      </dd>
-
-      <dt>
-        Address
-      </dt>
-      <dd>
-        <%= @the_bakery.address %>
-      </dd>
-
-      <dt>
-        Lat
-      </dt>
-      <dd>
-        <%= @the_bakery.lat %>
-      </dd>
-
-      <dt>
-        Lng
-      </dt>
-      <dd>
-        <%= @the_bakery.lng %>
-      </dd>
-
-      <dt>
-        Neighborhood
-      </dt>
-      <dd>
-        <%= Neighborhood.where({ :id => @the_bakery.neighborhood_id }).at(0).name %>
-      </dd>
-      
-      <dt>
-        Website
-      </dt>
-      <dd>
-        <a href="<%= @the_bakery.website %>"><%= @the_bakery.website %></a>
-      </dd>
-
-      <dt>
-        Contact name
-      </dt>
-      <dd>
-        <%= @the_bakery.contact_name %>
-      </dd>
-
-      <dt>
-        Contact email
-      </dt>
-      <dd>
-        <%= @the_bakery.contact_email %>
-      </dd>
-
-      <dt>
-        Contacted
-      </dt>
-      <dd>
-        <%= @the_bakery.contacted %>
-      </dd>
-
-      <dt>
-        Tried
-      </dt>
-      <dd>
-        <%= @the_bakery.tried %>
-      </dd>
-
-      <dt>
-        Chosen
-      </dt>
-      <dd>
-        <%= @the_bakery.chosen %>
-      </dd>
-
-      <dt>
-        Price options
-      </dt>
-      <dd>
-        <%= @the_bakery.price_options %>
-      </dd>
-
-      <dt>
-        Photo url
-      </dt>
-      <dd>
-        <img src = "<%= @the_bakery.photo_url %>"></a>
-      </dd>
-
-      <dt>
-        PDF
-      </dt>
-      <dd>
-        <%= @the_bakery.pdf %>
-      </dd>
-
-      <dt>
-        Notes
-      </dt>
-      <dd>
-        <%= @the_bakery.notes %>
-      </dd>
-
-      <dt>
-        Deposit
-      </dt>
-      <dd>
-        <%= @the_bakery.deposit.round(0) %>%
-      </dd>
-
-      <dt>
-        Final price
-      </dt>
-      <dd>
-        $<%= @the_bakery.final_price.round(2) %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_bakery.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_bakery.updated_at) %> ago
-      </dd>
-    </dl>
   </div>
 </div>
 
@@ -170,7 +114,7 @@
           Name
         </label>
 
-        <input type="text" id="name_box" name="query_name" value="<%= @the_bakery.name %>">
+        <input class="form-text" type="text" id="name_box" name="query_name" value="<%= @the_bakery.name %>">
       </div>
 
       <div>
@@ -178,7 +122,7 @@
           Address
         </label>
 
-        <input type="text" id="address_box" name="query_address" value="<%= @the_bakery.address %>">
+        <input class="form-text" type="text" id="address_box" name="query_address" value="<%= @the_bakery.address %>">
       </div>
       
       <div>
@@ -203,7 +147,7 @@
           Website
         </label>
 
-        <input type="url" id="website_box" name="query_website" value="<%= @the_bakery.website %>">
+        <input class="form-text" type="url" id="website_box" name="query_website" value="<%= @the_bakery.website %>">
       </div>
 
       <div>
@@ -211,7 +155,7 @@
           Contact name
         </label>
 
-        <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_bakery.contact_name %>">
+        <input class="form-text" type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_bakery.contact_name %>">
       </div>
 
       <div>
@@ -219,29 +163,29 @@
           Contact email
         </label>
 
-        <input type="email" id="contact_email_box" name="query_contact_email" value="<%= @the_bakery.contact_email %>">
+        <input class="form-text" type="email" id="contact_email_box" name="query_contact_email" value="<%= @the_bakery.contact_email %>">
       </div>
 
       <div>
-        <input type="checkbox" id="contacted_box" name="query_contacted" value="1" <%= "checked" if @the_bakery.contacted %>>
+        <input class="form-check-input" type="checkbox" id="contacted_box" name="query_contacted" value="1" <%= "checked" if @the_bakery.contacted %>>
 
-        <label for="contacted_box">
+        <label class="form-check-label" for="contacted_box">
             Contacted
         </label>
       </div>
 
       <div>
-        <input type="checkbox" id="tried_box" name="query_tried" value="1" <%= "checked" if @the_bakery.tried %>>
+        <input class="form-check-input" type="checkbox" id="tried_box" name="query_tried" value="1" <%= "checked" if @the_bakery.tried %>>
 
-        <label for="tried_box">
+        <label class="form-check-label" for="tried_box">
             Tried
         </label>
       </div>
 
       <div>
-        <input type="checkbox" id="chosen_box" name="query_chosen" value="1" <%= "checked" if @the_bakery.chosen %>>
+        <input class="form-check-input" type="checkbox" id="chosen_box" name="query_chosen" value="1" <%= "checked" if @the_bakery.chosen %>>
 
-        <label for="chosen_box">
+        <label class="form-check-label" for="chosen_box">
             Chosen
         </label>
       </div>
@@ -251,7 +195,7 @@
           Price options
         </label>
 
-        <textarea id="price_options_box" name="query_price_options"><%= @the_bakery.price_options %></textarea>
+        <textarea class="form-text" id="price_options_box" name="query_price_options"><%= @the_bakery.price_options %></textarea>
       </div>
 
       <div>
@@ -267,7 +211,7 @@
           Notes
         </label>
 
-        <textarea id="notes_box" name="query_notes"><%= @the_bakery.notes %></textarea>
+        <textarea class="form-text" id="notes_box" name="query_notes"><%= @the_bakery.notes %></textarea>
       </div>
 
       <div>
@@ -275,7 +219,7 @@
           PDF
         </label>
 
-        <input type="file" id="pdf_box" name="query_pdf" value="<%= @the_bakery.pdf %>">
+        <input class="form-control" type="file" id="pdf_box" name="query_pdf" value="<%= @the_bakery.pdf %>">
       </div>
 
       <div>
@@ -283,7 +227,7 @@
           Deposit %
         </label>
 
-        <input type="text" id="deposit_box" name="query_deposit" value="<%= @the_bakery.deposit.round(0) %>">
+        <input class="form-text" type="number" id="deposit_box" name="query_deposit" value="<%= @the_bakery.deposit.round(0) %>">
       </div>
 
       <div>
@@ -291,11 +235,23 @@
           Final price $
         </label>
 
-        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_bakery.final_price.round(2) %>">
+        <input class="form-text" type="number" id="final_price_box" name="query_final_price" value="<%= @the_bakery.final_price.round(2) %>">
       </div>
+
+      <div style="height: 10px;"></div>
 
       <button type="submit" class="btn btn-primary btn-sm">
         Update Bakery
+      </button>
+    </form>
+  </div>
+
+  <div style="height: 10px;"></div>
+
+  <div>
+    <form action="/delete_bakery/<%= @the_bakery.id %>"  method="get" >
+      <button type="submit" class="btn btn-danger btn-sm">
+        Delete Bakery
       </button>
     </form>
   </div>
