@@ -114,131 +114,135 @@
 <div>
   <div>
     <table class="table table-bordered table-striped table-hover">
-      <tr>
-        <th>
-          ID
-        </th>
+      <thead>
+        <tr>
+          <th>
+            ID
+          </th>
 
-        <th>
-          Name
-        </th>
+          <th>
+            Name
+          </th>
 
-        <th>
-          Website
-        </th>
+          <th>
+            Website
+          </th>
 
-        <th>
-          Contact name
-        </th>
+          <th>
+            Contact name
+          </th>
 
-        <th>
-          Contact email
-        </th>
+          <th>
+            Contact email
+          </th>
 
-        <th>
-          Neighborhood
-        </th>
+          <th>
+            Neighborhood
+          </th>
 
-        <th>
-          Contacted
-        </th>
+          <th>
+            Contacted
+          </th>
 
-        <th>
-          Chosen
-        </th>
+          <th>
+            Chosen
+          </th>
 
-        <th>
-          Price options
-        </th>
+          <th>
+            Price options
+          </th>
 
-        <th>
-          Deposit
-        </th>
+          <th>
+            Deposit
+          </th>
 
-        <th>
-          Final price
-        </th>
+          <th>
+            Final price
+          </th>
 
-        <th>
-          Notes
-        </th>
+          <th>
+            Notes
+          </th>
 
-        <th>
-          Created at
-        </th>
+          <th>
+            Created at
+          </th>
 
-        <th>
-          Updated at
-        </th>
+          <th>
+            Updated at
+          </th>
 
-        <th>
-        </th>
-      </tr>
+          <th>
+          </th>
+        </tr>
+      </thead>
 
-      <% @list_of_transportation_companies.each do |a_transportation_company| %>
-      <tr>
-        <td>
-          <%= a_transportation_company.id %>
-        </td>
+      <tbody class="table-group-divider">
+        <% @list_of_transportation_companies.each do |a_transportation_company| %>
+          <tr>
+            <td>
+              <%= a_transportation_company.id %>
+            </td>
 
-        <td>
-          <%= a_transportation_company.name %>
-        </td>
+            <td>
+              <%= a_transportation_company.name %>
+            </td>
 
-        <td>
-          <a href="<%= a_transportation_company.website %>"><%= a_transportation_company.website %></a>
-        </td>
+            <td>
+              <a href="<%= a_transportation_company.website %>"><%= a_transportation_company.website %></a>
+            </td>
 
-        <td>
-          <%= a_transportation_company.contact_name %>
-        </td>
+            <td>
+              <%= a_transportation_company.contact_name %>
+            </td>
 
-        <td>
-          <%= a_transportation_company.contact_email %>
-        </td>
+            <td>
+              <%= a_transportation_company.contact_email %>
+            </td>
 
-        <td>
-          <%= Neighborhood.where({ :id => a_transportation_company.neighborhood_id }).at(0).name %>
-        </td>
+            <td>
+              <%= Neighborhood.where({ :id => a_transportation_company.neighborhood_id }).at(0).name %>
+            </td>
 
-        <td>
-          <%= a_transportation_company.contacted %>
-        </td>
+            <td>
+              <%= a_transportation_company.contacted %>
+            </td>
 
-        <td>
-          <%= a_transportation_company.chosen %>
-        </td>
+            <td>
+              <%= a_transportation_company.chosen %>
+            </td>
 
-        <td>
-          <%= a_transportation_company.price_options %>
-        </td>
+            <td>
+              <%= a_transportation_company.price_options %>
+            </td>
 
-        <td>
-          <%= a_transportation_company.deposit.round(0) %>%
-        </td>
+            <td>
+              <%= a_transportation_company.deposit.round(0) %>%
+            </td>
 
-        <td>
-          $<%= a_transportation_company.final_price.round(2) %>
-        </td>
+            <td>
+              $<%= a_transportation_company.final_price.round(2) %>
+            </td>
 
-        <td>
-          <%= a_transportation_company.notes %>
-        </td>
+            <td>
+              <%= a_transportation_company.notes %>
+            </td>
 
-        <td>
-          <%= time_ago_in_words(a_transportation_company.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_transportation_company.updated_at) %> ago
-        </td>
+            <td>
+              <%= time_ago_in_words(a_transportation_company.created_at) %> ago
+            </td>
+            <td>
+              <%= time_ago_in_words(a_transportation_company.updated_at) %> ago
+            </td>
 
-        <td>
-          <a href="/transportation_companies/<%= a_transportation_company.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
+            <td>
+              <a href="/transportation_companies/<%= a_transportation_company.id %>">
+                Show details
+              </a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

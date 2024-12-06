@@ -160,195 +160,199 @@
 <div>
   <div>
     <table class="table table-bordered table-striped table-hover">
-      <tr>
-        <th>
-          ID
-        </th>
+      <thead>
+        <tr>
+          <th>
+            ID
+          </th>
 
-        <th>
-          Name
-        </th>
+          <th>
+            Name
+          </th>
 
-        <th>
-          Address
-        </th>
+          <th>
+            Address
+          </th>
 
-        <th>
-          Lat
-        </th>
+          <th>
+            Lat
+          </th>
 
-        <th>
-          Lng
-        </th>
+          <th>
+            Lng
+          </th>
 
-        <th>
-          Neighborhood
-        </th>
+          <th>
+            Neighborhood
+          </th>
 
-        <th>
-          Capacity
-        </th>
+          <th>
+            Capacity
+          </th>
 
-        <th>
-          Venue type
-        </th>
+          <th>
+            Venue type
+          </th>
 
-        <th>
-          Website
-        </th>
+          <th>
+            Website
+          </th>
 
-        <th>
-          Contact name
-        </th>
+          <th>
+            Contact name
+          </th>
 
-        <th>
-          Contact email
-        </th>
+          <th>
+            Contact email
+          </th>
 
-        <th>
-          Contacted
-        </th>
+          <th>
+            Contacted
+          </th>
 
-        <th>
-          Visited
-        </th>
+          <th>
+            Visited
+          </th>
 
-        <th>
-          Chosen
-        </th>
+          <th>
+            Chosen
+          </th>
 
-        <th>
-          Price options
-        </th>
+          <th>
+            Price options
+          </th>
 
-        <th>
-          Photo url
-        </th>
+          <th>
+            Photo url
+          </th>
 
-        <th>
-          PDF
-        </th>
-  
-        <th>
-          Deposit %
-        </th>
+          <th>
+            PDF
+          </th>
+    
+          <th>
+            Deposit %
+          </th>
 
-        <th>
-          Final price $
-        </th>
+          <th>
+            Final price $
+          </th>
 
-        <th>
-          Events count
-        </th>
+          <th>
+            Events count
+          </th>
 
-        <th>
-          Created at
-        </th>
+          <th>
+            Created at
+          </th>
 
-        <th>
-          Updated at
-        </th>
+          <th>
+            Updated at
+          </th>
 
-        <th>
-        </th>
-      </tr>
+          <th>
+          </th>
+        </tr>
+      </thead>
 
-      <% @list_of_venues.each do |a_venue| %>
-      <tr>
-        <td>
-          <%= a_venue.id %>
-        </td>
+      <tbody class="table-group-divider">
+        <% @list_of_venues.each do |a_venue| %>
+        <tr>
+          <td>
+            <%= a_venue.id %>
+          </td>
 
-        <td>
-          <%= a_venue.name %>
-        </td>
+          <td>
+            <%= a_venue.name %>
+          </td>
 
-        <td>
-          <%= a_venue.address %>
-        </td>
+          <td>
+            <%= a_venue.address %>
+          </td>
 
-        <td>
-          <%= a_venue.lat %>
-        </td>
+          <td>
+            <%= a_venue.lat %>
+          </td>
 
-        <td>
-          <%= a_venue.lng %>
-        </td>
+          <td>
+            <%= a_venue.lng %>
+          </td>
 
-        <td>
-           <%= Neighborhood.where({ :id => a_venue.neighborhood_id }).at(0).name %>
-        </td>
+          <td>
+            <%= Neighborhood.where({ :id => a_venue.neighborhood_id }).at(0).name %>
+          </td>
 
-        <td>
-          <%= a_venue.capacity %>
-        </td>
+          <td>
+            <%= a_venue.capacity %>
+          </td>
 
-        <td>
-          <%= a_venue.venue_type %>
-        </td>
+          <td>
+            <%= a_venue.venue_type %>
+          </td>
 
-        <td>
-          <a href="<%= a_venue.website %>"><%= a_venue.website %></a>
-        </td>
+          <td>
+            <a href="<%= a_venue.website %>"><%= a_venue.website %></a>
+          </td>
 
-        <td>
-          <%= a_venue.contact_name %>
-        </td>
+          <td>
+            <%= a_venue.contact_name %>
+          </td>
 
-        <td>
-          <%= a_venue.contact_email %>
-        </td>
+          <td>
+            <%= a_venue.contact_email %>
+          </td>
 
-        <td>
-          <%= a_venue.contacted %>
-        </td>
+          <td>
+            <%= a_venue.contacted %>
+          </td>
 
-        <td>
-          <%= a_venue.visited %>
-        </td>
+          <td>
+            <%= a_venue.visited %>
+          </td>
 
-        <td>
-          <%= a_venue.chosen %>
-        </td>
+          <td>
+            <%= a_venue.chosen %>
+          </td>
 
-        <td>
-          <%= a_venue.price_options %>
-        </td>
+          <td>
+            <%= a_venue.price_options %>
+          </td>
 
-        <td>
-          <%= a_venue.photo_url %>
-        </td>
+          <td>
+            <%= a_venue.photo_url %>
+          </td>
 
-        <td>
-          <%= a_venue.pdf %>
-        </td>
+          <td>
+            <%= a_venue.pdf %>
+          </td>
 
-        <td>
-          <%= a_venue.deposit.round(0) %>%
-        </td>
+          <td>
+            <%= a_venue.deposit.round(0) %>%
+          </td>
 
-        <td>
-          $<%= a_venue.final_price.round(2) %>
-        </td>
+          <td>
+            $<%= a_venue.final_price.round(2) %>
+          </td>
 
-        <td>
-          <%= a_venue.events_count %>
-        </td>
+          <td>
+            <%= a_venue.events_count %>
+          </td>
 
-        <td>
-          <%= time_ago_in_words(a_venue.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_venue.updated_at) %> ago
-        </td>
+          <td>
+            <%= time_ago_in_words(a_venue.created_at) %> ago
+          </td>
+          <td>
+            <%= time_ago_in_words(a_venue.updated_at) %> ago
+          </td>
 
-        <td>
-          <a href="/venues/<%= a_venue.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
+          <td>
+            <a href="/venues/<%= a_venue.id %>">
+              Show details
+            </a>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

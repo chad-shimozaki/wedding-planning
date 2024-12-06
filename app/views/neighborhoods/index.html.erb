@@ -34,51 +34,55 @@
 <div>
   <div>
     <table class="table table-bordered table-striped table-hover">
-      <tr>
-        <th>
-          ID
-        </th>
+      <thead>
+        <tr>
+          <th>
+            ID
+          </th>
 
-        <th>
-          Name
-        </th>
+          <th>
+            Name
+          </th>
 
-        <th>
-          Created at
-        </th>
+          <th>
+            Created at
+          </th>
 
-        <th>
-          Updated at
-        </th>
+          <th>
+            Updated at
+          </th>
 
-        <th>
-        </th>
-      </tr>
+          <th>
+          </th>
+        </tr>
+      </thead>
 
-      <% @list_of_neighborhoods.each do |a_neighborhood| %>
-      <tr>
-        <td>
-          <%= a_neighborhood.id %>
-        </td>
+      <tbody class="table-group-divider">
+        <% @list_of_neighborhoods.each do |a_neighborhood| %>
+          <tr>
+            <td>
+              <%= a_neighborhood.id %>
+            </td>
 
-         <td>
-          <%= a_neighborhood.name %>
-        </td>
+            <td>
+              <%= a_neighborhood.name %>
+            </td>
 
-        <td>
-          <%= time_ago_in_words(a_neighborhood.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_neighborhood.updated_at) %> ago
-        </td>
+            <td>
+              <%= time_ago_in_words(a_neighborhood.created_at) %> ago
+            </td>
+            <td>
+              <%= time_ago_in_words(a_neighborhood.updated_at) %> ago
+            </td>
 
-        <td>
-          <a href="/neighborhoods/<%= a_neighborhood.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
+            <td>
+              <a href="/neighborhoods/<%= a_neighborhood.id %>">
+                Show details
+              </a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

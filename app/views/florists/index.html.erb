@@ -122,155 +122,159 @@
 <div>
   <div>
     <table class="table table-bordered table-striped table-hover">
-      <tr>
-        <th>
-          ID
-        </th>
+      <thead>
+        <tr>
+          <th>
+            ID
+          </th>
 
-        <th>
-          Name
-        </th>
+          <th>
+            Name
+          </th>
 
-        <th>
-          Address
-        </th>
+          <th>
+            Address
+          </th>
 
-        <th>
-          Lat
-        </th>
+          <th>
+            Lat
+          </th>
 
-        <th>
-          Lng
-        </th>
+          <th>
+            Lng
+          </th>
 
-        <th>
-          Neighborhood
-        </th>
+          <th>
+            Neighborhood
+          </th>
 
-        <th>
-          Website
-        </th>
+          <th>
+            Website
+          </th>
 
-        <th>
-          Contact name
-        </th>
+          <th>
+            Contact name
+          </th>
 
-        <th>
-          Contact email
-        </th>
+          <th>
+            Contact email
+          </th>
 
-        <th>
-          Contacted
-        </th>
+          <th>
+            Contacted
+          </th>
 
-        <th>
-          Chosen
-        </th>
+          <th>
+            Chosen
+          </th>
 
-        <th>
-          Price options
-        </th>
+          <th>
+            Price options
+          </th>
 
-        <th>
-          Notes
-        </th>
+          <th>
+            Notes
+          </th>
 
-        <th>
-          Deposit
-        </th>
+          <th>
+            Deposit
+          </th>
 
-        <th>
-          Final price
-        </th>
+          <th>
+            Final price
+          </th>
 
-        <th>
-          Created at
-        </th>
+          <th>
+            Created at
+          </th>
 
-        <th>
-          Updated at
-        </th>
+          <th>
+            Updated at
+          </th>
 
-        <th>
-        </th>
-      </tr>
+          <th>
+          </th>
+        </tr>
+      </thead>
 
-      <% @list_of_florists.each do |a_florist| %>
-      <tr>
-        <td>
-          <%= a_florist.id %>
-        </td>
+      <tbody class="table-group-divider">
+        <% @list_of_florists.each do |a_florist| %>
+          <tr>
+            <td>
+              <%= a_florist.id %>
+            </td>
 
-        <td>
-          <%= a_florist.name %>
-        </td>
+            <td>
+              <%= a_florist.name %>
+            </td>
 
-        <td>
-          <%= a_florist.address %>
-        </td>
+            <td>
+              <%= a_florist.address %>
+            </td>
 
-        <td>
-          <%= a_florist.lat %>
-        </td>
+            <td>
+              <%= a_florist.lat %>
+            </td>
 
-        <td>
-          <%= a_florist.lng %>
-        </td>
+            <td>
+              <%= a_florist.lng %>
+            </td>
 
-        <td>
-        <%= Neighborhood.where({ :id => a_florist.neighborhood_id }).at(0).name %>
-        </td>
+            <td>
+            <%= Neighborhood.where({ :id => a_florist.neighborhood_id }).at(0).name %>
+            </td>
 
-        <td>
-          <a href="<%= a_florist.website %>"><%= a_florist.website %></a>
-        </td>
+            <td>
+              <a href="<%= a_florist.website %>"><%= a_florist.website %></a>
+            </td>
 
-        <td>
-          <%= a_florist.contact_name %>
-        </td>
+            <td>
+              <%= a_florist.contact_name %>
+            </td>
 
-        <td>
-          <%= a_florist.contact_email %>
-        </td>
+            <td>
+              <%= a_florist.contact_email %>
+            </td>
 
-        <td>
-          <%= a_florist.contacted %>
-        </td>
+            <td>
+              <%= a_florist.contacted %>
+            </td>
 
-        <td>
-          <%= a_florist.chosen %>
-        </td>
+            <td>
+              <%= a_florist.chosen %>
+            </td>
 
-        <td>
-          <%= a_florist.price_options %>
-        </td>
+            <td>
+              <%= a_florist.price_options %>
+            </td>
 
-        <td>
-          <%= a_florist.notes %>
-        </td>
+            <td>
+              <%= a_florist.notes %>
+            </td>
 
-        <td>
-          <%= a_florist.deposit.round(0) %>%
-        </td>
+            <td>
+              <%= a_florist.deposit.round(0) %>%
+            </td>
 
-        <td>
-          $<%= a_florist.final_price.round(2) %>
-        </td>
+            <td>
+              $<%= a_florist.final_price.round(2) %>
+            </td>
 
-        <td>
-          <%= time_ago_in_words(a_florist.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_florist.updated_at) %> ago
-        </td>
+            <td>
+              <%= time_ago_in_words(a_florist.created_at) %> ago
+            </td>
+            <td>
+              <%= time_ago_in_words(a_florist.updated_at) %> ago
+            </td>
 
-        <td>
-          <a href="/florists/<%= a_florist.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
+            <td>
+              <a href="/florists/<%= a_florist.id %>">
+                Show details
+              </a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

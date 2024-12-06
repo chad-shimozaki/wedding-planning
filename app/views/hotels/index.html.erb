@@ -120,155 +120,159 @@
 <div>
   <div>
     <table class="table table-bordered table-striped table-hover">
-      <tr>
-        <th>
-          ID
-        </th>
+      <thead>
+        <tr>
+          <th>
+            ID
+          </th>
 
-        <th>
-          Name
-        </th>
+          <th>
+            Name
+          </th>
 
-        <th>
-          Address
-        </th>
+          <th>
+            Address
+          </th>
 
-        <th>
-          Lat
-        </th>
+          <th>
+            Lat
+          </th>
 
-        <th>
-          Lng
-        </th>
+          <th>
+            Lng
+          </th>
 
-        <th>
-          Neighborhood
-        </th>
+          <th>
+            Neighborhood
+          </th>
 
-        <th>
-          Website
-        </th>
+          <th>
+            Website
+          </th>
 
-        <th>
-          Contact name
-        </th>
+          <th>
+            Contact name
+          </th>
 
-        <th>
-          Contact email
-        </th>
+          <th>
+            Contact email
+          </th>
 
-        <th>
-          Contacted
-        </th>
+          <th>
+            Contacted
+          </th>
 
-        <th>
-          Chosen
-        </th>
+          <th>
+            Chosen
+          </th>
 
-        <th>
-          Block discount
-        </th>
+          <th>
+            Block discount
+          </th>
 
-        <th>
-          Minimum rooms
-        </th>
+          <th>
+            Minimum rooms
+          </th>
 
-        <th>
-          Price options
-        </th>
+          <th>
+            Price options
+          </th>
 
-        <th>
-          Notes
-        </th>
+          <th>
+            Notes
+          </th>
 
-        <th>
-          Created at
-        </th>
+          <th>
+            Created at
+          </th>
 
-        <th>
-          Updated at
-        </th>
+          <th>
+            Updated at
+          </th>
 
-        <th>
-        </th>
-      </tr>
+          <th>
+          </th>
+        </tr>
+      </thead>
 
-      <% @list_of_hotels.each do |a_hotel| %>
-      <tr>
-        <td>
-          <%= a_hotel.id %>
-        </td>
+      <tbody class="table-group-divider">
+        <% @list_of_hotels.each do |a_hotel| %>
+          <tr>
+            <td>
+              <%= a_hotel.id %>
+            </td>
 
-        <td>
-          <%= a_hotel.name %>
-        </td>
+            <td>
+              <%= a_hotel.name %>
+            </td>
 
-        <td>
-          <%= a_hotel.address %>
-        </td>
+            <td>
+              <%= a_hotel.address %>
+            </td>
 
-        <td>
-          <%= a_hotel.lat %>
-        </td>
+            <td>
+              <%= a_hotel.lat %>
+            </td>
 
-        <td>
-          <%= a_hotel.lng %>
-        </td>
+            <td>
+              <%= a_hotel.lng %>
+            </td>
 
-        <td>
-          <%= Neighborhood.where({ :id => a_hotel.neighborhood_id }).at(0).name %>
-        </td>
+            <td>
+              <%= Neighborhood.where({ :id => a_hotel.neighborhood_id }).at(0).name %>
+            </td>
 
-        <td>
-          <a href="<%= a_hotel.website %>"><%= a_hotel.website %></a>
-        </td>
+            <td>
+              <a href="<%= a_hotel.website %>"><%= a_hotel.website %></a>
+            </td>
 
-        <td>
-          <%= a_hotel.contact_name %>
-        </td>
+            <td>
+              <%= a_hotel.contact_name %>
+            </td>
 
-        <td>
-          <%= a_hotel.contact_email %>
-        </td>
+            <td>
+              <%= a_hotel.contact_email %>
+            </td>
 
-        <td>
-          <%= a_hotel.contacted %>
-        </td>
+            <td>
+              <%= a_hotel.contacted %>
+            </td>
 
-        <td>
-          <%= a_hotel.chosen %>
-        </td>
+            <td>
+              <%= a_hotel.chosen %>
+            </td>
 
-        <td>
-          <%= a_hotel.block_discount %>
-        </td>
+            <td>
+              <%= a_hotel.block_discount %>
+            </td>
 
-        <td>
-          <%= a_hotel.minimum_rooms.round(0) %>
-        </td>
+            <td>
+              <%= a_hotel.minimum_rooms.round(0) %>
+            </td>
 
-        <td>
-          <%= a_hotel.price_options %>
-        </td>
+            <td>
+              <%= a_hotel.price_options %>
+            </td>
 
-        <td>
-          <%= a_hotel.notes %>
-        </td>
+            <td>
+              <%= a_hotel.notes %>
+            </td>
 
-        <td>
-          <%= time_ago_in_words(a_hotel.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_hotel.updated_at) %> ago
-        </td>
+            <td>
+              <%= time_ago_in_words(a_hotel.created_at) %> ago
+            </td>
+            <td>
+              <%= time_ago_in_words(a_hotel.updated_at) %> ago
+            </td>
 
-        <td>
-          <a href="/hotels/<%= a_hotel.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
+            <td>
+              <a href="/hotels/<%= a_hotel.id %>">
+                Show details
+              </a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

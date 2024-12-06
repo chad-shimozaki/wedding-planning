@@ -162,139 +162,143 @@
 <div>
   <div>
     <table class="table table-bordered table-striped table-hover">
-      <tr>
-        <th>
-          ID
-        </th>
+      <thead>
+        <tr>
+          <th>
+            ID
+          </th>
 
-        <th>
-          Name
-        </th>
+          <th>
+            Name
+          </th>
 
-        <th>
-          Chronological order
-        </th>
+          <th>
+            Chronological order
+          </th>
 
-        <th>
-          Bakery
-        </th>
+          <th>
+            Bakery
+          </th>
 
-        <th>
-          Coordinator
-        </th>
+          <th>
+            Coordinator
+          </th>
 
-        <th>
-          Dj
-        </th>
+          <th>
+            Dj
+          </th>
 
-        <th>
-          Florist
-        </th>
+          <th>
+            Florist
+          </th>
 
-        <th>
-          Hotel
-        </th>
+          <th>
+            Hotel
+          </th>
 
-        <th>
-          Lighting production company
-        </th>
+          <th>
+            Lighting production company
+          </th>
 
-        <th>
-          Photographer
-        </th>
+          <th>
+            Photographer
+          </th>
 
-        <th>
-          Transportation company
-        </th>
+          <th>
+            Transportation company
+          </th>
 
-        <th>
-          Venue
-        </th>
+          <th>
+            Venue
+          </th>
 
-        <th>
-          Neighborhood
-        </th>
+          <th>
+            Neighborhood
+          </th>
 
-        <th>
-          Created at
-        </th>
+          <th>
+            Created at
+          </th>
 
-        <th>
-          Updated at
-        </th>
+          <th>
+            Updated at
+          </th>
 
-        <th>
-        </th>
-      </tr>
+          <th>
+          </th>
+        </tr>
+      </thead>
 
-      <% @list_of_events.each do |an_event| %>
-      <tr>
-        <td>
-          <%= an_event.id %>
-        </td>
+      <tbody class="table-group-divider">
+        <% @list_of_events.each do |an_event| %>
+          <tr>
+            <td>
+              <%= an_event.id %>
+            </td>
 
-        <td>
-          <%= an_event.name %>
-        </td>
+            <td>
+              <%= an_event.name %>
+            </td>
 
-        <td>
-          <%= an_event.chronological_order %>
-        </td>
+            <td>
+              <%= an_event.chronological_order %>
+            </td>
 
-        <td>
-          <%= Bakery.where({ :id => an_event.bakery_id }).at(0).name %>
-        </td>
+            <td>
+              <%= Bakery.where({ :id => an_event.bakery_id }).at(0).name %>
+            </td>
 
-        <td>
-          <%= Coordinator.where({ :id => an_event.coordinator_id }).at(0).name %>
-        </td>
+            <td>
+              <%= Coordinator.where({ :id => an_event.coordinator_id }).at(0).name %>
+            </td>
 
-        <td>
-          <%= Dj.where({ :id => an_event.dj_id }).at(0).name %>
-        </td>
+            <td>
+              <%= Dj.where({ :id => an_event.dj_id }).at(0).name %>
+            </td>
 
-        <td>
-          <%= Florist.where({ :id => an_event.florist_id }).at(0).name %>
-        </td>
+            <td>
+              <%= Florist.where({ :id => an_event.florist_id }).at(0).name %>
+            </td>
 
-        <td>
-          <%= Hotel.where({ :id => an_event.hotel_id }).at(0).name %>
-        </td>
+            <td>
+              <%= Hotel.where({ :id => an_event.hotel_id }).at(0).name %>
+            </td>
 
-        <td>
-          <%= LightingProductionCompany.where({ :id => an_event.lighting_production_company_id }).at(0).name %>
-        </td>
+            <td>
+              <%= LightingProductionCompany.where({ :id => an_event.lighting_production_company_id }).at(0).name %>
+            </td>
 
-        <td>
-          <%= Photographer.where({ :id => an_event.photographer_id }).at(0).name %>
-        </td>
+            <td>
+              <%= Photographer.where({ :id => an_event.photographer_id }).at(0).name %>
+            </td>
 
-        <td>
-          <%= TransportationCompany.where({ :id => an_event.transportation_company_id }).at(0).name %>
-        </td>
+            <td>
+              <%= TransportationCompany.where({ :id => an_event.transportation_company_id }).at(0).name %>
+            </td>
 
-        <td>
-          <%= Venue.where({ :id => an_event.venue_id }).at(0).name %>
-        </td>
+            <td>
+              <%= Venue.where({ :id => an_event.venue_id }).at(0).name %>
+            </td>
 
-        <td>
-          <%= Neighborhood.where({ :id => an_event.neighborhood_id }).at(0).name %>
-        </td>
+            <td>
+              <%= Neighborhood.where({ :id => an_event.neighborhood_id }).at(0).name %>
+            </td>
 
-        <td>
-          <%= time_ago_in_words(an_event.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(an_event.updated_at) %> ago
-        </td>
+            <td>
+              <%= time_ago_in_words(an_event.created_at) %> ago
+            </td>
+            <td>
+              <%= time_ago_in_words(an_event.updated_at) %> ago
+            </td>
 
-        <td>
-          <a href="/events/<%= an_event.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
+            <td>
+              <a href="/events/<%= an_event.id %>">
+                Show details
+              </a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

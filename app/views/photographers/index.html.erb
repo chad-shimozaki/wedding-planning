@@ -118,139 +118,143 @@
 <div>
   <div>
     <table class="table table-bordered table-striped table-hover">
-      <tr>
-        <th>
-          ID
-        </th>
+      <thead>
+        <tr>
+          <th>
+            ID
+          </th>
 
-        <th>
-          Name
-        </th>
+          <th>
+            Name
+          </th>
 
-        <th>
-          Instagram
-        </th>
+          <th>
+            Instagram
+          </th>
 
-        <th>
-          Contact Email
-        </th>
+          <th>
+            Contact Email
+          </th>
 
-        <th>
-          Website
-        </th>
+          <th>
+            Website
+          </th>
 
-        <th>
-          Contacted
-        </th>
+          <th>
+            Contacted
+          </th>
 
-        <th>
-          Chosen
-        </th>
+          <th>
+            Chosen
+          </th>
 
-        <th>
-          Price options
-        </th>
+          <th>
+            Price options
+          </th>
 
-        <th>
-          Photo url
-        </th>
+          <th>
+            Photo url
+          </th>
 
-        <th>
-          PDF
-        </th>
+          <th>
+            PDF
+          </th>
 
-        <th>
-          Deposit
-        </th>
+          <th>
+            Deposit
+          </th>
 
-        <th>
-          Final price
-        </th>
+          <th>
+            Final price
+          </th>
 
-        <th>
-          Notes
-        </th>
+          <th>
+            Notes
+          </th>
 
-        <th>
-          Created at
-        </th>
+          <th>
+            Created at
+          </th>
 
-        <th>
-          Updated at
-        </th>
+          <th>
+            Updated at
+          </th>
 
-        <th>
-        </th>
-      </tr>
+          <th>
+          </th>
+        </tr>
+      </thead>
 
-      <% @list_of_photographers.each do |a_photographer| %>
-      <tr>
-        <td>
-          <%= a_photographer.id %>
-        </td>
+      <tbody class="table-group-divider">
+        <% @list_of_photographers.each do |a_photographer| %>
+          <tr>
+            <td>
+              <%= a_photographer.id %>
+            </td>
 
-        <td>
-          <%= a_photographer.name %>
-        </td>
+            <td>
+              <%= a_photographer.name %>
+            </td>
 
-        <td>
-          <%= a_photographer.instagram %>
-        </td>
+            <td>
+              <%= a_photographer.instagram %>
+            </td>
 
-        <td>
-          <%= a_photographer.contact_email %>
-        </td>
+            <td>
+              <%= a_photographer.contact_email %>
+            </td>
 
-        <td>
-          <a href="<%= a_photographer.website %>"><%= a_photographer.website %></a>
-        </td>
+            <td>
+              <a href="<%= a_photographer.website %>"><%= a_photographer.website %></a>
+            </td>
 
-        <td>
-          <%= a_photographer.contacted %>
-        </td>
+            <td>
+              <%= a_photographer.contacted %>
+            </td>
 
-        <td>
-          <%= a_photographer.chosen %>
-        </td>
+            <td>
+              <%= a_photographer.chosen %>
+            </td>
 
-        <td>
-          <%= a_photographer.price_options %>
-        </td>
+            <td>
+              <%= a_photographer.price_options %>
+            </td>
 
-        <td>
-          <%= a_photographer.photo_url %>
-        </td>
+            <td>
+              <%= a_photographer.photo_url %>
+            </td>
 
-        <td>
-          <%= a_photographer.pdf %>
-        </td>
+            <td>
+              <%= a_photographer.pdf %>
+            </td>
 
-        <td>
-          <%= a_photographer.deposit %>%
-        </td>
+            <td>
+              <%= a_photographer.deposit %>%
+            </td>
 
-        <td>
-          $<%= a_photographer.final_price %>
-        </td>
+            <td>
+              $<%= a_photographer.final_price %>
+            </td>
 
-        <td>
-          <%= a_photographer.notes %>
-        </td>
+            <td>
+              <%= a_photographer.notes %>
+            </td>
 
-        <td>
-          <%= time_ago_in_words(a_photographer.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_photographer.updated_at) %> ago
-        </td>
+            <td>
+              <%= time_ago_in_words(a_photographer.created_at) %> ago
+            </td>
+            <td>
+              <%= time_ago_in_words(a_photographer.updated_at) %> ago
+            </td>
 
-        <td>
-          <a href="/photographers/<%= a_photographer.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
+            <td>
+              <a href="/photographers/<%= a_photographer.id %>">
+                Show details
+              </a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

@@ -118,139 +118,143 @@
 <div>
   <div>
     <table class="table table-bordered table-striped table-hover">
-      <tr>
-        <th>
-          ID
-        </th>
+      <thead>
+        <tr>
+          <th>
+            ID
+          </th>
 
-        <th>
-          Name
-        </th>
+          <th>
+            Name
+          </th>
 
-        <th>
-          Contact Email
-        </th>
+          <th>
+            Contact Email
+          </th>
 
-        <th>
-          Website
-        </th>
+          <th>
+            Website
+          </th>
 
-        <th>
-          Contacted
-        </th>
+          <th>
+            Contacted
+          </th>
 
-        <th>
-          Chosen
-        </th>
+          <th>
+            Chosen
+          </th>
 
-        <th>
-          Price options
-        </th>
+          <th>
+            Price options
+          </th>
 
-        <th>
-          Photo url
-        </th>
+          <th>
+            Photo url
+          </th>
 
-        <th>
-          PDF
-        </th>
+          <th>
+            PDF
+          </th>
 
-        <th>
-          Notes
-        </th>
+          <th>
+            Notes
+          </th>
 
-        <th>
-          Deposit
-        </th>
+          <th>
+            Deposit
+          </th>
 
-        <th>
-          Final price
-        </th>
+          <th>
+            Final price
+          </th>
 
-        <th>
-          Experience
-        </th>
+          <th>
+            Experience
+          </th>
 
-        <th>
-          Created at
-        </th>
+          <th>
+            Created at
+          </th>
 
-        <th>
-          Updated at
-        </th>
+          <th>
+            Updated at
+          </th>
 
-        <th>
-        </th>
-      </tr>
+          <th>
+          </th>
+        </tr>
+      </thead>
 
-      <% @list_of_coordinators.each do |a_coordinator| %>
-      <tr>
-        <td>
-          <%= a_coordinator.id %>
-        </td>
+      <tbody class="table-group-divider">
+        <% @list_of_coordinators.each do |a_coordinator| %>
+          <tr>
+            <td>
+              <%= a_coordinator.id %>
+            </td>
 
-        <td>
-          <%= a_coordinator.name %>
-        </td>
+            <td>
+              <%= a_coordinator.name %>
+            </td>
 
-        <td>
-          <%= a_coordinator.contact_email %>
-        </td>
+            <td>
+              <%= a_coordinator.contact_email %>
+            </td>
 
-        <td>
-          <a href="<%= a_coordinator.website %>"><%= a_coordinator.website %></a>
-        </td>
+            <td>
+              <a href="<%= a_coordinator.website %>"><%= a_coordinator.website %></a>
+            </td>
 
-        <td>
-          <%= a_coordinator.contacted %>
-        </td>
+            <td>
+              <%= a_coordinator.contacted %>
+            </td>
 
-        <td>
-          <%= a_coordinator.chosen %>
-        </td>
+            <td>
+              <%= a_coordinator.chosen %>
+            </td>
 
-        <td>
-          <%= a_coordinator.price_options %>
-        </td>
+            <td>
+              <%= a_coordinator.price_options %>
+            </td>
 
-        <td>
-          <%= a_coordinator.photo_url %>
-        </td>
+            <td>
+              <%= a_coordinator.photo_url %>
+            </td>
 
-        <td>
-          <%= a_coordinator.pdf %>
-        </td>
+            <td>
+              <%= a_coordinator.pdf %>
+            </td>
 
-        <td>
-          <%= a_coordinator.notes %>
-        </td>
+            <td>
+              <%= a_coordinator.notes %>
+            </td>
 
-        <td>
-          <%= a_coordinator.deposit.round(0) %>%
-        </td>
+            <td>
+              <%= a_coordinator.deposit.round(0) %>%
+            </td>
 
-        <td>
-          $<%= a_coordinator.final_price.round(2) %>
-        </td>
+            <td>
+              $<%= a_coordinator.final_price.round(2) %>
+            </td>
 
-        <td>
-          <%= a_coordinator.experience %>
-        </td>
+            <td>
+              <%= a_coordinator.experience %>
+            </td>
 
-        <td>
-          <%= time_ago_in_words(a_coordinator.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_coordinator.updated_at) %> ago
-        </td>
+            <td>
+              <%= time_ago_in_words(a_coordinator.created_at) %> ago
+            </td>
+            <td>
+              <%= time_ago_in_words(a_coordinator.updated_at) %> ago
+            </td>
 
-        <td>
-          <a href="/coordinators/<%= a_coordinator.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
+            <td>
+              <a href="/coordinators/<%= a_coordinator.id %>">
+                Show details
+              </a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>
