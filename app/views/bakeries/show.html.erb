@@ -129,13 +129,20 @@
 
       </div>
 
-      <div class="row mb-4">
+      <% if @the_bakery.chosen == true %>
+        <div class="row mb-4">
+          <div class="col">
+            <h4>Final Price</h4>
+            $<%= @the_bakery.final_price.round(2) %>
+          </div>
 
-        <div class="col">
-          <h4>Final Price</h4>
-          $<%= @the_bakery.final_price.round(2) %>
         </div>
-      </div>
+
+      <% end %>
+
+      
+
+      
 
       <div class="row mb-4">
         <div class="col">
@@ -243,6 +250,30 @@
       </div>
 
       <div>
+        <input class="form-check-input" type="checkbox" id="signed_contract_box" name="query_signed_contract" value="1" <%= "checked" if @the_bakery.signed_contract %>>
+
+        <label class="form-check-label" for="signed_contract_box">
+            Signed Contract
+        </label>
+      </div>
+
+      <div>
+        <input class="form-check-input" type="checkbox" id="paid_deposit_box" name="query_paid_deposit" value="1" <%= "checked" if @the_bakery.paid_deposit %>>
+
+        <label class="form-check-label" for="paid_deposit_box">
+            Paid Deposit
+        </label>
+      </div>
+
+      <div>
+        <input class="form-check-input" type="checkbox" id="final_payment_box" name="query_final_payment" value="1" <%= "checked" if @the_bakery.final_payment %>>
+
+        <label class="form-check-label" for="chosen_box">
+            Final Payment
+        </label>
+      </div>
+
+      <div>
         <label for="price_options_box">
           Price options
         </label>
@@ -255,7 +286,7 @@
           Photo url
         </label> 
 
-        <input type="text" id="photo_url_box" name="query_photo_url" value="<%= @the_bakery.photo_url %>">
+        <input class="form-text" type="text" id="photo_url_box" name="query_photo_url" value="<%= @the_bakery.photo_url %>">
       </div>
 
       <div>

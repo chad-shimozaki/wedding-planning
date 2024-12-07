@@ -36,6 +36,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_07_074426) do
     t.string "contact_email"
     t.boolean "signed_contract"
     t.boolean "paid_deposit"
+    t.boolean "final_payment"
   end
 
   create_table "caterers", force: :cascade do |t|
