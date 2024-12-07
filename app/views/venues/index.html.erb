@@ -101,6 +101,8 @@
         <label for="chosen_box">Chosen</label>
       </div>
 
+      <div>
+        <input type="checkbox" id="signed_contract_box" name="query_signed_contract" value="1">
         <label for="signed_contract_box">Signed Contract</label>
       </div>
 
@@ -189,14 +191,6 @@
 
           <th>
             Address
-          </th>
-
-          <th>
-            Lat
-          </th>
-
-          <th>
-            Lng
           </th>
 
           <th>
@@ -300,14 +294,6 @@
           </td>
 
           <td>
-            <%= a_venue.lat %>
-          </td>
-
-          <td>
-            <%= a_venue.lng %>
-          </td>
-
-          <td>
             <%= Neighborhood.where({ :id => a_venue.neighborhood_id }).at(0).name %>
           </td>
 
@@ -384,7 +370,7 @@
           </td>
 
           <td>
-            <%= a_venue.photo_url %>
+            <img src = "<%= a_venue.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
           </td>
 
           <td>

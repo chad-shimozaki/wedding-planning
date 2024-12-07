@@ -197,14 +197,6 @@
           </th>
 
           <th>
-            Lat
-          </th>
-
-          <th>
-            Lng
-          </th>
-
-          <th>
             Neighborhood
           </th>
 
@@ -305,14 +297,6 @@
             </td>
 
             <td>
-              <%= a_caterer.lat %>
-            </td>
-
-            <td>
-              <%= a_caterer.lng %>
-            </td>
-
-            <td>
               <%= Neighborhood.where({ :id => a_caterer.neighborhood_id }).at(0).name %>
             </td>
 
@@ -393,7 +377,7 @@
             </td>
 
             <td>
-              <img src = "<%= a_caterer.photo_url %>"></a>
+              <img src = "<%= a_caterer.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
             </td>
 
             <td>
