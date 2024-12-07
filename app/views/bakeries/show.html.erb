@@ -1,14 +1,20 @@
 <div>
   <div>
+      <a href="javascript:history.back()" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left"></i> Back
+      </a>
+  </div>
     <h1>
       <a href="<%= @the_bakery.website %>"><%= @the_bakery.name %></a>
     </h1>
 
     <div>
-      <div>
-        <a href="/bakeries">
-          Go back
-        </a>
+      <div class="row mb-4">
+          <% if @the_bakery.photo_url.blank? %>
+            <p>No photo provided</p>
+          <% else %>
+          <img src = "<%= @the_bakery.photo_url %>" style="width: 300px; height: 200px;"></a>
+          <% end %>
       </div>
     </div>
   </div>
@@ -29,11 +35,19 @@
       <div class="row mb-4">
         <div class="col">
           <h4>Contact Name</h4>
-          <%= @the_bakery.contact_name %>
+            <% if @the_bakery.contact_name.blank? %>
+              <p>None provided</p>
+            <% else %>
+              <%= @the_bakery.contact_name %>
+            <% end %>
         </div>
         <div class="col">
           <h4>Contact Email</h4>
-          <%= @the_bakery.contact_email %>
+            <% if @the_bakery.contact_email.blank? %>
+              <p>None provided</p>
+            <% else %>
+              <%= @the_bakery.contact_email %>
+            <% end %>
         </div>
       </div>
 
@@ -66,31 +80,57 @@
 
       <div class="row mb-4">
         <div class="col">
-          <h4>Photo</h4>
-          <img src = "<%= @the_bakery.photo_url %>"></a>
-        </div>
-        <div class="col">
-          <h4>PDF</h4>
-          <%= @the_bakery.pdf %>
-        </div>
-      </div>
-
-      <div class="row mb-4">
-        <div class="col">
           <h4>Price Options</h4>
-          <%= @the_bakery.price_options %>
+            <% if @the_bakery.price_options.blank? %>
+              <p>None provided</p>
+            <% else %>
+              <%= @the_bakery.price_options %>
+            <% end %>
+        </div>
+        <div class="col">
+          <h4>Deposit</h4>
+          <%= @the_bakery.deposit.round(0) %>%
+        </div><div class="col">
+          <h4>PDF</h4>
+          <% if @the_bakery.pdf.blank? %>
+            <p>None provided</p>
+          <% else %>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pdfModal">
+              View PDF
+            </button>
+
+            <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="pdfModalLabel">PDF Preview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <embed src="/public/pdfs<%= @the_bakery.pdf %>.pdf" type="application/pdf" width="100%" height="400px">
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
         <div class="col">
           <h4>Notes</h4>
           <%= @the_bakery.notes %>
+            <% if @the_bakery.notes.blank? %>
+              <p>None provided</p>
+            <% else %>
+              <%= @the_bakery.notes %>
+            <% end %>
         </div>
       </div>
 
       <div class="row mb-4">
-        <div class="col">
-          <h4>Deposit</h4>
-          <%= @the_bakery.deposit.round(0) %>%
-        </div>
+
+      </div>
+
+      <div class="row mb-4">
+
         <div class="col">
           <h4>Final Price</h4>
           $<%= @the_bakery.final_price.round(2) %>
@@ -213,7 +253,7 @@
       <div>
         <label for="photo_url_box">
           Photo url
-        </label>
+        </label> 
 
         <input type="text" id="photo_url_box" name="query_photo_url" value="<%= @the_bakery.photo_url %>">
       </div>
