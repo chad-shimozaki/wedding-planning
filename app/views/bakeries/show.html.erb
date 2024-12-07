@@ -40,15 +40,27 @@
       <div class="row mb-4">
         <div class="col">
           <h4>Contacted</h4>
-          <%= @the_bakery.contacted %>
+          <% if @the_bakery.contacted == true %>
+            <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+          <% else %>
+            <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+          <% end %>
         </div>
         <div class="col">
           <h4>Tried</h4>
-          <%= @the_bakery.tried %>
+          <% if @the_bakery.tried == true %>
+            <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+          <% else %>
+            <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+          <% end %>
         </div>
         <div class="col">
           <h4>Chosen</h4>
-          <%= @the_bakery.chosen %>
+            <% if @the_bakery.chosen == true %>
+            <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+          <% else %>
+            <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+          <% end %>
         </div>
       </div>
 
