@@ -236,6 +236,18 @@
           </th>
 
           <th>
+            Signed Contract
+          </th>
+
+          <th>
+            Paid Deposit
+          </th>
+
+          <th>
+            Final Payment
+          </th>
+
+          <th>
             Price options
           </th>
 
@@ -319,17 +331,53 @@
             <%= a_venue.contact_email %>
           </td>
 
-          <td>
-            <%= a_venue.contacted %>
-          </td>
+          <td style="text-align: center;">
+              <% if a_venue.contacted == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
 
-          <td>
-            <%= a_venue.visited %>
-          </td>
+            <td style="text-align: center;">
+              <% if a_venue.visited == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
 
-          <td>
-            <%= a_venue.chosen %>
-          </td>
+            <td style="text-align: center;">
+              <% if a_venue.chosen == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
+
+            <td style="text-align: center;">
+              <% if a_venue.signed_contract == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
+
+            <td style="text-align: center;">
+              <% if a_venue.paid_deposit == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
+
+            <td style="text-align: center;">
+              <% if a_venue.final_payment == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
 
           <td>
             <%= a_venue.price_options %>

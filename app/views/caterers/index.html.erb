@@ -102,7 +102,7 @@
 
         <label for="chosen_box">Chosen</label>
       </div>
-      
+
       <div>
         <input type="checkbox" id="signed_contract_box" name="query_signed_contract" value="1">
 
@@ -241,6 +241,18 @@
           </th>
           
           <th>
+            Signed Contract
+          </th>
+
+          <th>
+            Paid Deposit
+          </th>
+
+          <th>
+            Final Payment
+          </th>
+
+          <th>
             Price options
           </th>
 
@@ -320,20 +332,60 @@
               <%= a_caterer.contact_email %>
             </td>
 
-            <td>
-              <%= a_caterer.preferred %>
+            <td style="text-align: center;">
+              <% if a_caterer.preferred == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
             </td>
 
-            <td>
-              <%= a_caterer.contacted %>
+            <td style="text-align: center;">
+              <% if a_caterer.contacted == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
             </td>
 
-            <td>
-              <%= a_caterer.tried %>
+            <td style="text-align: center;">
+              <% if a_caterer.tried == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
             </td>
 
-            <td>
-              <%= a_caterer.chosen %>
+            <td style="text-align: center;">
+              <% if a_caterer.chosen == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
+
+            <td style="text-align: center;">
+              <% if a_caterer.signed_contract == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
+
+            <td style="text-align: center;">
+              <% if a_caterer.paid_deposit == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
+
+            <td style="text-align: center;">
+              <% if a_caterer.final_payment == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
             </td>
 
             <td>

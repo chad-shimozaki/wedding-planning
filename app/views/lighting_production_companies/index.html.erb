@@ -150,6 +150,18 @@
           </th>
 
           <th>
+            Signed Contract
+          </th>
+
+          <th>
+            Paid Deposit
+          </th>
+
+          <th>
+            Final Payment
+          </th>
+
+          <th>
             Price options
           </th>
 
@@ -201,12 +213,44 @@
               <%= a_lighting_production_company.contact_name %>
             </td>
 
-            <td>
-              <%= a_lighting_production_company.contacted %>
+            <td style="text-align: center;">
+              <% if a_lighting_production_company.contacted == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
             </td>
 
-            <td>
-              <%= a_lighting_production_company.chosen %>
+            <td style="text-align: center;">
+              <% if a_lighting_production_company.chosen == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
+
+            <td style="text-align: center;">
+              <% if a_lighting_production_company.signed_contract == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
+
+            <td style="text-align: center;">
+              <% if a_lighting_production_company.paid_deposit == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
+
+            <td style="text-align: center;">
+              <% if a_lighting_production_company.final_payment == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
             </td>
 
             <td>

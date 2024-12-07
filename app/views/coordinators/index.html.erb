@@ -162,6 +162,18 @@
           </th>
 
           <th>
+            Signed Contract
+          </th>
+
+          <th>
+            Paid Deposit
+          </th>
+
+          <th>
+            Final Payment
+          </th>
+
+          <th>
             Price options
           </th>
 
@@ -221,12 +233,44 @@
               <a href="<%= a_coordinator.website %>"><%= a_coordinator.website %></a>
             </td>
 
-            <td>
-              <%= a_coordinator.contacted %>
+            <td style="text-align: center;">
+              <% if a_coordinator.contacted == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
             </td>
 
-            <td>
-              <%= a_coordinator.chosen %>
+            <td style="text-align: center;">
+              <% if a_coordinator.chosen == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
+
+            <td style="text-align: center;">
+              <% if a_coordinator.signed_contract == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
+
+            <td style="text-align: center;">
+              <% if a_coordinator.paid_deposit == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
+
+            <td style="text-align: center;">
+              <% if a_coordinator.final_payment == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
             </td>
 
             <td>
