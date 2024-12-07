@@ -93,14 +93,14 @@
         Deposit
       </dt>
       <dd>
-        <%= @the_coordinator.deposit.round(0) %>%
+        <%= @the_coordinator.deposit.to_fs( :percentage, { :precision => 0 } ) %>
       </dd>
 
       <dt>
         Final price
       </dt>
       <dd>
-        $<%= @the_coordinator.final_price.round(2) %>
+        <%= @the_coordinator.final_price.to_fs(:currency) %>
       </dd>
 
       <dt>
@@ -215,7 +215,7 @@
           Deposit %%
         </label>
 
-        <input type="text" id="deposit_box" name="query_deposit" value="<%= @the_coordinator.deposit.round(0) %>">
+        <input type="text" id="deposit_box" name="query_deposit" value="<%= @the_coordinator.deposit.to_fs( :percentage, { :precision => 0 } ) %>">
       </div>
 
       <div>
@@ -223,7 +223,7 @@
           Final price $
         </label>
 
-        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_coordinator.final_price.round(2) %>">
+        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_coordinator.final_price.to_fs(:currency) %>">
       </div>
 
       <button type="submit" class="btn btn-primary btn-sm">

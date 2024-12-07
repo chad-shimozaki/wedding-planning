@@ -143,6 +143,14 @@
       </div>
 
       <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea id="notes_box" name="query_notes" rows="3"></textarea>
+      </div>
+
+      <div>
         <label for="deposit_box">
           Deposit
         </label>
@@ -253,6 +261,10 @@
             PDF
           </th>
     
+          <th>
+            Notes
+          </th>
+
           <th>
             Deposit %
           </th>
@@ -378,11 +390,15 @@
           </td>
 
           <td>
-            <%= a_venue.deposit.round(0) %>%
+            <%= a_venue.notes %>
           </td>
 
           <td>
-            $<%= a_venue.final_price.round(2) %>
+            <%= a_venue.deposit.to_fs( :percentage, { :precision => 0 } ) %>
+          </td>
+
+          <td>
+            <%= a_venue.final_price.to_fs(:currency) %>
           </td>
 
           <td>

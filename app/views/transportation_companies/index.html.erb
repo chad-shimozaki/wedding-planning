@@ -278,11 +278,11 @@
             </td>
 
             <td>
-              <%= a_transportation_company.deposit.round(0) %>%
+              <%= a_transportation_company.deposit.to_fs( :percentage, { :precision => 0 } ) %>
             </td>
 
             <td>
-              $<%= a_transportation_company.final_price.round(2) %>
+              <%= a_transportation_company.final_price.to_fs(:currency) %>
             </td>
 
             <td>

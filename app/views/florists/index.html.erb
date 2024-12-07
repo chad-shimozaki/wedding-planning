@@ -298,11 +298,11 @@
             </td>
 
             <td>
-              <%= a_florist.deposit.round(0) %>%
+              <%= a_florist.deposit.to_fs( :percentage, { :precision => 0 } ) %>
             </td>
 
             <td>
-              $<%= a_florist.final_price.round(2) %>
+              <%= a_florist.final_price.to_fs(:currency) %>
             </td>
 
             <td>

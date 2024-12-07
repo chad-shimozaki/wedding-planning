@@ -16,6 +16,7 @@
 #  lat             :float
 #  lng             :float
 #  name            :string
+#  notes           :text
 #  paid_deposit    :boolean
 #  pdf             :string
 #  photo_url       :string

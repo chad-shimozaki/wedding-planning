@@ -290,11 +290,11 @@
             </td>
 
             <td>
-              <%= a_coordinator.deposit.round(0) %>%
+              <%= a_coordinator.deposit.to_fs( :percentage, { :precision => 0 } ) %>
             </td>
 
             <td>
-              $<%= a_coordinator.final_price.round(2) %>
+              <%= a_coordinator.final_price.to_fs(:currency) %>
             </td>
 
             <td>

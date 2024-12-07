@@ -118,17 +118,24 @@
       </dd>
 
       <dt>
+        Notes
+      </dt>
+      <dd>
+        <%= @the_venue.notes %>
+      </dd>
+
+      <dt>
         Deposit
       </dt>
       <dd>
-        <%= @the_venue.deposit.round(0) %>%
+        <%= @the_venue.deposit.to_fs( :percentage, { :precision => 0 } ) %>
       </dd>
 
       <dt>
         Final price
       </dt>
       <dd>
-        $<%= @the_venue.final_price.round(2) %>
+        <%= @the_venue.final_price.to_fs(:currency) %>
       </dd>
 
       <dt>
@@ -295,11 +302,19 @@
       </div>
 
       <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea type="text" id="notes_box" name="query_notes" value="<%= @the_venue.notes %>"></textarea>
+      </div>
+
+      <div>
         <label for="final_price_box">
           Final price $
         </label>
 
-        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_venue.final_price.round(2) %>">
+        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_venue.final_price.to_fs(:currency) %>">
       </div>
 
       <div>

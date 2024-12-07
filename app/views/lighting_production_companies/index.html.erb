@@ -262,11 +262,11 @@
             </td>
 
             <td>
-              <%= a_lighting_production_company.deposit.round(0) %>%
+              <%= a_lighting_production_company.deposit.to_fs( :percentage, { :precision => 0 } ) %>
             </td>
 
             <td>
-              $<%= a_lighting_production_company.final_price.round(2) %>
+              <%= a_lighting_production_company.final_price.to_fs(:currency) %>
             </td>
 
             <td>
