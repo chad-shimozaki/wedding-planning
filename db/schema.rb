@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_05_083637) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_07_073428) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_05_083637) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "contact_email"
+    t.boolean "signed_contract"
   end
 
   create_table "caterers", force: :cascade do |t|
@@ -58,6 +59,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_05_083637) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "contact_email"
+    t.boolean "signed_contract"
   end
 
   create_table "coordinators", force: :cascade do |t|
@@ -76,6 +78,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_05_083637) do
     t.datetime "updated_at", null: false
     t.string "contact_email"
     t.string "contact_name"
+    t.boolean "signed_contract"
   end
 
   create_table "cuisines", force: :cascade do |t|
@@ -98,6 +101,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_05_083637) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "contact_email"
+    t.boolean "signed_contract"
   end
 
   create_table "events", force: :cascade do |t|
@@ -134,6 +138,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_05_083637) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "contact_email"
+    t.boolean "signed_contract"
   end
 
   create_table "foods", force: :cascade do |t|
@@ -183,6 +188,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_05_083637) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "contact_email"
+    t.boolean "signed_contract"
   end
 
   create_table "meals", force: :cascade do |t|
@@ -213,6 +219,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_05_083637) do
     t.string "contact_email"
     t.string "pdf"
     t.string "instagram"
+    t.boolean "signed_contract"
   end
 
   create_table "rsvps", force: :cascade do |t|
@@ -237,6 +244,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_05_083637) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "contact_email"
+    t.boolean "signed_contract"
   end
 
   create_table "users", force: :cascade do |t|
@@ -282,6 +290,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_05_083637) do
     t.datetime "updated_at", null: false
     t.string "contact_email"
     t.float "deposit"
+    t.boolean "signed_contract"
   end
 
 end

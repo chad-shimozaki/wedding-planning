@@ -17,6 +17,7 @@
 #  pdf             :string
 #  photo_url       :string
 #  price_options   :text
+#  signed_contract :boolean
 #  tried           :boolean
 #  website         :string
 #  created_at      :datetime         not null

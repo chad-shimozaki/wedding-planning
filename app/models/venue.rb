@@ -18,6 +18,7 @@
 #  pdf             :string
 #  photo_url       :string
 #  price_options   :text
+#  signed_contract :boolean
 #  venue_type      :string
 #  visited         :boolean
 #  website         :string

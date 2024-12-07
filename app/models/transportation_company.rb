@@ -12,6 +12,7 @@
 #  name            :string
 #  notes           :text
 #  price_options   :text
+#  signed_contract :boolean
 #  website         :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
