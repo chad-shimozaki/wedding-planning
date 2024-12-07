@@ -4,7 +4,7 @@ class TransportationCompaniesController < ApplicationController
 
     @list_of_transportation_companies = matching_transportation_companies.order({ :created_at => :desc })
 
-    @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
+    @list_of_neighborhoods = Neighborhood.all.order({ :name => :asc })
 
     render({ :template => "transportation_companies/index" })
   end
@@ -16,7 +16,7 @@ class TransportationCompaniesController < ApplicationController
 
     @the_transportation_company = matching_transportation_companies.at(0)
 
-    @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
+    @list_of_neighborhoods = Neighborhood.all.order({ :name => :asc })
 
     @the_transportation_company_neighborhood = Neighborhood.where({ :id => @the_transportation_company.neighborhood_id }).at(0)
 

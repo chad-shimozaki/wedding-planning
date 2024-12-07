@@ -4,7 +4,7 @@ class BakeriesController < ApplicationController
 
     @list_of_bakeries = matching_bakeries.order({ :created_at => :desc })
 
-    @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
+    @list_of_neighborhoods = Neighborhood.all.order({ :name => :asc })
 
     render({ :template => "bakeries/index" })
   end
@@ -16,7 +16,7 @@ class BakeriesController < ApplicationController
 
     @the_bakery = matching_bakeries.at(0)
 
-    @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
+    @list_of_neighborhoods = Neighborhood.all.order({ :name => :asc })
 
     @the_bakery_neighborhood = Neighborhood.where({ :id => @the_bakery.neighborhood_id }).at(0)
 

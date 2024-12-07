@@ -4,9 +4,9 @@ class CaterersController < ApplicationController
 
     @list_of_caterers = matching_caterers.order({ :created_at => :desc })
 
-    @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
+    @list_of_neighborhoods = Neighborhood.all.order({ :name => :asc })
 
-    @list_of_cuisines = Cuisine.all.order({ :name => :desc })
+    @list_of_cuisines = Cuisine.all.order({ :name => :asc })
 
     render({ :template => "caterers/index" })
   end
@@ -18,7 +18,7 @@ class CaterersController < ApplicationController
 
     @the_caterer = matching_caterers.at(0)
 
-    @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
+    @list_of_neighborhoods = Neighborhood.all.order({ :name => :asc })
 
     @the_caterer_neighborhood = Neighborhood.where({ :id => @the_caterer.neighborhood_id }).at(0)
 

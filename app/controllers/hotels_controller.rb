@@ -4,7 +4,7 @@ class HotelsController < ApplicationController
 
     @list_of_hotels = matching_hotels.order({ :created_at => :desc })
 
-    @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
+    @list_of_neighborhoods = Neighborhood.all.order({ :name => :asc })
 
     render({ :template => "hotels/index" })
   end
@@ -16,7 +16,7 @@ class HotelsController < ApplicationController
 
     @the_hotel = matching_hotels.at(0)
 
-    @list_of_neighborhoods = Neighborhood.all.order({ :name => :desc })
+    @list_of_neighborhoods = Neighborhood.all.order({ :name => :asc })
 
     @the_hotel_neighborhood = Neighborhood.where({ :id => @the_hotel.neighborhood_id }).at(0)
 

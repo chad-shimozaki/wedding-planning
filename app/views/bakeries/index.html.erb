@@ -1,5 +1,5 @@
 <div>
-  <div>
+  <div class="container-fluid">
     <h1>
       List of all Bakeries
     </h1>
@@ -8,7 +8,7 @@
 
 <hr>
 
-<div>
+<div class="container-fluid">
   <div>
     <h2>
       Add a new Bakery
@@ -133,6 +133,8 @@
         <input type="number" id="final_price_box" name="query_final_price" value = "0" >
       </div>
 
+      <div style="height: 10px;"></div>
+      
       <button type="submit" class="btn btn-primary btn-sm">
         Create Bakery
       </button>
@@ -156,15 +158,6 @@
 
           <th>
             Address
-          </th>
-
-          <!--To delete-->
-          <th>
-            Lat
-          </th>
-
-          <th>
-            Lng
           </th>
 
           <th>
@@ -196,7 +189,19 @@
           </th>
 
           <th>
-            Price options
+            Signed Contract
+          </th>
+
+          <th>
+            Paid Deposit
+          </th>
+
+          <th>
+            Final Payment
+          </th>
+
+          <th>
+            Price Options
           </th>
 
           <th>
@@ -248,14 +253,6 @@
             </td>
 
             <td>
-              <%= a_bakery.lat %>
-            </td>
-
-            <td>
-              <%= a_bakery.lng %>
-            </td>
-
-            <td>
               <%= Neighborhood.where({ :id => a_bakery.neighborhood_id }).at(0).name %>
             </td>
 
@@ -271,16 +268,52 @@
               <%= a_bakery.contact_email %>
             </td>
 
-            <td>
-              <%= a_bakery.contacted %>
+            <td style="text-align: center;">
+              <% if a_bakery.contacted == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
             </td>
 
-            <td>
-              <%= a_bakery.tried %>
+            <td style="text-align: center;">
+              <% if a_bakery.tried == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
             </td>
 
-            <td>
-              <%= a_bakery.chosen %>
+            <td style="text-align: center;">
+              <% if a_bakery.chosen == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
+
+            <td style="text-align: center;">
+              <% if a_bakery.signed_contract == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
+
+            <td style="text-align: center;">
+              <% if a_bakery.paid_deposit == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
+
+            <td style="text-align: center;">
+              <% if a_bakery.final_payment == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
             </td>
 
             <td>
@@ -288,7 +321,7 @@
             </td>
 
             <td>
-              <img src = "<%= a_bakery.photo_url %>"></a>
+              <img src = "<%= a_bakery.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
             </td>
 
             <td>

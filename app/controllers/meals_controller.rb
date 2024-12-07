@@ -4,9 +4,9 @@ class MealsController < ApplicationController
 
     @list_of_meals = matching_meals.order({ :created_at => :desc })
 
-    @list_of_caterers = Caterer.all.order({ :name => :desc })
+    @list_of_caterers = Caterer.all.order({ :name => :asc })
 
-    @list_of_events = Event.all.order({ :name => :desc })
+    @list_of_events = Event.all.order({ :name => :asc })
 
     render({ :template => "meals/index" })
   end
@@ -18,11 +18,11 @@ class MealsController < ApplicationController
 
     @the_meal = matching_meals.at(0)
 
-    @list_of_caterers = Caterer.all.order({ :name => :desc })
+    @list_of_caterers = Caterer.all.order({ :name => :asc })
 
     @the_meal_caterer = Caterer.where({ :id => @the_meal.caterer_id }).at(0)
 
-    @list_of_events = Caterer.all.order({ :name => :desc })
+    @list_of_events = Caterer.all.order({ :name => :asc })
 
     @the_meal_event = Event.where({ :id => @the_meal.event_id }).at(0)
 

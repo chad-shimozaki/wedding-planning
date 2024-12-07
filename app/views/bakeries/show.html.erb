@@ -11,7 +11,6 @@
 
     <div class="row mb-4">
         <% if @the_bakery.photo_url.blank? %>
-          <p>No photo provided</p>
         <% else %>
         <img src = "<%= @the_bakery.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
         <% end %>
@@ -160,10 +159,6 @@
       </div>
 
     <% end %>
-
-    
-
-    
 
     <div class="row mb-4">
       <div class="col">
