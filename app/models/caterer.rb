@@ -9,11 +9,13 @@
 #  contact_name    :string
 #  contacted       :boolean
 #  deposit         :float
+#  final_payment   :boolean
 #  final_price     :float
 #  lat             :float
 #  lng             :float
 #  name            :string
 #  notes           :text
+#  paid_deposit    :boolean
 #  pdf             :string
 #  photo_url       :string
 #  preferred       :boolean

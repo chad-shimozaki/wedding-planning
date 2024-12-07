@@ -8,9 +8,11 @@
 #  contact_name    :string
 #  contacted       :boolean
 #  deposit         :float
+#  final_payment   :boolean
 #  final_price     :float
 #  name            :string
 #  notes           :text
+#  paid_deposit    :boolean
 #  price_options   :text
 #  signed_contract :boolean
 #  website         :string
