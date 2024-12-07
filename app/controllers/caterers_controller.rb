@@ -2,7 +2,7 @@ class CaterersController < ApplicationController
   def index
     matching_caterers = Caterer.all
 
-    @list_of_caterers = matching_caterers.order({ :created_at => :desc })
+    @list_of_caterers = matching_caterers.order({ :chosen => :desc, :created_at => :desc })
 
     @list_of_neighborhoods = Neighborhood.all.order({ :name => :asc })
 

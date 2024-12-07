@@ -2,7 +2,7 @@ class FloristsController < ApplicationController
   def index
     matching_florists = Florist.all
 
-    @list_of_florists = matching_florists.order({ :created_at => :desc })
+    @list_of_florists = matching_florists.order({ :chosen => :desc, :created_at => :desc })
 
     @list_of_neighborhoods = Neighborhood.all.order({ :name => :asc })
 
