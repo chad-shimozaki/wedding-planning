@@ -4,155 +4,175 @@
         <i class="fas fa-arrow-left"></i> Back
       </a>
   </div>
-    <h1 class="container-fluid">
+  <div class="text-center">
+    <h1>
       <a href="<%= @the_bakery.website %>"><%= @the_bakery.name %></a>
     </h1>
 
-    <div class="container-fluid">
-      <div class="row mb-4">
-          <% if @the_bakery.photo_url.blank? %>
-            <p>No photo provided</p>
+    <div class="row mb-4">
+        <% if @the_bakery.photo_url.blank? %>
+          <p>No photo provided</p>
+        <% else %>
+        <img src = "<%= @the_bakery.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="container text-center">
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Address</h4>
+        <%= @the_bakery.address %>
+      </div>
+      <div class="col">
+        <h4>Neighborhood</h4>
+        <%= Neighborhood.where({ :id => @the_bakery.neighborhood_id }).at(0).name %>
+      </div>
+    </div>
+    
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Contact Name</h4>
+          <% if @the_bakery.contact_name.blank? %>
+            <p>None provided</p>
           <% else %>
-          <img src = "<%= @the_bakery.photo_url %>" style="width: 300px; height: 200px;"></a>
+            <%= @the_bakery.contact_name %>
+          <% end %>
+      </div>
+      <div class="col">
+        <h4>Contact Email</h4>
+          <% if @the_bakery.contact_email.blank? %>
+            <p>None provided</p>
+          <% else %>
+            <%= @the_bakery.contact_email %>
           <% end %>
       </div>
     </div>
-  </div>
 
-  <div>
-    <div class="container text-center">
-      <div class="row mb-4">
-        <div class="col">
-          <h4>Address</h4>
-          <%= @the_bakery.address %>
-        </div>
-        <div class="col">
-          <h4>Neighborhood</h4>
-          <%= Neighborhood.where({ :id => @the_bakery.neighborhood_id }).at(0).name %>
-        </div>
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Contacted</h4>
+        <% if @the_bakery.contacted == true %>
+          <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+        <% else %>
+          <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+        <% end %>
       </div>
-      
-      <div class="row mb-4">
-        <div class="col">
-          <h4>Contact Name</h4>
-            <% if @the_bakery.contact_name.blank? %>
-              <p>None provided</p>
-            <% else %>
-              <%= @the_bakery.contact_name %>
-            <% end %>
-        </div>
-        <div class="col">
-          <h4>Contact Email</h4>
-            <% if @the_bakery.contact_email.blank? %>
-              <p>None provided</p>
-            <% else %>
-              <%= @the_bakery.contact_email %>
-            <% end %>
-        </div>
+      <div class="col">
+        <h4>Tried</h4>
+        <% if @the_bakery.tried == true %>
+          <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+        <% else %>
+          <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+        <% end %>
       </div>
+      <div class="col">
+        <h4>Chosen</h4>
+          <% if @the_bakery.chosen == true %>
+          <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+        <% else %>
+          <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+        <% end %>
+      </div>
+    </div>
 
-      <div class="row mb-4">
-        <div class="col">
-          <h4>Contacted</h4>
-          <% if @the_bakery.contacted == true %>
-            <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
-          <% else %>
-            <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
-          <% end %>
-        </div>
-        <div class="col">
-          <h4>Tried</h4>
-          <% if @the_bakery.tried == true %>
-            <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
-          <% else %>
-            <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
-          <% end %>
-        </div>
-        <div class="col">
-          <h4>Chosen</h4>
-            <% if @the_bakery.chosen == true %>
-            <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
-          <% else %>
-            <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="row mb-4">
-        <div class="col">
-          <h4>Price Options</h4>
-            <% if @the_bakery.price_options.blank? %>
-              <p>None provided</p>
-            <% else %>
-              <%= @the_bakery.price_options %>
-            <% end %>
-        </div>
-        <div class="col">
-          <h4>Deposit</h4>
-          <%= @the_bakery.deposit.round(0) %>%
-        </div><div class="col">
-          <h4>PDF</h4>
-          <% if @the_bakery.pdf.blank? %>
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Price Options</h4>
+          <% if @the_bakery.price_options.blank? %>
             <p>None provided</p>
           <% else %>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pdfModal">
-              View PDF
-            </button>
+            <%= @the_bakery.price_options %>
+          <% end %>
+      </div>
+      <div class="col">
+        <h4>Deposit</h4>
+        <%= @the_bakery.deposit.round(0) %>%
+      </div><div class="col">
+        <h4>PDF</h4>
+        <% if @the_bakery.pdf.blank? %>
+          <p>None provided</p>
+        <% else %>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pdfModal">
+            View PDF
+          </button>
 
-            <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="pdfModalLabel">PDF Preview</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <embed src="/public/pdfs<%= @the_bakery.pdf %>.pdf" type="application/pdf" width="100%" height="400px">
-                  </div>
+          <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="pdfModalLabel">PDF Preview</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <embed src="/public/pdfs<%= @the_bakery.pdf %>.pdf" type="application/pdf" width="100%" height="400px">
                 </div>
               </div>
             </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col">
+        <h4>Notes</h4>
+        <%= @the_bakery.notes %>
+          <% if @the_bakery.notes.blank? %>
+            <p>None provided</p>
+          <% else %>
+            <%= @the_bakery.notes %>
+          <% end %>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+
+    </div>
+
+    <% if @the_bakery.chosen == true %>
+      <div class="row mb-4">
+        <div class="col">
+          <h4>Final Price</h4>
+          $<%= @the_bakery.final_price.round(2) %>
+        </div>
+        <div class="col">
+          <h4>Contacted</h4>
+          <% if @the_bakery.signed_contract == true %>
+            <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+          <% else %>
+            <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
           <% end %>
         </div>
         <div class="col">
-          <h4>Notes</h4>
-          <%= @the_bakery.notes %>
-            <% if @the_bakery.notes.blank? %>
-              <p>None provided</p>
-            <% else %>
-              <%= @the_bakery.notes %>
-            <% end %>
+          <% if @the_bakery.paid_deposit == true %>
+            <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+          <% else %>
+            <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+          <% end %>
+        </div>
+        <div class="col">
+          <% if @the_bakery.final_payment == true %>
+            <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+          <% else %>
+            <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+          <% end %>
         </div>
       </div>
 
-      <div class="row mb-4">
+    <% end %>
 
+    
+
+    
+
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Created At</h4>
+        <%= time_ago_in_words(@the_bakery.created_at) %> ago
       </div>
-
-      <% if @the_bakery.chosen == true %>
-        <div class="row mb-4">
-          <div class="col">
-            <h4>Final Price</h4>
-            $<%= @the_bakery.final_price.round(2) %>
-          </div>
-
-        </div>
-
-      <% end %>
-
-      
-
-      
-
-      <div class="row mb-4">
-        <div class="col">
-          <h4>Created At</h4>
-          <%= time_ago_in_words(@the_bakery.created_at) %> ago
-        </div>
-        <div class="col">
-          <h4>Updated At</h4>
-          <%= time_ago_in_words(@the_bakery.updated_at) %> ago
-        </div>
+      <div class="col">
+        <h4>Updated At</h4>
+        <%= time_ago_in_words(@the_bakery.updated_at) %> ago
       </div>
     </div>
   </div>
@@ -323,7 +343,7 @@
 
       <div style="height: 10px;"></div>
 
-      <div class="container-fluid">
+      <div>
         <button type="submit" class="btn btn-primary btn-sm">
           Update Bakery
         </button>
