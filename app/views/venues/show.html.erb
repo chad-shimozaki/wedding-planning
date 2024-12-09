@@ -298,7 +298,7 @@
           Deposit %
         </label>
 
-        <input type="text" id="deposit_box" name="query_deposit" value="<%= @the_venue.deposit.round(2) %>">
+        <input type="text" id="deposit_box" name="query_deposit" value="<%= @the_venue.deposit.to_fs( :percentage, { :precision => 0 }) %>">
       </div>
 
       <div>
