@@ -131,7 +131,7 @@
         </label>
 
         <div class="col-auto">
-          <input type="text" id="name_box" name="query_name" value="<%= @the_transportation_company.name %>">
+          <input class="form-control" type="text" id="name_box" name="query_name" value="<%= @the_transportation_company.name %>">
         </div>
       </div>
 
@@ -141,7 +141,7 @@
         </label>
 
         <div class="col-sm-6">
-          <input type="url" id="website_box" name="query_website" value="<%= @the_transportation_company.website %>">
+          <input class="form-control" type="url" id="website_box" name="query_website" value="<%= @the_transportation_company.website %>">
         </div>
       </div>
 
@@ -151,7 +151,7 @@
         </label>
 
         <div class="col-auto">
-          <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_transportation_company.contact_name %>">
+          <input class="form-control" type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_transportation_company.contact_name %>">
         </div>
       </div>
 
@@ -161,7 +161,7 @@
         </label>
 
         <div class="col-auto">
-          <input type="email" id="contact_email_box" name="query_contact_email" value="<%= @the_transportation_company.contact_email %>">
+          <input class="form-control" type="email" id="contact_email_box" name="query_contact_email" value="<%= @the_transportation_company.contact_email %>">
         </div>
       </div>
 
@@ -206,7 +206,7 @@
         </label>
 
         <div class="col-auto">
-          <textarea id="price_options_box" name="query_price_options"><%= @the_transportation_company.price_options %></textarea>
+          <textarea class="form-control" id="price_options_box" name="query_price_options"><%= @the_transportation_company.price_options %></textarea>
           </div>
       </div>
 
@@ -216,7 +216,7 @@
         </label>
 
         <div class="col-auto">
-          <input type="number" id="deposit_box" name="query_deposit" value="<%= @the_transportation_company.deposit.to_fs( :percentage, { :precision => 0 } ) %>">
+          <input class="form-control" type="number" id="deposit_box" name="query_deposit" value="<%= @the_transportation_company.deposit.to_fs( :percentage, { :precision => 0 } ) %>">
         </div>
       </div>
 
@@ -226,7 +226,7 @@
         </label>
 
         <div class="col-auto">
-          <input type="number" id="final_price_box" name="query_final_price" value="<%= @the_transportation_company.final_price.to_fs(:currency) %>">
+          <input class="form-control" type="number" id="final_price_box" name="query_final_price" value="<%= @the_transportation_company.final_price.to_fs(:currency) %>">
         </div>
       </div>
 
@@ -236,7 +236,7 @@
         </label>
 
         <div class="col-auto">
-          <textarea id="notes_box" name="query_notes"><%= @the_transportation_company.notes %></textarea>
+          <textarea class="form-control" id="notes_box" name="query_notes"><%= @the_transportation_company.notes %></textarea>
         </div>
       </div>
 
