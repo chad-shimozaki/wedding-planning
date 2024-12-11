@@ -19,8 +19,10 @@ class CaterersController < ApplicationController
     @the_caterer = matching_caterers.at(0)
 
     @list_of_neighborhoods = Neighborhood.all.order({ :name => :asc })
-
     @the_caterer_neighborhood = Neighborhood.where({ :id => @the_caterer.neighborhood_id }).at(0)
+
+    @list_of_cuisines = Cuisine.all.order({ :name => :asc })
+    @the_caterer_cuisine = Cuisine.where({ :id => @the_caterer.cuisine_id }).at(0)
 
     render({ :template => "caterers/show" })
   end

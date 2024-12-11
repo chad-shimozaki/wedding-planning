@@ -213,11 +213,19 @@
       </div>
 
       <div>
-        <label for="cuisine_id_box">
+        <label for="cuisine_name_box">
           Cuisine
         </label>
 
-        <input type="text" id="cuisine_id_box" name="query_cuisine_id" value="<%= Cuisine.where({ :id => @the_caterer.cuisine_id }).at(0).name %>">
+        <select id="cuisine_name_box" name="query_cuisine_name" value="<%= @the_caterer_cuisine.name %>">
+          <% @list_of_cuisines.each do |a_cuisine| %>
+            <% if a_cuisine.id == @the_caterer.cuisine_id%>
+              <option value="<%= a_cuisine.name %>" selected><%= a_cuisine.name %></option>
+            <% else %>
+              <option value="<%= a_cuisine.name %>"><%= a_cuisine.name %></option>
+            <% end %>
+          <% end %>
+        </select>
       </div>
 
       <div>
