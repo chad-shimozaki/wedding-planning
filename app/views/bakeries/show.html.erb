@@ -179,165 +179,190 @@
 
 <hr>
 
-
 <div>
   <div class="container-fluid">
     <h2>
       Edit Bakery
     </h2>
 
-    <form action="/modify_bakery/<%= @the_bakery.id %>"  method="post" >
-      <div class="container-fluid">
-        <label for="name_box">
+    <div style="height: 10px;"></div>
+
+    <form action="/modify_bakery/<%= @the_bakery.id %>"  method="post" class="container-fluid">
+      <div class="row mb-2">
+        <label for="name_box" class="col-auto col-form-label">
           Name
         </label>
-
-        <input class="form-text" type="text" id="name_box" name="query_name" value="<%= @the_bakery.name %>">
+        
+        <div class="col-auto">
+          <input class="form-control" type="text" id="name_box" name="query_name" value="<%= @the_bakery.name %>">
+        </div>
       </div>
 
-      <div class="container-fluid">
-        <label for="address_box">
+      <div class="row mb-2">
+        <label for="address_box" class="col-auto col-form-label">
           Address
         </label>
 
-        <input class="form-text" type="text" id="address_box" name="query_address" value="<%= @the_bakery.address %>">
+        <div class="col-sm-4">
+          <input class="form-control" type="text" id="address_box" name="query_address" value="<%= @the_bakery.address %>">
+        </div>
       </div>
       
-      <div class="container-fluid">
-        <label for="neighborhood_name_box">
+      <div class="row mb-2">
+        <label for="neighborhood_name_box" class="col-auto col-form-label">
           Neighborhood
         </label>
 
-        <select id="neighborhood_name_box" name="query_neighborhood_name" value="<%= @the_bakery_neighborhood.name %>">
-          <% @list_of_neighborhoods.each do |a_neighborhood| %>
-            <% if a_neighborhood.id == @the_bakery.neighborhood_id%>
-              <option value="<%= a_neighborhood.name %>" selected><%= a_neighborhood.name %></option>
-            <% else %>
-              <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+        <div class="col-auto col-form-label">
+          <select id="neighborhood_name_box" name="query_neighborhood_name" value="<%= @the_bakery_neighborhood.name %>">
+            <% @list_of_neighborhoods.each do |a_neighborhood| %>
+              <% if a_neighborhood.id == @the_bakery.neighborhood_id%>
+                <option value="<%= a_neighborhood.name %>" selected><%= a_neighborhood.name %></option>
+              <% else %>
+                <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+              <% end %>
+              
             <% end %>
-            
-          <% end %>
-        </select>
+          </select>
+        </div>
       </div>
 
-      <div class="container-fluid">
-        <label for="website_box">
+      <div class="row mb-2">
+        <label for="website_box" class="col-auto col-form-label">
           Website
         </label>
-
-        <input class="form-text" type="url" id="website_box" name="query_website" value="<%= @the_bakery.website %>">
+        
+        <div class="col-sm-6">
+          <input class="form-control" type="url" id="website_box" name="query_website" value="<%= @the_bakery.website %>">
+        </div>
       </div>
 
-      <div class="container-fluid">
-        <label for="photo_url_box">
+      <div class="row mb-2">
+        <label for="photo_url_box" class="col-auto col-form-label">
           Photo
         </label> 
 
-        <input class="form-text" type="text" id="photo_url_box" name="query_photo_url" value="<%= @the_bakery.photo_url %>">
+        <div class="col-sm-10">
+          <input class="form-control" type="text" id="photo_url_box" name="query_photo_url" value="<%= @the_bakery.photo_url %>">
+        </div>
       </div>
 
-      <div class="container-fluid">
-        <label for="contact_name_box">
+      <div class="row mb-2">
+        <label for="contact_name_box" class="col-auto col-form-label">
           Contact Name
         </label>
-
-        <input class="form-text" type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_bakery.contact_name %>">
+        
+        <div class="col-auto">
+          <input class="form-control" type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_bakery.contact_name %>">
+        </div>
       </div>
 
-      <div class="container-fluid">
-        <label for="contact_email_box">
+      <div class="row mb-2">
+        <label for="contact_email_box" class="col-auto col-form-label">
           Contact Email
         </label>
 
-        <input class="form-text" type="email" id="contact_email_box" name="query_contact_email" value="<%= @the_bakery.contact_email %>">
+        <div class="col-auto">
+          <input class="form-control" type="email" id="contact_email_box" name="query_contact_email" value="<%= @the_bakery.contact_email %>">
+        </div>
       </div>
 
-      <div class="container-fluid">
+      <div>
         <input class="form-check-input" type="checkbox" id="contacted_box" name="query_contacted" value="1" <%= "checked" if @the_bakery.contacted %>>
 
-        <label class="form-check-label" for="contacted_box">
-            Contacted
+        <label class="form-check-label" for="contacted_box" class="col-auto col-form-label">
+          Contacted
         </label>
       </div>
 
-      <div class="container-fluid">
+      <div>
         <input class="form-check-input" type="checkbox" id="tried_box" name="query_tried" value="1" <%= "checked" if @the_bakery.tried %>>
 
-        <label class="form-check-label" for="tried_box">
-            Tried
+        <label class="form-check-label" for="tried_box" class="col-auto col-form-label">
+          Tried
         </label>
       </div>
 
-      <div class="container-fluid">
+      <div>
         <input class="form-check-input" type="checkbox" id="chosen_box" name="query_chosen" value="1" <%= "checked" if @the_bakery.chosen %>>
 
-        <label class="form-check-label" for="chosen_box">
-            Chosen
+        <label class="form-check-label" for="chosen_box" class="col-auto col-form-label">
+          Chosen
         </label>
       </div>
 
-      <div class="container-fluid">
+      <div>
         <input class="form-check-input" type="checkbox" id="signed_contract_box" name="query_signed_contract" value="1" <%= "checked" if @the_bakery.signed_contract %>>
 
-        <label class="form-check-label" for="signed_contract_box">
-            Signed Contract
+        <label class="form-check-label" for="signed_contract_box" class="col-auto col-form-label">
+          Signed Contract
         </label>
       </div>
 
-      <div class="container-fluid">
+      <div>
         <input class="form-check-input" type="checkbox" id="paid_deposit_box" name="query_paid_deposit" value="1" <%= "checked" if @the_bakery.paid_deposit %>>
 
-        <label class="form-check-label" for="paid_deposit_box">
-            Paid Deposit
+        <label class="form-check-label" for="paid_deposit_box" class="col-auto col-form-label">
+          Paid Deposit
         </label>
       </div>
 
-      <div class="container-fluid">
+      <div>
         <input class="form-check-input" type="checkbox" id="final_payment_box" name="query_final_payment" value="1" <%= "checked" if @the_bakery.final_payment %>>
 
-        <label class="form-check-label" for="chosen_box">
-            Final Payment
+        <label class="form-check-label" for="chosen_box" class="col-auto col-form-label">
+          Final Payment
         </label>
       </div>
 
-      <div class="container-fluid">
-        <label for="price_options_box">
+      <div class="row mb-2">
+        <label for="price_options_box" class="col-auto col-form-label">
           Price Options
         </label>
 
-        <textarea class="form-text" id="price_options_box" name="query_price_options"><%= @the_bakery.price_options %></textarea>
+        <div class="col-auto">
+          <textarea class="form-control" id="price_options_box" name="query_price_options"><%= @the_bakery.price_options %></textarea>
+        </div>
       </div>
 
-      <div class="container-fluid">
-        <label for="notes_box">
-          Notes
-        </label>
-
-        <textarea class="form-text" id="notes_box" name="query_notes"><%= @the_bakery.notes %></textarea>
-      </div>
-
-      <div class="container-fluid">
-        <label for="pdf_box">
+      <div class="row mb-2">
+        <label for="pdf_box" class="col-auto col-form-label">
           PDF
         </label>
 
-        <input class="form-control" type="file" id="pdf_box" name="query_pdf" value="<%= @the_bakery.pdf %>">
+        <div class="col-auto">
+          <input class="form-control" type="file" id="pdf_box" name="query_pdf" value="<%= @the_bakery.pdf %>">
+        </div>
       </div>
 
-      <div class="container-fluid">
-        <label for="deposit_box">
+      <div class="row mb-2">
+        <label for="notes_box" class="col-auto col-form-label">
+          Notes
+        </label>
+
+        <div class="col-auto">
+          <textarea class="form-control" id="notes_box" name="query_notes"><%= @the_bakery.notes %></textarea>
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <label for="deposit_box" class="col-auto col-form-label">
           Deposit %
         </label>
 
-        <input class="form-text" type="text" id="deposit_box" name="query_deposit" value="<%= @the_bakery.deposit.to_fs( :percentage, { :precision => 0 } ) %>">
+        <div class="col-auto">
+          <input class="form-control" type="text" id="deposit_box" name="query_deposit" value="<%= @the_bakery.deposit.to_fs( :percentage, { :precision => 0 } ) %>">
+        </div>
       </div>
 
-      <div class="container-fluid">
-        <label for="final_price_box">
+      <div class="row mb-2">
+        <label for="final_price_box" class="col-auto col-form-label">
           Final Price
         </label>
 
-        <input class="form-text" type="text" id="final_price_box" name="query_final_price" value="<%= @the_bakery.final_price.to_fs(:currency) %>">
+        <div class="col-auto">
+          <input class="form-control" type="text" id="final_price_box" name="query_final_price" value="<%= @the_bakery.final_price.to_fs(:currency) %>">
+        </div>
       </div>
 
       <div style="height: 10px;"></div>
@@ -352,9 +377,9 @@
 
   <div style="height: 10px;"></div>
 
-  <div class="container-fluid">
-    <form action="/delete_bakery/<%= @the_bakery.id %>"  method="get" >
-      <button type="submit" class="btn btn-danger btn-sm">
+  <div>
+    <form action="/delete_bakery/<%= @the_bakery.id %>"  method="get">
+      <button type="submit" class="btn btn-danger btn-sm mx-4">
         Delete Bakery
       </button>
     </form>
