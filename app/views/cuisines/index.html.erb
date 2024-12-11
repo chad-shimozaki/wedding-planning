@@ -8,31 +8,37 @@
 
 <hr>
 
-<div class="container-fluid">
-  <div>
-    <h2>
-      Add a new Cuisine
-    </h2>
-
-    <form action="/insert_cuisine" method="post">
-      <div>
-        <label for="cuisine_name_box">
-          Name
-        </label>
-
-        <input type="text" id="cuisine_name_box" name="query_cuisine_name">
-      </div>
-
-      <div style="height: 10px;"></div>
-
-      <button type="submit" class="btn btn-primary btn-sm">
-        Create Cuisine
+<div class="accordion accordion-flush accordion-" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <h2>Add a New Cuisine</h2>
       </button>
-    </form>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div>
+          <form action="/insert_cuisine" method="post">
+            <div>
+              <label for="cuisine_name_box">
+                Name
+              </label>
+
+              <input type="text" id="cuisine_name_box" name="query_cuisine_name">
+            </div>
+
+            <div style="height: 10px;"></div>
+
+            <button type="submit" class="btn btn-primary btn-sm">
+              Create Cuisine
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<hr>
 <div>
   <div class="table-responsive">
     <table class="table table-bordered table-striped table-hover table-sm align-middle">

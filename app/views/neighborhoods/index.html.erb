@@ -8,27 +8,34 @@
 
 <hr>
 
-<div class="container-fluid">
-  <div>
-    <h2>
-      Add a new Neighborhood
-    </h2>
-
-    <form action="/insert_neighborhood" method="post">
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name">
-      </div>
-      
-      <div style="height: 10px;"></div>
-
-      <button type="submit" class="btn btn-primary btn-sm">
-        Create Neighborhood
+<div class="accordion accordion-flush accordion-" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <h2>Add a New Neighborhood</h2>
       </button>
-    </form>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div>
+          <form action="/insert_neighborhood" method="post">
+            <div>
+              <label for="name_box">
+                Name
+              </label>
+
+              <input type="text" id="name_box" name="query_name">
+            </div>
+            
+            <div style="height: 10px;"></div>
+
+            <button type="submit" class="btn btn-primary btn-sm">
+              Create Neighborhood
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

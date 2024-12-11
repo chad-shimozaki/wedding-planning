@@ -8,126 +8,133 @@
 
 <hr>
 
-<div class="container-fluid">
-  <div>
-    <h2>
-      Add a new Photographer
-    </h2>
-
-    <form action="/insert_photographer" method="post">
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name">
-      </div>
-
-      <div>
-        <label for="instagram_box">
-          Instagram
-        </label>
-
-        <input type="url" id="instagram_box" name="query_instagram">
-      </div>
-
-      <div>
-        <label for="contact_email_box">
-          Contact Email
-        </label>
-
-        <input type="email" id="contact_email_box" name="query_contact_email">
-      </div>
-
-      <div>
-        <label for="website_box">
-          Website
-        </label>
-
-        <input type="url" id="website_box" name="query_website">
-      </div>
-
-      <div>
-        <input type="checkbox" id="contacted_box" name="query_contacted" value="1">
-
-        <label for="contacted_box">Contacted</label>
-      </div>
-
-      <div>
-        <input type="checkbox" id="chosen_box" name="query_chosen" value="1">
-
-        <label for="chosen_box">Chosen</label>
-      </div>
-
-        <label for="signed_contract_box">Signed Contract</label>
-      </div>
-
-      <div>
-        <input type="checkbox" id="paid_deposit_box" name="query_paid_deposit" value="1">
-
-        <label for="paid_deposit_box">Paid Deposit</label>
-      </div>
-
-      <div>
-        <input type="checkbox" id="final_payment_box" name="query_final_payment" value="1">
-
-        <label for="final_payment_box">Final Payment</label>
-      </div>
-
-      <div>
-        <label for="price_options_box">
-          Price options
-        </label>
-
-        <textarea id="price_options_box" name="query_price_options" rows="3"></textarea>
-      </div>
-
-      <div>
-        <label for="photo_url_box">
-          Photo url
-        </label>
-
-        <input type="text" id="photo_url_box" name="query_photo_url">
-      </div>
-
-      <div>
-        <label for="pdf_box">
-          PDF
-        </label>
-
-        <input type="file" id="pdf_box" name="query_pdf">
-      </div>
-
-      <div>
-        <label for="deposit_box">
-          Deposit %
-        </label>
-
-        <input type="number" id="deposit_box" name="query_deposit" value = "0">
-      </div>
-
-      <div>
-        <label for="final_price_box">
-          Final price $
-        </label>
-
-        <input type="number" id="final_price_box" name="query_final_price" value = "0">
-      </div>
-
-      <div>
-        <label for="notes_box">
-          Notes
-        </label>
-
-        <textarea id="notes_box" name="query_notes" rows="3"></textarea>
-      </div>
-
-      <div style="height: 10px;"></div>
-
-      <button type="submit" class="btn btn-primary btn-sm">
-        Create Photographer
+<div class="accordion accordion-flush accordion-" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <h2>Add a New Photographer</h2>
       </button>
-    </form>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div>
+          <form action="/insert_photographer" method="post">
+            <div>
+              <label for="name_box">
+                Name
+              </label>
+
+              <input type="text" id="name_box" name="query_name">
+            </div>
+
+            <div>
+              <label for="instagram_box">
+                Instagram
+              </label>
+
+              <input type="url" id="instagram_box" name="query_instagram">
+            </div>
+
+            <div>
+              <label for="contact_email_box">
+                Contact Email
+              </label>
+
+              <input type="email" id="contact_email_box" name="query_contact_email">
+            </div>
+
+            <div>
+              <label for="website_box">
+                Website
+              </label>
+
+              <input type="url" id="website_box" name="query_website">
+            </div>
+
+            <div>
+              <input type="checkbox" id="contacted_box" name="query_contacted" value="1">
+
+              <label for="contacted_box">Contacted</label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="chosen_box" name="query_chosen" value="1">
+
+              <label for="chosen_box">Chosen</label>
+            </div>
+
+              <label for="signed_contract_box">Signed Contract</label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="paid_deposit_box" name="query_paid_deposit" value="1">
+
+              <label for="paid_deposit_box">Paid Deposit</label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="final_payment_box" name="query_final_payment" value="1">
+
+              <label for="final_payment_box">Final Payment</label>
+            </div>
+
+            <div>
+              <label for="price_options_box">
+                Price options
+              </label>
+
+              <textarea id="price_options_box" name="query_price_options" rows="3"></textarea>
+            </div>
+
+            <div>
+              <label for="photo_url_box">
+                Photo url
+              </label>
+
+              <input type="text" id="photo_url_box" name="query_photo_url">
+            </div>
+
+            <div>
+              <label for="pdf_box">
+                PDF
+              </label>
+
+              <input type="file" id="pdf_box" name="query_pdf">
+            </div>
+
+            <div>
+              <label for="deposit_box">
+                Deposit %
+              </label>
+
+              <input type="number" id="deposit_box" name="query_deposit" value = "0">
+            </div>
+
+            <div>
+              <label for="final_price_box">
+                Final price $
+              </label>
+
+              <input type="number" id="final_price_box" name="query_final_price" value = "0">
+            </div>
+
+            <div>
+              <label for="notes_box">
+                Notes
+              </label>
+
+              <textarea id="notes_box" name="query_notes" rows="3"></textarea>
+            </div>
+
+            <div style="height: 10px;"></div>
+
+            <button type="submit" class="btn btn-primary btn-sm">
+              Create Photographer
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -8,155 +8,162 @@
 
 <hr>
 
-<div class="container-fluid">
-  <div>
-    <h2>
-      Add a new Event
-    </h2>
-
-    <form action="/insert_event" method="post">
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name">
-      </div>
-
-      <div>
-        <label for="chronological_order_box">
-          Chronological order
-        </label>
-
-        <input type="text" id="chronological_order_box" name="query_chronological_order">
-      </div>
-
-      <div>
-        <label for="bakery_name_box">
-          Bakery
-        </label>
-
-        <select id="bakery_name_box" name="query_bakery_name">
-          <% @list_of_bakeries.each do |a_bakery| %>
-            <option value="<%= a_bakery.name %>"><%= a_bakery.name %></option>
-          <% end %>
-        </select>
-      </div>
-
-      <div>
-        <label for="coordinator_name_box">
-          Coordinator
-        </label>
-
-        <select id="coordinator_name_box" name="query_coordinator_name">
-          <% @list_of_coordinators.each do |a_coordinator| %>
-            <option value="<%= a_coordinator.name %>"><%= a_coordinator.name %></option>
-          <% end %>
-        </select>
-      </div>
-
-      <div>
-        <label for="dj_name_box">
-          DJ
-        </label>
-
-        <select id="dj_name_box" name="query_dj_name">
-          <% @list_of_djs.each do |a_dj| %>
-            <option value="<%= a_dj.name %>"><%= a_dj.name %></option>
-          <% end %>
-        </select>
-      </div>
-
-      <div>
-        <label for="florist_name_box">
-          Florist
-        </label>
-
-        <select id="florist_name_box" name="query_florist_name">
-          <% @list_of_florists.each do |a_florist| %>
-            <option value="<%= a_florist.name %>"><%= a_florist.name %></option>
-          <% end %>
-        </select>
-      </div>
-
-      <div>
-        <label for="hotel_name_box">
-          Hotel
-        </label>
-
-        <select id="hotel_name_box" name="query_hotel_name">
-          <% @list_of_hotels.each do |a_hotel| %>
-            <option value="<%= a_hotel.name %>"><%= a_hotel.name %></option>
-          <% end %>
-        </select>
-      </div>
-
-      <div>
-        <label for="lighting_production_company_name_box">
-          Lighting & Production Company
-        </label>
-
-        <select id="lighting_production_company_name_box" name="query_lighting_production_company_name">
-          <% @list_of_lighting_production_companies.each do |a_lighting_production_company| %>
-            <option value="<%= a_lighting_production_company.name %>"><%= a_lighting_production_company.name %></option>
-          <% end %>
-        </select>
-      </div>
-
-      <div>
-        <label for="photographer_name_box">
-          Photographer
-        </label>
-
-        <select id="photographer_name_box" name="query_photographer_name">
-          <% @list_of_photographers.each do |a_photographer| %>
-            <option value="<%= a_photographer.name %>"><%= a_photographer.name %></option>
-          <% end %>
-        </select>
-      </div>
-
-      <div>
-        <label for="transportation_company_name_box">
-          Transportation Companies
-        </label>
-
-        <select id="transportation_company_name_box" name="query_transportation_company_name">
-          <% @list_of_transportation_companies.each do |a_transportation_company| %>
-            <option value="<%= a_transportation_company.name %>"><%= a_transportation_company.name %></option>
-          <% end %>
-        </select>
-      </div>
-
-      <div>
-        <label for="venue_name_box">
-          Venue
-        </label>
-
-        <select id="venue_name_box" name="query_venue_name">
-          <% @list_of_venues.each do |a_venue| %>
-            <option value="<%= a_venue.name %>"><%= a_venue.name %></option>
-          <% end %>
-        </select>
-      </div>
-
-      <div>
-        <label for="neighborhood_name_box">
-          Neighborhood
-        </label>
-
-        <select id="neighborhood_name_box" name="query_neighborhood_name">
-          <% @list_of_neighborhoods.each do |a_neighborhood| %>
-            <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
-          <% end %>
-        </select>
-      </div>
-
-      <div style="height: 10px;"></div>
-
-      <button type="submit" class="btn btn-primary btn-sm">
-        Create Event
+<div class="accordion accordion-flush accordion-" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <h2>Add a New Event</h2>
       </button>
-    </form>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div>
+          <form action="/insert_event" method="post">
+            <div>
+              <label for="name_box">
+                Name
+              </label>
+
+              <input type="text" id="name_box" name="query_name">
+            </div>
+
+            <div>
+              <label for="chronological_order_box">
+                Chronological order
+              </label>
+
+              <input type="text" id="chronological_order_box" name="query_chronological_order">
+            </div>
+
+            <div>
+              <label for="bakery_name_box">
+                Bakery
+              </label>
+
+              <select id="bakery_name_box" name="query_bakery_name">
+                <% @list_of_bakeries.each do |a_bakery| %>
+                  <option value="<%= a_bakery.name %>"><%= a_bakery.name %></option>
+                <% end %>
+              </select>
+            </div>
+
+            <div>
+              <label for="coordinator_name_box">
+                Coordinator
+              </label>
+
+              <select id="coordinator_name_box" name="query_coordinator_name">
+                <% @list_of_coordinators.each do |a_coordinator| %>
+                  <option value="<%= a_coordinator.name %>"><%= a_coordinator.name %></option>
+                <% end %>
+              </select>
+            </div>
+
+            <div>
+              <label for="dj_name_box">
+                DJ
+              </label>
+
+              <select id="dj_name_box" name="query_dj_name">
+                <% @list_of_djs.each do |a_dj| %>
+                  <option value="<%= a_dj.name %>"><%= a_dj.name %></option>
+                <% end %>
+              </select>
+            </div>
+
+            <div>
+              <label for="florist_name_box">
+                Florist
+              </label>
+
+              <select id="florist_name_box" name="query_florist_name">
+                <% @list_of_florists.each do |a_florist| %>
+                  <option value="<%= a_florist.name %>"><%= a_florist.name %></option>
+                <% end %>
+              </select>
+            </div>
+
+            <div>
+              <label for="hotel_name_box">
+                Hotel
+              </label>
+
+              <select id="hotel_name_box" name="query_hotel_name">
+                <% @list_of_hotels.each do |a_hotel| %>
+                  <option value="<%= a_hotel.name %>"><%= a_hotel.name %></option>
+                <% end %>
+              </select>
+            </div>
+
+            <div>
+              <label for="lighting_production_company_name_box">
+                Lighting & Production Company
+              </label>
+
+              <select id="lighting_production_company_name_box" name="query_lighting_production_company_name">
+                <% @list_of_lighting_production_companies.each do |a_lighting_production_company| %>
+                  <option value="<%= a_lighting_production_company.name %>"><%= a_lighting_production_company.name %></option>
+                <% end %>
+              </select>
+            </div>
+
+            <div>
+              <label for="photographer_name_box">
+                Photographer
+              </label>
+
+              <select id="photographer_name_box" name="query_photographer_name">
+                <% @list_of_photographers.each do |a_photographer| %>
+                  <option value="<%= a_photographer.name %>"><%= a_photographer.name %></option>
+                <% end %>
+              </select>
+            </div>
+
+            <div>
+              <label for="transportation_company_name_box">
+                Transportation Companies
+              </label>
+
+              <select id="transportation_company_name_box" name="query_transportation_company_name">
+                <% @list_of_transportation_companies.each do |a_transportation_company| %>
+                  <option value="<%= a_transportation_company.name %>"><%= a_transportation_company.name %></option>
+                <% end %>
+              </select>
+            </div>
+
+            <div>
+              <label for="venue_name_box">
+                Venue
+              </label>
+
+              <select id="venue_name_box" name="query_venue_name">
+                <% @list_of_venues.each do |a_venue| %>
+                  <option value="<%= a_venue.name %>"><%= a_venue.name %></option>
+                <% end %>
+              </select>
+            </div>
+
+            <div>
+              <label for="neighborhood_name_box">
+                Neighborhood
+              </label>
+
+              <select id="neighborhood_name_box" name="query_neighborhood_name">
+                <% @list_of_neighborhoods.each do |a_neighborhood| %>
+                  <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+                <% end %>
+              </select>
+            </div>
+
+            <div style="height: 10px;"></div>
+
+            <button type="submit" class="btn btn-primary btn-sm">
+              Create Event
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

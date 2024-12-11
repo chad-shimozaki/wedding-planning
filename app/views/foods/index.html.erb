@@ -8,43 +8,50 @@
 
 <hr>
 
-<div class="container-fluid">
-  <div>
-    <h2>
-      Add a new food
-    </h2>
-
-    <form action="/insert_food" method="post">
-      <div>
-        <label for="meal_id_box">
-          Meal
-        </label>
-
-        <input type="text" id="meal_id_box" name="query_meal_id">
-      </div>
-
-      <div>
-        <label for="caterer_id_box">
-          Caterer
-        </label>
-
-        <input type="text" id="caterer_id_box" name="query_caterer_id">
-      </div>
-
-      <div>
-        <label for="cuisine_id_box">
-          Cuisine
-        </label>
-
-        <input type="text" id="cuisine_id_box" name="query_cuisine_id">
-      </div>
-
-      <div style="height: 10px;"></div>
-
-      <button type="submit" class="btn btn-primary btn-sm">
-        Create food
+<div class="accordion accordion-flush accordion-" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <h2>Add a New Food</h2>
       </button>
-    </form>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div>
+          <form action="/insert_food" method="post">
+            <div>
+              <label for="meal_id_box">
+                Meal
+              </label>
+
+              <input type="text" id="meal_id_box" name="query_meal_id">
+            </div>
+
+            <div>
+              <label for="caterer_id_box">
+                Caterer
+              </label>
+
+              <input type="text" id="caterer_id_box" name="query_caterer_id">
+            </div>
+
+            <div>
+              <label for="cuisine_id_box">
+                Cuisine
+              </label>
+
+              <input type="text" id="cuisine_id_box" name="query_cuisine_id">
+            </div>
+
+            <div style="height: 10px;"></div>
+
+            <button type="submit" class="btn btn-primary btn-sm">
+              Create food
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
