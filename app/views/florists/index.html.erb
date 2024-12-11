@@ -134,6 +134,16 @@
             </div>
 
             <div class="row mb-2">
+              <label for="pdf_box" class="col-auto col-form-label">
+                PDF
+              </label>
+
+              <div class="col-auto">
+                <input class="form-control" type="file" id="pdf_box" name="query_pdf">
+              </div>
+            </div>
+
+            <div class="row mb-2">
               <label for="notes_box" class="col-auto col-form-label">
                 Notes
               </label>
@@ -234,6 +244,10 @@
 
           <th>
             Price Options
+          </th>
+
+          <th>
+            PDF
           </th>
 
           <th>
@@ -338,6 +352,10 @@
 
             <td>
               <%= a_florist.price_options %>
+            </td>
+
+            <td>
+              <%= a_florist.pdf %>
             </td>
 
             <td>

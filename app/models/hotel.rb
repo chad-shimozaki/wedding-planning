@@ -15,6 +15,7 @@
 #  minimum_rooms   :integer
 #  name            :string
 #  notes           :text
+#  pdf             :string
 #  photo_url       :string
 #  price_options   :text
 #  signed_contract :boolean

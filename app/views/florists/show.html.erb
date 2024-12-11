@@ -1,141 +1,175 @@
 <div>
-  <div>
+  <div class="container-fluid">
+      <a href="/florists" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left"></i> Back
+      </a>
+  </div>
+  <div class="text-center">
     <h1>
-      Florist #<%= @the_florist.id %> details
+      <a href="<%= @the_florist.website %>"><%= @the_florist.name %></a>
     </h1>
 
-    <div>
-      <div>
-        <a href="/florists">
-          Go back
-        </a>
-      </div>
+    <div style="height: 10px;"></div>
 
-      <div>
-        <a href="/delete_florist/<%= @the_florist.id %>">
-          Delete Florist
-        </a>
+    <div class="row mb-4">
+        <% if @the_florist.photo_url.blank? %>
+        <% else %>
+        <img src = "<%= @the_florist.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="container text-center">
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Address</h4>
+        <%= @the_florist.address %>
+      </div>
+      <div class="col">
+        <h4>Neighborhood</h4>
+        <%= Neighborhood.where({ :id => @the_florist.neighborhood_id }).at(0).name %>
+      </div>
+    </div>
+    
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Contact Name</h4>
+          <% if @the_florist.contact_name.blank? %>
+            <p>None provided</p>
+          <% else %>
+            <%= @the_florist.contact_name %>
+          <% end %>
+      </div>
+      <div class="col">
+        <h4>Contact Email</h4>
+          <% if @the_florist.contact_email.blank? %>
+            <p>None provided</p>
+          <% else %>
+            <%= @the_florist.contact_email %>
+          <% end %>
       </div>
     </div>
 
-    <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_florist.name %>
-      </dd>
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Contacted</h4>
+        <% if @the_florist.contacted == true %>
+          <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+        <% else %>
+          <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+        <% end %>
+      </div>
+      <div class="col">
+        <h4>Chosen</h4>
+          <% if @the_florist.chosen == true %>
+          <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+        <% else %>
+          <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+        <% end %>
+      </div>
+    </div>
 
-      <dt>
-        Address
-      </dt>
-      <dd>
-        <%= @the_florist.address %>
-      </dd>
-
-      <dt>
-        Lat
-      </dt>
-      <dd>
-        <%= @the_florist.lat %>
-      </dd>
-
-      <dt>
-        Lng
-      </dt>
-      <dd>
-        <%= @the_florist.lng %>
-      </dd>
-
-      <dt>
-        Neighborhood
-      </dt>
-      <dd>
-        <%= Neighborhood.where({ :id => @the_florist.neighborhood_id }).at(0).name %>
-      </dd>
-
-      <dt>
-        Website
-      </dt>
-      <dd>
-        <a href="<%= @the_florist.website %>"><%= @the_florist.website %></a>
-      </dd>
-
-      <dt>
-        Contact Name
-      </dt>
-      <dd>
-        <%= @the_florist.contact_name %>
-      </dd>
-
-      <dt>
-        Contact Email
-      </dt>
-      <dd>
-        <%= @the_florist.contact_email %>
-      </dd>
-
-      <dt>
-        Contacted
-      </dt>
-      <dd>
-        <%= @the_florist.contacted %>
-      </dd>
-
-      <dt>
-        Chosen
-      </dt>
-      <dd>
-        <%= @the_florist.chosen %>
-      </dd>
-
-      <dt>
-        Price Options
-      </dt>
-      <dd>
-        <%= @the_florist.price_options %>
-      </dd>
-
-      <dt>
-        Notes
-      </dt>
-      <dd>
-        <%= @the_florist.notes %>
-      </dd>
-
-      <dt>
-        Deposit
-      </dt>
-      <dd>
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Price Options</h4>
+          <% if @the_florist.price_options.blank? %>
+            <p>None provided</p>
+          <% else %>
+            <%= @the_florist.price_options %>
+          <% end %>
+      </div>
+      <div class="col">
+        <h4>Deposit</h4>
         <%= @the_florist.deposit.to_fs( :percentage, { :precision => 0 } ) %>
-      </dd>
+      </div><div class="col">
+        <h4>PDF</h4>
+        <% if @the_florist.pdf.blank? %>
+          <p>None provided</p>
+        <% else %>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pdfModal">
+            View PDF
+          </button>
 
-      <dt>
-        Final Price
-      </dt>
-      <dd>
-        <%= @the_florist.final_price.to_fs(:currency) %>
-      </dd>
+          <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="pdfModalLabel">PDF Preview</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <embed src="/public/pdfs<%= @the_florist.pdf %>.pdf" type="application/pdf" width="100%" height="400px">
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col">
+        <h4>Notes</h4>
+        <%= @the_florist.notes %>
+          <% if @the_florist.notes.blank? %>
+            <p>None provided</p>
+          <% else %>
+            <%= @the_florist.notes %>
+          <% end %>
+      </div>
+    </div>
 
-      <dt>
-        Created at
-      </dt>
-      <dd>
+    <div class="row mb-4">
+
+    </div>
+
+    <% if @the_florist.chosen == true %>
+      <div class="row mb-4">
+        <div class="col">
+          <h4>Final Price</h4>
+          <%= @the_florist.final_price.to_fs(:currency) %>
+        </div>
+        <div class="col">
+          <h4>Signed Contract</h4>
+          <% if @the_florist.signed_contract == true %>
+            <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+          <% else %>
+            <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+          <% end %>
+        </div>
+        <div class="col">
+          <h4>Paid Deposit</h4>
+          <% if @the_florist.paid_deposit == true %>
+            <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+          <% else %>
+            <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+          <% end %>
+        </div>
+        <div class="col">
+          <h4>Final Payment</h4>
+          <% if @the_florist.final_payment == true %>
+            <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+          <% else %>
+            <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+          <% end %>
+        </div>
+      </div>
+
+    <% end %>
+
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Created At</h4>
         <%= time_ago_in_words(@the_florist.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
+      </div>
+      <div class="col">
+        <h4>Updated At</h4>
         <%= time_ago_in_words(@the_florist.updated_at) %> ago
-      </dd>
-    </dl>
+      </div>
+    </div>
   </div>
 </div>
 
 <hr>
-
 
 <div>
   <div class="container-fluid">
@@ -272,6 +306,16 @@
 
         <div class="col-auto">
           <textarea class="form-control" id="price_options_box" name="query_price_options"><%= @the_florist.price_options %></textarea>
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <label for="pdf_box" class="col-auto col-form-label">
+          PDF
+        </label>
+
+        <div class="col-auto">
+          <input class="form-control" type="file" id="pdf_box" name="query_pdf" value="<%= @the_florist.pdf %>">
         </div>
       </div>
 

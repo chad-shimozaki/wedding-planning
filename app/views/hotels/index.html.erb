@@ -138,6 +138,16 @@
             </div>
 
             <div class="row mb-2">
+              <label for="pdf_box" class="col-auto col-form-label">
+                PDF
+              </label>
+
+              <div class="col-auto">
+                <input class="form-control" type="file" id="pdf_box" name="query_pdf">
+              </div>
+            </div>
+
+            <div class="row mb-2">
               <label for="notes_box" class="col-auto col-form-label">
                 Notes
               </label>
@@ -221,6 +231,10 @@
           </th>
 
           <th>
+            PDF
+          </th>
+
+          <th>
             Notes
           </th>
 
@@ -294,6 +308,10 @@
 
             <td>
               <%= a_hotel.price_options %>
+            </td>
+
+            <td>
+              <%= a_hotel.pdf %>
             </td>
 
             <td>

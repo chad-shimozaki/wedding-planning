@@ -58,6 +58,7 @@ class HotelsController < ApplicationController
     the_hotel.signed_contract = params.fetch("query_signed_contract", false)
     the_hotel.minimum_rooms = params.fetch("query_minimum_rooms")
     the_hotel.price_options = params.fetch("query_price_options")
+    the_hotel.pdf = params.fetch("query_pdf")
     the_hotel.notes = params.fetch("query_notes")
 
     if the_hotel.valid?
@@ -105,6 +106,7 @@ class HotelsController < ApplicationController
     the_hotel.signed_contract = params.fetch("query_signed_contract", false)
     the_hotel.minimum_rooms = params.fetch("query_minimum_rooms")
     the_hotel.price_options = params.fetch("query_price_options")
+    the_hotel.pdf = params.fetch("query_pdf")
     the_hotel.notes = params.fetch("query_notes")
 
     if the_hotel.valid?
