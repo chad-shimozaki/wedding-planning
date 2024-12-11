@@ -20,41 +20,47 @@
         <div>
           <form action="/insert_meal" method="post">
 
-            <div>
+            <div class="row mb-2">
               <label for="name_box" class="col-auto col-form-label">
                 Name
               </label>
 
-              <input class="form-control" type="text" id="name_box" name="query_name">
+              <div class="col-auto">
+                <input class="form-control" type="text" id="name_box" name="query_name">
+              </div>
             </div>
 
-            <div>
+            <div class="row mb-2">
               <label for="caterer_id_box" class="col-auto col-form-label">
                 Caterer
               </label>
 
-              <select id="caterer_id_box" name="query_caterer_name">
-                  <option value=""></option>
-                <% @list_of_caterers.each do |a_caterer| %>
-                  <option value="<%= a_caterer.name %>"><%= a_caterer.name %></option>
-                <% end %>
-              </select>
+              <div class="col-auto col-form-label">
+                <select id="caterer_id_box" name="query_caterer_name">
+                    <option value=""></option>
+                  <% @list_of_caterers.each do |a_caterer| %>
+                    <option value="<%= a_caterer.name %>"><%= a_caterer.name %></option>
+                  <% end %>
+                </select>
+              </div>
             </div>
 
-            <div>
+            <div class="row mb-2">
               <label for="event_id_box" class="col-auto col-form-label">
                 Event
               </label>
 
-              <select id="event_id_box" name="query_event_name">
-                  <option value=""></option>
-                <% @list_of_events.each do |an_event| %>
-                  <option value="<%= an_event.name %>"><%= an_event.name %></option>
-                <% end %>
-              </select>
+              <div class="col-auto col-form-label">
+                <select id="event_id_box" name="query_event_name">
+                    <option value=""></option>
+                  <% @list_of_events.each do |an_event| %>
+                    <option value="<%= an_event.name %>"><%= an_event.name %></option>
+                  <% end %>
+                </select>
+              </div>
             </div>
 
-            <div style="height: 10px;"></div>
+            <div style="height: 5px;"></div>
 
             <button type="submit" class="btn btn-primary btn-sm">
               Create Meal

@@ -50,6 +50,7 @@ class FloristsController < ApplicationController
     the_florist.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
 
     the_florist.website = params.fetch("query_website")
+    the_florist.photo_url = params.fetch("query_photo_url")
     the_florist.contact_name = params.fetch("query_contact_name")
     the_florist.contact_email = params.fetch("query_contact_email")
     the_florist.contacted = params.fetch("query_contacted", false)
@@ -99,6 +100,7 @@ class FloristsController < ApplicationController
     the_florist.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
 
     the_florist.website = params.fetch("query_website")
+    the_florist.photo_url = params.fetch("query_photo_url")
     the_florist.contact_name = params.fetch("query_contact_name")
     the_florist.contact_email = params.fetch("query_contact_email")
     the_florist.contacted = params.fetch("query_contacted", false)

@@ -24,7 +24,9 @@
                 Name
               </label>
 
-              <input class="form-control" type="text" id="name_box" name="query_name">
+              <div class="col-auto">
+                <input class="form-control" type="text" id="name_box" name="query_name">
+              </div>
             </div>
 
             <div class="row mb-2">
@@ -32,7 +34,9 @@
                 Contact Email
               </label>
 
-              <input class="form-control" type="email" id="email_box" name="query_contact_email">
+              <div class="col-auto">
+                <input class="form-control" type="email" id="email_box" name="query_contact_email">
+              </div>
             </div>
 
             <div class="row mb-2">
@@ -40,7 +44,9 @@
                 Contact Number
               </label>
 
-              <input class="form-control" type="text" id="number_box" name="query_contact_number">
+              <div class="col-auto">
+                <input class="form-control" type="text" id="number_box" name="query_contact_number">
+              </div>
             </div>
 
             <div class="row mb-2">
@@ -48,7 +54,19 @@
                 Website
               </label>
 
-              <input class="form-control" type="url" id="website_box" name="query_website">
+              <div class="col-sm-6">
+                <input class="form-control" type="url" id="website_box" name="query_website">
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <label for="photo_url_box" class="col-auto col-form-label">
+                Photo URL
+              </label>
+
+              <div class="col-sm-10">
+                <input class="form-control" type="text" id="photo_url_box" name="query_photo_url">
+              </div>
             </div>
 
             <div class="row mb-2">
@@ -56,7 +74,9 @@
                 Experience
               </label>
 
-              <input class="form-control" type="text" id="experience_box" name="query_experience">
+              <div class="col-auto">
+                <input class="form-control" type="text" id="experience_box" name="query_experience">
+              </div>
             </div>
 
             <div>
@@ -94,15 +114,9 @@
                 Price Options
               </label>
 
-              <textarea class="form-control" id="price_options_box" name="query_price_options" rows="3"></textarea>
-            </div>
-
-            <div class="row mb-2">
-              <label for="photo_url_box" class="col-auto col-form-label">
-                Photo URL
-              </label>
-
-              <input class="form-control" type="text" id="photo_url_box" name="query_photo_url">
+              <div class="col-auto">
+                <textarea class="form-control" id="price_options_box" name="query_price_options" rows="3"></textarea>
+              </div>
             </div>
 
             <div class="row mb-2">
@@ -110,7 +124,9 @@
                 PDF
               </label>
 
-              <input class="form-control" type="file" id="pdf_box" name="query_pdf">
+              <div class="col-auto">
+                <input class="form-control" type="file" id="pdf_box" name="query_pdf">
+              </div>
             </div>
 
             <div class="row mb-2">
@@ -118,7 +134,9 @@
                 Notes
               </label>
 
-              <textarea class="form-control" id="notes_box" name="query_notes" rows="3"></textarea>
+              <div class="col-auto">
+                <textarea class="form-control" id="notes_box" name="query_notes" rows="3"></textarea>
+              </div>
             </div>
 
             <div class="row mb-2">
@@ -126,7 +144,9 @@
                 Deposit %
               </label>
 
-              <input type="number" id="deposit_box" name="query_deposit" value = "0">
+              <div class="col-auto">
+                <input type="number" id="deposit_box" name="query_deposit" value = "0">
+              </div>
             </div>
 
             <div class="row mb-2">
@@ -134,10 +154,12 @@
                 Final Price $
               </label>
 
-              <input type="number" id="final_price_box" name="query_final_price" value = "0">
+              <div class="col-auto">
+                <input type="number" id="final_price_box" name="query_final_price" value = "0">
+              </div>
             </div>
 
-            <div style="height: 10px;"></div>
+            <div style="height: 5px;"></div>
 
             <button type="submit" class="btn btn-primary btn-sm">
               Create Coordinator

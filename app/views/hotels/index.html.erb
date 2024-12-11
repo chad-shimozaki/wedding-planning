@@ -24,7 +24,9 @@
                 Name
               </label>
 
-              <input class="form-control" type="text" id="name_box" name="query_name">
+              <div class="col-auto">
+                <input class="form-control" type="text" id="name_box" name="query_name">
+              </div>
             </div>
 
             <div class="row mb-2">
@@ -32,7 +34,9 @@
                 Address
               </label>
 
-              <input class="form-control" type="text" id="address_box" name="query_address">
+              <div class="col-sm-4">
+                <input class="form-control" type="text" id="address_box" name="query_address">
+              </div>
             </div>
 
             <div class="row mb-2">
@@ -40,11 +44,13 @@
                 Neighborhood
               </label>
 
-              <select id="neighborhood_name_box" name="query_neighborhood_name">
-                <% @list_of_neighborhoods.each do |a_neighborhood| %>
-                  <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
-                <% end %>
-              </select>
+              <div class="col-auto col-form-label">
+                <select id="neighborhood_name_box" name="query_neighborhood_name">
+                  <% @list_of_neighborhoods.each do |a_neighborhood| %>
+                    <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+                  <% end %>
+                </select>
+              </div>
             </div>
 
             <div class="row mb-2">
@@ -52,7 +58,9 @@
                 Website
               </label>
 
-              <input class="form-control" type="url" id="website_box" name="query_website">
+              <div class="col-sm-6">
+                <input class="form-control" type="url" id="website_box" name="query_website">
+              </div>
             </div>
 
             <div class="row mb-2">
@@ -60,7 +68,9 @@
                 Contact Name
               </label>
 
-              <input class="form-control" type="text" id="contact_name_box" name="query_contact_name">
+              <div class="col-auto">
+                <input class="form-control" type="text" id="contact_name_box" name="query_contact_name">
+              </div>
             </div>
 
             <div class="row mb-2">
@@ -68,7 +78,9 @@
                 Contact Email
               </label>
 
-              <input class="form-control" type="email" id="contact_email_box" name="query_contact_email">
+              <div class="col-auto">
+                <input class="form-control" type="email" id="contact_email_box" name="query_contact_email">
+              </div>
             </div>
 
             <div>
@@ -94,7 +106,9 @@
                 Minimum rooms
               </label>
 
-              <input type="number" id="minimum_rooms_box" name="query_minimum_rooms" value="0">
+              <div class="col-auto">
+                <input type="number" id="minimum_rooms_box" name="query_minimum_rooms" value="0">
+              </div>
             </div>
 
             <div class="row mb-2">
@@ -102,7 +116,9 @@
                 Price Options
               </label>
 
-              <textarea class="form-control" id="price_options_box" name="query_price_options" rows="3"></textarea>
+              <div class="col-auto">
+                <textarea class="form-control" id="price_options_box" name="query_price_options" rows="3"></textarea>
+              </div>
             </div>
 
             <div class="row mb-2">
@@ -110,10 +126,12 @@
                 Notes
               </label>
 
-              <textarea class="form-control" id="notes_box" name="query_notes" rows="3"></textarea>
+              <div class="col-auto">
+                <textarea class="form-control" id="notes_box" name="query_notes" rows="3"></textarea>
+              </div>
             </div>
 
-            <div style="height: 10px;"></div>
+            <div style="height: 5px;"></div>
 
             <button type="submit" class="btn btn-primary btn-sm">
               Create Hotel

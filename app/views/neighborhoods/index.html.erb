@@ -19,15 +19,17 @@
       <div class="accordion-body">
         <div>
           <form action="/insert_neighborhood" method="post">
-            <div>
+            <div class="row mb-2">
               <label for="name_box" class="col-auto col-form-label">
                 Name
               </label>
 
-              <input class="form-control" type="text" id="name_box" name="query_name">
+              <div class="col-auto">
+                <input class="form-control" type="text" id="name_box" name="query_name">
+              </div>
             </div>
             
-            <div style="height: 10px;"></div>
+            <div style="height: 5px;"></div>
 
             <button type="submit" class="btn btn-primary btn-sm">
               Create Neighborhood
