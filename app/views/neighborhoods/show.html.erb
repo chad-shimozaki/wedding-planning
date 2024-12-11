@@ -1,56 +1,57 @@
 <div>
-  <div>
+  <div class="container-fluid">
+      <a href="/neighborhoods" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left"></i> Back
+      </a>
+  </div>
+  <div class="text-center">
     <h1>
-      Neighborhood #<%= @the_neighborhood.id %> details
+      <%= @the_neighborhood.name %>
     </h1>
 
-    <div>
-      <div>
-        <a href="/neighborhoods">
-          Go back
-        </a>
-      </div>
+    <div style="height: 10px;"></div>
 
-      <div>
-        <a href="/delete_neighborhood/<%= @the_neighborhood.id %>">
-          Delete Neighborhood
-        </a>
+    <div class="row mb-4">
+        <% if @the_neighborhood.photo_url.blank? %>
+        <% else %>
+        <img src = "<%= @the_neighborhood.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="container text-center">
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Created At</h4>
+        <%= time_ago_in_words(@the_neighborhood.created_at) %> ago
+      </div>
+      <div class="col">
+        <h4>Updated At</h4>
+        <%= time_ago_in_words(@the_neighborhood.updated_at) %> ago
       </div>
     </div>
-
-    <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_neighborhood.name %>
-      </dd>
-      
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_neighborhood.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_neighborhood.updated_at) %> ago
-      </dd>
-    </dl>
   </div>
 </div>
 
 <hr>
-
 
 <div>
   <div class="container-fluid">
     <h2>
       Edit Neighborhood
     </h2>
+
+    <div class="row mb-2">
+      <label for="name_box" class="col-auto col-form-label">
+        Name
+      </label> 
+
+      <div class="col-auto">
+        <input class="form-control" type="text" id="name_box" name="query_name" value="<%= @the_neighborhood.name %>">
+      </div>
+    </div>
 
     <div class="row mb-2">
       <label for="photo_url_box" class="col-auto col-form-label">
