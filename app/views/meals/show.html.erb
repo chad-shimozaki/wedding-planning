@@ -1,64 +1,52 @@
 <div>
-  <div>
+  <div class="container-fluid">
+      <a href="/meals" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left"></i> Back
+      </a>
+  </div>
+  <div class="text-center">
     <h1>
-      Meal #<%= @the_meal.id %> details
+      <%= @the_meal.name %>
     </h1>
 
-    <div>
-      <div>
-        <a href="/meals">
-          Go back
-        </a>
-      </div>
+    <div style="height: 10px;"></div>
 
-      <div>
-        <a href="/delete_meal/<%= @the_meal.id %>">
-          Delete Meal
-        </a>
+    <div class="row mb-4">
+        <% if @the_meal.photo_url.blank? %>
+        <% else %>
+        <img src = "<%= @the_meal.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="container text-center">
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Caterer</h4>
+        <%= Caterer.where({ :id => @the_meal.caterer_id }).at(0).name %>
+      </div>
+      <div class="col">
+        <h4>Event</h4>
+        <%= Event.where({ :id => @the_meal.event_id }).at(0).name %>
       </div>
     </div>
 
-    <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_meal.name %>
-      </dd>
-      
-      <dt>
-        Caterer
-      </dt>
-      <dd>
-        <%= Caterer.where({ :id => @the_meal.caterer_id }).at(0).name %>
-      </dd>
-
-      <dt>
-        Event
-      </dt>
-      <dd>
-        <%= Event.where({ :id => @the_meal.event_id }).at(0).name %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Created At</h4>
         <%= time_ago_in_words(@the_meal.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
+      </div>
+      <div class="col">
+        <h4>Updated At</h4>
         <%= time_ago_in_words(@the_meal.updated_at) %> ago
-      </dd>
-    </dl>
+      </div>
+    </div>
   </div>
 </div>
 
 <hr>
-
 
 <div>
   <div class="container-fluid">
