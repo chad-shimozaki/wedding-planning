@@ -161,7 +161,6 @@
   </div>
 </div>
 
-<hr>
 <div>
   <div class="table-responsive">
     <table class="table table-bordered table-striped table-hover table-sm align-middle">
@@ -188,6 +187,10 @@
           </th>
 
           <th>
+            Photo URL
+          </th>
+
+          <th>
             Contacted
           </th>
 
@@ -209,10 +212,6 @@
 
           <th>
             Price Options
-          </th>
-
-          <th>
-            Photo URL
           </th>
 
           <th>
@@ -267,6 +266,10 @@
               <a href="<%= a_photographer.website %>"><%= a_photographer.website %></a>
             </td>
 
+            <td>
+              <img src = "<%= a_photographer.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
+            </td>
+
             <td style="text-align: center;">
               <% if a_photographer.contacted == true %>
                 <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
@@ -309,10 +312,6 @@
 
             <td>
               <%= a_photographer.price_options %>
-            </td>
-
-            <td>
-              <img src = "<%= a_photographer.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
             </td>
 
             <td>

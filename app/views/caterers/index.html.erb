@@ -237,6 +237,10 @@
           </th>
 
           <th>
+            Photo URL
+          </th>
+
+          <th>
             Cuisine
           </th>
 
@@ -278,10 +282,6 @@
 
           <th>
             Price Options
-          </th>
-
-          <th>
-            Photo URL
           </th>
 
           <th>
@@ -334,6 +334,10 @@
 
             <td>
               <a href="<%= a_caterer.website %>"><%= a_caterer.website %></a>
+            </td>
+
+            <td>
+              <img src = "<%= a_caterer.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
             </td>
 
             <td>
@@ -406,10 +410,6 @@
 
             <td>
               <%= a_caterer.price_options %>
-            </td>
-
-            <td>
-              <img src = "<%= a_caterer.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
             </td>
 
             <td>

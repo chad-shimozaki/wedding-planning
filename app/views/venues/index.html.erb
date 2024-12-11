@@ -221,7 +221,6 @@
   </div>
 </div>
 
-<hr>
 <div>
   <div class="table-responsive">
     <table class="table table-bordered table-striped table-hover table-sm align-middle">
@@ -253,6 +252,10 @@
 
           <th>
             Website
+          </th>
+
+          <th>
+            Photo URL
           </th>
 
           <th>
@@ -289,10 +292,6 @@
 
           <th>
             Price Options
-          </th>
-
-          <th>
-            Photo URL
           </th>
 
           <th>
@@ -360,6 +359,10 @@
           </td>
 
           <td>
+            <img src = "<%= a_venue.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
+          </td>
+
+          <td>
             <%= a_venue.contact_name %>
           </td>
 
@@ -417,10 +420,6 @@
 
           <td>
             <%= a_venue.price_options %>
-          </td>
-
-          <td>
-            <img src = "<%= a_venue.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
           </td>
 
           <td>
