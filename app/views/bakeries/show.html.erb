@@ -137,7 +137,7 @@
           <%= @the_bakery.final_price.to_fs(:currency) %>
         </div>
         <div class="col">
-          <h4>Contacted</h4>
+          <h4>Signed Contract</h4>
           <% if @the_bakery.signed_contract == true %>
             <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
           <% else %>
@@ -145,6 +145,7 @@
           <% end %>
         </div>
         <div class="col">
+          <h4>Paid Deposit</h4>
           <% if @the_bakery.paid_deposit == true %>
             <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
           <% else %>
@@ -152,6 +153,7 @@
           <% end %>
         </div>
         <div class="col">
+          <h4>Final Payment</h4>
           <% if @the_bakery.final_payment == true %>
             <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
           <% else %>
