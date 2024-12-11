@@ -238,7 +238,7 @@
 
       <div class="container-fluid">
         <label for="contact_name_box">
-          Contact name
+          Contact Name
         </label>
 
         <input class="form-text" type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_bakery.contact_name %>">
@@ -246,7 +246,7 @@
 
       <div class="container-fluid">
         <label for="contact_email_box">
-          Contact email
+          Contact Email
         </label>
 
         <input class="form-text" type="email" id="contact_email_box" name="query_contact_email" value="<%= @the_bakery.contact_email %>">
@@ -302,7 +302,7 @@
 
       <div class="container-fluid">
         <label for="price_options_box">
-          Price options
+          Price Options
         </label>
 
         <textarea class="form-text" id="price_options_box" name="query_price_options"><%= @the_bakery.price_options %></textarea>
@@ -334,7 +334,7 @@
 
       <div class="container-fluid">
         <label for="final_price_box">
-          Final price
+          Final Price
         </label>
 
         <input class="form-text" type="text" id="final_price_box" name="query_final_price" value="<%= @the_bakery.final_price.to_fs(:currency) %>">

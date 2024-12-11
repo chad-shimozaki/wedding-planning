@@ -62,14 +62,14 @@
       </dd>
 
       <dt>
-        Price options
+        Price Options
       </dt>
       <dd>
         <%= @the_coordinator.price_options %>
       </dd>
 
       <dt>
-        Photo url
+        Photo URL
       </dt>
       <dd>
         <%= @the_coordinator.photo_url %>
@@ -97,7 +97,7 @@
       </dd>
 
       <dt>
-        Final price
+        Final Price
       </dt>
       <dd>
         <%= @the_coordinator.final_price.to_fs(:currency) %>
@@ -164,7 +164,7 @@
 
       <div>
         <label for="photo_url_box">
-          Photo url
+          Photo URL
         </label>
 
         <input type="text" id="photo_url_box" name="query_photo_url" value="<%= @the_coordinator.photo_url %>">
@@ -196,7 +196,7 @@
 
       <div>
         <label for="price_options_box">
-          Price options
+          Price Options
         </label>
 
         <textarea id="price_options_box" name="query_price_options"><%= @the_coordinator.price_options %></textarea>
@@ -220,7 +220,7 @@
 
       <div>
         <label for="final_price_box">
-          Final price
+          Final Price
         </label>
 
         <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_coordinator.final_price.to_fs(:currency) %>">
