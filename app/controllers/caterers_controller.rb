@@ -53,6 +53,7 @@ class CaterersController < ApplicationController
     the_caterer.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
 
     the_caterer.website = params.fetch("query_website")
+    the_caterer.photo_url = params.fetch("query_photo_url")
     
     cuisine_name = params.fetch("query_cuisine_name")
     the_caterer.cuisine_id = Cuisine.where({ :name => cuisine_name }).at(0).id
@@ -67,7 +68,6 @@ class CaterersController < ApplicationController
     the_caterer.paid_deposit = params.fetch("query_paid_deposit", false)
     the_caterer.final_payment = params.fetch("query_final_payment", false)
     the_caterer.price_options = params.fetch("query_price_options")
-    the_caterer.photo_url = params.fetch("query_photo_url")
     the_caterer.pdf = params.fetch("query_pdf")
     the_caterer.notes = params.fetch("query_notes")
     the_caterer.deposit = params.fetch("query_deposit")
@@ -109,6 +109,7 @@ class CaterersController < ApplicationController
     the_caterer.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
 
     the_caterer.website = params.fetch("query_website")
+    the_caterer.photo_url = params.fetch("query_photo_url")
     
     cuisine_name = params.fetch("query_cuisine_name")
     the_caterer.cuisine_id = Cuisine.where({ :name => cuisine_name }).at(0).id
@@ -123,7 +124,6 @@ class CaterersController < ApplicationController
     the_caterer.paid_deposit = params.fetch("query_paid_deposit", false)
     the_caterer.final_payment = params.fetch("query_final_payment", false)
     the_caterer.price_options = params.fetch("query_price_options")
-    the_caterer.photo_url = params.fetch("query_photo_url")
     the_caterer.pdf = params.fetch("query_pdf")
     the_caterer.notes = params.fetch("query_notes")
     the_caterer.deposit = params.fetch("query_deposit")

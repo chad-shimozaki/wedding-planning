@@ -40,9 +40,9 @@ class TransportationCompaniesController < ApplicationController
     the_transportation_company.paid_deposit = params.fetch("query_paid_deposit", false)
     the_transportation_company.final_payment = params.fetch("query_final_payment", false)
     the_transportation_company.price_options = params.fetch("query_price_options")
+    the_transportation_company.notes = params.fetch("query_notes")
     the_transportation_company.deposit = params.fetch("query_deposit")
     the_transportation_company.final_price = params.fetch("query_final_price")
-    the_transportation_company.notes = params.fetch("query_notes")
 
     if the_transportation_company.valid?
       the_transportation_company.save
@@ -71,9 +71,10 @@ class TransportationCompaniesController < ApplicationController
     the_transportation_company.paid_deposit = params.fetch("query_paid_deposit", false)
     the_transportation_company.final_payment = params.fetch("query_final_payment", false)
     the_transportation_company.price_options = params.fetch("query_price_options")
+    the_transportation_company.notes = params.fetch("query_notes")
     the_transportation_company.deposit = params.fetch("query_deposit")
     the_transportation_company.final_price = params.fetch("query_final_price")
-    the_transportation_company.notes = params.fetch("query_notes")
+
 
     if the_transportation_company.valid?
       the_transportation_company.save

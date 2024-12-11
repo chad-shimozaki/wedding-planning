@@ -347,13 +347,10 @@
         </div>
       </div>
 
-      <div class="row mb-2">
-        <label for="events_count_box" class="col-auto col-form-label">
-          Events count
-        </label>
+      <div>
 
         <div class="col-auto">
-          <input class="form-control" type="text" id="events_count_box" name="query_events_count" value="<%= @the_venue.events_count %>">
+          <input type="hidden" id="events_count_box" name="query_events_count" value="<%= @the_venue.events_count %>">
         </div>
       </div>
 

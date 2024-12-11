@@ -120,6 +120,16 @@
             </div>
 
             <div class="row mb-2">
+              <label for="notes_box" class="col-auto col-form-label">
+                Notes
+              </label>
+
+              <div class="col-auto">
+                <textarea class="form-control" id="notes_box" name="query_notes" rows="3"></textarea>
+              </div>
+            </div>
+
+            <div class="row mb-2">
               <label for="deposit_box" class="col-auto col-form-label">
                 Deposit %
               </label>
@@ -136,16 +146,6 @@
 
               <div class="col-auto">
                 <input type="number" id="final_price_box" name="query_final_price" value = "0">
-              </div>
-            </div>
-
-            <div class="row mb-2">
-              <label for="notes_box" class="col-auto col-form-label">
-                Notes
-              </label>
-
-              <div class="col-auto">
-                <textarea class="form-control" id="notes_box" name="query_notes" rows="3"></textarea>
               </div>
             </div>
 
@@ -219,15 +219,15 @@
           </th>
 
           <th>
+            Notes
+          </th>
+
+          <th>
             Deposit
           </th>
 
           <th>
             Final Price
-          </th>
-
-          <th>
-            Notes
           </th>
 
           <th>
@@ -319,15 +319,15 @@
             </td>
 
             <td>
+              <%= a_photographer.notes %>
+            </td>
+
+            <td>
               <%= a_photographer.deposit %>
             </td>
 
             <td>
               <%= a_photographer.final_price %>
-            </td>
-
-            <td>
-              <%= a_photographer.notes %>
             </td>
 
             <td>

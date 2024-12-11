@@ -50,6 +50,7 @@ class BakeriesController < ApplicationController
     the_bakery.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
 
     the_bakery.website = params.fetch("query_website")
+    the_bakery.photo_url = params.fetch("query_photo_url")
     the_bakery.contact_name = params.fetch("query_contact_name")
     the_bakery.contact_email = params.fetch("query_contact_email")
     the_bakery.contacted = params.fetch("query_contacted", false)
@@ -59,9 +60,8 @@ class BakeriesController < ApplicationController
     the_bakery.paid_deposit = params.fetch("query_paid_deposit", false)
     the_bakery.final_payment = params.fetch("query_final_payment", false)
     the_bakery.price_options = params.fetch("query_price_options")
-    the_bakery.photo_url = params.fetch("query_photo_url")
-    the_bakery.notes = params.fetch("query_notes")
     the_bakery.pdf = params.fetch("query_pdf")
+    the_bakery.notes = params.fetch("query_notes")
     the_bakery.deposit = params.fetch("query_deposit")
     the_bakery.final_price = params.fetch("query_final_price")
 
@@ -102,6 +102,7 @@ class BakeriesController < ApplicationController
     the_bakery.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
 
     the_bakery.website = params.fetch("query_website")
+    the_bakery.photo_url = params.fetch("query_photo_url")
     the_bakery.contact_name = params.fetch("query_contact_name")
     the_bakery.contact_email = params.fetch("query_contact_email")
     the_bakery.contacted = params.fetch("query_contacted", false)
@@ -111,9 +112,8 @@ class BakeriesController < ApplicationController
     the_bakery.paid_deposit = params.fetch("query_paid_deposit", false)
     the_bakery.final_payment = params.fetch("query_final_payment", false)
     the_bakery.price_options = params.fetch("query_price_options")
-    the_bakery.photo_url = params.fetch("query_photo_url")
-    the_bakery.notes = params.fetch("query_notes")
     the_bakery.pdf = params.fetch("query_pdf")
+    the_bakery.notes = params.fetch("query_notes")
     the_bakery.deposit = params.fetch("query_deposit")
     the_bakery.final_price = params.fetch("query_final_price")
 
