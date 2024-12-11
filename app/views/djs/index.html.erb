@@ -30,6 +30,16 @@
             </div>
 
             <div class="row mb-2">
+              <label for="name_box" class="col-auto col-form-label">
+                Contact Name
+              </label>
+
+              <div class="col-auto">
+                <input class="form-control" type="text" id="name_box" name="query_contact_name">
+              </div>
+            </div>
+
+            <div class="row mb-2">
               <label for="email_box" class="col-auto col-form-label">
                 Contact Email
               </label>
@@ -165,6 +175,10 @@
           </th>
 
           <th>
+            Contact Name
+          </th>
+
+          <th>
             Contact Email
           </th>
 
@@ -238,6 +252,10 @@
 
             <td>
               <%= a_dj.name %>
+            </td>
+
+            <td>
+              <%= a_dj.contact_name %>
             </td>
 
             <td>

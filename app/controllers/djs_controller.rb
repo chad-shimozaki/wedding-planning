@@ -20,6 +20,7 @@ class DjsController < ApplicationController
   def create
     the_dj = Dj.new
     the_dj.name = params.fetch("query_name")
+    the_dj.contact_name = params.fetch("query_contact_name")
     the_dj.contact_email = params.fetch("query_contact_email")
     the_dj.website = params.fetch("query_website")
     the_dj.contacted = params.fetch("query_contacted", false)
@@ -47,6 +48,8 @@ class DjsController < ApplicationController
     the_dj = Dj.where({ :id => the_id }).at(0)
 
     the_dj.name = params.fetch("query_name")
+    the_dj.contact_name = params.fetch("query_contact_name")
+    the_dj.contact_email = params.fetch("query_contact_email")
     the_dj.website = params.fetch("query_website")
     the_dj.contacted = params.fetch("query_contacted", false)
     the_dj.chosen = params.fetch("query_chosen", false)
