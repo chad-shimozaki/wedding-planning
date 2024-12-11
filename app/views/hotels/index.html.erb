@@ -94,9 +94,15 @@
             </div>
 
             <div>
-              <input class="form-check-label" class="form-check-input" type="checkbox" id="contacted_box" name="query_contacted" value="1">
+              <input class="form-check-input" type="checkbox" id="contacted_box" name="query_contacted" value="1">
 
-              <label for="contacted_box" class="col-auto col-form-label">Contacted</label>
+              <label class="form-check-label" for="contacted_box" class="col-auto col-form-label">Contacted</label>
+            </div>
+
+            <div>
+              <input class="form-check-input" type="checkbox" id="block_discount_box" name="query_block_discount" value="1">
+
+              <label class="form-check-label" for="block_discount_box" class="col-auto col-form-label">Block Discount</label>
             </div>
 
             <div>
@@ -106,9 +112,9 @@
             </div>
 
             <div>
-              <input class="form-check-input" type="checkbox" id="block_discount_box" name="query_block_discount" value="1">
+              <input class="form-check-input" type="checkbox" id="signed_contract_box" name="query_signed_contract" value="1">
 
-              <label class="form-check-label" for="block_discount_box" class="col-auto col-form-label">Block discount</label>
+              <label class="form-check-label" for="signed_contract_box" class="col-auto col-form-label">Signed Contract</label>
             </div>
 
             <div class="row mb-2">
@@ -195,11 +201,15 @@
           </th>
 
           <th>
+            Block Discount
+          </th>
+
+          <th>
             Chosen
           </th>
 
           <th>
-            Block discount
+            Signed Contract
           </th>
 
           <th>
@@ -268,6 +278,10 @@
 
             <td>
               <%= a_hotel.chosen %>
+            </td>
+
+            <td>
+              <%= a_hotel.signed_contract %>
             </td>
 
             <td>

@@ -227,6 +227,14 @@
       </div>
 
       <div>
+        <input class="form-check-input" type="checkbox" id="block_discount_box" name="query_block_discount" value="1" <%= "checked" if @the_hotel.block_discount %>>
+
+        <label class="form-check-label" for="block_discount_box" class="col-auto col-form-label">
+            Block Discount
+        </label>
+      </div>
+
+      <div>
         <input class="form-check-input" type="checkbox" id="chosen_box" name="query_chosen" value="1" <%= "checked" if @the_hotel.chosen %>>
 
         <label class="form-check-label" for="chosen_box" class="col-auto col-form-label">
@@ -235,10 +243,10 @@
       </div>
 
       <div>
-        <input class="form-check-input" type="checkbox" id="block_discount_box" name="query_block_discount" value="1" <%= "checked" if @the_hotel.block_discount %>>
+        <input class="form-check-input" type="checkbox" id="signed_contract_box" name="query_signed_contract" value="1" <%= "checked" if @the_hotel.chosen %>>
 
-        <label class="form-check-label" for="block_discount_box" class="col-auto col-form-label">
-            Block discount
+        <label class="form-check-label" for="signed_contract_box" class="col-auto col-form-label">
+            Signed Contract
         </label>
       </div>
 
