@@ -1,169 +1,193 @@
 <div>
-  <div>
+  <div class="container-fluid">
+      <a href="/venues" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left"></i> Back
+      </a>
+  </div>
+  <div class="text-center">
     <h1>
-      Venue #<%= @the_venue.id %> details
+      <a href="<%= @the_venue.website %>"><%= @the_venue.name %></a>
     </h1>
 
-    <div>
-      <div>
-        <a href="/venues">
-          Go back
-        </a>
-      </div>
+    <div style="height: 10px;"></div>
 
-      <div>
-        <a href="/delete_venue/<%= @the_venue.id %>">
-          Delete Venue
-        </a>
+    <div class="row mb-4">
+        <% if @the_venue.photo_url.blank? %>
+        <% else %>
+        <img src = "<%= @the_venue.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="container text-center">
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Address</h4>
+        <%= @the_venue.address %>
+      </div>
+      <div class="col">
+        <h4>Neighborhood</h4>
+        <%= Neighborhood.where({ :id => @the_venue.neighborhood_id }).at(0).name %>
+      </div>
+    </div>
+    
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Capacity</h4>
+        <%= @the_venue.capacity %>
+      </div>
+      <div class="col">
+        <h4>Venue Type</h4>
+        <%= @the_venue.venue_type %>
       </div>
     </div>
 
-    <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_venue.name %>
-      </dd>
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Contact Name</h4>
+          <% if @the_venue.contact_name.blank? %>
+            <p>None provided</p>
+          <% else %>
+            <%= @the_venue.contact_name %>
+          <% end %>
+      </div>
+      <div class="col">
+        <h4>Contact Email</h4>
+          <% if @the_venue.contact_email.blank? %>
+            <p>None provided</p>
+          <% else %>
+            <%= @the_venue.contact_email %>
+          <% end %>
+      </div>
+    </div>
 
-      <dt>
-        Address
-      </dt>
-      <dd>
-        <%= @the_venue.address %>
-      </dd>
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Contacted</h4>
+        <% if @the_venue.contacted == true %>
+          <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+        <% else %>
+          <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+        <% end %>
+      </div>
+      <div class="col">
+        <h4>Visited</h4>
+        <% if @the_venue.visited == true %>
+          <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+        <% else %>
+          <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+        <% end %>
+      </div>
+      <div class="col">
+        <h4>Chosen</h4>
+          <% if @the_venue.chosen == true %>
+          <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+        <% else %>
+          <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+        <% end %>
+      </div>
+    </div>
 
-      <dt>
-        Neighborhood
-      </dt>
-      <dd>
-       <%= Neighborhood.where({ :id => @the_venue.neighborhood_id }).at(0).name %>
-      </dd>
-
-      <dt>
-        Capacity
-      </dt>
-      <dd>
-        <%= @the_venue.capacity %>
-      </dd>
-
-      <dt>
-        Venue type
-      </dt>
-      <dd>
-        <%= @the_venue.venue_type %>
-      </dd>
-
-      <dt>
-        Website
-      </dt>
-      <dd>
-        <a href="<%= @the_venue.website %>"><%= @the_venue.website %></a>
-      </dd>
-
-      <dt>
-        Contact Name
-      </dt>
-      <dd>
-        <%= @the_venue.contact_name %>
-      </dd>
-
-      <dt>
-        Contact Email
-      </dt>
-      <dd>
-        <%= @the_venue.contact_email %>
-      </dd>
-
-      <dt>
-        Contacted
-      </dt>
-      <dd>
-        <%= @the_venue.contacted %>
-      </dd>
-
-      <dt>
-        Visited
-      </dt>
-      <dd>
-        <%= @the_venue.visited %>
-      </dd>
-
-      <dt>
-        Chosen
-      </dt>
-      <dd>
-        <%= @the_venue.chosen %>
-      </dd>
-
-      <dt>
-        Price Options
-      </dt>
-      <dd>
-        <%= @the_venue.price_options %>
-      </dd>
-
-      <dt>
-        Photo URL
-      </dt>
-      <dd>
-        <%= @the_venue.photo_url %>
-      </dd>
-
-      <dt>
-        PDF
-      </dt>
-      <dd>
-        <%= @the_venue.pdf %>
-      </dd>
-
-      <dt>
-        Notes
-      </dt>
-      <dd>
-        <%= @the_venue.notes %>
-      </dd>
-
-      <dt>
-        Deposit
-      </dt>
-      <dd>
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Price Options</h4>
+          <% if @the_venue.price_options.blank? %>
+            <p>None provided</p>
+          <% else %>
+            <%= @the_venue.price_options %>
+          <% end %>
+      </div>
+      <div class="col">
+        <h4>Deposit</h4>
         <%= @the_venue.deposit.to_fs( :percentage, { :precision => 0 } ) %>
-      </dd>
+      </div><div class="col">
+        <h4>PDF</h4>
+        <% if @the_venue.pdf.blank? %>
+          <p>None provided</p>
+        <% else %>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pdfModal">
+            View PDF
+          </button>
 
-      <dt>
-        Final Price
-      </dt>
-      <dd>
-        <%= @the_venue.final_price.to_fs(:currency) %>
-      </dd>
+          <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="pdfModalLabel">PDF Preview</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <embed src="/public/pdfs<%= @the_venue.pdf %>.pdf" type="application/pdf" width="100%" height="400px">
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col">
+        <h4>Notes</h4>
+        <%= @the_venue.notes %>
+          <% if @the_venue.notes.blank? %>
+            <p>None provided</p>
+          <% else %>
+            <%= @the_venue.notes %>
+          <% end %>
+      </div>
+    </div>
 
-      <dt>
-        Events count
-      </dt>
-      <dd>
-        <%= @the_venue.events_count %>
-      </dd>
+    <div class="row mb-4">
 
-      <dt>
-        Created at
-      </dt>
-      <dd>
+    </div>
+
+    <% if @the_venue.chosen == true %>
+      <div class="row mb-4">
+        <div class="col">
+          <h4>Final Price</h4>
+          <%= @the_venue.final_price.to_fs(:currency) %>
+        </div>
+        <div class="col">
+          <h4>Signed Contract</h4>
+          <% if @the_venue.signed_contract == true %>
+            <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+          <% else %>
+            <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+          <% end %>
+        </div>
+        <div class="col">
+          <h4>Paid Deposit</h4>
+          <% if @the_venue.paid_deposit == true %>
+            <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+          <% else %>
+            <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+          <% end %>
+        </div>
+        <div class="col">
+          <h4>Final Payment</h4>
+          <% if @the_venue.final_payment == true %>
+            <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+          <% else %>
+            <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Created At</h4>
         <%= time_ago_in_words(@the_venue.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
+      </div>
+      <div class="col">
+        <h4>Updated At</h4>
         <%= time_ago_in_words(@the_venue.updated_at) %> ago
-      </dd>
-    </dl>
+      </div>
+    </div>
   </div>
 </div>
 
 <hr>
-
 
 <div>
   <div class="container-fluid">

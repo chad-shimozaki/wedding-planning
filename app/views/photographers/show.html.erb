@@ -1,127 +1,164 @@
 <div>
-  <div>
+  <div class="container-fluid">
+      <a href="/photographers" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left"></i> Back
+      </a>
+  </div>
+  <div class="text-center">
     <h1>
-      Photographer #<%= @the_photographer.id %> details
+      <a href="<%= @the_photographer.website %>"><%= @the_photographer.name %></a>
     </h1>
 
-    <div>
-      <div>
-        <a href="/photographers">
-          Go back
-        </a>
-      </div>
+    <div style="height: 10px;"></div>
 
-      <div>
-        <a href="/delete_photographer/<%= @the_photographer.id %>">
-          Delete Photographer
-        </a>
+    <div class="row mb-4">
+        <% if @the_photographer.photo_url.blank? %>
+        <% else %>
+        <img src = "<%= @the_photographer.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="container text-center">
+    
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Instagram</h4>
+          <% if @the_photographer.instagram.blank? %>
+            <p>None provided</p>
+          <% else %>
+            <%= @the_photographer.instagram %>
+          <% end %>
+      </div>
+      <div class="col">
+        <h4>Contact Email</h4>
+          <% if @the_photographer.contact_email.blank? %>
+            <p>None provided</p>
+          <% else %>
+            <%= @the_photographer.contact_email %>
+          <% end %>
       </div>
     </div>
 
-    <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_photographer.name %>
-      </dd>
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Contacted</h4>
+        <% if @the_photographer.contacted == true %>
+          <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+        <% else %>
+          <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+        <% end %>
+      </div>
+      <div class="col">
+        <h4>Chosen</h4>
+          <% if @the_photographer.chosen == true %>
+          <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+        <% else %>
+          <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+        <% end %>
+      </div>
+    </div>
 
-      <dt>
-        Instagram
-      </dt>
-      <dd>
-        <%= @the_photographer.instagram %>
-      </dd>      
-      
-      <dt>
-        Contact Email
-      </dt>
-      <dd>
-        <%= @the_photographer.contact_email %>
-      </dd>
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Price Options</h4>
+          <% if @the_photographer.price_options.blank? %>
+            <p>None provided</p>
+          <% else %>
+            <%= @the_photographer.price_options %>
+          <% end %>
+      </div>
+      <div class="col">
+        <h4>Deposit</h4>
+        <%= @the_photographer.deposit.to_fs( :percentage, { :precision => 0 } ) %>
+      </div><div class="col">
+        <h4>PDF</h4>
+        <% if @the_photographer.pdf.blank? %>
+          <p>None provided</p>
+        <% else %>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pdfModal">
+            View PDF
+          </button>
 
-      <dt>
-        Website
-      </dt>
-      <dd>
-        <a href="<%= @the_photographer.website %>"><%= @the_photographer.website %></a>
-      </dd>
-
-      <dt>
-        Contacted
-      </dt>
-      <dd>
-        <%= @the_photographer.contacted %>
-      </dd>
-
-      <dt>
-        Chosen
-      </dt>
-      <dd>
-        <%= @the_photographer.chosen %>
-      </dd>
-
-      <dt>
-        Price Options
-      </dt>
-      <dd>
-        <%= @the_photographer.price_options %>
-      </dd>
-
-      <dt>
-        Photo URL
-      </dt>
-      <dd>
-        <%= @the_photographer.photo_url %>
-      </dd>
-
-      <dt>
-        PDF
-      </dt>
-      <dd>
-        <%= @the_photographer.pdf %>
-      </dd>
-
-      <dt>
-        Notes
-      </dt>
-      <dd>
+          <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="pdfModalLabel">PDF Preview</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <embed src="/public/pdfs<%= @the_photographer.pdf %>.pdf" type="application/pdf" width="100%" height="400px">
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col">
+        <h4>Notes</h4>
         <%= @the_photographer.notes %>
-      </dd>
+          <% if @the_photographer.notes.blank? %>
+            <p>None provided</p>
+          <% else %>
+            <%= @the_photographer.notes %>
+          <% end %>
+      </div>
+    </div>
 
-      <dt>
-        Deposit
-      </dt>
-      <dd>
-        <%= @the_photographer.deposit.to_fs( :percentage, { :precision => 0 }) %>
-      </dd>
+    <div class="row mb-4">
 
-      <dt>
-        Final Price
-      </dt>
-      <dd>
-        <%= @the_photographer.final_price.to_fs(:currency) %>
-      </dd>
+    </div>
 
-      <dt>
-        Created at
-      </dt>
-      <dd>
+    <% if @the_photographer.chosen == true %>
+      <div class="row mb-4">
+        <div class="col">
+          <h4>Final Price</h4>
+          <%= @the_photographer.final_price.to_fs(:currency) %>
+        </div>
+        <div class="col">
+          <h4>Signed Contract</h4>
+          <% if @the_photographer.signed_contract == true %>
+            <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+          <% else %>
+            <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+          <% end %>
+        </div>
+        <div class="col">
+          <h4>Paid Deposit</h4>
+          <% if @the_photographer.paid_deposit == true %>
+            <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+          <% else %>
+            <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+          <% end %>
+        </div>
+        <div class="col">
+          <h4>Final Payment</h4>
+          <% if @the_photographer.final_payment == true %>
+            <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+          <% else %>
+            <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row mb-4">
+      <div class="col">
+        <h4>Created At</h4>
         <%= time_ago_in_words(@the_photographer.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
+      </div>
+      <div class="col">
+        <h4>Updated At</h4>
         <%= time_ago_in_words(@the_photographer.updated_at) %> ago
-      </dd>
-    </dl>
+      </div>
+    </div>
   </div>
 </div>
 
 <hr>
-
 
 <div>
   <div class="container-fluid">
