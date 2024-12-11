@@ -166,167 +166,211 @@
 
 
 <div>
-  <div>
+  <div class="container-fluid">
     <h2>
       Edit Venue
     </h2>
 
+    <div style="height: 10px;"></div>
+
     <form action="/modify_venue/<%= @the_venue.id %>"  method="post" class="container-fluid">
-      <div>
-        <label for="name_box">
+      <div class="row mb-2">
+        <label for="name_box" class="col-auto col-form-label">
           Name
         </label>
 
-        <input type="text" id="name_box" name="query_name" value="<%= @the_venue.name %>">
+        <div class="col-auto">
+          <input type="text" id="name_box" name="query_name" value="<%= @the_venue.name %>">
+        </div>
       </div>
 
-      <div>
-        <label for="address_box">
+      <div class="row mb-2">
+        <label for="address_box" class="col-auto col-form-label">
           Address
         </label>
 
-        <input type="text" id="address_box" name="query_address" value="<%= @the_venue.address %>">
+        <div class="col-sm-4">
+          <input type="text" id="address_box" name="query_address" value="<%= @the_venue.address %>">
+        </div>
       </div>
 
-      <div>
-        <label for="neighborhood_id_box">
+      <div class="row mb-2">
+        <label for="neighborhood_id_box" class="col-auto col-form-label">
           Neighborhood
         </label>
 
-        <select id="neighborhood_name_box" name="query_neighborhood_name" value="<%= @the_venue_neighborhood.name %>">
-          <% @list_of_neighborhoods.each do |a_neighborhood| %>
-            <% if a_neighborhood.id == @the_venue.neighborhood_id%>
-              <option value="<%= a_neighborhood.name %>" selected><%= a_neighborhood.name %></option>
-            <% else %>
-              <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+        <div class="col-auto col-form-label">
+          <select id="neighborhood_name_box" name="query_neighborhood_name" value="<%= @the_venue_neighborhood.name %>">
+            <% @list_of_neighborhoods.each do |a_neighborhood| %>
+              <% if a_neighborhood.id == @the_venue.neighborhood_id%>
+                <option value="<%= a_neighborhood.name %>" selected><%= a_neighborhood.name %></option>
+              <% else %>
+                <option value="<%= a_neighborhood.name %>"><%= a_neighborhood.name %></option>
+              <% end %>
+              
             <% end %>
-            
-          <% end %>
-        </select>
+          </select>
+        </div>
       </div>
 
-      <div>
-        <label for="capacity_box">
+      <div class="row mb-2">
+        <label for="capacity_box" class="col-auto col-form-label">
           Capacity
         </label>
 
-        <input type="text" id="capacity_box" name="query_capacity" value="<%= @the_venue.capacity %>">
+        <div class="col-auto">
+          <input type="text" id="capacity_box" name="query_capacity" value="<%= @the_venue.capacity %>">
+        </div>
       </div>
 
-      <div>
-        <label for="venue_type_box">
+      <div class="row mb-2">
+        <label for="venue_type_box" class="col-auto col-form-label">
           Venue type
         </label>
 
-        <input type="text" id="venue_type_box" name="query_venue_type" value="<%= @the_venue.venue_type %>">
+        <div class="col-auto">
+          <input type="text" id="venue_type_box" name="query_venue_type" value="<%= @the_venue.venue_type %>">
+        </div>
       </div>
 
-      <div>
-        <label for="website_box">
+      <div class="row mb-2">
+        <label for="website_box" class="col-auto col-form-label">
           Website
         </label>
 
-        <input type="url" id="website_box" name="query_website" value="<%= @the_venue.website %>">
+        <div class="col-sm-6">
+          <input type="url" id="website_box" name="query_website" value="<%= @the_venue.website %>">
+        </div>
       </div>
 
-      <div>
-        <label for="contact_name_box">
+      <div class="row mb-2">
+        <label for="contact_name_box" class="col-auto col-form-label">
           Contact Name
         </label>
 
-        <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_venue.contact_name %>">
+        <div class="col-auto">
+          <input type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_venue.contact_name %>">
+        </div>
       </div>
 
-      <div>
-        <label for="contact_email_box">
+       <div class="row mb-2">
+        <label for="contact_email_box" class="col-auto col-form-label">
           Contact Email
         </label>
 
-        <input type="email" id="contact_email_box" name="query_contact_email" value="<%= @the_venue.contact_email %>">
+        <div class="col-auto">
+          <input type="email" id="contact_email_box" name="query_contact_email" value="<%= @the_venue.contact_email %>">
+        </div>
       </div>
 
-      <div>
-        <input type="checkbox" id="contacted_box" name="query_contacted" value="1" <%= "checked" if @the_venue.contacted %>>
+      <div class="row mb-2">
+        <input class="form-check-input" type="checkbox" id="contacted_box" name="query_contacted" value="1" <%= "checked" if @the_venue.contacted %>>
 
-        <label for="contacted_box">
+        <label for="contacted_box" class="col-auto col-form-label">
             Contacted
         </label>
       </div>
 
-      <div>
-        <input type="checkbox" id="visited_box" name="query_visited" value="1" <%= "checked" if @the_venue.visited %>>
+      <div class="row mb-2">
+        <input class="form-check-input" type="checkbox" id="visited_box" name="query_visited" value="1" <%= "checked" if @the_venue.visited %>>
 
-        <label for="visited_box">
+        <label for="visited_box" class="col-auto col-form-label">
             Visited
         </label>
       </div>
 
-      <div>
-        <input type="checkbox" id="chosen_box" name="query_chosen" value="1" <%= "checked" if @the_venue.chosen %>>
+      <div class="row mb-2">
+        <input class="form-check-input" type="checkbox" id="chosen_box" name="query_chosen" value="1" <%= "checked" if @the_venue.chosen %>>
 
-        <label for="chosen_box">
+        <label for="chosen_box" class="col-auto col-form-label">
             Chosen
         </label>
       </div>
 
-      <div>
-        <label for="price_options_box">
+      <div class="row mb-2">
+        <label for="price_options_box" class="col-auto col-form-label">
           Price Options
         </label>
 
-        <textarea id="price_options_box" name="query_price_options"><%= @the_venue.price_options %></textarea>
+        <div class="col-auto">
+          <textarea id="price_options_box" name="query_price_options"><%= @the_venue.price_options %></textarea>
+        </div>
       </div>
 
-      <div>
-        <label for="photo_url_box">
+      <div class="row mb-2">
+        <label for="photo_url_box" class="col-auto col-form-label">
           Photo URL
         </label>
 
-        <input type="text" id="photo_url_box" name="query_photo_url" value="<%= @the_venue.photo_url %>">
+        <div class="col-sm-10">
+          <input type="text" id="photo_url_box" name="query_photo_url" value="<%= @the_venue.photo_url %>">
+        </div>
       </div>
 
-      <div>
-        <label for="pdf_box">
+      <div class="row mb-2">
+        <label for="pdf_box" class="col-auto col-form-label">
           PDF
         </label>
 
-        <input type="file" id="pdf_box" name="query_pdf" value="<%= @the_venue.pdf %>">
+        <div class="col-auto">
+          <input type="file" id="pdf_box" name="query_pdf" value="<%= @the_venue.pdf %>">
+        </div>
       </div>
 
-      <div>
-        <label for="deposit_box">
+       <div class="row mb-2">
+        <label for="deposit_box" class="col-auto col-form-label">
           Deposit %
         </label>
 
-        <input type="text" id="deposit_box" name="query_deposit" value="<%= @the_venue.deposit.to_fs( :percentage, { :precision => 0 }) %>">
+        <div class="col-auto">
+          <input type="text" id="deposit_box" name="query_deposit" value="<%= @the_venue.deposit.to_fs( :percentage, { :precision => 0 }) %>">
+        </div>
       </div>
 
-      <div>
-        <label for="notes_box">
+       <div class="row mb-2">
+        <label for="notes_box" class="col-auto col-form-label">
           Notes
         </label>
 
-        <textarea id="notes_box" name="query_notes"><%= @the_venue.notes %>"></textarea>
+        <div class="col-auto">
+          <textarea id="notes_box" name="query_notes"><%= @the_venue.notes %>"></textarea>
+        </div>
       </div>
 
-      <div>
-        <label for="final_price_box">
+      <div class="row mb-2">
+        <label for="final_price_box" class="col-auto col-form-label">
           Final Price
         </label>
 
-        <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_venue.final_price.to_fs(:currency) %>">
+        <div class="col-auto">
+          <input type="text" id="final_price_box" name="query_final_price" value="<%= @the_venue.final_price.to_fs(:currency) %>">
+        </div>
       </div>
 
-      <div>
-        <label for="events_count_box">
+      <div class="row mb-2">
+        <label for="events_count_box" class="col-auto col-form-label">
           Events count
         </label>
 
-        <input type="text" id="events_count_box" name="query_events_count" value="<%= @the_venue.events_count %>">
+        <div class="col-auto">
+          <input type="text" id="events_count_box" name="query_events_count" value="<%= @the_venue.events_count %>">
+        </div>
       </div>
+
+      <div style="height: 5px;"></div>
 
       <button type="submit" class="btn btn-primary btn-sm">
         Update venue
+      </button>
+    </form>
+  </div>
+
+  <div style="height: 10px;"></div>
+
+  <div>
+    <form action="/delete_venue/<%= @the_venue.id %>"  method="get">
+      <button type="submit" class="btn btn-danger btn-sm mx-4">
+        Delete Venue
       </button>
     </form>
   </div>

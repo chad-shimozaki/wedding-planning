@@ -47,22 +47,38 @@
 
 
 <div>
-  <div>
+  <div class="container-fluid">
     <h2>
       Edit Cuisine
     </h2>
 
+    <div style="height: 10px;"></div>
+
     <form action="/modify_cuisine/<%= @the_cuisine.id %>"  method="post" class="container-fluid">
-      <div>
-        <label for="name_box">
+      <div class="row mb-2">
+        <label for="name_box" class="col-auto col-form-label">
           Name
         </label>
 
-        <input type="text" id="name_box" name="query_name" value="<%= @the_cuisine.name %>">
+        <div class="col-auto">
+          <input type="text" id="name_box" name="query_name" value="<%= @the_cuisine.name %>">
+        </div>
       </div>
+
+      <div style="height: 5px;"></div>
 
       <button type="submit" class="btn btn-primary btn-sm">
         Update Cuisine
+      </button>
+    </form>
+  </div>
+
+  <div style="height: 10px;"></div>
+
+  <div>
+    <form action="/delete_cuisine/<%= @the_cuisine.id %>"  method="get">
+      <button type="submit" class="btn btn-danger btn-sm mx-4">
+        Delete Cuisine
       </button>
     </form>
   </div>

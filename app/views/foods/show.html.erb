@@ -61,38 +61,58 @@
 
 
 <div>
-  <div>
+  <div class="container-fluid">
     <h2>
       Edit food
     </h2>
 
+    <div style="height: 10px;"></div>
+
     <form action="/modify_food/<%= @the_food.id %>"  method="post" class="container-fluid">
-      <div>
-        <label for="meal_id_box">
+      <div class="row mb-2">
+        <label for="meal_id_box" class="col-auto col-form-label">
           Meal
         </label>
 
-        <input type="text" id="meal_id_box" name="query_meal_id" value="<%= @the_food.meal_id %>">
+        <div class="col-auto">
+          <input type="text" id="meal_id_box" name="query_meal_id" value="<%= @the_food.meal_id %>">
+        </div>
       </div>
 
-      <div>
-        <label for="caterer_id_box">
+      <div class="row mb-2">
+        <label for="caterer_id_box" class="col-auto col-form-label">
           Caterer
         </label>
 
-        <input type="text" id="caterer_id_box" name="query_caterer_id" value="<%= @the_food.caterer_id %>">
+        <div class="col-auto">
+          <input type="text" id="caterer_id_box" name="query_caterer_id" value="<%= @the_food.caterer_id %>">
+        </div>
       </div>
 
-      <div>
-        <label for="cuisine_id_box">
+      <div class="row mb-2">
+        <label for="cuisine_id_box" class="col-auto col-form-label">
           Cuisine
         </label>
 
-        <input type="text" id="cuisine_id_box" name="query_cuisine_id" value="<%= @the_food.cuisine_id %>">
+        <div class="col-auto">
+          <input type="text" id="cuisine_id_box" name="query_cuisine_id" value="<%= @the_food.cuisine_id %>">
+        </div>
       </div>
 
+      <div style="height: 5px;"></div>
+
       <button type="submit" class="btn btn-primary btn-sm">
-        Update food
+        Update Food
+      </button>
+    </form>
+  </div>
+
+  <div style="height: 10px;"></div>
+
+  <div>
+    <form action="/delete_food/<%= @the_food.id %>"  method="get">
+      <button type="submit" class="btn btn-danger btn-sm mx-4">
+        Delete Food
       </button>
     </form>
   </div>

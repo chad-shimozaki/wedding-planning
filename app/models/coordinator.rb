@@ -6,6 +6,7 @@
 #  chosen          :boolean
 #  contact_email   :string
 #  contact_name    :string
+#  contact_number  :string
 #  contacted       :boolean
 #  deposit         :float
 #  experience      :string

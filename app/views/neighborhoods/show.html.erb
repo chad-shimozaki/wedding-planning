@@ -47,14 +47,26 @@
 
 
 <div>
-  <div>
+  <div class="container-fluid">
     <h2>
       Edit Neighborhood
     </h2>
 
+    <div style="height: 5px;"></div>
+
     <form action="/modify_neighborhood/<%= @the_neighborhood.id %>"  method="post" class="container-fluid">
       <button type="submit" class="btn btn-primary btn-sm">
         Update Neighborhood
+      </button>
+    </form>
+  </div>
+
+  <div style="height: 10px;"></div>
+
+  <div>
+    <form action="/delete_neighborhood/<%= @the_neighborhood.id %>"  method="get">
+      <button type="submit" class="btn btn-danger btn-sm mx-4">
+        Delete Neighborhood
       </button>
     </form>
   </div>

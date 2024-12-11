@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_07_195149) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_11_065450) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -85,6 +85,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_07_195149) do
     t.boolean "signed_contract"
     t.boolean "paid_deposit"
     t.boolean "final_payment"
+    t.string "contact_number"
   end
 
   create_table "cuisines", force: :cascade do |t|
