@@ -21,6 +21,7 @@ class LightingProductionCompaniesController < ApplicationController
     the_lighting_production_company = LightingProductionCompany.new
     the_lighting_production_company.name = params.fetch("query_name")
     the_lighting_production_company.website = params.fetch("query_website")
+    the_lighting_production_company.photo_url = params.fetch("query_photo_url")
     the_lighting_production_company.contact_name = params.fetch("query_contact_name")
     the_lighting_production_company.contact_email = params.fetch("query_contact_email")
     the_lighting_production_company.contacted = params.fetch("query_contacted", false)
@@ -47,6 +48,7 @@ class LightingProductionCompaniesController < ApplicationController
 
     the_lighting_production_company.name = params.fetch("query_name")
     the_lighting_production_company.website = params.fetch("query_website")
+    the_lighting_production_company.photo_url = params.fetch("query_photo_url")
     the_lighting_production_company.contact_name = params.fetch("query_contact_name")
     the_lighting_production_company.contact_email = params.fetch("query_contact_email")
     the_lighting_production_company.contacted = params.fetch("query_contacted", false)

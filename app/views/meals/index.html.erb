@@ -60,6 +60,16 @@
               </div>
             </div>
 
+            <div class="row mb-2">
+              <label for="photo_url_box" class="col-auto col-form-label">
+                Photo URL
+              </label>
+
+              <div class="col-sm-10">
+                <input class="form-control" type="text" id="photo_url_box" name="query_photo_url">
+              </div>
+            </div>
+
             <div style="height: 5px;"></div>
 
             <button type="submit" class="btn btn-primary btn-sm">
@@ -94,6 +104,10 @@
           </th>
 
           <th>
+            Photo URL
+          </th>
+
+          <th>
             Created at
           </th>
 
@@ -123,6 +137,10 @@
 
             <td>
               <%= a_meal.event_id %>
+            </td>
+
+            <td>
+              <img src = "<%= a_meal.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
             </td>
 
             <td>

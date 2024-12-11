@@ -13,6 +13,7 @@
 #  name            :string
 #  notes           :text
 #  paid_deposit    :boolean
+#  photo_url       :string
 #  price_options   :text
 #  signed_contract :boolean
 #  website         :string

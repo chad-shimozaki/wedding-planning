@@ -27,6 +27,7 @@ class TransportationCompaniesController < ApplicationController
     the_transportation_company = TransportationCompany.new
     the_transportation_company.name = params.fetch("query_name")
     the_transportation_company.website = params.fetch("query_website")
+    the_transportation_company.photo_url = params.fetch("query_photo_url")
     the_transportation_company.contact_name = params.fetch("query_contact_name")
     the_transportation_company.contact_email = params.fetch("query_contact_email")
 
@@ -57,6 +58,7 @@ class TransportationCompaniesController < ApplicationController
 
     the_transportation_company.name = params.fetch("query_name")
     the_transportation_company.website = params.fetch("query_website")
+    the_transportation_company.photo_url = params.fetch("query_photo_url")
     the_transportation_company.contact_name = params.fetch("query_contact_name")
     the_transportation_company.contact_email = params.fetch("query_contact_email")
 

@@ -40,6 +40,16 @@
             </div>
 
             <div class="row mb-2">
+              <label for="photo_url_box" class="col-auto col-form-label">
+                Photo URL
+              </label>
+
+              <div class="col-sm-10">
+                <input class="form-control" type="text" id="photo_url_box" name="query_photo_url">
+              </div>
+            </div>
+
+            <div class="row mb-2">
               <label for="contact_name_box" class="col-auto col-form-label">
                 Contact Name
               </label>
@@ -173,6 +183,10 @@
           </th>
 
           <th>
+            Photo URL
+          </th>
+
+          <th>
             Contact Name
           </th>
 
@@ -246,6 +260,10 @@
 
             <td>
               <a href="<%= a_transportation_company.website %>"><%= a_transportation_company.website %></a>
+            </td>
+
+            <td>
+              <img src = "<%= a_transportation_company.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
             </td>
 
             <td>

@@ -49,6 +49,7 @@ class HotelsController < ApplicationController
     the_hotel.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
 
     the_hotel.website = params.fetch("query_website")
+    the_hotel.photo_url = params.fetch("query_photo_url")
     the_hotel.contact_name = params.fetch("query_contact_name")
     the_hotel.contact_email = params.fetch("query_contact_email")
     the_hotel.contacted = params.fetch("query_contacted", false)
@@ -94,6 +95,7 @@ class HotelsController < ApplicationController
     the_hotel.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
 
     the_hotel.website = params.fetch("query_website")
+    the_hotel.photo_url = params.fetch("query_photo_url")
     the_hotel.contact_name = params.fetch("query_contact_name")
     the_hotel.contact_email = params.fetch("query_contact_email")
     the_hotel.contacted = params.fetch("query_contacted", false)

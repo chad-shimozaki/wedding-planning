@@ -5,6 +5,7 @@
 #  id                             :bigint           not null, primary key
 #  chronological_order            :integer
 #  name                           :string
+#  photo_url                      :string
 #  created_at                     :datetime         not null
 #  updated_at                     :datetime         not null
 #  bakery_id                      :integer

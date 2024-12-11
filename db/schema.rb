@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_11_100604) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_11_182726) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -92,6 +92,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_11_100604) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.string "photo_url"
   end
 
   create_table "djs", force: :cascade do |t|
@@ -128,6 +129,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_11_100604) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "neighborhood_id"
+    t.string "photo_url"
   end
 
   create_table "florists", force: :cascade do |t|
@@ -159,6 +161,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_11_100604) do
     t.integer "cuisine_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo_url"
   end
 
   create_table "hotels", force: :cascade do |t|
@@ -179,6 +182,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_11_100604) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "contact_email"
+    t.string "photo_url"
   end
 
   create_table "invites", force: :cascade do |t|
@@ -203,6 +207,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_11_100604) do
     t.boolean "signed_contract"
     t.boolean "paid_deposit"
     t.boolean "final_payment"
+    t.string "photo_url"
   end
 
   create_table "meals", force: :cascade do |t|
@@ -210,12 +215,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_11_100604) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.string "photo_url"
   end
 
   create_table "neighborhoods", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.string "photo_url"
   end
 
   create_table "photographers", force: :cascade do |t|
@@ -263,6 +270,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_11_100604) do
     t.boolean "signed_contract"
     t.boolean "paid_deposit"
     t.boolean "final_payment"
+    t.string "photo_url"
   end
 
   create_table "users", force: :cascade do |t|

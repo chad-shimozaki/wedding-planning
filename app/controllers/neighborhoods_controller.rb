@@ -20,6 +20,7 @@ class NeighborhoodsController < ApplicationController
   def create
     the_neighborhood = Neighborhood.new
     the_neighborhood.name = params.fetch("query_name")
+    the_neighborhood.photo_url = params.fetch("query_photo_url")
 
     if the_neighborhood.valid?
       the_neighborhood.save
@@ -32,6 +33,7 @@ class NeighborhoodsController < ApplicationController
   def update
     the_id = params.fetch("path_id")
     the_neighborhood = Neighborhood.where({ :id => the_id }).at(0)
+    the_neighborhood.photo_url = params.fetch("query_photo_url")
 
 
     if the_neighborhood.valid?

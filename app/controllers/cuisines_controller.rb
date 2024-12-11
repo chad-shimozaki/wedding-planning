@@ -20,6 +20,7 @@ class CuisinesController < ApplicationController
   def create
     the_cuisine = Cuisine.new
     the_cuisine.name = params.fetch("query_cuisine_name")
+    the_cuisine.photo_url = params.fetch("query_photo_url")
 
     if the_cuisine.valid?
       the_cuisine.save
@@ -34,6 +35,7 @@ class CuisinesController < ApplicationController
     the_cuisine = Cuisine.where({ :id => the_id }).at(0)
 
     the_cuisine.name = params.fetch("query_cuisine_name")
+    the_cuisine.photo_url = params.fetch("query_photo_url")
 
     if the_cuisine.valid?
       the_cuisine.save

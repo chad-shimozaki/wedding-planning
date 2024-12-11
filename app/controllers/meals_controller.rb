@@ -39,6 +39,8 @@ class MealsController < ApplicationController
     event_name = params.fetch("query_event_name")
     the_meal.event_id = Event.where({ :name => event_name }).at(0).id
 
+    the_meal.photo_url = params.fetch("query_photo_url")
+
     if the_meal.valid?
       the_meal.save
       redirect_to("/meals", { :notice => "Meal created successfully." })
@@ -58,6 +60,8 @@ class MealsController < ApplicationController
     event_name = params.fetch("query_event_name")
     the_meal.event_id = Event.where({ :name => event_name }).at(0).id
 
+    the_meal.photo_url = params.fetch("query_photo_url")
+    
     if the_meal.valid?
       the_meal.save
       redirect_to("/meals/#{the_meal.id}", { :notice => "Meal updated successfully."} )

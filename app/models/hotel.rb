@@ -15,6 +15,7 @@
 #  minimum_rooms   :integer
 #  name            :string
 #  notes           :text
+#  photo_url       :string
 #  price_options   :text
 #  website         :string
 #  created_at      :datetime         not null

@@ -22,6 +22,7 @@ class FoodsController < ApplicationController
     the_food.meal_id = params.fetch("query_meal_id")
     the_food.caterer_id = params.fetch("query_caterer_id")
     the_food.cuisine_id = params.fetch("query_cuisine_id")
+    the_food.photo_url = params.fetch("query_photo_url")
 
     if the_food.valid?
       the_food.save
@@ -38,6 +39,7 @@ class FoodsController < ApplicationController
     the_food.meal_id = params.fetch("query_meal_id")
     the_food.caterer_id = params.fetch("query_caterer_id")
     the_food.cuisine_id = params.fetch("query_cuisine_id")
+    the_food.photo_url = params.fetch("query_photo_url")
 
     if the_food.valid?
       the_food.save
