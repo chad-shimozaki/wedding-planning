@@ -1,54 +1,56 @@
-class InvitesController < ApplicationController
-  def index
-    matching_invites = Invite.all
+# class InvitesController < ApplicationController
+#   skip_before_action(:authenticate_user!, { :only => [:index] })
 
-    @list_of_invites = matching_invites.order({ :created_at => :desc })
+#   def index
+#     matching_invites = Invite.all
 
-    render({ :template => "invites/index" })
-  end
+#     @list_of_invites = matching_invites.order({ :created_at => :desc })
 
-  def show
-    the_id = params.fetch("path_id")
+#     render({ :template => "invites/index" })
+#   end
 
-    matching_invites = Invite.where({ :id => the_id })
+#   def show
+#     the_id = params.fetch("path_id")
 
-    @the_invite = matching_invites.at(0)
+#     matching_invites = Invite.where({ :id => the_id })
 
-    render({ :template => "invites/show" })
-  end
+#     @the_invite = matching_invites.at(0)
 
-  def create
-    the_invite = Invite.new
-    the_invite.people_id = params.fetch("query_people_id")
+#     render({ :template => "invites/show" })
+#   end
 
-    if the_invite.valid?
-      the_invite.save
-      redirect_to("/invites", { :notice => "Invite created successfully." })
-    else
-      redirect_to("/invites", { :alert => the_invite.errors.full_messages.to_sentence })
-    end
-  end
+#   def create
+#     the_invite = Invite.new
+#     the_invite.people_id = params.fetch("query_people_id")
 
-  def update
-    the_id = params.fetch("path_id")
-    the_invite = Invite.where({ :id => the_id }).at(0)
+#     if the_invite.valid?
+#       the_invite.save
+#       redirect_to("/invites", { :notice => "Invite created successfully." })
+#     else
+#       redirect_to("/invites", { :alert => the_invite.errors.full_messages.to_sentence })
+#     end
+#   end
 
-    the_invite.people_id = params.fetch("query_people_id")
+#   def update
+#     the_id = params.fetch("path_id")
+#     the_invite = Invite.where({ :id => the_id }).at(0)
 
-    if the_invite.valid?
-      the_invite.save
-      redirect_to("/invites/#{the_invite.id}", { :notice => "Invite updated successfully."} )
-    else
-      redirect_to("/invites/#{the_invite.id}", { :alert => the_invite.errors.full_messages.to_sentence })
-    end
-  end
+#     the_invite.people_id = params.fetch("query_people_id")
 
-  def destroy
-    the_id = params.fetch("path_id")
-    the_invite = Invite.where({ :id => the_id }).at(0)
+#     if the_invite.valid?
+#       the_invite.save
+#       redirect_to("/invites/#{the_invite.id}", { :notice => "Invite updated successfully."} )
+#     else
+#       redirect_to("/invites/#{the_invite.id}", { :alert => the_invite.errors.full_messages.to_sentence })
+#     end
+#   end
 
-    the_invite.destroy
+#   def destroy
+#     the_id = params.fetch("path_id")
+#     the_invite = Invite.where({ :id => the_id }).at(0)
 
-    redirect_to("/invites", { :notice => "Invite deleted successfully."} )
-  end
-end
+#     the_invite.destroy
+
+#     redirect_to("/invites", { :notice => "Invite deleted successfully."} )
+#   end
+# end

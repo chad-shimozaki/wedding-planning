@@ -1,4 +1,6 @@
 class FloristsController < ApplicationController
+  skip_before_action(:authenticate_user!, { :only => [:index] })
+  
   def index
     matching_florists = Florist.all
 

@@ -1,58 +1,60 @@
-class RsvpsController < ApplicationController
-  def index
-    matching_rsvps = Rsvp.all
+# class RsvpsController < ApplicationController
+#   skip_before_action(:authenticate_user!, { :only => [:index] })
 
-    @list_of_rsvps = matching_rsvps.order({ :created_at => :desc })
+#   def index
+#     matching_rsvps = Rsvp.all
 
-    render({ :template => "rsvps/index" })
-  end
+#     @list_of_rsvps = matching_rsvps.order({ :created_at => :desc })
 
-  def show
-    the_id = params.fetch("path_id")
+#     render({ :template => "rsvps/index" })
+#   end
 
-    matching_rsvps = Rsvp.where({ :id => the_id })
+#   def show
+#     the_id = params.fetch("path_id")
 
-    @the_rsvp = matching_rsvps.at(0)
+#     matching_rsvps = Rsvp.where({ :id => the_id })
 
-    render({ :template => "rsvps/show" })
-  end
+#     @the_rsvp = matching_rsvps.at(0)
 
-  def create
-    the_rsvp = Rsvp.new
-    the_rsvp.invite_id = params.fetch("query_invite_id")
-    the_rsvp.event_id = params.fetch("query_event_id")
-    the_rsvp.people_id = params.fetch("query_people_id")
+#     render({ :template => "rsvps/show" })
+#   end
 
-    if the_rsvp.valid?
-      the_rsvp.save
-      redirect_to("/rsvps", { :notice => "Rsvp created successfully." })
-    else
-      redirect_to("/rsvps", { :alert => the_rsvp.errors.full_messages.to_sentence })
-    end
-  end
+#   def create
+#     the_rsvp = Rsvp.new
+#     the_rsvp.invite_id = params.fetch("query_invite_id")
+#     the_rsvp.event_id = params.fetch("query_event_id")
+#     the_rsvp.people_id = params.fetch("query_people_id")
 
-  def update
-    the_id = params.fetch("path_id")
-    the_rsvp = Rsvp.where({ :id => the_id }).at(0)
+#     if the_rsvp.valid?
+#       the_rsvp.save
+#       redirect_to("/rsvps", { :notice => "Rsvp created successfully." })
+#     else
+#       redirect_to("/rsvps", { :alert => the_rsvp.errors.full_messages.to_sentence })
+#     end
+#   end
 
-    the_rsvp.invite_id = params.fetch("query_invite_id")
-    the_rsvp.event_id = params.fetch("query_event_id")
-    the_rsvp.people_id = params.fetch("query_people_id")
+#   def update
+#     the_id = params.fetch("path_id")
+#     the_rsvp = Rsvp.where({ :id => the_id }).at(0)
 
-    if the_rsvp.valid?
-      the_rsvp.save
-      redirect_to("/rsvps/#{the_rsvp.id}", { :notice => "Rsvp updated successfully."} )
-    else
-      redirect_to("/rsvps/#{the_rsvp.id}", { :alert => the_rsvp.errors.full_messages.to_sentence })
-    end
-  end
+#     the_rsvp.invite_id = params.fetch("query_invite_id")
+#     the_rsvp.event_id = params.fetch("query_event_id")
+#     the_rsvp.people_id = params.fetch("query_people_id")
 
-  def destroy
-    the_id = params.fetch("path_id")
-    the_rsvp = Rsvp.where({ :id => the_id }).at(0)
+#     if the_rsvp.valid?
+#       the_rsvp.save
+#       redirect_to("/rsvps/#{the_rsvp.id}", { :notice => "Rsvp updated successfully."} )
+#     else
+#       redirect_to("/rsvps/#{the_rsvp.id}", { :alert => the_rsvp.errors.full_messages.to_sentence })
+#     end
+#   end
 
-    the_rsvp.destroy
+#   def destroy
+#     the_id = params.fetch("path_id")
+#     the_rsvp = Rsvp.where({ :id => the_id }).at(0)
 
-    redirect_to("/rsvps", { :notice => "Rsvp deleted successfully."} )
-  end
-end
+#     the_rsvp.destroy
+
+#     redirect_to("/rsvps", { :notice => "Rsvp deleted successfully."} )
+#   end
+# end

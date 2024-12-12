@@ -70,10 +70,19 @@
               </ul>
             </li>
           </ul>
-          <form class="d-flex" role="search">
+            <nav>
+              <% if current_user != nil %>
+                <a href="/users/edit">Edit profile</a>
+                <a href="/users/sign_out">Sign out</a>
+              <% else %>
+                <a href="/users/sign_up">Sign up</a>
+                <a href="/users/sign_in">Sign in</a>
+              <% end %>
+            </nav>
+<!--          <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+          </form>-->
         </div>
       </div>
     </nav>

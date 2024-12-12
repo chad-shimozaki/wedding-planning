@@ -34,5 +34,4 @@ class User < ApplicationRecord
   has_many  :invites, class_name: "Invite", foreign_key: "user_id", dependent: :destroy
   has_many  :rsvps, class_name: "Rsvp", foreign_key: "user_id", dependent: :destroy
   has_many :events, through: :rsvps, source: :event
-  validates :long_list, presence: true
 end

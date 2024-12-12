@@ -1,4 +1,6 @@
 class LightingProductionCompaniesController < ApplicationController
+  skip_before_action(:authenticate_user!, { :only => [:index] })
+  
   def index
     matching_lighting_production_companies = LightingProductionCompany.all
 

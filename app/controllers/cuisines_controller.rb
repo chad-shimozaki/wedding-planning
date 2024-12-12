@@ -1,4 +1,6 @@
 class CuisinesController < ApplicationController
+  skip_before_action(:authenticate_user!, { :only => [:index] })
+  
   def index
     matching_cuisines = Cuisine.all
 
