@@ -24,11 +24,54 @@
     <!-- Connect Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
 
+    <style>
+      .navbar.custom-red {
+        background-color: #800000;
+      }
+
+      .navbar.custom-red .nav-link,
+      .navbar.custom-red .navbar-brand {
+        color: white !important;
+        font-size: 1.65rem;
+      }
+
+      .navbar.custom-red .nav-link:hover,
+      .navbar.custom-red .navbar-brand:hover {
+        color:rgb(199, 199, 199) !important;
+      }
+      
+      .dropdown-menu.show {
+        background-color: #800000;
+        color: white !important;
+     }
+
+      .dropdown-menu.show .dropdown-item {
+        background-color: #800000;
+        color: white;
+      }
+      
+      .dropdown-menu.show .dropdown-item:hover {
+        background-color: #6e0000;
+        color: rgb(199, 199, 199);
+      }
+
+      .accordion-button.custom-green {
+        background-color:rgba(172, 225, 174, 0.50);
+        color: black;
+      }
+
+      .accordion-button.custom-green:hover {
+        background-color: rgba(157, 207, 158, 0.5);
+      }
+      
+    </style>
+
+
   </head>
 
   <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg custom-red">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">Chad & Riya's Wedding Planning Site</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,17 +90,17 @@
                 Vendors
               </a>
               <ul class="dropdown-menu">
-                <li> <a href="/bakeries">Bakeries</a></li>
-                <li> <a href="/caterers">Caterers</a></li>
-                <li> <a href="/coordinators">Coordinators</a></li>
-                <li> <a href="/djs">DJs</a></li>
-                <li> <a href="/florists">Florists</a></li>
-                <li> <a href="/hotels">Hotels</a></li>
-                <li> <a href="/lighting_production_companies">Lighting & Production</a></li>
-                <li> <a href="/meals">Meals</a></li>
-                <li> <a href="/photographers">Photographers</a></li>
-                <li> <a href="/transportation_companies">Transportation</a></li>
-                <li> <a href="/venues">Venues</a></li>
+                <li> <a href="/bakeries" class="dropdown-item">Bakeries</a></li>
+                <li> <a href="/caterers" class="dropdown-item">Caterers</a></li>
+                <li> <a href="/coordinators" class="dropdown-item">Coordinators</a></li>
+                <li> <a href="/djs" class="dropdown-item">DJs</a></li>
+                <li> <a href="/florists" class="dropdown-item">Florists</a></li>
+                <li> <a href="/hotels" class="dropdown-item">Hotels</a></li>
+                <li> <a href="/lighting_production_companies" class="dropdown-item">Lighting & Production</a></li>
+                <li> <a href="/meals" class="dropdown-item">Meals</a></li>
+                <li> <a href="/photographers" class="dropdown-item">Photographers</a></li>
+                <li> <a href="/transportation_companies" class="dropdown-item">Transportation</a></li>
+                <li> <a href="/venues" class="dropdown-item">Venues</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">
@@ -65,18 +108,18 @@
                 Categories
               </a>
               <ul class="dropdown-menu">
-                <li> <a href="/cuisines">Cuisines</a></li>
-                <li> <a href="/neighborhoods">Neighborhoods</a></li>
+                <li> <a href="/cuisines" class="dropdown-item">Cuisines</a></li>
+                <li> <a href="/neighborhoods" class="dropdown-item">Neighborhoods</a></li>
               </ul>
             </li>
           </ul>
             <nav>
               <% if current_user != nil %>
-                <a href="/users/edit">Edit profile</a>
-                <a href="/users/sign_out">Sign out</a>
+                <a href="/users/edit" class="btn btn-light">Edit profile</a>
+                <a href="/users/sign_out" class="btn btn-light">Sign out</a>
               <% else %>
-                <a href="/users/sign_up">Sign up</a>
-                <a href="/users/sign_in">Sign in</a>
+                <a href="/users/sign_up" class="btn btn-light">Sign up</a>
+                <a href="/users/sign_in" class="btn btn-light">Sign in</a>
               <% end %>
             </nav>
 <!--          <form class="d-flex" role="search">
