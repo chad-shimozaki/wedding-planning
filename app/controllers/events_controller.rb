@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   def index
     matching_events = Event.all
 
-    @list_of_events = matching_events.order({ :created_at => :desc })
+    @list_of_events = matching_events.order({ :chronological_order => :asc })
 
     @list_of_bakeries = Bakery.all.order({ :name => :asc })
     @list_of_coordinators = Coordinator.all.order({ :name => :asc })

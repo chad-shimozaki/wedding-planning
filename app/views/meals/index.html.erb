@@ -134,11 +134,11 @@
             </td>
 
             <td>
-              <%= a_meal.caterer_id %>
+              <%= Caterer.where({ :id => a_meal.caterer_id }).at(0).name %>
             </td>
 
             <td>
-              <%= a_meal.event_id %>
+              <%= Event.where({ :id => a_meal.event_id }).at(0).name %>
             </td>
 
             <td>

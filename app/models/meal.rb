@@ -7,6 +7,7 @@
 #  photo_url  :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  caterer_id :integer
 #  event_id   :integer
 #
 class Meal < ApplicationRecord
