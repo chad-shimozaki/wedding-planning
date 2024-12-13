@@ -23,7 +23,7 @@ class CoordinatorsController < ApplicationController
     the_coordinator = Coordinator.new
     the_coordinator.name = params.fetch("query_name")
     the_coordinator.contact_email = params.fetch("query_contact_email")
-    the_coordinator.contact_numer = params.fetch("query_contact_number")
+    the_coordinator.contact_number = params.fetch("query_contact_number")
     the_coordinator.website = params.fetch("query_website")
     the_coordinator.photo_url = params.fetch("query_photo_url")
     the_coordinator.experience = params.fetch("query_experience")
@@ -53,7 +53,7 @@ class CoordinatorsController < ApplicationController
 
     the_coordinator.name = params.fetch("query_name")
     the_coordinator.contact_email = params.fetch("query_contact_email")
-    the_coordinator.contact_numer = params.fetch("query_contact_number")
+    the_coordinator.contact_number = params.fetch("query_contact_number")
     the_coordinator.website = params.fetch("query_website")
     the_coordinator.photo_url = params.fetch("query_photo_url")
     the_coordinator.experience = params.fetch("query_experience")
