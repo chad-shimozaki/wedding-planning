@@ -22,13 +22,13 @@
       </div>
 
       <div class="inline-form-group">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label :password_confirmation, "Password Confirmation" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         <span class="form-text" style="margin-left: 20px;"><%= @minimum_password_length %> characters minimum.</span>
       </div>
 
       <div class="inline-form-group">
-        <%= f.label :current_password %><br />
+        <%= f.label :current_password, "Current Password" %><br />
         <%= f.password_field :current_password, autocomplete: "current-password" %>
         <span class="form-text" style="margin-left: 20px;">We need your current password to confirm your changes.</span>
       </div>
