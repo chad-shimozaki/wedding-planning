@@ -81,6 +81,43 @@
       .light-green-background {
         background-color:rgba(172, 225, 174, 0.25);
       }
+
+      .alert {
+        top: -10px;
+        left: 10px;
+        padding: 2px;
+      }
+
+      .inline-form-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .inline-form-group label {
+        margin-right: 20px;
+      }
+
+      .inline-form-group input[type="text"], 
+      .inline-form-group input[type="email"], 
+      .inline-form-group input[type="password"] {
+        width: 300px;
+      }
+
+      .inline-form-group input[type="checkbox"] {
+        width: auto;
+        margin-right: 10px;
+      }
+
+      .inline-form-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .inline-form-group .form-check-input {
+        margin-right: 20px;
+      }
       
     </style>
 
@@ -140,10 +177,6 @@
                 <a href="/users/sign_in" class="btn btn-light">Sign in</a>
               <% end %>
             </nav>
-<!--          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>-->
         </div>
       </div>
     </nav>
@@ -151,13 +184,13 @@
     <hr>
 
     <% if notice.present? %>
-      <div style="color: green">
-        <%= notice %>
+      <div class="alert" style="color: green">
+        <em><%= notice %></em>
       </div>
     <% end %>
 
     <% if alert.present? %>
-      <div style="color: red">
+      <div class="alert" style="color: red">
         <%= alert %>
       </div>
     <% end %>
