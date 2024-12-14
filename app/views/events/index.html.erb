@@ -303,7 +303,10 @@
             </td>
 
             <td>
-              <%= an_event.date %>
+              <% if an_event.date != nil %>
+                <%= an_event.date.strftime("%D") %>
+              <% end %>
+
             </td>
 
             <td>

@@ -6,7 +6,10 @@
   </div>
   <div>
     <div class="vendor-title">
-      Event #<%= @the_event.chronological_order %>: <%= @the_event.name %>
+      Event #<%= @the_event.chronological_order %>: <%= @the_event.name %> 
+        <% if @the_event.date != nil %>
+          - <%= @the_event.date.strftime("%D") %>
+        <% end %>
     </div>
 
     <div style="height: 10px;"></div>
