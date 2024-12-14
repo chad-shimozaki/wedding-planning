@@ -40,7 +40,6 @@ class VenuesController < ApplicationController
     
           results = parsed_response.fetch("results")
           if results.empty?
-            return
           else
             first_result = results.at(0)
             geo = first_result.fetch("geometry")
@@ -109,7 +108,6 @@ class VenuesController < ApplicationController
     
           results = parsed_response.fetch("results")
           if results.empty?
-            return
           else
             first_result = results.at(0)
             geo = first_result.fetch("geometry")
