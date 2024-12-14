@@ -39,12 +39,16 @@ class VenuesController < ApplicationController
           parsed_response = JSON.parse(raw_response)
     
           results = parsed_response.fetch("results")
-          first_result = results.at(0)
-          geo = first_result.fetch("geometry")
-          loc = geo.fetch("location")
-    
-          the_venue.lat = loc.fetch("lat")
-          the_venue.lng = loc.fetch("lng")
+          if results.empty?
+            return
+          else
+            first_result = results.at(0)
+            geo = first_result.fetch("geometry")
+            loc = geo.fetch("location")
+      
+            the_venue.lat = loc.fetch("lat")
+            the_venue.lng = loc.fetch("lng")
+          end
         end
 
     neighborhood_name = params.fetch("query_neighborhood_name")
@@ -104,12 +108,16 @@ class VenuesController < ApplicationController
           parsed_response = JSON.parse(raw_response)
     
           results = parsed_response.fetch("results")
-          first_result = results.at(0)
-          geo = first_result.fetch("geometry")
-          loc = geo.fetch("location")
-    
-          the_venue.lat = loc.fetch("lat")
-          the_venue.lng = loc.fetch("lng")
+          if results.empty?
+            return
+          else
+            first_result = results.at(0)
+            geo = first_result.fetch("geometry")
+            loc = geo.fetch("location")
+      
+            the_venue.lat = loc.fetch("lat")
+            the_venue.lng = loc.fetch("lng")
+          end
         end
 
     neighborhood_name = params.fetch("query_neighborhood_name")
