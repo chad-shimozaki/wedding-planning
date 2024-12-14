@@ -38,4 +38,10 @@ class User < ApplicationRecord
   def admin?
     self.role == "admin"
   end
+
+  def set_admin_for_specific_email
+    if self.email == "chiyashimo.wedding@gmail.com"
+      self.role = "admin"
+    end
+  end
 end
