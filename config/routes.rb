@@ -330,4 +330,8 @@ Rails.application.routes.draw do
   # get("/", { :controller => "home", :action => "launch"})
   root to: "home#launch"
 
+  get("/rake_tasks", { :controller => "rake_tasks", :action => "show" })
+  get("/run_task", { :controller => "rake_tasks", :action => "run_task" })
+  
+
 end
