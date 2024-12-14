@@ -30,6 +30,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  before_save :set_admin_for_specific_email
+
 
   has_many  :invites, class_name: "Invite", foreign_key: "user_id", dependent: :destroy
   has_many  :rsvps, class_name: "Rsvp", foreign_key: "user_id", dependent: :destroy
