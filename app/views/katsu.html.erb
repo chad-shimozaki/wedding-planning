@@ -1,0 +1,42 @@
+<div>
+  <div class="container-fluid">
+      <a href="/" class="btn btn-light">
+        <i class="fas fa-arrow-left"></i> Back
+      </a>
+  </div>
+  <div class="vendor-title" style="color: #8B4513">
+    Katsu: Bark bark bark! (<em>Suprise! My own page on the website!</em>)
+  </div>
+</div>
+
+<div id="carousel_home" class="carousel slide" style="max-height: 80vh; width: 30%; overflow: hidden; margin: auto; margin-top: 20px;" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carousel_home" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carousel_home" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carousel_home" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carousel_home" data-bs-slide-to="3" aria-label="Slide 4"></button>
+  </div>
+  <div class="carousel-inner" style="height: 50%, width: auto;">
+    <div class="carousel-item active" data-bs-interval="3000">
+      <%= image_tag "artesa_katsu.JPG", alt: "Dog looking at camera with smile and ring in backpack", class: "img-fluid", style:"object-fit: contain;" %>
+    </div>
+     <div class="carousel-item" data-bs-interval="3000">
+      <%= image_tag "artesa_trio_3.JPG", alt: "Posed picture on stairs with dog", class: "img-fluid", style:"object-fit: contain;" %>
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <%= image_tag "artesa_trio_2.JPG", alt: "Dog receiving pets from mom and dad", class: "img-fluid", style:"object-fit: contain;" %>
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <%= image_tag "artesa_trio_1.JPG", alt: "Dog walking towards camera out of focus", class: "img-fluid", style:"object-fit: contain;" %>
+    </div>
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carousel_home" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carousel_home" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

@@ -2,7 +2,7 @@
   May 15, 2026 – May 16, 2026
 </div>
 
-<div id="carousel_home" class="carousel slide" style="width: 75%; margin: auto;" data-bs-ride="carousel">
+<div id="carousel_home" class="carousel slide" style="max-height: 80vh; overflow: hidden;width: 75%; margin: auto;" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carousel_home" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carousel_home" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -12,19 +12,19 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="3000">
-      <%= image_tag "artesa_both_5.JPG", alt: "The proposal with a beautiful view", class: "img-fluid" %>
+      <%= image_tag "artesa_both_5.JPG", alt: "The proposal with a beautiful view", class: "img-fluid", style:"object-fit: contain;" %>
     </div>
     <div class="carousel-item" data-bs-interval="3000">
-      <%= image_tag "artesa_both_3.JPG", alt: "Closeup of wedding ring", class: "img-fluid" %>
+      <%= image_tag "artesa_both_3.JPG", alt: "Closeup of wedding ring", class: "img-fluid", style:"object-fit: contain;" %>
     </div>
     <div class="carousel-item" data-bs-interval="3000">
-      <%= image_tag "party_surprise.jpg", alt: "Surprise from family and friends", class: "img-fluid" %>
+      <%= image_tag "party_surprise.jpg", alt: "Surprise from family and friends", class: "img-fluid", style:"object-fit: contain;" %>
     </div>
     <div class="carousel-item" data-bs-interval="3000">
-      <%= image_tag "party_family.jpg", alt: "Posed picture with family", class: "img-fluid" %>
+      <%= image_tag "party_family.jpg", alt: "Posed picture with family", class: "img-fluid", style:"object-fit: contain;" %>
     </div>
     <div class="carousel-item" data-bs-interval="3000">
-      <%= image_tag "party_friends.jpg", alt: "Silly picture with friends", class: "img-fluid" %>
+      <%= image_tag "party_friends.jpg", alt: "Silly picture with friends", class: "img-fluid", style:"object-fit: contain;" %>
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carousel_home" data-bs-slide="prev">
@@ -102,4 +102,8 @@
   </div>
 </div>
 
-
+<div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
+  <a href="/katsu" class="brown-button" type="button">
+    Woof Woof! (<em>Click me!</em>)
+  </a>
+</div>

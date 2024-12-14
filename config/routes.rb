@@ -324,7 +324,8 @@ Rails.application.routes.draw do
 
   #------------------------------
 
-
+  # Route for Katsu
+  get("/katsu", { :controller => "home", :action => "katsu"})
 
   # get("/", { :controller => "home", :action => "launch"})
   root to: "home#launch"
