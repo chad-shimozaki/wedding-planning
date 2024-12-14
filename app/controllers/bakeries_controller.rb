@@ -40,13 +40,16 @@ class BakeriesController < ApplicationController
       parsed_response = JSON.parse(raw_response)
 
       results = parsed_response.fetch("results")
-      first_result = results.at(0)
-      geo = first_result.fetch("geometry")
-      loc = geo.fetch("location")
-
-      the_bakery.lat = loc.fetch("lat")
-      the_bakery.lng = loc.fetch("lng")
+      if results.empty?
+      else
+        first_result = results.at(0)
+        geo = first_result.fetch("geometry")
+        loc = geo.fetch("location")
+  
+        the_bakery.lat = loc.fetch("lat")
+        the_bakery.lng = loc.fetch("lng")
       end
+    end
 
     neighborhood_name = params.fetch("query_neighborhood_name")
     the_bakery.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
@@ -103,12 +106,15 @@ class BakeriesController < ApplicationController
       parsed_response = JSON.parse(raw_response)
 
       results = parsed_response.fetch("results")
-      first_result = results.at(0)
-      geo = first_result.fetch("geometry")
-      loc = geo.fetch("location")
-
-      the_bakery.lat = loc.fetch("lat")
-      the_bakery.lng = loc.fetch("lng")
+      if results.empty?
+      else
+        first_result = results.at(0)
+        geo = first_result.fetch("geometry")
+        loc = geo.fetch("location")
+  
+        the_bakery.lat = loc.fetch("lat")
+        the_bakery.lng = loc.fetch("lng")
+      end
     end
 
     neighborhood_name = params.fetch("query_neighborhood_name")

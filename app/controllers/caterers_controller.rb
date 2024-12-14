@@ -43,12 +43,15 @@ class CaterersController < ApplicationController
           parsed_response = JSON.parse(raw_response)
     
           results = parsed_response.fetch("results")
-          first_result = results.at(0)
-          geo = first_result.fetch("geometry")
-          loc = geo.fetch("location")
-    
-          the_caterer.lat = loc.fetch("lat")
-          the_caterer.lng = loc.fetch("lng")
+          if results.empty?
+          else
+            first_result = results.at(0)
+            geo = first_result.fetch("geometry")
+            loc = geo.fetch("location")
+      
+            the_caterer.lat = loc.fetch("lat")
+            the_caterer.lng = loc.fetch("lng")
+          end
         end
 
     neighborhood_name = params.fetch("query_neighborhood_name")
@@ -109,12 +112,15 @@ class CaterersController < ApplicationController
           parsed_response = JSON.parse(raw_response)
     
           results = parsed_response.fetch("results")
-          first_result = results.at(0)
-          geo = first_result.fetch("geometry")
-          loc = geo.fetch("location")
-    
-          the_caterer.lat = loc.fetch("lat")
-          the_caterer.lng = loc.fetch("lng")
+          if results.empty?
+          else
+            first_result = results.at(0)
+            geo = first_result.fetch("geometry")
+            loc = geo.fetch("location")
+      
+            the_caterer.lat = loc.fetch("lat")
+            the_caterer.lng = loc.fetch("lng")
+          end
         end
 
     neighborhood_name = params.fetch("query_neighborhood_name")
