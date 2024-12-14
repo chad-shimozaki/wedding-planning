@@ -298,18 +298,17 @@
               <%= an_event.id %>
             </td>
 
-            <td>
+            <td style="text-align: center;">
               <%= an_event.name %>
             </td>
 
-            <td>
+            <td style="text-align: center;">
               <% if an_event.date != nil %>
                 <%= an_event.date.strftime("%D") %>
               <% end %>
-
             </td>
 
-            <td>
+            <td style="text-align: center;">
               <%= an_event.chronological_order %>
             </td>
 
@@ -317,43 +316,43 @@
               <img src = "<%= an_event.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
             </td>
 
-            <td>
+            <td style="text-align: center;">
               <%= Bakery.where({ :id => an_event.bakery_id }).at(0).name %>
             </td>
 
-            <td>
+            <td style="text-align: center;">
               <%= Coordinator.where({ :id => an_event.coordinator_id }).at(0).name %>
             </td>
 
-            <td>
+            <td style="text-align: center;">
               <%= Dj.where({ :id => an_event.dj_id }).at(0).name %>
             </td>
 
-            <td>
+            <td style="text-align: center;">
               <%= Florist.where({ :id => an_event.florist_id }).at(0).name %>
             </td>
 
-            <td>
+            <td style="text-align: center;">
               <%= Hotel.where({ :id => an_event.hotel_id }).at(0).name %>
             </td>
 
-            <td>
+            <td style="text-align: center;">
               <%= LightingProductionCompany.where({ :id => an_event.lighting_production_company_id }).at(0).name %>
             </td>
 
-            <td>
+            <td style="text-align: center;">
               <%= Photographer.where({ :id => an_event.photographer_id }).at(0).name %>
             </td>
 
-            <td>
+            <td style="text-align: center;">
               <%= TransportationCompany.where({ :id => an_event.transportation_company_id }).at(0).name %>
             </td>
 
-            <td>
+            <td style="text-align: center;">
               <%= Venue.where({ :id => an_event.venue_id }).at(0).name %>
             </td>
 
-            <td>
+            <td style="text-align: center;">
               <%= Neighborhood.where({ :id => an_event.neighborhood_id }).at(0).name %>
             </td>
 
