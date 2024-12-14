@@ -20,7 +20,6 @@ namespace :import do
       lighting_production_companies: LightingProductionCompany,
       photographers: Photographer,
       transportation_companies: TransportationCompany,
-      users: User,
       invites: Invite,
       rsvps: Rsvp,
       venues: Venue,
