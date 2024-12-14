@@ -285,25 +285,29 @@
             Final Payment
           </th>
 
-          <th>
-            Price Options
-          </th>
+          <% if current_user&.admin? %>
+            <th>
+              Price Options
+            </th>
+          <% end %>
 
           <th>
             PDF
           </th>
-    
+
           <th>
             Notes
           </th>
 
           <th>
-            Deposit %
+            Deposit
           </th>
 
-          <th>
-            Final Price $
-          </th>
+          <% if current_user&.admin? %>
+            <th>
+              Final Price
+            </th>
+          <% end %>
 
           <th>
             Events count
@@ -409,9 +413,11 @@
               <% end %>
             </td>
 
-          <td>
-            <%= a_venue.price_options %>
-          </td>
+          <% if current_user&.admin? %>
+            <td>
+              <%= a_venue.price_options %>
+            </td>
+          <% end %>
 
           <td>
             <%= a_venue.pdf %>
@@ -425,9 +431,11 @@
             <%= a_venue.deposit.to_fs( :percentage, { :precision => 0 } ) %>
           </td>
 
-          <td>
-            <%= a_venue.final_price.to_fs(:currency) %>
-          </td>
+          <% if current_user&.admin? %>
+            <td>
+              <%= a_venue.final_price.to_fs(:currency) %>
+            </td>
+          <% end %>
 
           <td>
             <%= a_venue.events_count %>

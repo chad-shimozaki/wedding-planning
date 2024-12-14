@@ -251,9 +251,11 @@
             Final Payment
           </th>
 
-          <th>
-            Price Options
-          </th>
+          <% if current_user&.admin? %>
+            <th>
+              Price Options
+            </th>
+          <% end %>
 
           <th>
             PDF
@@ -267,9 +269,11 @@
             Deposit
           </th>
 
-          <th>
-            Final Price
-          </th>
+          <% if current_user&.admin? %>
+            <th>
+              Final Price
+            </th>
+          <% end %>
 
           <th>
             Created at
@@ -363,9 +367,11 @@
               <% end %>
             </td>
 
-            <td>
-              <%= a_bakery.price_options %>
-            </td>
+            <% if current_user&.admin? %>
+              <td>
+                <%= a_bakery.price_options %>
+              </td>
+            <% end %>
 
             <td>
               <%= a_bakery.pdf %>
@@ -379,9 +385,11 @@
               <%= a_bakery.deposit.to_fs( :percentage, { :precision => 0 } ) %>
             </td>
 
-            <td>
-              <%= a_bakery.final_price.to_fs(:currency) %>
-            </td>
+            <% if current_user&.admin? %>
+              <td>
+                <%= a_bakery.final_price.to_fs(:currency) %>
+              </td>
+            <% end %>
 
             <td>
               <%= time_ago_in_words(a_bakery.created_at) %> ago

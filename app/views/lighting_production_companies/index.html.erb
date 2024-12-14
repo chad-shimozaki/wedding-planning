@@ -209,9 +209,11 @@
             Final Payment
           </th>
 
-          <th>
-            Price Options
-          </th>
+          <% if current_user&.admin? %>
+            <th>
+              Price Options
+            </th>
+          <% end %>
 
           <th>
             PDF
@@ -225,9 +227,11 @@
             Deposit
           </th>
 
-          <th>
-            Final Price
-          </th>
+          <% if current_user&.admin? %>
+            <th>
+              Final Price
+            </th>
+          <% end %>
 
           <th>
             Created at
@@ -305,9 +309,11 @@
               <% end %>
             </td>
 
-            <td>
-              <%= a_lighting_production_company.price_options %>
-            </td>
+            <% if current_user&.admin? %>
+              <td>
+                <%= a_lighting_production_company.price_options %>
+              </td>
+            <% end %>
 
             <td>
               <%= a_lighting_production_company.pdf %>
@@ -321,9 +327,11 @@
               <%= a_lighting_production_company.deposit.to_fs( :percentage, { :precision => 0 } ) %>
             </td>
 
-            <td>
-              <%= a_lighting_production_company.final_price.to_fs(:currency) %>
-            </td>
+            <% if current_user&.admin? %>
+              <td>
+                <%= a_lighting_production_company.final_price.to_fs(:currency) %>
+              </td>
+            <% end %>
 
             <td>
               <%= time_ago_in_words(a_lighting_production_company.created_at) %> ago

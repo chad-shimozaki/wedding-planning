@@ -34,4 +34,8 @@ class User < ApplicationRecord
   has_many  :invites, class_name: "Invite", foreign_key: "user_id", dependent: :destroy
   has_many  :rsvps, class_name: "Rsvp", foreign_key: "user_id", dependent: :destroy
   has_many :events, through: :rsvps, source: :event
+
+  def admin?
+    self.role == "admin"
+  end
 end
