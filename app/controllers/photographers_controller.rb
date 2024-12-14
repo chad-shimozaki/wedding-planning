@@ -33,11 +33,13 @@ class PhotographersController < ApplicationController
     the_photographer.final_payment = params.fetch("query_final_payment", false)
     the_photographer.price_options = params.fetch("query_price_options")
     
-    the_photographer.pdf = uploaded_file.original_filename
-    if uploaded_file
-      save_path = Rails.root.join('public', 'pdfs', the_photographer.pdf)
-      File.open(save_path, 'wb') do |file|
-        file.write(uploaded_file.read)
+    if params[:query_pdf].present?
+      the_photographer.pdf = uploaded_file.original_filename
+      if uploaded_file
+        save_path = Rails.root.join('public', 'pdfs', the_photographer.pdf)
+        File.open(save_path, 'wb') do |file|
+          file.write(uploaded_file.read)
+        end
       end
     end
 
@@ -69,11 +71,13 @@ class PhotographersController < ApplicationController
     the_photographer.final_payment = params.fetch("query_final_payment", false)
     the_photographer.price_options = params.fetch("query_price_options")
     
-    the_photographer.pdf = uploaded_file.original_filename
-    if uploaded_file
-      save_path = Rails.root.join('public', 'pdfs', the_photographer.pdf)
-      File.open(save_path, 'wb') do |file|
-        file.write(uploaded_file.read)
+    if params[:query_pdf].present?
+      the_photographer.pdf = uploaded_file.original_filename
+      if uploaded_file
+        save_path = Rails.root.join('public', 'pdfs', the_photographer.pdf)
+        File.open(save_path, 'wb') do |file|
+          file.write(uploaded_file.read)
+        end
       end
     end
 

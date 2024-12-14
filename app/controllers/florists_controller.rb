@@ -62,11 +62,13 @@ class FloristsController < ApplicationController
     the_florist.final_payment = params.fetch("query_final_payment", false)
     the_florist.price_options = params.fetch("query_price_options")
     
-    the_florist.pdf = uploaded_file.original_filename
-    if uploaded_file
-      save_path = Rails.root.join('public', 'pdfs', the_florist.pdf)
-      File.open(save_path, 'wb') do |file|
-        file.write(uploaded_file.read)
+    if params[:query_pdf].present?
+      the_florist.pdf = uploaded_file.original_filename
+      if uploaded_file
+        save_path = Rails.root.join('public', 'pdfs', the_florist.pdf)
+        File.open(save_path, 'wb') do |file|
+          file.write(uploaded_file.read)
+        end
       end
     end
 
@@ -121,11 +123,13 @@ class FloristsController < ApplicationController
     the_florist.final_payment = params.fetch("query_final_payment", false)
     the_florist.price_options = params.fetch("query_price_options")
     
-    the_florist.pdf = uploaded_file.original_filename
-    if uploaded_file
-      save_path = Rails.root.join('public', 'pdfs', the_florist.pdf)
-      File.open(save_path, 'wb') do |file|
-        file.write(uploaded_file.read)
+    if params[:query_pdf].present?
+      the_florist.pdf = uploaded_file.original_filename
+      if uploaded_file
+        save_path = Rails.root.join('public', 'pdfs', the_florist.pdf)
+        File.open(save_path, 'wb') do |file|
+          file.write(uploaded_file.read)
+        end
       end
     end
 

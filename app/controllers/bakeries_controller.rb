@@ -64,11 +64,13 @@ class BakeriesController < ApplicationController
     the_bakery.price_options = params.fetch("query_price_options")
     uploaded_file = params.fetch("query_pdf")
     
-    the_bakery.pdf = uploaded_file.original_filename
-    if uploaded_file
-      save_path = Rails.root.join('public', 'pdfs', the_bakery.pdf)
-      File.open(save_path, 'wb') do |file|
-        file.write(uploaded_file.read)
+    if params[:query_pdf].present?
+      the_bakery.pdf = uploaded_file.original_filename
+      if uploaded_file
+        save_path = Rails.root.join('public', 'pdfs', the_bakery.pdf)
+        File.open(save_path, 'wb') do |file|
+          file.write(uploaded_file.read)
+        end
       end
     end
 
@@ -124,11 +126,13 @@ class BakeriesController < ApplicationController
     the_bakery.final_payment = params.fetch("query_final_payment", false)
     the_bakery.price_options = params.fetch("query_price_options")
     
-    the_bakery.pdf = uploaded_file.original_filename
-    if uploaded_file
-      save_path = Rails.root.join('public', 'pdfs', the_bakery.pdf)
-      File.open(save_path, 'wb') do |file|
-        file.write(uploaded_file.read)
+    if params[:query_pdf].present?
+      the_bakery.pdf = uploaded_file.original_filename
+      if uploaded_file
+        save_path = Rails.root.join('public', 'pdfs', the_bakery.pdf)
+        File.open(save_path, 'wb') do |file|
+          file.write(uploaded_file.read)
+        end
       end
     end
 

@@ -43,11 +43,13 @@ class TransportationCompaniesController < ApplicationController
     the_transportation_company.final_payment = params.fetch("query_final_payment", false)
     the_transportation_company.price_options = params.fetch("query_price_options")
     
-    the_transportation_company.pdf = uploaded_file.original_filename
-    if uploaded_file
-      save_path = Rails.root.join('public', 'pdfs', the_transportation_company.pdf)
-      File.open(save_path, 'wb') do |file|
-        file.write(uploaded_file.read)
+    if params[:query_pdf].present?
+      the_transportation_company.pdf = uploaded_file.original_filename
+      if uploaded_file
+        save_path = Rails.root.join('public', 'pdfs', the_transportation_company.pdf)
+        File.open(save_path, 'wb') do |file|
+          file.write(uploaded_file.read)
+        end
       end
     end
 
@@ -83,11 +85,13 @@ class TransportationCompaniesController < ApplicationController
     the_transportation_company.final_payment = params.fetch("query_final_payment", false)
     the_transportation_company.price_options = params.fetch("query_price_options")
     
-    the_transportation_company.pdf = uploaded_file.original_filename
-    if uploaded_file
-      save_path = Rails.root.join('public', 'pdfs', the_transportation_company.pdf)
-      File.open(save_path, 'wb') do |file|
-        file.write(uploaded_file.read)
+    if params[:query_pdf].present?
+      the_transportation_company.pdf = uploaded_file.original_filename
+      if uploaded_file
+        save_path = Rails.root.join('public', 'pdfs', the_transportation_company.pdf)
+        File.open(save_path, 'wb') do |file|
+          file.write(uploaded_file.read)
+        end
       end
     end
 

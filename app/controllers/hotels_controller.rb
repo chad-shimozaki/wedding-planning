@@ -61,11 +61,13 @@ class HotelsController < ApplicationController
     the_hotel.minimum_rooms = params.fetch("query_minimum_rooms")
     the_hotel.price_options = params.fetch("query_price_options")
     
-    the_hotel.pdf = uploaded_file.original_filename
-    if uploaded_file
-      save_path = Rails.root.join('public', 'pdfs', the_hotel.pdf)
-      File.open(save_path, 'wb') do |file|
-        file.write(uploaded_file.read)
+    if params[:query_pdf].present?
+      the_hotel.pdf = uploaded_file.original_filename
+      if uploaded_file
+        save_path = Rails.root.join('public', 'pdfs', the_hotel.pdf)
+        File.open(save_path, 'wb') do |file|
+          file.write(uploaded_file.read)
+        end
       end
     end
 
@@ -117,11 +119,13 @@ class HotelsController < ApplicationController
     the_hotel.minimum_rooms = params.fetch("query_minimum_rooms")
     the_hotel.price_options = params.fetch("query_price_options")
     
-    the_hotel.pdf = uploaded_file.original_filename
-    if uploaded_file
-      save_path = Rails.root.join('public', 'pdfs', the_hotel.pdf)
-      File.open(save_path, 'wb') do |file|
-        file.write(uploaded_file.read)
+    if params[:query_pdf].present?
+      the_hotel.pdf = uploaded_file.original_filename
+      if uploaded_file
+        save_path = Rails.root.join('public', 'pdfs', the_hotel.pdf)
+        File.open(save_path, 'wb') do |file|
+          file.write(uploaded_file.read)
+        end
       end
     end
 

@@ -71,11 +71,13 @@ class CaterersController < ApplicationController
     the_caterer.final_payment = params.fetch("query_final_payment", false)
     the_caterer.price_options = params.fetch("query_price_options")
     
-    the_caterer.pdf = uploaded_file.original_filename
-    if uploaded_file
-      save_path = Rails.root.join('public', 'pdfs', the_caterer.pdf)
-      File.open(save_path, 'wb') do |file|
-        file.write(uploaded_file.read)
+    if params[:query_pdf].present?
+      the_caterer.pdf = uploaded_file.original_filename
+      if uploaded_file
+        save_path = Rails.root.join('public', 'pdfs', the_caterer.pdf)
+        File.open(save_path, 'wb') do |file|
+          file.write(uploaded_file.read)
+        end
       end
     end
 
@@ -135,11 +137,13 @@ class CaterersController < ApplicationController
     the_caterer.final_payment = params.fetch("query_final_payment", false)
     the_caterer.price_options = params.fetch("query_price_options")
     
-    the_caterer.pdf = uploaded_file.original_filename
-    if uploaded_file
-      save_path = Rails.root.join('public', 'pdfs', the_caterer.pdf)
-      File.open(save_path, 'wb') do |file|
-        file.write(uploaded_file.read)
+    if params[:query_pdf].present?
+      the_caterer.pdf = uploaded_file.original_filename
+      if uploaded_file
+        save_path = Rails.root.join('public', 'pdfs', the_caterer.pdf)
+        File.open(save_path, 'wb') do |file|
+          file.write(uploaded_file.read)
+        end
       end
     end
 
