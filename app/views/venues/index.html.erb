@@ -295,9 +295,11 @@
             PDF
           </th>
 
-          <th>
-            Notes
-          </th>
+          <% if current_user&.admin? %>
+            <th>
+              Notes
+            </th>
+          <% end %>
 
           <th>
             Deposit
@@ -423,9 +425,11 @@
             <%= a_venue.pdf %>
           </td>
 
-          <td>
-            <%= a_venue.notes %>
-          </td>
+          <% if current_user&.admin? %>
+            <td>
+              <%= a_venue.notes %>
+            </td>
+          <% end %>
 
           <td>
             <%= a_venue.deposit.to_fs( :percentage, { :precision => 0 } ) %>

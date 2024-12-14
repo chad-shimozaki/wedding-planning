@@ -219,9 +219,11 @@
             PDF
           </th>
 
-          <th>
-            Notes
-          </th>
+          <% if current_user&.admin? %>
+            <th>
+              Notes
+            </th>
+          <% end %>
 
           <th>
             Deposit
@@ -319,9 +321,11 @@
               <%= a_photographer.pdf %>
             </td>
 
-            <td>
-              <%= a_photographer.notes %>
-            </td>
+            <% if current_user&.admin? %>
+              <td>
+                <%= a_photographer.notes %>
+              </td>
+            <% end %>
 
             <td>
               <%= a_photographer.deposit %>

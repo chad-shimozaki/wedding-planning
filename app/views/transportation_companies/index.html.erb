@@ -237,9 +237,11 @@
             PDF
           </th>
 
-          <th>
-            Notes
-          </th>
+           <% if current_user&.admin? %>
+            <th>
+              Notes
+            </th>
+          <% end %>
 
           <th>
             Deposit
@@ -341,9 +343,11 @@
               <%= a_transportation_company.pdf %>
             </td>
 
-            <td>
-              <%= a_transportation_company.notes %>
-            </td>
+            <% if current_user&.admin? %>
+              <td>
+                <%= a_transportation_company.notes %>
+              </td>
+            <% end %>
 
             <td>
               <%= a_transportation_company.deposit.to_fs( :percentage, { :precision => 0 } ) %>

@@ -235,9 +235,11 @@
             PDF
           </th>
 
-          <th>
-            Notes
-          </th>
+          <% if current_user&.admin? %>
+            <th>
+              Notes
+            </th>
+          <% end %>
 
           <th>
             Created at
@@ -313,9 +315,11 @@
               <%= a_hotel.pdf %>
             </td>
 
-            <td>
-              <%= a_hotel.notes %>
-            </td>
+            <% if current_user&.admin? %>
+              <td>
+                <%= a_hotel.notes %>
+              </td>
+            <% end %>
 
             <td>
               <%= time_ago_in_words(a_hotel.created_at) %> ago

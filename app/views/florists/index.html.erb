@@ -251,9 +251,11 @@
             PDF
           </th>
 
-          <th>
-            Notes
-          </th>
+          <% if current_user&.admin? %>
+            <th>
+              Notes
+            </th>
+          <% end %>
 
           <th>
             Deposit
@@ -359,9 +361,11 @@
               <%= a_florist.pdf %>
             </td>
 
-            <td>
-              <%= a_florist.notes %>
-            </td>
+            <% if current_user&.admin? %>
+              <td>
+                <%= a_florist.notes %>
+              </td>
+            <% end %>
 
             <td>
               <%= a_florist.deposit.to_fs( :percentage, { :precision => 0 } ) %>
