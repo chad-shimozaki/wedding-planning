@@ -4,6 +4,7 @@
 #
 #  id                             :bigint           not null, primary key
 #  chronological_order            :integer
+#  date                           :date
 #  name                           :string
 #  photo_url                      :string
 #  created_at                     :datetime         not null

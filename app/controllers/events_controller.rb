@@ -55,6 +55,7 @@ class EventsController < ApplicationController
   def create
     the_event = Event.new
     the_event.name = params.fetch("query_name")
+    the_event.date = params.fetch("query_date")
     the_event.chronological_order = params.fetch("query_chronological_order")
     the_event.photo_url = params.fetch("query_photo_url")
 
@@ -82,6 +83,7 @@ class EventsController < ApplicationController
     the_event = Event.where({ :id => the_id }).at(0)
 
     the_event.name = params.fetch("query_name")
+    the_event.date = params.fetch("query_date")
     the_event.chronological_order = params.fetch("query_chronological_order")
     the_event.photo_url = params.fetch("query_photo_url")
 

@@ -106,6 +106,16 @@
       </div>
 
       <div class="row mb-2">
+        <label for="date_box" class="col-auto col-form-label">
+          Date
+        </label>
+
+        <div class="col-auto">
+          <input class="form-control" type="date" id="date_box" name="query_date" value="<%= @the_event.date %>">
+        </div>
+      </div>
+
+      <div class="row mb-2">
         <label for="chronological_order_box" class="col-auto col-form-label">
           Chronological Order
         </label>
