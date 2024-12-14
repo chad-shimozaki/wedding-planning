@@ -4,24 +4,24 @@ namespace :import do
   task all: :environment do
     # Define the tables and their corresponding models
     tables = {
+      neighborhoods: Neighborhood,
+      cuisines: Cuisine,
       bakeries: Bakery,
       caterers: Caterer,
       coordinators: Coordinator,
-      cuisines: Cuisine,
       djs: Dj,
-      events: Event,
       florists: Florist,
-      foods: Food,
       hotels: Hotel,
-      invites: Invite,
       lighting_production_companies: LightingProductionCompany,
-      meals: Meal,
-      neighborhoods: Neighborhood,
       photographers: Photographer,
-      rsvps: Rsvp,
       transportation_companies: TransportationCompany,
       users: User,
-      venues: Venue
+      invites: Invite,
+      rsvps: Rsvp,
+      venues: Venue,
+      foods: Food,
+      events: Event,
+      meals: Meal,
     }
 
     tables.each do |table_name, model|
