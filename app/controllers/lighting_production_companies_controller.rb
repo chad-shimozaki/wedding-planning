@@ -4,7 +4,7 @@ class LightingProductionCompaniesController < ApplicationController
   def index
     matching_lighting_production_companies = LightingProductionCompany.all
 
-    @list_of_lighting_production_companies = matching_lighting_production_companies.order({ :chosen => :desc, :created_at => :desc })
+    @list_of_lighting_production_companies = matching_lighting_production_companies.order({ :chosen => :desc, :name => :asc })
 
     render({ :template => "lighting_production_companies/index" })
   end

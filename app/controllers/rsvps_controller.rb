@@ -4,7 +4,7 @@ class RsvpsController < ApplicationController
   def index
     matching_rsvps = Rsvp.all
 
-    @list_of_rsvps = matching_rsvps.order({ :created_at => :desc })
+    @list_of_rsvps = matching_rsvps.order({ :name => :asc })
 
     render({ :template => "rsvps/index" })
   end

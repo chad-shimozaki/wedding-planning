@@ -4,7 +4,7 @@ class CuisinesController < ApplicationController
   def index
     matching_cuisines = Cuisine.all
 
-    @list_of_cuisines = matching_cuisines.order({ :created_at => :desc })
+    @list_of_cuisines = matching_cuisines.order({ :name => :asc })
 
     render({ :template => "cuisines/index" })
   end

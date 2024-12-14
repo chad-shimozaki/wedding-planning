@@ -4,7 +4,7 @@ class CoordinatorsController < ApplicationController
   def index
     matching_coordinators = Coordinator.all
 
-    @list_of_coordinators = matching_coordinators.order({ :chosen => :desc, :created_at => :desc })
+    @list_of_coordinators = matching_coordinators.order({ :chosen => :desc, :name => :asc })
 
     render({ :template => "coordinators/index" })
   end

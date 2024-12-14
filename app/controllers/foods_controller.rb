@@ -4,7 +4,7 @@ class FoodsController < ApplicationController
   def index
     matching_foods = Food.all
 
-    @list_of_foods = matching_foods.order({ :created_at => :desc })
+    @list_of_foods = matching_foods.order({ :name => :asc })
 
     render({ :template => "foods/index" })
   end

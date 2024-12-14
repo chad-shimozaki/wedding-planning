@@ -4,7 +4,7 @@ class InvitesController < ApplicationController
   def index
     matching_invites = Invite.all
 
-    @list_of_invites = matching_invites.order({ :created_at => :desc })
+    @list_of_invites = matching_invites.order({ :name => :asc })
 
     render({ :template => "invites/index" })
   end

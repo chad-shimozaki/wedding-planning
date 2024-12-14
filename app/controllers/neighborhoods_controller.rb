@@ -4,7 +4,7 @@ class NeighborhoodsController < ApplicationController
   def index
     matching_neighborhoods = Neighborhood.all
 
-    @list_of_neighborhoods = matching_neighborhoods.order({ :created_at => :desc })
+    @list_of_neighborhoods = matching_neighborhoods.order({ :name => :asc })
 
     render({ :template => "neighborhoods/index" })
   end
