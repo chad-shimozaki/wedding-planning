@@ -32,7 +32,15 @@ class PhotographersController < ApplicationController
     the_photographer.paid_deposit = params.fetch("query_paid_deposit", false)
     the_photographer.final_payment = params.fetch("query_final_payment", false)
     the_photographer.price_options = params.fetch("query_price_options")
-    the_photographer.pdf = params.fetch("query_pdf")
+    
+    the_photographer.pdf = uploaded_file.original_filename
+    if uploaded_file
+      save_path = Rails.root.join('public', 'pdfs', the_photographer.pdf)
+      File.open(save_path, 'wb') do |file|
+        file.write(uploaded_file.read)
+      end
+    end
+
     the_photographer.notes = params.fetch("query_notes")
     the_photographer.deposit = params.fetch("query_deposit")
     the_photographer.final_price = params.fetch("query_final_price")
@@ -60,7 +68,15 @@ class PhotographersController < ApplicationController
     the_photographer.paid_deposit = params.fetch("query_paid_deposit", false)
     the_photographer.final_payment = params.fetch("query_final_payment", false)
     the_photographer.price_options = params.fetch("query_price_options")
-    the_photographer.pdf = params.fetch("query_pdf")
+    
+    the_photographer.pdf = uploaded_file.original_filename
+    if uploaded_file
+      save_path = Rails.root.join('public', 'pdfs', the_photographer.pdf)
+      File.open(save_path, 'wb') do |file|
+        file.write(uploaded_file.read)
+      end
+    end
+
     the_photographer.notes = params.fetch("query_notes")
     the_photographer.deposit = params.fetch("query_deposit")
     the_photographer.final_price = params.fetch("query_final_price")

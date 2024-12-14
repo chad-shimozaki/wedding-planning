@@ -198,7 +198,8 @@
 
     <div style="height: 10px;"></div>
 
-    <form action="/modify_caterer/<%= @the_caterer.id %>"  method="post" class="container-fluid">
+    <form action="/modify_caterer/<%= @the_caterer.id %>"  method="post" class="container-fluid" enctype="multipart/form-data">
+      <%= csrf_meta_tags %>
       <div class="row mb-2">
         <label for="name_box" class="col-auto col-form-label">
           Name

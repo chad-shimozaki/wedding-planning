@@ -33,7 +33,15 @@ class CoordinatorsController < ApplicationController
     the_coordinator.paid_deposit = params.fetch("query_paid_deposit", false)
     the_coordinator.final_payment = params.fetch("query_final_payment", false)
     the_coordinator.price_options = params.fetch("query_price_options")
-    the_coordinator.pdf = params.fetch("query_pdf")
+    
+    the_coordinator.pdf = uploaded_file.original_filename
+    if uploaded_file
+      save_path = Rails.root.join('public', 'pdfs', the_coordinator.pdf)
+      File.open(save_path, 'wb') do |file|
+        file.write(uploaded_file.read)
+      end
+    end
+
     the_coordinator.notes = params.fetch("query_notes")
     the_coordinator.deposit = params.fetch("query_deposit")
     the_coordinator.final_price = params.fetch("query_final_price")
@@ -63,7 +71,15 @@ class CoordinatorsController < ApplicationController
     the_coordinator.paid_deposit = params.fetch("query_paid_deposit", false)
     the_coordinator.final_payment = params.fetch("query_final_payment", false)
     the_coordinator.price_options = params.fetch("query_price_options")
-    the_coordinator.pdf = params.fetch("query_pdf")
+    
+    the_coordinator.pdf = uploaded_file.original_filename
+    if uploaded_file
+      save_path = Rails.root.join('public', 'pdfs', the_coordinator.pdf)
+      File.open(save_path, 'wb') do |file|
+        file.write(uploaded_file.read)
+      end
+    end
+
     the_coordinator.notes = params.fetch("query_notes")
     the_coordinator.deposit = params.fetch("query_deposit")
     the_coordinator.final_price = params.fetch("query_final_price")

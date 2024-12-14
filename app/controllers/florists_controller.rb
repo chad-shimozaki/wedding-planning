@@ -61,7 +61,15 @@ class FloristsController < ApplicationController
     the_florist.paid_deposit = params.fetch("query_paid_deposit", false)
     the_florist.final_payment = params.fetch("query_final_payment", false)
     the_florist.price_options = params.fetch("query_price_options")
-    the_florist.pdf = params.fetch("query_pdf")
+    
+    the_florist.pdf = uploaded_file.original_filename
+    if uploaded_file
+      save_path = Rails.root.join('public', 'pdfs', the_florist.pdf)
+      File.open(save_path, 'wb') do |file|
+        file.write(uploaded_file.read)
+      end
+    end
+
     the_florist.notes = params.fetch("query_notes")
     the_florist.deposit = params.fetch("query_deposit")
     the_florist.final_price = params.fetch("query_final_price")
@@ -112,7 +120,15 @@ class FloristsController < ApplicationController
     the_florist.paid_deposit = params.fetch("query_paid_deposit", false)
     the_florist.final_payment = params.fetch("query_final_payment", false)
     the_florist.price_options = params.fetch("query_price_options")
-    the_florist.pdf = params.fetch("query_pdf")
+    
+    the_florist.pdf = uploaded_file.original_filename
+    if uploaded_file
+      save_path = Rails.root.join('public', 'pdfs', the_florist.pdf)
+      File.open(save_path, 'wb') do |file|
+        file.write(uploaded_file.read)
+      end
+    end
+
     the_florist.notes = params.fetch("query_notes")
     the_florist.deposit = params.fetch("query_deposit")
     the_florist.final_price = params.fetch("query_final_price")

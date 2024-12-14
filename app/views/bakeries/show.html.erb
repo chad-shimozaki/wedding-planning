@@ -108,7 +108,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <embed src="/public/pdfs<%= @the_bakery.pdf %>.pdf" type="application/pdf" width="100%" height="400px">
+                  <embed src="/pdfs/<%= @the_bakery.pdf %>.pdf" type="application/pdf" width="100%" height="400px">
                 </div>
               </div>
             </div>
@@ -186,7 +186,8 @@
 
     <div style="height: 10px;"></div>
 
-    <form action="/modify_bakery/<%= @the_bakery.id %>"  method="post" class="container-fluid">
+    <form action="/modify_bakery/<%= @the_bakery.id %>"  method="post" class="container-fluid" enctype="multipart/form-data">
+      <%= csrf_meta_tags %>
       <div class="row mb-2">
         <label for="name_box" class="col-auto col-form-label">
           Name

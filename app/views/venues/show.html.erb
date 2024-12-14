@@ -119,7 +119,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <embed src="/public/pdfs<%= @the_venue.pdf %>.pdf" type="application/pdf" width="100%" height="400px">
+                  <embed src="/pdfs/<%= @the_venue.pdf %>" type="application/pdf" width="100%" height="400px">
                 </div>
               </div>
             </div>
@@ -128,7 +128,6 @@
       </div>
       <div class="col">
         <h4>Notes</h4>
-        <%= @the_venue.notes %>
           <% if @the_venue.notes.blank? %>
             <p>None provided</p>
           <% else %>
@@ -197,7 +196,9 @@
 
     <div style="height: 10px;"></div>
 
-    <form action="/modify_venue/<%= @the_venue.id %>"  method="post" class="container-fluid">
+    <form action="/modify_venue/<%= @the_venue.id %>"  method="post" class="container-fluid" enctype="multipart/form-data">
+      <%= csrf_meta_tags %>
+      
       <div class="row mb-2">
         <label for="name_box" class="col-auto col-form-label">
           Name

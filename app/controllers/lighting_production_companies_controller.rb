@@ -32,7 +32,15 @@ class LightingProductionCompaniesController < ApplicationController
     the_lighting_production_company.paid_deposit = params.fetch("query_paid_deposit", false)
     the_lighting_production_company.final_payment = params.fetch("query_final_payment", false)
     the_lighting_production_company.price_options = params.fetch("query_price_options")
-    the_lighting_production_company.pdf = params.fetch("query_pdf")
+    
+    the_lighting_production_company.pdf = uploaded_file.original_filename
+    if uploaded_file
+      save_path = Rails.root.join('public', 'pdfs', the_lighting_production_company.pdf)
+      File.open(save_path, 'wb') do |file|
+        file.write(uploaded_file.read)
+      end
+    end
+
     the_lighting_production_company.notes = params.fetch("query_notes")
     the_lighting_production_company.deposit = params.fetch("query_deposit")
     the_lighting_production_company.final_price = params.fetch("query_final_price")
@@ -60,7 +68,16 @@ class LightingProductionCompaniesController < ApplicationController
     the_lighting_production_company.paid_deposit = params.fetch("query_paid_deposit", false)
     the_lighting_production_company.final_payment = params.fetch("query_final_payment", false)
     the_lighting_production_company.price_options = params.fetch("query_price_options")
-    the_lighting_production_company.pdf = params.fetch("query_pdf")
+    
+    the_lighting_production_company.pdf = params.fetch("query_pdf")    
+    the_lighting_production_company.pdf = uploaded_file.original_filename
+    if uploaded_file
+      save_path = Rails.root.join('public', 'pdfs', the_lighting_production_company.pdf)
+      File.open(save_path, 'wb') do |file|
+        file.write(uploaded_file.read)
+      end
+    end
+    
     the_lighting_production_company.notes = params.fetch("query_notes")
     the_lighting_production_company.deposit = params.fetch("query_deposit")
     the_lighting_production_company.final_price = params.fetch("query_final_price")

@@ -18,7 +18,8 @@
     <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordion_venue">
       <div class="accordion-body">
         <div>
-          <form action="/insert_venue" method="post">
+          <form action="/insert_venue" method="post" enctype="multipart/form-data">
+          <%= csrf_meta_tags %>
             <div class="row mb-2">
               <label for="name_box" class="col-auto col-form-label">
                 Name
