@@ -2,6 +2,11 @@
 namespace :import do
   desc "Import data tables from JSON files"
   task all: :environment do
+
+    ActiveRecord::Base.connection.tables.each do |t|
+      ActiveRecord::Base.connection.reset_pk_sequence!(t)
+    end
+
     # Define the tables and their corresponding models
     tables = {
       neighborhoods: Neighborhood,
@@ -25,6 +30,8 @@ namespace :import do
     }
 
     tables.each do |table_name, model|
+      model.delete_all
+
       file_path = "db/#{table_name}.json"
 
       # Check if the JSON file exists
@@ -33,9 +40,7 @@ namespace :import do
         data = JSON.parse(File.read(file_path))
 
         # Import records
-        data.each do |record|
-          model.create!(record)
-        end
+          model.insert_all!(data)
 
         puts "#{table_name.to_s.capitalize} imported successfully from #{file_path}"
       else
