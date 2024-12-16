@@ -14,7 +14,7 @@
 
     <div style="height: 10px;"></div>
 
-    <div class="row mb-4">
+    <div class="d-flex flex-wrap gap-3 mb-3">
         <% if @the_event.photo_url.blank? %>
         <% else %>
         <img src = "<%= @the_event.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
@@ -25,7 +25,7 @@
 
 <div>
   <div class="container text-center">
-    <div class="row mb-4">
+    <div class="d-flex flex-wrap gap-3 mb-3">
       <div class="col">
         <h4>Bakery</h4>
         <%= Bakery.where({ :id => @the_event.bakery_id }).at(0).name %>
@@ -40,7 +40,7 @@
       </div>
     </div>
     
-    <div class="row mb-4">
+    <div class="d-flex flex-wrap gap-3 mb-3">
       <div class="col">
         <h4>Florist</h4>
         <%= Florist.where({ :id => @the_event.florist_id }).at(0).name %>
@@ -59,7 +59,7 @@
       </div>
     </div>
 
-    <div class="row mb-4">
+    <div class="d-flex flex-wrap gap-3 mb-3">
       <div class="col">
         <h4>Transportation</h4>
         <%= TransportationCompany.where({ :id => @the_event.transportation_company_id }).at(0).name %>
@@ -74,7 +74,7 @@
       </div>
     </div>
 
-    <div class="row mb-4">
+    <div class="d-flex flex-wrap gap-3 mb-3">
       <div class="col">
         <h4>Created At</h4>
         <%= time_ago_in_words(@the_event.created_at) %> ago

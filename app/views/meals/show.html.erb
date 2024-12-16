@@ -11,7 +11,7 @@
 
     <div style="height: 10px;"></div>
 
-    <div class="row mb-4">
+    <div class="d-flex flex-wrap gap-3 mb-3">
         <% if @the_meal.photo_url.blank? %>
         <% else %>
         <img src = "<%= @the_meal.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
@@ -22,7 +22,7 @@
 
 <div>
   <div class="container text-center">
-    <div class="row mb-4">
+    <div class="d-flex flex-wrap gap-3 mb-3">
       <div class="col">
         <h4>Caterer</h4>
         <%= Caterer.where({ :id => @the_meal.caterer_id }).at(0).name %>
@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <div class="row mb-4">
+    <div class="d-flex flex-wrap gap-3 mb-3">
       <div class="col">
         <h4>Created At</h4>
         <%= time_ago_in_words(@the_meal.created_at) %> ago

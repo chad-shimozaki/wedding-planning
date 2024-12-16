@@ -11,7 +11,7 @@
 
     <div style="height: 10px;"></div>
 
-    <div class="row mb-4">
+    <div class="d-flex flex-wrap gap-3 mb-3">
         <% if @the_photographer.photo_url.blank? %>
         <% else %>
         <img src = "<%= @the_photographer.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
@@ -23,7 +23,7 @@
 <div>
   <div class="container text-center">
     
-    <div class="row mb-4">
+    <div class="d-flex flex-wrap gap-3 mb-3">
       <div class="col">
         <h4>Instagram</h4>
           <% if @the_photographer.instagram.blank? %>
@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <div class="row mb-4">
+    <div class="d-flex flex-wrap gap-3 mb-3">
       <div class="col">
         <h4>Contacted</h4>
         <% if @the_photographer.contacted == true %>
@@ -61,7 +61,7 @@
       </div>
     </div>
 
-    <div class="row mb-4">
+    <div class="d-flex flex-wrap gap-3 mb-3">
       <div class="col">
         <h4>Price Options</h4>
           <% if @the_photographer.price_options.blank? %>
@@ -108,12 +108,12 @@
       </div>
     </div>
 
-    <div class="row mb-4">
+    <div class="d-flex flex-wrap gap-3 mb-3">
 
     </div>
 
     <% if @the_photographer.chosen == true %>
-      <div class="row mb-4">
+      <div class="d-flex flex-wrap gap-3 mb-3">
         <div class="col">
           <h4>Final Price</h4>
           <%= @the_photographer.final_price.to_fs(:currency) %>
@@ -145,7 +145,7 @@
       </div>
     <% end %>
 
-    <div class="row mb-4">
+    <div class="d-flex flex-wrap gap-3 mb-3">
       <div class="col">
         <h4>Created At</h4>
         <%= time_ago_in_words(@the_photographer.created_at) %> ago
