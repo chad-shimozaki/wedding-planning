@@ -274,7 +274,18 @@
             <img src="<%= Event.where({ :chronological_order => 3 }).first.photo_url %>" class="card-img-top" alt="Image 3">
             <div class="card-body">
               <h5 class="card-title"><%= Event.where({ :chronological_order => 3 }).first.name %></h5>
-              <p class="card-text"><%= Event.where({ :chronological_order => 3 }).first.date.strftime("%B %d, %Y") %></p>
+              <li>
+                <p class="card-text"><strong>Florist</strong>: <%= Florist.where({ :id => Event.where({ :chronological_order => 3 }).first.florist_id }).first.name %></p>
+              </li>
+              <li>
+                <p class="card-text"><strong>Transportation</strong>: <%= TransportationCompany.where({ :id => Event.where({ :chronological_order => 3 }).first.transportation_company_id }).first.name %></p>
+              </li>
+              <li>
+                <p class="card-text"><strong>Venue</strong>: <%= Venue.where({ :id => Event.where({ :chronological_order => 3 }).first.venue_id }).first.name %></p>
+              </li>
+              <li>
+                <p class="card-text"><strong>Neighborhood</strong>: <%= Neighborhood.where({ :id => Event.where({ :chronological_order => 3 }).first.neighborhood_id }).first.name %></p>
+              </li>
             </div>
           </div>
         </a>
@@ -289,7 +300,30 @@
             <img src="<%= Event.where({ :chronological_order => 4 }).first.photo_url %>" class="card-img-top" alt="Image 4">
             <div class="card-body">
               <h5 class="card-title"><%= Event.where({ :chronological_order => 4 }).first.name %></h5>
-              <p class="card-text"><%= Event.where({ :chronological_order => 4 }).first.date.strftime("%B %d, %Y") %></p>
+              <li>
+                <p class="card-text"><strong>Coordinator</strong>: <%= Coordinator.where({ :id => Event.where({ :chronological_order => 4 }).first.coordinator_id }).first.name %></p>
+              </li>
+              <li>
+                <p class="card-text"><strong>DJ</strong>: <%= Dj.where({ :id => Event.where({ :chronological_order => 4 }).first.dj_id }).first.name %></p>
+              </li>
+              <li>
+                <p class="card-text"><strong>Florist</strong>: <%= Florist.where({ :id => Event.where({ :chronological_order => 4 }).first.florist_id }).first.name %></p>
+              </li>
+              <li>
+                <p class="card-text"><strong>Lighting & Production</strong>: <%= LightingProductionCompany.where({ :id => Event.where({ :chronological_order => 4 }).first.lighting_production_company_id }).first.name %></p>
+              </li>
+              <li>
+                <p class="card-text"><strong>Photographer</strong>: <%= Photographer.where({ :id => Event.where({ :chronological_order => 4 }).first.photographer_id }).first.name %></p>
+              </li>
+              <li>
+                <p class="card-text"><strong>Transportation</strong>: <%= TransportationCompany.where({ :id => Event.where({ :chronological_order => 4 }).first.transportation_company_id }).first.name %></p>
+              </li>
+              <li>
+                <p class="card-text"><strong>Venue</strong>: <%= Venue.where({ :id => Event.where({ :chronological_order => 4 }).first.venue_id }).first.name %></p>
+              </li>
+              <li>
+                <p class="card-text"><strong>Neighborhood</strong>: <%= Neighborhood.where({ :id => Event.where({ :chronological_order => 4 }).first.neighborhood_id }).first.name %></p>
+              </li>
             </div>
           </div>
         </a>
@@ -300,7 +334,33 @@
             <img src="<%= Event.where({ :chronological_order => 5 }).first.photo_url %>" class="card-img-top" alt="Image 5">
             <div class="card-body">
               <h5 class="card-title"><%= Event.where({ :chronological_order => 5 }).first.name %></h5>
-              <p class="card-text"><%= Event.where({ :chronological_order => 5 }).first.date.strftime("%B %d, %Y") %></p>
+              <li>
+                <p class="card-text"><strong>Bakery</strong>: <%= Bakery.where({ :id => Event.where({ :chronological_order => 5 }).first.bakery_id }).first.name %></p>
+              </li>
+              <li>
+                <p class="card-text"><strong>Coordinator</strong>: <%= Coordinator.where({ :id => Event.where({ :chronological_order => 5 }).first.coordinator_id }).first.name %></p>
+              </li>
+              <li>
+                <p class="card-text"><strong>DJ</strong>: <%= Dj.where({ :id => Event.where({ :chronological_order => 5 }).first.dj_id }).first.name %></p>
+              </li>
+              <li>
+                <p class="card-text"><strong>Florist</strong>: <%= Florist.where({ :id => Event.where({ :chronological_order => 5 }).first.florist_id }).first.name %></p>
+              </li>
+              <li>
+                <p class="card-text"><strong>Lighting & Production</strong>: <%= LightingProductionCompany.where({ :id => Event.where({ :chronological_order => 5 }).first.lighting_production_company_id }).first.name %></p>
+              </li>
+              <li>
+                <p class="card-text"><strong>Photographer</strong>: <%= Photographer.where({ :id => Event.where({ :chronological_order => 5 }).first.photographer_id }).first.name %></p>
+              </li>
+              <li>
+                <p class="card-text"><strong>Transportation</strong>: <%= TransportationCompany.where({ :id => Event.where({ :chronological_order => 5 }).first.transportation_company_id }).first.name %></p>
+              </li>
+              <li>
+                <p class="card-text"><strong>Venue</strong>: <%= Venue.where({ :id => Event.where({ :chronological_order => 5 }).first.venue_id }).first.name %></p>
+              </li>
+              <li>
+                <p class="card-text"><strong>Neighborhood</strong>: <%= Neighborhood.where({ :id => Event.where({ :chronological_order => 5 }).first.neighborhood_id }).first.name %></p>
+              </li>
             </div>
           </div>
         </a>
@@ -308,9 +368,10 @@
     </div>
   </div>
 
-  <hr>
+<hr>
 
-<div>
+<!--Removing Index Table-->
+<!--<div>
   <div class="table-responsive m-3">
     <table class="table table-bordered table-striped table-hover table-sm align-middle">
       <thead>
@@ -385,83 +446,83 @@
       </thead>
 
       <tbody class="table-group-divider">
-        <% @list_of_events.each do |an_event| %>
-          <tr>
+        <%# @list_of_events.each do |an_event| %>-->
+<!--          <tr>
             <td style="text-align: center;">
-              <%= an_event.name %>
-            </td>
+              <%#= an_event.name %>-->
+<!--            </td>
 
             <td style="text-align: center;">
-              <% if an_event.date != nil %>
-                <%= an_event.date.strftime("%D") %>
-              <% end %>
-            </td>
+              <%# if an_event.date != nil %>-->
+                <%#= an_event.date.strftime("%D") %>
+              <%# end %>
+<!--            </td>
 
             <td style="text-align: center;">
-              <%= an_event.chronological_order %>
-            </td>
+              <%#= an_event.chronological_order %>-->
+<!--            </td>
 
             <td>
-              <img src = "<%= an_event.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
+              <img src = "<%#= an_event.photo_url %>" class="d-block mx-auto" style="width: auto; height: 200px;"></a>
             </td>
 
             <td style="text-align: center;">
-              <%= Bakery.where({ :id => an_event.bakery_id }).at(0).name %>
-            </td>
+              <%#= Bakery.where({ :id => an_event.bakery_id }).at(0).name %>-->
+<!--            </td>
 
             <td style="text-align: center;">
-              <%= Coordinator.where({ :id => an_event.coordinator_id }).at(0).name %>
-            </td>
+              <%#= Coordinator.where({ :id => an_event.coordinator_id }).at(0).name %>-->
+<!--            </td>
 
             <td style="text-align: center;">
-              <%= Dj.where({ :id => an_event.dj_id }).at(0).name %>
-            </td>
+              <%#= Dj.where({ :id => an_event.dj_id }).at(0).name %>-->
+<!--            </td>
 
             <td style="text-align: center;">
-              <%= Florist.where({ :id => an_event.florist_id }).at(0).name %>
-            </td>
+              <%#= Florist.where({ :id => an_event.florist_id }).at(0).name %>-->
+<!--            </td>
 
             <td style="text-align: center;">
-              <%= Hotel.where({ :id => an_event.hotel_id }).at(0).name %>
-            </td>
+              <%#= Hotel.where({ :id => an_event.hotel_id }).at(0).name %>-->
+<!--            </td>
 
             <td style="text-align: center;">
-              <%= LightingProductionCompany.where({ :id => an_event.lighting_production_company_id }).at(0).name %>
-            </td>
+              <%#= LightingProductionCompany.where({ :id => an_event.lighting_production_company_id }).at(0).name %>-->
+<!--            </td>
 
             <td style="text-align: center;">
-              <%= Photographer.where({ :id => an_event.photographer_id }).at(0).name %>
-            </td>
+              <%#= Photographer.where({ :id => an_event.photographer_id }).at(0).name %>-->
+<!--            </td>
 
             <td style="text-align: center;">
-              <%= TransportationCompany.where({ :id => an_event.transportation_company_id }).at(0).name %>
-            </td>
+              <%#= TransportationCompany.where({ :id => an_event.transportation_company_id }).at(0).name %>-->
+<!--            </td>
 
             <td style="text-align: center;">
-              <%= Venue.where({ :id => an_event.venue_id }).at(0).name %>
-            </td>
+              <%#= Venue.where({ :id => an_event.venue_id }).at(0).name %>-->
+<!--            </td>
 
             <td style="text-align: center;">
-              <%= Neighborhood.where({ :id => an_event.neighborhood_id }).at(0).name %>
-            </td>
+              <%#= Neighborhood.where({ :id => an_event.neighborhood_id }).at(0).name %>-->
+<!--            </td>
 
             <td>
-              <%= time_ago_in_words(an_event.created_at) %> ago
-            </td>
+              <%#= time_ago_in_words(an_event.created_at) %> ago-->
+<!--            </td>
             <td>
-              <%= time_ago_in_words(an_event.updated_at) %> ago
-            </td>
+              <%#= time_ago_in_words(an_event.updated_at) %> ago-->
+<!--            </td>
 
             <td>
-              <a href="/events/<%= an_event.id %>">
+              <a href="/events/<%#= an_event.id %>">
                 Show details
               </a>
             </td>
           </tr>
-        <% end %>
-      </tbody>
+        <%# end %>-->
+<!--      </tbody>
     </table>
   </div>
-</div>
+</div>-->
 
 <hr>
