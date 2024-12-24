@@ -34,6 +34,7 @@ class PhotographersController < ApplicationController
     the_photographer.price_options = params.fetch("query_price_options")
     
     if params[:query_pdf].present?
+      uploaded_file = params.fetch("query_pdf")
       the_photographer.pdf = uploaded_file.original_filename
       if uploaded_file
         save_path = Rails.root.join('public', 'pdfs', the_photographer.pdf)
@@ -72,6 +73,7 @@ class PhotographersController < ApplicationController
     the_photographer.price_options = params.fetch("query_price_options")
     
     if params[:query_pdf].present?
+      uploaded_file = params.fetch("query_pdf")
       the_photographer.pdf = uploaded_file.original_filename
       if uploaded_file
         save_path = Rails.root.join('public', 'pdfs', the_photographer.pdf)

@@ -66,6 +66,7 @@ class FloristsController < ApplicationController
     the_florist.price_options = params.fetch("query_price_options")
     
     if params[:query_pdf].present?
+      uploaded_file = params.fetch("query_pdf")
       the_florist.pdf = uploaded_file.original_filename
       if uploaded_file
         save_path = Rails.root.join('public', 'pdfs', the_florist.pdf)
@@ -130,6 +131,7 @@ class FloristsController < ApplicationController
     the_florist.price_options = params.fetch("query_price_options")
     
     if params[:query_pdf].present?
+      uploaded_file = params.fetch("query_pdf")
       the_florist.pdf = uploaded_file.original_filename
       if uploaded_file
         save_path = Rails.root.join('public', 'pdfs', the_florist.pdf)

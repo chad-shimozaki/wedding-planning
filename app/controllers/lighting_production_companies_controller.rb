@@ -34,6 +34,7 @@ class LightingProductionCompaniesController < ApplicationController
     the_lighting_production_company.price_options = params.fetch("query_price_options")
     
     if params[:query_pdf].present?
+      uploaded_file = params.fetch("query_pdf")
       the_lighting_production_company.pdf = params.fetch("query_pdf")    
       the_lighting_production_company.pdf = uploaded_file.original_filename
       if uploaded_file
@@ -73,6 +74,7 @@ class LightingProductionCompaniesController < ApplicationController
     the_lighting_production_company.price_options = params.fetch("query_price_options")
     
     if params[:query_pdf].present?
+      uploaded_file = params.fetch("query_pdf")
       the_lighting_production_company.pdf = params.fetch("query_pdf")    
       the_lighting_production_company.pdf = uploaded_file.original_filename
       if uploaded_file

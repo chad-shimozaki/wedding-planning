@@ -75,6 +75,7 @@ class CaterersController < ApplicationController
     the_caterer.price_options = params.fetch("query_price_options")
     
     if params[:query_pdf].present?
+      uploaded_file = params.fetch("query_pdf")
       the_caterer.pdf = uploaded_file.original_filename
       if uploaded_file
         save_path = Rails.root.join('public', 'pdfs', the_caterer.pdf)
@@ -144,6 +145,7 @@ class CaterersController < ApplicationController
     the_caterer.price_options = params.fetch("query_price_options")
     
     if params[:query_pdf].present?
+      uploaded_file = params.fetch("query_pdf")
       the_caterer.pdf = uploaded_file.original_filename
       if uploaded_file
         save_path = Rails.root.join('public', 'pdfs', the_caterer.pdf)

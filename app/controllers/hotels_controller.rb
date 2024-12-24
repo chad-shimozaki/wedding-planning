@@ -65,6 +65,7 @@ class HotelsController < ApplicationController
     the_hotel.price_options = params.fetch("query_price_options")
     
     if params[:query_pdf].present?
+      uploaded_file = params.fetch("query_pdf")
       the_hotel.pdf = uploaded_file.original_filename
       if uploaded_file
         save_path = Rails.root.join('public', 'pdfs', the_hotel.pdf)
@@ -126,6 +127,7 @@ class HotelsController < ApplicationController
     the_hotel.price_options = params.fetch("query_price_options")
     
     if params[:query_pdf].present?
+      uploaded_file = params.fetch("query_pdf")
       the_hotel.pdf = uploaded_file.original_filename
       if uploaded_file
         save_path = Rails.root.join('public', 'pdfs', the_hotel.pdf)
