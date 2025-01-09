@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_14_003324) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_09_220149) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_14_003324) do
     t.string "photo_url"
     t.text "notes"
     t.string "pdf"
-    t.float "deposit"
+    t.string "deposit"
     t.float "final_price"
     t.integer "neighborhood_id"
     t.datetime "created_at", null: false
@@ -55,7 +55,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_14_003324) do
     t.integer "cuisine_id"
     t.boolean "preferred"
     t.text "notes"
-    t.float "deposit"
+    t.string "deposit"
     t.float "final_price"
     t.integer "neighborhood_id"
     t.datetime "created_at", null: false
@@ -75,7 +75,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_14_003324) do
     t.boolean "chosen"
     t.text "price_options"
     t.text "notes"
-    t.float "deposit"
+    t.string "deposit"
     t.float "final_price"
     t.string "experience"
     t.datetime "created_at", null: false
@@ -144,7 +144,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_14_003324) do
     t.boolean "chosen"
     t.text "price_options"
     t.text "notes"
-    t.float "deposit"
+    t.string "deposit"
     t.string "contact_name"
     t.float "final_price"
     t.integer "neighborhood_id"
@@ -203,7 +203,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_14_003324) do
     t.boolean "chosen"
     t.text "price_options"
     t.text "notes"
-    t.float "deposit"
+    t.string "deposit"
     t.string "contact_name"
     t.float "final_price"
     t.datetime "created_at", null: false
@@ -239,7 +239,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_14_003324) do
     t.boolean "contacted"
     t.boolean "chosen"
     t.text "price_options"
-    t.float "deposit"
+    t.string "deposit"
     t.text "notes"
     t.float "final_price"
     t.datetime "created_at", null: false
@@ -266,7 +266,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_14_003324) do
     t.boolean "contacted"
     t.boolean "chosen"
     t.text "price_options"
-    t.float "deposit"
+    t.string "deposit"
     t.text "notes"
     t.string "contact_name"
     t.float "final_price"
@@ -323,7 +323,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_14_003324) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "contact_email"
-    t.float "deposit"
+    t.string "deposit"
     t.boolean "signed_contract"
     t.boolean "paid_deposit"
     t.boolean "final_payment"

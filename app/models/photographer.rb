@@ -6,7 +6,7 @@
 #  chosen          :boolean
 #  contact_email   :string
 #  contacted       :boolean
-#  deposit         :float
+#  deposit         :string
 #  final_payment   :boolean
 #  final_price     :float
 #  instagram       :string

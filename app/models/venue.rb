@@ -9,7 +9,7 @@
 #  contact_email   :string
 #  contact_name    :string
 #  contacted       :boolean
-#  deposit         :float
+#  deposit         :string
 #  events_count    :integer
 #  final_payment   :boolean
 #  final_price     :float
