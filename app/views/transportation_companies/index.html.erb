@@ -146,7 +146,7 @@
 
             <div class="row mb-2">
               <label for="deposit_box" class="col-auto col-form-label">
-                Deposit %
+                Deposit
               </label>
 
               <div class="col-auto">
@@ -350,7 +350,7 @@
             <% end %>
 
             <td>
-              <%= a_transportation_company.deposit.to_fs( :percentage, { :precision => 0 } ) %>
+              <%= a_transportation_company.deposit %>
             </td>
 
             <% if current_user&.admin? %>

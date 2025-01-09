@@ -71,7 +71,7 @@
       </div>
       <div class="col">
         <h4>Deposit</h4>
-        <%= @the_dj.deposit.to_fs( :percentage, { :precision => 0 } ) %>
+        <%= @the_dj.deposit %>
       </div><div class="col">
         <h4>PDF</h4>
         <% if @the_dj.pdf.blank? %>
@@ -98,7 +98,6 @@
       </div>
       <div class="col">
         <h4>Notes</h4>
-        <%= @the_dj.notes %>
           <% if @the_dj.notes.blank? %>
             <p>None provided</p>
           <% else %>
@@ -164,7 +163,7 @@
     <div style="height: 10px;"></div>
 
     <form action="/modify_dj/<%= @the_dj.id %>"  method="post" class="container-fluid" enctype="multipart/form-data">
-      <%= csrf_meta_tags %>>
+      <%= csrf_meta_tags %>
       <div class="row mb-2">
         <label for="name_box" class="col-auto col-form-label">
           Name
@@ -287,11 +286,11 @@
 
       <div class="row mb-2">
         <label for="deposit_box" class="col-auto col-form-label">
-          Deposit %
+          Deposit
         </label>
 
         <div class="col-auto">
-          <input class="form-control" type="text" id="deposit_box" name="query_deposit" value="<%= @the_dj.deposit.to_fs( :percentage, { :precision => 0 } ) %>">
+          <input class="form-control" type="text" id="deposit_box" name="query_deposit" value="<%= @the_dj.deposit %>">
         </div>
       </div>
 
