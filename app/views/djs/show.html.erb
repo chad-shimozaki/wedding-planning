@@ -72,7 +72,8 @@
       <div class="col">
         <h4>Deposit</h4>
         <%= @the_dj.deposit %>
-      </div><div class="col">
+      </div>
+      <div class="col">
         <h4>PDF</h4>
         <% if @the_dj.pdf.blank? %>
           <p>None provided</p>
@@ -89,7 +90,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <embed src="/public/pdfs<%= @the_dj.pdf %>.pdf" type="application/pdf" width="100%" height="400px">
+                  <embed src="/public/pdfs<%= @the_dj.pdf %>" type="application/pdf" style="width: 100%; height: 70vh">
                 </div>
               </div>
             </div>
