@@ -4,7 +4,7 @@ class BakeriesController < ApplicationController
   def index
     matching_bakeries = Bakery.all
 
-    @list_of_bakeries = matching_bakeries.order({ :chosen => :desc, :name => :asc })
+    @list_of_bakeries = matching_bakeries.order({ :contacted => :desc, :tried => :desc, :chosen => :desc, :name => :asc })
 
     @list_of_neighborhoods = Neighborhood.all.order({ :name => :asc })
 

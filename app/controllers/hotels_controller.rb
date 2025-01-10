@@ -4,7 +4,7 @@ class HotelsController < ApplicationController
   def index
     matching_hotels = Hotel.all
 
-    @list_of_hotels = matching_hotels.order({ :chosen => :desc, :name => :asc })
+    @list_of_hotels = matching_hotels.order({ :contacted => :desc, :chosen => :desc, :name => :asc })
 
     @list_of_neighborhoods = Neighborhood.all.order({ :name => :asc })
 

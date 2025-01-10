@@ -4,7 +4,7 @@ class VenuesController < ApplicationController
   def index
     matching_venues = Venue.all
 
-    @list_of_venues = matching_venues.order({ :chosen => :desc, :name => :asc })
+    @list_of_venues = matching_venues.order({ :contacted => :desc, :visited => :desc, :chosen => :desc, :name => :asc })
 
     @list_of_neighborhoods = Neighborhood.all.order({ :name => :asc })
 
