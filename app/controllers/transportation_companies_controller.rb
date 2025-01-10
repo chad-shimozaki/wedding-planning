@@ -37,6 +37,7 @@ class TransportationCompaniesController < ApplicationController
     the_transportation_company.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
 
     the_transportation_company.contacted = params.fetch("query_contacted", false)
+    the_transportation_company.met_with = params.fetch("query_met_with", false)
     the_transportation_company.chosen = params.fetch("query_chosen", false)
     the_transportation_company.signed_contract = params.fetch("query_signed_contract", false)
     the_transportation_company.paid_deposit = params.fetch("query_paid_deposit", false)
@@ -80,6 +81,7 @@ class TransportationCompaniesController < ApplicationController
     the_transportation_company.neighborhood_id = Neighborhood.where({ :name => neighborhood_name }).at(0).id
 
     the_transportation_company.contacted = params.fetch("query_contacted", false)
+    the_transportation_company.met_with = params.fetch("query_met_with", false)
     the_transportation_company.chosen = params.fetch("query_chosen", false)
     the_transportation_company.signed_contract = params.fetch("query_signed_contract", false)
     the_transportation_company.paid_deposit = params.fetch("query_paid_deposit", false)

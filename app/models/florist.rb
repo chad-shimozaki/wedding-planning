@@ -13,6 +13,7 @@
 #  final_price     :float
 #  lat             :float
 #  lng             :float
+#  met_with        :boolean
 #  name            :string
 #  notes           :text
 #  paid_deposit    :boolean

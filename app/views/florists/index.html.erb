@@ -101,6 +101,12 @@
             </div>
 
             <div>
+              <input class="form-check-input" type="checkbox" id="met_with_box" name="query_met_with" value="1">
+
+              <label class="form-check-label" for="met_with_box" class="col-auto col-form-label">Met With</label>
+            </div>
+
+            <div>
               <input class="form-check-input" type="checkbox" id="chosen_box" name="query_chosen" value="1">
 
               <label class="form-check-label" for="chosen_box" class="col-auto col-form-label">Chosen</label>
@@ -226,6 +232,10 @@
           </th>
 
           <th>
+            Met With
+          </th>
+
+          <th>
             Chosen
           </th>
 
@@ -313,6 +323,14 @@
 
             <td style="text-align: center;">
               <% if a_florist.contacted == true %>
+                <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+              <% else %>
+                <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+              <% end %>
+            </td>
+
+            <td style="text-align: center;">
+              <% if a_florist.met_with == true %>
                 <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
               <% else %>
                 <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>

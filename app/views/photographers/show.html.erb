@@ -52,6 +52,14 @@
         <% end %>
       </div>
       <div class="col">
+        <h4>Met With</h4>
+        <% if @the_photographer.met_with == true %>
+          <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
+        <% else %>
+          <div><h4 class="text-danger" data-bs-toggle="tooltip"> &#10008</h4></div>
+        <% end %>
+      </div>
+      <div class="col">
         <h4>Chosen</h4>
           <% if @the_photographer.chosen == true %>
           <div><h4 class="text-success" data-bs-toggle="tooltip"> &#10004</h4></div>
@@ -225,6 +233,14 @@
 
         <label class="form-check-label" for="contacted_box" class="col-auto col-form-label">
             Contacted
+        </label>
+      </div>
+
+      <div>
+        <input class="form-check-input" type="checkbox" id="met_with_box" name="query_met_with" value="1" <%= "checked" if @the_photographer.met_with %>>
+
+        <label class="form-check-label" for="met_with_box" class="col-auto col-form-label">
+          Met With
         </label>
       </div>
 

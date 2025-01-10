@@ -10,6 +10,7 @@
 #  deposit         :float
 #  final_payment   :boolean
 #  final_price     :float
+#  met_with        :boolean
 #  name            :string
 #  notes           :text
 #  paid_deposit    :boolean
