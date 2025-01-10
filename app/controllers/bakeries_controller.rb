@@ -65,7 +65,6 @@ class BakeriesController < ApplicationController
     the_bakery.paid_deposit = params.fetch("query_paid_deposit", false)
     the_bakery.final_payment = params.fetch("query_final_payment", false)
     the_bakery.price_options = params.fetch("query_price_options")
-    uploaded_file = params.fetch("query_pdf")
     
     if params[:query_pdf].present?
       uploaded_file = params.fetch("query_pdf")
