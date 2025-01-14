@@ -4,7 +4,7 @@ class DjsController < ApplicationController
   def index
     matching_djs = Dj.all
 
-    @list_of_djs = matching_djs.order({ :contacted => :desc, :met_with => :asc, :chosen => :desc, :name => :asc })
+    @list_of_djs = matching_djs.order({ :contacted => :desc, :met_with => :desc, :chosen => :desc, :name => :asc })
 
     render({ :template => "djs/index" })
   end
