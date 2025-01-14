@@ -4,7 +4,7 @@ class TransportationCompaniesController < ApplicationController
   def index
     matching_transportation_companies = TransportationCompany.all
 
-    @list_of_transportation_companies = matching_transportation_companies.order({ :contacted => :desc, :met_with => :desc, :chosen => :desc, :name => :asc })
+    @list_of_transportation_companies = matching_transportation_companies.order({ :contacted => :desc, :met_with => :asc, :chosen => :desc, :name => :asc })
 
     @list_of_neighborhoods = Neighborhood.all.order({ :name => :asc })
 

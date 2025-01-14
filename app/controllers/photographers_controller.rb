@@ -4,7 +4,7 @@ class PhotographersController < ApplicationController
   def index
     matching_photographers = Photographer.all
 
-    @list_of_photographers = matching_photographers.order({ :contacted => :desc, :met_with => :desc, :chosen => :desc, :name => :asc })
+    @list_of_photographers = matching_photographers.order({ :contacted => :desc, :met_with => :asc, :chosen => :desc, :name => :asc })
 
     render({ :template => "photographers/index" })
   end
