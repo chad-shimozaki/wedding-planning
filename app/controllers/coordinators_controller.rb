@@ -22,6 +22,7 @@ class CoordinatorsController < ApplicationController
   def create
     the_coordinator = Coordinator.new
     the_coordinator.name = params.fetch("query_name")
+    the_coordinator.contact_name = params.fetch("query_contact_name")
     the_coordinator.contact_email = params.fetch("query_contact_email")
     the_coordinator.contact_number = params.fetch("query_contact_number")
     the_coordinator.website = params.fetch("query_website")
@@ -64,6 +65,7 @@ class CoordinatorsController < ApplicationController
     the_coordinator = Coordinator.where({ :id => the_id }).at(0)
 
     the_coordinator.name = params.fetch("query_name")
+    the_coordinator.contact_name = params.fetch("query_contact_name")
     the_coordinator.contact_email = params.fetch("query_contact_email")
     the_coordinator.contact_number = params.fetch("query_contact_number")
     the_coordinator.website = params.fetch("query_website")
