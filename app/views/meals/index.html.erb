@@ -31,15 +31,30 @@
             </div>
 
             <div class="row mb-2">
-              <label for="caterer_id_box" class="col-auto col-form-label">
-                Caterer
+              <label for="caterer_1_id_box" class="col-auto col-form-label">
+                Caterer 1
               </label>
 
               <div class="col-auto col-form-label">
-                <select id="caterer_id_box" name="query_caterer_name">
+                <select id="caterer_1_id_box" name="query_caterer_1_name">
                     <option value=""></option>
-                  <% @list_of_caterers.each do |a_caterer| %>
-                    <option value="<%= a_caterer.name %>"><%= a_caterer.name %></option>
+                  <% @list_of_caterers.each do |first_caterer| %>
+                    <option value="<%= first_caterer.name %>"><%= first_caterer.name %></option>
+                  <% end %>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <label for="caterer_2_id_box" class="col-auto col-form-label">
+                Caterer 2
+              </label>
+
+              <div class="col-auto col-form-label">
+                <select id="caterer_2_id_box" name="query_caterer_2_name">
+                    <option value=""></option>
+                  <% @list_of_caterers.each do |second_caterer| %>
+                    <option value="<%= second_caterer.name %>"><%= second_caterer.name %></option>
                   <% end %>
                 </select>
               </div>
@@ -94,7 +109,11 @@
           </th>
 
           <th>
-            Caterer
+            Caterer 1
+          </th>
+
+          <th>
+            Caterer 2
           </th>
 
           <th>
@@ -126,7 +145,14 @@
             </td>
 
             <td>
-              <%= Caterer.where({ :id => a_meal.caterer_id }).at(0).name %>
+              <%= Caterer.where({ :id => a_meal.caterer_1_id }).at(0).name %>
+            </td>
+
+            <td>
+              <% if a_meal.caterer_2_id == nil %>
+              <% else  %>
+                <%= Caterer.where({ :id => a_meal.caterer_2_id }).at(0).name %>
+              <% end %>
             </td>
 
             <td>

@@ -15,6 +15,7 @@ class EventsController < ApplicationController
     @list_of_photographers = Photographer.all.order({ :name => :asc })
     @list_of_transportation_companies = TransportationCompany.all.order({ :name => :asc })
     @list_of_venues = Venue.all.order({ :name => :asc })
+    @list_of_meals = Meal.all.order({ :name => :asc })
     @list_of_neighborhoods = Neighborhood.all.order({ :name => :asc })
 
     render({ :template => "events/index" })
@@ -36,6 +37,7 @@ class EventsController < ApplicationController
     @list_of_photographers = Photographer.all.order({ :name => :asc })
     @list_of_transportation_companies = TransportationCompany.all.order({ :name => :asc })
     @list_of_venues = Venue.all.order({ :name => :asc })
+    @list_of_meals = Meal.all.order({ :name => :asc })
     @list_of_neighborhoods = Neighborhood.all.order({ :name => :asc })
 
     @the_event_bakery = Bakery.where({ :id => @the_event.bakery_id }).at(0)

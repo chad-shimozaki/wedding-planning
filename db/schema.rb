@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_02_01_015900) do
+ActiveRecord::Schema[7.1].define(version: 2025_02_19_195450) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -134,6 +134,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_01_015900) do
     t.integer "neighborhood_id"
     t.string "photo_url"
     t.date "date"
+    t.integer "meal_id"
   end
 
   create_table "florists", force: :cascade do |t|
@@ -226,7 +227,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_01_015900) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "photo_url"
-    t.integer "caterer_id"
+    t.integer "caterer_1_id"
+    t.integer "caterer_2_id"
   end
 
   create_table "neighborhoods", force: :cascade do |t|

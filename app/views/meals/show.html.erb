@@ -24,8 +24,16 @@
   <div class="container text-center">
     <div class="d-flex flex-wrap gap-3 mb-3">
       <div class="col">
-        <h4>Caterer</h4>
-        <%= Caterer.where({ :id => @the_meal.caterer_id }).at(0).name %>
+        <h4>Caterer 1</h4>
+        <%= Caterer.where({ :id => @the_meal.caterer_1_id }).at(0).name %>
+      </div>
+      <div class="col">
+        <h4>Caterer 2</h4>
+          <% if @the_meal.caterer_2_id == nil %>
+            <p>None provided</p>
+            <% else  %>
+              <%= Caterer.where({ :id => @the_meal.caterer_2_id }).at(0).name %>
+          <% end %>
       </div>
       <div class="col">
         <h4>Event</h4>
@@ -68,14 +76,38 @@
       </div>
 
       <div class="row mb-2">
-        <label for="caterer_name_box" class="col-auto col-form-label">
-          Caterer
+        <label for="caterer_1_name_box" class="col-auto col-form-label">
+          Caterer 1
         </label>
 
         <div class="col-auto col-form-label">
-          <select id="caterer_name_box" name="query_caterer_name" value="<%= @the_meal_caterer.name %>">
+          <select id="caterer_1_name_box" name="query_caterer_1_name" value="<%= @the_meal_caterer_1.name %>">
             <% @list_of_caterers.each do |a_caterer| %>
-              <% if a_caterer.id == @the_meal.caterer_id%>
+              <% if a_caterer.id == @the_meal.caterer_1_id%>
+                <option value="<%= a_caterer.name %>" selected><%= a_caterer.name %></option>
+              <% else %>
+                <option value="<%= a_caterer.name %>"><%= a_caterer.name %></option>
+              <% end %>
+              
+            <% end %>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <label for="caterer_2_name_box" class="col-auto col-form-label">
+          Caterer 2
+        </label>
+          
+        <div class="col-auto col-form-label">
+          <select id="caterer_2_name_box" name="query_caterer_2_name" value="
+          <% if @the_meal.caterer_2_id == nil %>
+            <% else  %>
+              <%= @the_meal_caterer_2.name %>
+          <% end %>
+          ">
+            <% @list_of_caterers.each do |a_caterer| %>
+              <% if a_caterer.id == @the_meal.caterer_2_id%>
                 <option value="<%= a_caterer.name %>" selected><%= a_caterer.name %></option>
               <% else %>
                 <option value="<%= a_caterer.name %>"><%= a_caterer.name %></option>

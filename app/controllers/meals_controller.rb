@@ -22,9 +22,11 @@ class MealsController < ApplicationController
 
     @list_of_caterers = Caterer.all.order({ :name => :asc })
 
-    @the_meal_caterer = Caterer.where({ :id => @the_meal.caterer_id }).at(0)
+    @the_meal_caterer_1 = Caterer.where({ :id => @the_meal.caterer_1_id }).at(0)
 
-    @list_of_events = Caterer.all.order({ :name => :asc })
+    @the_meal_caterer_2 = Caterer.where({ :id => @the_meal.caterer_2_id }).at(0)
+
+    @list_of_events = Event.all.order({ :name => :asc })
 
     @the_meal_event = Event.where({ :id => @the_meal.event_id }).at(0)
 
@@ -35,8 +37,11 @@ class MealsController < ApplicationController
     the_meal = Meal.new
     the_meal.name = params.fetch("query_name")
 
-    caterer_name = params.fetch("query_caterer_name")
-    the_meal.caterer_id = Caterer.where({ :name => caterer_name }).at(0).id
+    caterer_1_name = params.fetch("query_caterer_1_name")
+    the_meal.caterer_1_id = Caterer.where({ :name => caterer_1_name }).at(0).id
+
+    caterer_2_name = params.fetch("query_caterer_2_name")
+    the_meal.caterer_2_id = Caterer.where({ :name => caterer_2_name }).at(0).id
 
     event_name = params.fetch("query_event_name")
     the_meal.event_id = Event.where({ :name => event_name }).at(0).id
@@ -56,8 +61,10 @@ class MealsController < ApplicationController
     the_meal = Meal.where({ :id => the_id }).at(0)
     the_meal.name = params.fetch("query_name")
 
-    caterer_name = params.fetch("query_caterer_name")
-    the_meal.caterer_id = Caterer.where({ :name => caterer_name }).at(0).id
+    caterer_1_name = params.fetch("query_caterer_1_name")
+    caterer_2_name = params.fetch("query_caterer_2_name")
+    the_meal.caterer_1_id = Caterer.where({ :name => caterer_1_name }).at(0).id
+    the_meal.caterer_2_id = Caterer.where({ :name => caterer_2_name }).at(0).id
 
     event_name = params.fetch("query_event_name")
     the_meal.event_id = Event.where({ :name => event_name }).at(0).id
