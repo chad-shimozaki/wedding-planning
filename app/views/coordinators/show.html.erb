@@ -24,6 +24,14 @@
   <div class="container text-center">    
     <div class="d-flex flex-wrap gap-3 mb-3">
       <div class="col">
+        <h4>Contact Name</h4>
+          <% if @the_coordinator.contact_name.blank? %>
+            <p>None provided</p>
+          <% else %>
+            <%= @the_coordinator.contact_name %>
+          <% end %>
+      </div>
+      <div class="col">
         <h4>Contact Email</h4>
           <% if @the_coordinator.contact_email.blank? %>
             <p>None provided</p>
@@ -188,6 +196,16 @@
 
         <div class="col-auto">
           <input class="form-control" type="text" id="name_box" name="query_name" value="<%= @the_coordinator.name %>">
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <label for="contact_name_box" class="col-auto col-form-label">
+          Contact Name
+        </label>
+
+        <div class="col-sm-3">
+          <input class="form-control" type="text" id="contact_name_box" name="query_contact_name" value="<%= @the_coordinator.contact_name %>">
         </div>
       </div>
 
